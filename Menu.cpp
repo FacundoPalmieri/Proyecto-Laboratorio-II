@@ -31,7 +31,7 @@ Pantalla::Pantalla()
 // Función PAUSA.
 void pause() {
     cout<< BLUE;
-    cout << "  Presiona Enter para continuar...";
+    cout << "Presiona Enter para continuar...";
     cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     cin.get();
 }
@@ -421,25 +421,35 @@ int Pantalla::vistaListadoProductos(int idVendedor)
         pos=0;
         renglon = 8;
         while(productoAux.leerDeDisco(pos++)>0){
-        gotoxy (5,renglon); cout<<productoAux.getIdProducto();
-        gotoxy (14,renglon); cout<<productoAux.getNombreProducto();
-        gotoxy (60,renglon); cout<<"$"<<productoAux.getPrecioProducto();
-        renglon++;
+            gotoxy (5,renglon); cout<<productoAux.getIdProducto();
+            gotoxy (14,renglon); cout<<productoAux.getNombreProducto();
+            gotoxy (60,renglon); cout<<"$"<<productoAux.getPrecioProducto();
+            renglon++;
         }
 
         gotoxy (2,20); cout<<"1 - VOLVER";
 
-        gotoxy (2,19); cout<<"->: ";
-        cin>>_opcion;
-        switch (_opcion)
-        {
-        case 1:
-            menuListados(idVendedor);
-            break;
+        do{ // Vuelve a pedir la opción, si la misma es incorrecta.
+            gotoxy (2,21); cout<<"->: ";
+            cin>>_opcion;
+            switch (_opcion){
+                case 1:
+                    menuListados(idVendedor);
+                    break;
 
-        default:
-            break;
-        }
+                default:
+                    cout << RED;
+                    gotoxy (2,22);cout << "Opcion Incorrecta " << endl;
+                    gotoxy (2,23); pause();
+                    gotoxy (2,21); cout<<"->:                             "; // Limpia pantalla
+                    gotoxy (2,22); cout<<"                                ";
+                    gotoxy (2,23); cout<<"                                ";
+
+                    break;
+            }
+
+        }while (_opcion != 1);
+
 
         gotoxy (2,22);
         cin.ignore();
