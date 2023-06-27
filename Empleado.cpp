@@ -89,7 +89,7 @@ void Empleado::cargarEmpleado(){
         }
         else{
             pantalla.gotoxy (2,18);
-            cout<<RED<<"LAS CONTRASEÑAS INGRESADAS NO COINCIDEN";
+            cout<<RED<<"LAS PASSWORD INGRESADAS NO COINCIDEN";
             pantalla.gotoxy (2,19);
             system("pause");
         }
@@ -105,11 +105,11 @@ void Empleado::cargarEmpleado(){
 void Empleado::mostrarEmpleado(){
     if (_estado==true){
         Pantalla pantalla;
-        pantalla.gotoxy (2,8);
-        cout<<"ID DEL EMPLEADO: "<<_idEmpleado;
         pantalla.gotoxy (2,9);
-        cout<<"NOMBRE: "<<_nombre;
+        cout<<"ID DEL EMPLEADO: "<<_idEmpleado;
         pantalla.gotoxy (2,10);
+        cout<<"NOMBRE: "<<_nombre;
+        pantalla.gotoxy (2,11);
         cout<<"APELLIDO: "<<_apellido;
     }
 }
@@ -208,7 +208,7 @@ int Empleado::buscarDato(int idEmpleado){
 }
 
 
-void Empleado::modificarRegistro(int idVendedor){
+void Empleado::modificarRegistro(){
     system("cls");
 
     Pantalla pantalla;
@@ -228,56 +228,57 @@ void Empleado::modificarRegistro(int idVendedor){
 
     posicion=buscarDato(idEmpleado);
 
-    if (posicion== -1){
+    if (posicion!= -1){
+        //LEER EL REGISTRO, Y GUARDARLO EN UN REGISTRO AUXILIAR
+        Empleado empleado;
+        empleado.leerDeDisco(posicion);
+
+        pantalla.gotoxy(2,7);
+        cout<<"EMPLEADO A MODIFICAR: "<<endl;
+
+        empleado.mostrarEmpleado();
+        pantalla.gotoxy(2,13);
+        cout<<"ESTA SEGURO/A DE CONTINUAR: (S/N): ";
+        cin>>Confirmacion;
+        pantalla.gotoxy (2,15);
+        cout<<"------------------";
+        cout<<endl<<endl;
+        if(Confirmacion=='S' || Confirmacion=='s'){
+
+            //CAMBIAR DATOS
+            pantalla.gotoxy(1,17);
+            cout<<" INGRESE NOMBRE DEL EMPLEADO: ";
+            cargarCadenas(_nombre, 11);
+            empleado.setNombre(_nombre);
+            pantalla.gotoxy(1,18);
+            cout<<" INGRESE APELLIDO DEL EMPLEADO: ";
+            cargarCadenas(_apellido, 19);
+            empleado.setApellido(_apellido);
+            pantalla.gotoxy(1,19);
+            cout<<" INGRESE PASSWORD: ";
+            cin>>_password;
+            empleado.setPassword(_password);
+            _estado=true;
+
+            //SOBREESCRIBIR EL REGISTRO
+
+            sobreEscribirRegistro(empleado, posicion);
+            pantalla.gotoxy(2,21);
+            cout<<"REGISTRO EMPLEADO MODIFICADO."<<endl<<endl;
+            pantalla.gotoxy(2,22);
+            system("pause");
+
+        }
+        else{
+            pantalla.gotoxy (2,16);
+            pantalla.gotoxy(2,18);
+            system("pause");
+        }
+    }
+    else{
         pantalla.gotoxy (2,7);
         cout<<"ID DE EMPLEADO INEXISTENTE"<<endl;
         pantalla.gotoxy (2,9);
-        system("pause");
-        pantalla.menuAjuste(idVendedor);
-    }
-
-    //LEER EL REGISTRO, Y GUARDARLO EN UN REGISTRO AUXILIAR
-    Empleado empleado;
-    empleado.leerDeDisco(posicion);
-
-    pantalla.gotoxy(2,7);
-    cout<<"EMPLEADO A MODIFICAR: "<<endl;
-
-    empleado.mostrarEmpleado();
-    pantalla.gotoxy(2,13);
-    cout<<"ESTA SEGURO/A DE CONTINUAR: (S/N): ";
-    cin>>Confirmacion;
-    pantalla.gotoxy (2,15);
-    cout<<"------------------";
-    cout<<endl<<endl;
-    if(Confirmacion=='S' || Confirmacion=='s'){
-
-        //CAMBIAR DATOS
-        pantalla.gotoxy(1,17);
-        cout<<" INGRESE NOMBRE DEL EMPLEADO: ";
-        cargarCadenas(_nombre, 11);
-        empleado.setNombre(_nombre);
-        pantalla.gotoxy(1,18);
-        cout<<" INGRESE APELLIDO DEL EMPLEADO: ";
-        cargarCadenas(_apellido, 19);
-        empleado.setApellido(_apellido);
-        pantalla.gotoxy(1,19);
-        cout<<" INGRESE CONTRASEÑA: ";
-        cin>>_password;
-        empleado.setPassword(_password);
-        _estado=true;
-
-        //SOBREESCRIBIR EL REGISTRO
-
-        sobreEscribirRegistro(empleado, posicion);
-        pantalla.gotoxy(2,21);
-        cout<<"REGISTRO EMPLEADO MODIFICADO."<<endl<<endl;
-        pantalla.gotoxy(2,22);
-        system("pause");
-    }
-    else{
-        pantalla.gotoxy (2,16);
-        pantalla.gotoxy(2,18);
         system("pause");
     }
 }
@@ -308,13 +309,13 @@ int Empleado::bajaEmpleado(){
     empleado.leerDeDisco(posicion);
 
     char Confirmacion;
-    pantalla.gotoxy(2,9);
+    pantalla.gotoxy(2,8);
     cout<<"ESTA ACCION DARA DE BAJA EL SIGUIENTE EMPLEADO: "<<endl<<endl;
     empleado.mostrarEmpleado();
-    pantalla.gotoxy(2,12);
+    pantalla.gotoxy(2,13);
     cout<<"ESTA SEGURO/A DE CONTINUAR: (S/N): ";
     cin>>Confirmacion;
-    pantalla.gotoxy (2,13);
+    pantalla.gotoxy (2,14);
     cout<<"------------------";
 
     if(Confirmacion=='S' || Confirmacion=='s'){
@@ -325,9 +326,9 @@ int Empleado::bajaEmpleado(){
         sobreEscribirRegistro(empleado, posicion);
 
         cout<<endl<<endl;
-        pantalla.gotoxy(2,15);
-        cout<<"EMPLEADO DADO DE BAJA."<<endl<<endl;
         pantalla.gotoxy(2,17);
+        cout<<"EMPLEADO DADO DE BAJA."<<endl<<endl;
+        pantalla.gotoxy(2,18);
         system("pause");
     }
     else{

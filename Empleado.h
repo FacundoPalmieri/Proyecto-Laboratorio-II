@@ -45,7 +45,7 @@ class Empleado
         int cantidadEnArchivo();
         bool valirdarIDEmpleado(int idEmpleado);
         int buscarDato(int idVendedor);
-        void modificarRegistro(int idVendedor);
+        void modificarRegistro();
         int bajaEmpleado();
         int sobreEscribirRegistro(Empleado empleado, int posicion);
         void cargarCadenas(char *pal, int tam);

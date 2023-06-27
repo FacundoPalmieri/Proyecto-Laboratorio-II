@@ -85,10 +85,10 @@ void Producto::cargar()
     for(int x = 0; x < CantidadRegistros; x++){
         producto.leerDeDisco(x);
         if(producto.getEstado() == true && _idProducto == producto.getIdProducto()){
-          cout << "\033[31m El producto ya existe. \033[0m";
-          return;
+            pantalla.gotoxy(1,13);
+            cout << "El producto ya existe.";
+            return;
         }
-
     }
     pantalla.dibujarCuadro(0,0,79,24);
     pantalla.gotoxy(1,13);
@@ -98,6 +98,8 @@ void Producto::cargar()
     pantalla.gotoxy(1,14);
     cout<<" INGRESE PRECIO DE VENTA ($): ";
     cin>>_precioProducto;
+    pantalla.gotoxy(1,15);
+    cout<<" PRODUCTO AGREGADO.";
 }
 
 void Producto::mostrar()
@@ -189,47 +191,51 @@ void Producto::modificarRegistro(){
 
     posicion=buscarDato(idProducto);
 
-    if (posicion== -1){
-        cout<<"No existe un producto con ese ID"<<endl;
-    }
+    if (posicion!= -1){
 
-    //LEER EL REGISTRO, Y GUARDARLO EN UN REGISTRO AUXILIAR
-    Producto producto;
-    producto.leerDeDisco(posicion);
+        //LEER EL REGISTRO, Y GUARDARLO EN UN REGISTRO AUXILIAR
+        Producto producto;
+        producto.leerDeDisco(posicion);
 
-    pantalla.gotoxy(2,9);
-    cout<<"PRODUCTO A MODIFICAR: "<<endl;
+        pantalla.gotoxy(2,9);
+        cout<<"PRODUCTO A MODIFICAR: "<<endl;
 
-    producto.mostrar();
-    pantalla.gotoxy(2,14);
-    cout<<"ESTA SEGURO/A DE CONTINUAR: (S/N): ";
-    cin>>Confirmacion;
-    pantalla.gotoxy (2,15); cout<<"------------------";
-    cout<<endl<<endl;
-    if(Confirmacion=='S' || Confirmacion=='s'){
+        producto.mostrar();
+        pantalla.gotoxy(2,14);
+        cout<<"ESTA SEGURO/A DE CONTINUAR: (S/N): ";
+        cin>>Confirmacion;
+        pantalla.gotoxy (2,15); cout<<"------------------";
+        cout<<endl<<endl;
+        if(Confirmacion=='S' || Confirmacion=='s'){
 
-        //CAMBIAR DATOS
-        pantalla.gotoxy(1,18);
-        cout<<" INGRESE NOMBRE DEL PRODUCTO: ";
-        cargarCadenas(_nombreProducto, 49);
-        producto.setNombreProducto(_nombreProducto);
-        pantalla.dibujarCuadro(0,0,79,24);
-        pantalla.gotoxy(1,20);
-        cout<<" INGRESE PRECIO DE VENTA ($): ";
-        cin>>_precioProducto;
-        producto.setPrecioProducto(_precioProducto);
+            //CAMBIAR DATOS
+            pantalla.gotoxy(1,18);
+            cout<<" INGRESE NOMBRE DEL PRODUCTO: ";
+            cargarCadenas(_nombreProducto, 49);
+            producto.setNombreProducto(_nombreProducto);
+            pantalla.dibujarCuadro(0,0,79,24);
+            pantalla.gotoxy(1,20);
+            cout<<" INGRESE PRECIO DE VENTA ($): ";
+            cin>>_precioProducto;
+            producto.setPrecioProducto(_precioProducto);
 
-        //SOBREESCRIBIR EL REGISTRO
+            //SOBREESCRIBIR EL REGISTRO
 
-        sobreEscribirRegistro(producto, posicion);
-        pantalla.gotoxy(2,22);
-        cout<<"DATO MODIFICADO."<<endl<<endl;
-        pantalla.gotoxy(2,23);
-        system("pause");
+            sobreEscribirRegistro(producto, posicion);
+            pantalla.gotoxy(2,22);
+            cout<<"DATO MODIFICADO."<<endl<<endl;
+            pantalla.gotoxy(2,23);
+            system("pause");
+        }
+        else{
+            pantalla.gotoxy(2,18);
+            system("pause");
+        }
     }
     else{
-        pantalla.gotoxy (2,16); cout<<"------------------";
-        pantalla.gotoxy(2,18);
+        pantalla.gotoxy (2,9);
+        cout<<"No existe un producto con ese ID"<<endl;
+        pantalla.gotoxy (2,11);
         system("pause");
     }
 }

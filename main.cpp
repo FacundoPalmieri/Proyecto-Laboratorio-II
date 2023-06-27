@@ -20,8 +20,6 @@ int main(){
         pantalla.gotoxy(30,2); cout<<"DELTAPOINT RESTO";
         pantalla.gotoxy(17,5);
         cout << " Gracias por utilizar nuestro programa :)" << endl << endl << endl << endl << endl ;
-
     }
-
     return 0;
 }

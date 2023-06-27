@@ -135,7 +135,7 @@ int Venta::leerDeDisco(int pos){
     int cantidad = transaccionAux.cantidadTransacciones();
     for(int i=0; i<cantidad; i++){
         transaccionAux.leerDeDisco(i);
-            _listaProductosVenta.push_back(transaccionAux);
+        _listaProductosVenta.push_back(transaccionAux);
     }
     return leyo;
 }
@@ -174,10 +174,11 @@ int Venta::agregarProductoALaVenta(int idProducto, int cantidad){
 
     Transaccion transaccionAux(getIDventa(), idProducto, cantidad, productoAux.getPrecioProducto(),'V');
 
-    _listaProductosVenta.push_back(transaccionAux);
+
+   _listaProductosVenta.push_back(transaccionAux);
 
     _consumoTotal+=(productoAux.getPrecioProducto() * cantidad);
 
-    return 0;
 
+    return 0;
 }

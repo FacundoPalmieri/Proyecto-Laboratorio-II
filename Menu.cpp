@@ -132,7 +132,7 @@ int Pantalla::menuIdVendedor(){
         pos=0;
         posAux=-1;
         while(empleadoAux.leerDeDisco(pos++)>0){ // Lee y aumenta la posición. Ingresa siempre que sea mayor a 0
-            if(empleadoAux.getIdEmpleado()==idEmpleado){
+            if(empleadoAux.getIdEmpleado()==idEmpleado&&empleadoAux.getEstado()==true){
                 posAux = pos-1; //  almacenar la posición del empleado encontrado antes de que pos sea incrementada nuevamente
                 gotoxy (22,11); cout<<"- ("<<empleadoAux.getApellido()<<", "<<empleadoAux.getNombre()<<")"; // - PSW:"<<empleadoAux.getPassword();
             }
@@ -235,7 +235,8 @@ int Pantalla::menuPrincipal(int idVendedor)
             menuIdVendedor();
             break;
         case 0:
-            return 0;
+            exit(0);
+
             break;
 
         default:
@@ -281,7 +282,7 @@ int Pantalla::menuVenta(int idVendedor)
             menuPrincipal(idVendedor);
             break;
         case 0:
-            return 0;
+            exit(0);
             break;
 
         /*default:
@@ -332,7 +333,7 @@ int Pantalla::menuConsulta(int idVendedor)
             menuPrincipal(idVendedor);
             break;
         case 0:
-            return 0;
+            exit(0);
             break;
 
         default:
@@ -349,31 +350,31 @@ int Pantalla::menuConsulta(int idVendedor)
 
 int Pantalla::menuListados(int idVendedor)
 {
-    do{
-        cls();
+    cls();
 
-        Empleado empleadoAux;
-        Producto productoAux;
+    Empleado empleadoAux;
+    Producto productoAux;
 
-        system("mode con: cols=80 lines=25"); //SE DEFINE LAS DIMENSIONES DE LA VENTANA DEL PROGRAMA A 80 COLUMNAS Y 25 FILAS
-        system("COLOR 71"); //SE DA UN COLOR DE FONDO Y COLOR A LAS LETRAS
-        dibujarCuadro(0,0,78,24); //SE DIBUJA EL CUADRO PRINCIPAL
-        dibujarCuadro(1,1,77,3); //SE DIBUJA EL CUADRO DEL TITULO
-        gotoxy(30,2); cout<<"DELTAPOINT RESTO";
+    system("mode con: cols=80 lines=25");
+    system("COLOR 71");
+    dibujarCuadro(0,0,78,24);
+    dibujarCuadro(1,1,77,3);
+    gotoxy(30,2); cout << "DELTAPOINT RESTO";
 
-        gotoxy (2,6); cout<<"MENU LISTADOS";
-        gotoxy (2,7); cout<<"------------------";
-        gotoxy (2,10); cout<<"INGRESE UNA OPCION: ";
+    gotoxy (2,6); cout << "MENU LISTADOS";
+    gotoxy (2,7); cout << "------------------";
+    gotoxy (2,10); cout << "INGRESE UNA OPCION: ";
 
-        gotoxy (2,13); cout<<"1 - PRODUCTOS: ";
-        gotoxy (2,14); cout<<"2 - EMPLEADOS: ";
-        gotoxy (2,15); cout<<"3 - VOLVER AL MENU PRINCIPAL: ";
-        gotoxy (2,16); cout<<"0 - SALIR DEL PROGRAMA: ";
+    gotoxy (2,13); cout << "1 - PRODUCTOS: ";
+    gotoxy (2,14); cout << "2 - EMPLEADOS: ";
+    gotoxy (2,15); cout << "3 - VOLVER AL MENU PRINCIPAL: ";
+    gotoxy (2,16); cout << "0 - SALIR DEL PROGRAMA: ";
 
-        gotoxy (2,19); cout<<"->: ";
-        cin>>_opcion;
-        switch (_opcion)
-        {
+    gotoxy (2,19); cout << "->: ";
+    cin >> _opcion;
+
+    switch (_opcion)
+    {
         case 1:
             vistaListadoProductos(idVendedor);
             break;
@@ -381,22 +382,19 @@ int Pantalla::menuListados(int idVendedor)
             vistaListadoEmpleados(idVendedor);
             break;
         case 3:
-            menuConsulta(idVendedor);
+            menuPrincipal(idVendedor);
             break;
         case 0:
-
-            return 0;
+            exit(0); // Salir del programa
             break;
-
         default:
             break;
-        }
+    }
 
-        gotoxy (2,22);
-        cin.ignore();
-        anykey();
+    gotoxy (2,22);
+    cin.ignore();
+    anykey();
 
-    }while(_opcion!=0);
     return 0;
 }
 
@@ -421,10 +419,12 @@ int Pantalla::vistaListadoProductos(int idVendedor)
         pos=0;
         renglon = 8;
         while(productoAux.leerDeDisco(pos++)>0){
-            gotoxy (5,renglon); cout<<productoAux.getIdProducto();
-            gotoxy (14,renglon); cout<<productoAux.getNombreProducto();
-            gotoxy (60,renglon); cout<<"$"<<productoAux.getPrecioProducto();
-            renglon++;
+            if(productoAux.getEstado()==true){
+                gotoxy (5,renglon); cout<<productoAux.getIdProducto();
+                gotoxy (14,renglon); cout<<productoAux.getNombreProducto();
+                gotoxy (60,renglon); cout<<"$"<<productoAux.getPrecioProducto();
+                renglon++;
+            }
         }
 
         gotoxy (2,20); cout<<"1 - VOLVER";
@@ -473,31 +473,43 @@ int Pantalla::vistaListadoEmpleados(int idVendedor)
         dibujarCuadro(1,1,77,3); //SE DIBUJA EL CUADRO DEL TITULO
         gotoxy(30,2); cout<<"DELTAPOINT RESTO";
 
-        gotoxy (2,6); cout<<"LISTA DE EMPELADOS:";
+        gotoxy (2,6); cout<<"LISTA DE EMPLEADOS:";
         gotoxy (2,7); cout<<"--------------------";
 
         pos=0;
         renglon = 8;
         while(empleadoAux.leerDeDisco(pos++)>0){
-        gotoxy (5,renglon); cout<<empleadoAux.getIdEmpleado();
-        gotoxy (14,renglon); cout<<empleadoAux.getApellido()<<", "<<empleadoAux.getNombre();
-        gotoxy (45,renglon); cout<<empleadoAux.getPassword();
-        renglon++;
+            if(empleadoAux.getEstado()==true){
+            gotoxy (5,renglon); cout<<empleadoAux.getIdEmpleado();
+            gotoxy (14,renglon); cout<<empleadoAux.getApellido()<<", "<<empleadoAux.getNombre();
+            gotoxy (45,renglon); cout<<empleadoAux.getPassword();
+            renglon++;
+            }
         }
 
         gotoxy (2,20); cout<<"1 - VOLVER";
 
-        gotoxy (2,19); cout<<"->: ";
-        cin>>_opcion;
-        switch (_opcion)
-        {
-        case 1:
-            menuListados(idVendedor);
-            break;
+        do{ // Vuelve a pedir la opción, si la misma es incorrecta.
+            gotoxy (2,21); cout<<"->: ";
+            cin>>_opcion;
+            switch (_opcion){
+                case 1:
+                    menuListados(idVendedor);
+                    break;
 
-        default:
-            break;
-        }
+                default:
+                    cout << RED;
+                    gotoxy (2,22);cout << "Opcion Incorrecta " << endl;
+                    gotoxy (2,23); pause();
+                    gotoxy (2,21); cout<<"->:                             "; // Limpia pantalla
+                    gotoxy (2,22); cout<<"                                ";
+                    gotoxy (2,23); cout<<"                                ";
+
+                    break;
+            }
+
+        }while (_opcion != 1);
+
 
         gotoxy (2,22);
         cin.ignore();
@@ -524,7 +536,7 @@ int Pantalla::menuConsultasDeVentas(int idVendedor)
         gotoxy (2,13); cout<<"1 - VENTAS TOTALES POR MES: ";
         gotoxy (2,14); cout<<"2 - VENTAS POR EMPLEADO: ";
         gotoxy (2,15); cout<<"3 - VENTAS POR PRODUCTO: ";
-        gotoxy (2,16); cout<<"4 - VOLVER AL MENU ANTEERIOR: ";
+        gotoxy (2,16); cout<<"4 - VOLVER AL MENU ANTERIOR: ";
         gotoxy (2,17); cout<<"0 - SALIR DEL PROGRAMA: ";
 
         gotoxy (2,19); cout<<"->: ";
@@ -544,7 +556,7 @@ int Pantalla::menuConsultasDeVentas(int idVendedor)
             menuConsulta(idVendedor);
             break;
         case 0:
-            return 0;
+            exit(0);
             break;
 
         default:
@@ -648,7 +660,7 @@ int Pantalla::vistaVentasPorEmpleado(int idVendedor)
             consumoTotal=0;
             pos1=0;
             while(empleadoAux.leerDeDisco(pos1++)>0){
-                if(empleadoAux.getIdEmpleado()==id){
+                if(empleadoAux.getIdEmpleado()==id&&empleadoAux.getEstado()==true){
                     gotoxy(2,renglon); cout<<empleadoAux.getNombre()<<" "<<empleadoAux.getApellido();
                     pos2=0;
                     while(ventaAux.leerDeDisco(pos2++)>0){
@@ -703,20 +715,22 @@ int Pantalla::vistaVentasPorProducto(int idVendedor)
         gotoxy (2,4); cout<<"VENTAS POR PRODUCTO:";
         gotoxy (2,5); cout<<"--------------------";
 
-        consumoTotal=0;
         pos1=0;
         while(productoAux.leerDeDisco(pos1++)>0){
+            consumoTotal=0;
             id = productoAux.getIdProducto();
 
-            gotoxy(2,renglon); cout<<productoAux.getNombreProducto();
-            pos2=0;
-            while(transaccionAux.leerDeDisco(pos2++)>0){
-                if(transaccionAux.getIdProducto()==id){
-                    consumoTotal+=(transaccionAux.getPrecio()*transaccionAux.getCantidad());
+            if (productoAux.getEstado()==true){
+                gotoxy(2,renglon); cout<<productoAux.getNombreProducto();
+                pos2=0;
+                while(transaccionAux.leerDeDisco(pos2++)>0){
+                    if(transaccionAux.getIdProducto()==id){
+                        consumoTotal+=(transaccionAux.getPrecio()*transaccionAux.getCantidad());
+                    }
                 }
+                gotoxy(35,renglon); cout<<"$ "<<consumoTotal;
+                renglon++;
             }
-            gotoxy(35,renglon); cout<<"$ "<<consumoTotal;
-            renglon++;
         }
 
         gotoxy (2,22); cout<<"1 - VOLVER";
@@ -782,8 +796,9 @@ int Pantalla::menuAjuste(int idVendedor)
             gotoxy (2,7); cout<<"------------------";
             gotoxy (2,9);
             productoAux.cargar();
-            productoAux.grabarEnDisco(productoAux);
             gotoxy (2,15);
+            productoAux.grabarEnDisco(productoAux);
+            gotoxy (2,16);
             system("pause");
             menuAjuste(idVendedor);
             break;
@@ -818,6 +833,7 @@ int Pantalla::menuAjuste(int idVendedor)
             gotoxy (2,7); cout<<"------------------";
             gotoxy (2,12);
             empleadoAux.cargarEmpleado();
+            empleadoAux.grabarEnDisco();
             menuAjuste(idVendedor);
             break;
         case 5:
@@ -828,7 +844,7 @@ int Pantalla::menuAjuste(int idVendedor)
             gotoxy (2,6); cout<<"MENU AJUSTE - MODIFICAR EMPLEADO";
             gotoxy (2,7); cout<<"------------------";
             gotoxy (2,8);
-            empleadoAux.modificarRegistro(idVendedor);
+            empleadoAux.modificarRegistro();
             menuAjuste(idVendedor);
             break;
         case 6:
@@ -846,7 +862,7 @@ int Pantalla::menuAjuste(int idVendedor)
             menuPrincipal(idVendedor);
             break;
         case 0:
-            return 0;
+            exit(0);
             break;
         }
 
@@ -909,6 +925,9 @@ int Pantalla::menuPedido(int idVendedor)
 
                 renglon++;
             }
+            else{
+                renglon++; //para que baje un renglon y pida un nuevo codigo de prod
+            }
 
             gotoxy (3,renglon);
             cin>>codigoProducto;
@@ -945,7 +964,6 @@ int Pantalla::menuPedido(int idVendedor)
     }while(_opcion!=0);
     return 0;
 }
-
 
 int Pantalla::menuConsumoMesa(int idVendedor)
 {
@@ -1012,8 +1030,7 @@ int Pantalla::menuConsumoMesa(int idVendedor)
         switch (opcion)
         {
         case 1:
-            menuPrincipal(idVendedor);
-
+            menuVenta(idVendedor);
         default:
             gotoxy (4,22); cout<<"INGRESE UNA OPCION CORRECTA";
             break;
@@ -1026,4 +1043,3 @@ int Pantalla::menuConsumoMesa(int idVendedor)
     }while(_opcion!=0);
     return 0;
 }
-

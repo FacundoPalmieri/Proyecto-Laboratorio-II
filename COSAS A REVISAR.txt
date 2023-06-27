@@ -36,4 +36,5 @@ BIBLIOTECA LIST: estructura de datos 'lista doblemente enlazada', es una estruct
 		dinámica, lo que significa que su tamaño puede cambiar durante la ejecución del programa. Es útil cuando se necesita agregar o eliminar elementos 
 		en cualquier parte de la secuencia, haciendo un uso eficiente de la memoria. 
 
-ESTOY EN MENU.CPP
+FUNCION (PROPIA DE C++) PUSH_BACK: es una función miembro de la clase vector, y se utiliza para agregar un elemento al final de un vector dinámico.
+				   agrega nuevos elementos al final del vector, aumentando automáticamente su tamaño según sea necesario.
