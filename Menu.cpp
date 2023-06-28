@@ -32,12 +32,12 @@ Pantalla::Pantalla()
 void pause() {
     cout<< BLUE;
     cout << "Presiona Enter para continuar...";
-    cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); //limpia buffer
     cin.get();
 }
 
 //FUNCION GOTOXY
-void Pantalla::gotoxy(int x,int y) //gotoxy: posición del cursor
+void Pantalla::gotoxy(int x,int y)
 {
     HANDLE hcon; //controlador (handle) de la salida estándar de la consola
     hcon = GetStdHandle(STD_OUTPUT_HANDLE); //utiliza la función GetStdHandle para obtener el controlador (handle) de la salida estándar de la consola, devolviendo el controlador de la consola que se utiliza para la salida estándar.
