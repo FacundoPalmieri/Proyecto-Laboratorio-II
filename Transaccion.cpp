@@ -8,7 +8,7 @@ using namespace std;
 Transaccion::Transaccion(){
 }
 
-Transaccion::Transaccion(int idOperacion, int idProducto, int cantidad, float precio, char tipo){
+Transaccion::Transaccion(int idOperacion, int idProducto, int cantidad, float precio, char tipo, int idMesa){
     _idTransaccion = generarCodigoTransaccion() + _contador;
     _idOperacionAsociada = idOperacion;
     _idProducto = idProducto;
@@ -16,6 +16,7 @@ Transaccion::Transaccion(int idOperacion, int idProducto, int cantidad, float pr
     _precio = precio;
     if(setTipo(tipo)) cout<<"Tipo de transaccion [compra o venta] INDEFINIDO"<<endl;
     _estado = 1;
+    _idMesa= idMesa;
 
     _contador++;
 }
@@ -28,8 +29,63 @@ int Transaccion::getCantidad(){
     return _cantidad;
 }
 
+int Transaccion::getIdOperacionAsociada(){
+    return _idOperacionAsociada;
+}
+
+
 float Transaccion::getPrecio(){
     return _precio;
+}
+
+int Transaccion::getIdMesa(){
+    return _idMesa;
+}
+
+void Transaccion::setIdProducto(int IdProducto){
+    _idOperacionAsociada=IdProducto;
+
+}
+
+void Transaccion::setCantidad(int cantidad){
+    _cantidad=cantidad;
+}
+
+void Transaccion::setPrecio(int precio){
+    _precio=precio;
+}
+
+void Transaccion::setEstado(int estado){
+    _estado = estado;
+}
+
+
+int Transaccion::setTipo(char tipo){
+    if((tipo='v') || (tipo='V')){
+        _esVenta = true;
+        _esCompra = false;
+        return 0;
+    }
+    else if((tipo='c') || (tipo='C')){
+        _esVenta = false;
+        _esCompra = true;
+        return 0;
+    }
+    else{
+        _esVenta = false;
+        _esCompra = false;
+        return 1;
+    }
+}
+
+
+bool Transaccion::esVenta(){
+    return esVenta();
+}
+
+
+void Transaccion::confirmarTransaccion(){
+    _estado = 2;
 }
 
 int Transaccion::grabarEnDisco(){
@@ -61,6 +117,7 @@ int Transaccion::leerDeDisco(int pos){
     return leyo;
 }
 
+
 int Transaccion::generarCodigoTransaccion(){
   return cantidadTransacciones() + 1;
 }
@@ -86,39 +143,6 @@ int Transaccion::cantidadTransacciones(){
     return cantidad;
 }
 
-void Transaccion::confirmarTransaccion(){
-    _estado = 2;
-}
-
-int Transaccion::getIdOperacionAsociada(){
-    return _idOperacionAsociada;
-}
-
-bool Transaccion::esVenta(){
-    return esVenta();
-}
-
-void Transaccion::setEstado(int estado){
-    _estado = estado;
-}
-
-int Transaccion::setTipo(char tipo){
-    if((tipo='v') || (tipo='V')){
-        _esVenta = true;
-        _esCompra = false;
-        return 0;
-    }
-    else if((tipo='c') || (tipo='C')){
-        _esVenta = false;
-        _esCompra = true;
-        return 0;
-    }
-    else{
-        _esVenta = false;
-        _esCompra = false;
-        return 1;
-    }
-}
 
 void Transaccion::mostrar(){
     Producto productoAux;

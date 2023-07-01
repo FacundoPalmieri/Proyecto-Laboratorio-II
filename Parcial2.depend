@@ -432,7 +432,7 @@
 
 1687704099 c:\users\krivera\desktop\proyecto parcial ii - labo\fecha.h
 
-1687881990 source:c:\users\krivera\desktop\proyecto parcial ii - labo\menu.cpp
+1688231314 source:c:\users\krivera\desktop\proyecto parcial ii - labo\menu.cpp
 	<iostream>
 	<conio.h>
 	<stdio.h>
@@ -467,11 +467,11 @@
 
 1687704099 c:\users\krivera\desktop\proyecto parcial ii - labo\producto.h
 
-1687704099 c:\users\krivera\desktop\proyecto parcial ii - labo\venta.h
+1688143852 c:\users\krivera\desktop\proyecto parcial ii - labo\venta.h
 	"Fecha.h"
 	"Transaccion.h"
 
-1687704099 c:\users\krivera\desktop\proyecto parcial ii - labo\transaccion.h
+1688144496 c:\users\krivera\desktop\proyecto parcial ii - labo\transaccion.h
 
 1687877301 source:c:\users\krivera\desktop\proyecto parcial ii - labo\producto.cpp
 	<iostream>
@@ -480,12 +480,12 @@
 	"Producto.h"
 	"Menu.h"
 
-1687704099 source:c:\users\krivera\desktop\proyecto parcial ii - labo\transaccion.cpp
+1688144496 source:c:\users\krivera\desktop\proyecto parcial ii - labo\transaccion.cpp
 	<iostream>
 	"Transaccion.h"
 	"Producto.h"
 
-1687735828 source:c:\users\krivera\desktop\proyecto parcial ii - labo\venta.cpp
+1688231036 source:c:\users\krivera\desktop\proyecto parcial ii - labo\venta.cpp
 	<iostream>
 	<list>
 	"Venta.h"
@@ -495,10 +495,12 @@
 
 1687704099 c:\users\krivera\desktop\proyecto parcial ii - labo\mesa.h
 
-1687881877 source:c:\users\krivera\desktop\proyecto parcial ii - labo\main.cpp
+1688231734 source:c:\users\krivera\desktop\proyecto parcial ii - labo\main.cpp
 	"Menu.h"
 	"iostream"
 	"Menu.h"
+	"Transaccion.h"
+	"Venta.h"
 
 1687649469 source:c:\users\facundo\desktop\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\empleado.cpp
 	"Empleado.h"

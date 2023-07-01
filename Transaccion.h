@@ -13,14 +13,25 @@ private:
     bool _esVenta;
     int _estado;    // 0 - cancelada / 1 - Borrador / 2 - Confirmada
     int _contador;
+    int _idMesa;
 
 public:
     Transaccion();
-    Transaccion(int idOperacion, int idProducto, int cantidad, float precio, char tipo);
+    Transaccion(int idOperacion, int idProducto, int cantidad, float precio, char tipo, int idMesa);
 
     int getIdProducto();
     int getCantidad();
+    int getIdOperacionAsociada();
     float getPrecio();
+    int getIdMesa();
+    void setIdProducto(int IdProducto);
+    void setCantidad(int cantidad);
+    void setPrecio(int precio);
+    void setEstado(int estado);
+    int setTipo(char tipo);
+
+    bool esVenta();
+    void confirmarTransaccion();
 
     int grabarEnDisco();
     int grabarEnDiscoPorPosicion(int posicion);
@@ -29,15 +40,6 @@ public:
     int generarCodigoTransaccion();
     int getLastIdTransaction();
     int cantidadTransacciones();
-
-    void confirmarTransaccion();
-
-    int getIdOperacionAsociada();
-    bool esVenta();
-
-    void setEstado(int estado);
-
-    int setTipo(char tipo);
 
     void mostrar();
 

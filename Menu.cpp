@@ -920,8 +920,8 @@ int Pantalla::menuPedido(int idVendedor)
                 subtotal = cantidadProducto * producto.getPrecioProducto();
                 gotoxy (82,renglon); cout<<"$"<<subtotal;
 
-                venta.agregarProductoALaVenta(codigoProducto,cantidadProducto);
-                gotoxy (87,22); cout<<"$"<<venta.getConsumoTotal();
+                venta.agregarProductoALaVenta(codigoProducto,cantidadProducto); //GRABAMOS EN ARCHIVO TRANSACCIÓN
+                gotoxy (87,22); cout<<"$"<<venta.getConsumoTotal(); //EN EL MÉTODO ANTERIOR SE SUMÓ EL IMPORTE
 
                 renglon++;
             }
@@ -941,7 +941,7 @@ int Pantalla::menuPedido(int idVendedor)
         switch (opcion)
         {
         case 1:
-            venta.grabarEnDisco();
+            venta.grabarEnDisco(); ////GRABAMOS EN ARCHIVO VENTA
             gotoxy (4,22); cout<<"VENTA REGISTRADA                        ";
             gotoxy (3,24); cout<<"PRESIONE CUALQUIER TECLA PARA CONTINUAR...                               ";
             getch();
@@ -997,14 +997,15 @@ int Pantalla::menuConsumoMesa(int idVendedor)
 
         gotoxy (80,22); cout<<"TOTAL: ";
 
-        while(venta.leerDeDisco(pos1++)>0)
+        while(venta.leerDeDisco(pos1++)>0) //RECORRE ARCHIVO VENTAS
         {
-            venta.getIdMesa();
-            if(venta.getIdMesa() == mesaAux)
+            venta.getIdMesa(); //POR VUELTA TOMAMOS EL ID
+
+            if(venta.getIdMesa() == mesaAux) //FILTRAMOS LAS VENTAS QUE COINCIDEN CON EL N° DE MESA INGRESADO
             {
-                while(transaccion.leerDeDisco(pos2++))
+                while(transaccion.leerDeDisco(pos2++)) //RECORREMOS ARCHIVO TRANSACCIÓN
                 {
-                    if(transaccion.getIdOperacionAsociada() == venta.getIDventa())
+                    if(transaccion.getIdMesa() == venta.getIdMesa()) //FILTRA SI COINCIDE VENTA Y TRANSACCIÓN EN EL ID MESA
                     {
                         gotoxy (3,renglon); cout<<transaccion.getIdProducto();
                         producto = buscarPorCodigo(transaccion.getIdProducto());

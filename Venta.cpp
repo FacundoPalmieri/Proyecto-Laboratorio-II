@@ -1,7 +1,6 @@
 #include <iostream>
 #include <list>
 
-
 using namespace std;
 
 #include "Venta.h"
@@ -9,8 +8,6 @@ using namespace std;
 #include "Empleado.h"
 #include "Mesa.h"
 
-list<Transaccion> _listaProductosVenta;
-list<Transaccion>::iterator it;
 
 Venta::Venta(){
     _IdVenta = generarCodigoVenta();
@@ -72,9 +69,6 @@ void Venta::mostrarVenta()
     cout<<"CONSUMO TOTAL: $"<<_consumoTotal<<endl;
     cout<<"NUMERO DE MESA: "<<_idMesa<<endl;
     cout<<"ESTADO: "<<_estado<<endl;
-    cout<<"\nID. TRASN | COD. OP | COD. PRODUCTO | \tPRODUCTO\t | CANTIDAD | PRECIO | ESTADO"<<endl;
-    for(Transaccion elem: _listaProductosVenta) elem.mostrar();
-
 }
 
 void Venta::setVendedor(int idVendedor){
@@ -104,19 +98,18 @@ bool Venta::confirmarVenta(){
         }
         pos++;
     }
-    _estado = 2;                                        //seteo como confirmado el estado de la venta en general
+    _estado = 2;     //seteo como confirmado el estado de la venta en general
 
     return true;
 }
 
 int Venta::grabarEnDisco(){
-    for(Transaccion elem: _listaProductosVenta){        //graba cada elemento de la lista como una Transaccion en el archivo
-        elem.grabarEnDisco();
-    }
-    FILE *p;
-    p=fopen("venta.dat", "ab");
-    if(p==NULL) return -1;
+
+    FILE *p = fopen("venta.dat", "ab");
     int grabo=fwrite(this, sizeof(Venta),1, p);
+
+    if (p == NULL){return grabo;}
+
     fclose(p);
     return grabo;
 }
@@ -128,16 +121,8 @@ int Venta::leerDeDisco(int pos){
     fseek(p,pos * sizeof(Venta), SEEK_SET);
     int leyo = fread(this, sizeof(Venta), 1, p);
     fclose(p);
-
-    _listaProductosVenta.clear();
-
-    Transaccion transaccionAux;
-    int cantidad = transaccionAux.cantidadTransacciones();
-    for(int i=0; i<cantidad; i++){
-        transaccionAux.leerDeDisco(i);
-        _listaProductosVenta.push_back(transaccionAux);
-    }
     return leyo;
+
 }
 
 int Venta::generarCodigoVenta(){
@@ -168,17 +153,22 @@ int Venta::cantidadVentas(){
 }
 
 int Venta::agregarProductoALaVenta(int idProducto, int cantidad){
-    Producto productoAux;
+
+    Producto productoAux; //SE UTILIZA PARA BUSCAR EL ID DEL PRODUCTO QUE RECIBIMOS POR PARÁMETRO
 
     productoAux = buscarPorCodigo(idProducto);
 
-    Transaccion transaccionAux(getIDventa(), idProducto, cantidad, productoAux.getPrecioProducto(),'V');
+    //CREAMOS UNA TRANSACCION AUX, POR PARÁMETROS, CON LOS DATOS DE LA VENTA Y EL PRODUCTO
+    Transaccion transaccionAux(getIDventa(), idProducto, cantidad, productoAux.getPrecioProducto(),'V', _idMesa);
 
+    //GRABAMOS EN ARCHIVO TRANSACCIÓN
 
-   _listaProductosVenta.push_back(transaccionAux);
+    transaccionAux.grabarEnDisco();
+
+    //SUMAMOS EL IMPORTE TOTAL
 
     _consumoTotal+=(productoAux.getPrecioProducto() * cantidad);
 
-
     return 0;
 }
+
