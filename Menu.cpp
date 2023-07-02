@@ -920,13 +920,22 @@ int Pantalla::menuPedido(int idVendedor)
                 subtotal = cantidadProducto * producto.getPrecioProducto();
                 gotoxy (82,renglon); cout<<"$"<<subtotal;
 
-                venta.agregarProductoALaVenta(codigoProducto,cantidadProducto); //GRABAMOS EN ARCHIVO TRANSACCIÓN
-                gotoxy (87,22); cout<<"$"<<venta.getConsumoTotal(); //EN EL MÉTODO ANTERIOR SE SUMÓ EL IMPORTE
+                if(venta.agregarProductoALaVenta(codigoProducto,cantidadProducto) != -1){//GRABAMOS EN ARCHIVO TRANSACCIÓN
+                    gotoxy (87,22); cout<<"$"<<venta.getConsumoTotal(); //EN EL MÉTODO ANTERIOR SE SUMÓ EL IMPORTE
 
-                renglon++;
+                    renglon++;
+                }
+                else{
+                    cout << RED;
+                    gotoxy (3,renglon+1);cout << "No se pudo cargar la venta. " ;
+                    cout << BLUE;
+                    renglon++;
+                    renglon++;
+
+                }
             }
             else{
-                renglon++; //para que baje un renglon y pida un nuevo codigo de prod
+                renglon++; // SI no encontró el producto se baja un renglon y pida un nuevo codigo de prod
             }
 
             gotoxy (3,renglon);

@@ -155,20 +155,24 @@ int Venta::cantidadVentas(){
 int Venta::agregarProductoALaVenta(int idProducto, int cantidad){
 
     Producto productoAux; //SE UTILIZA PARA BUSCAR EL ID DEL PRODUCTO QUE RECIBIMOS POR PARÁMETRO
-
     productoAux = buscarPorCodigo(idProducto);
 
-    //CREAMOS UNA TRANSACCION AUX, POR PARÁMETROS, CON LOS DATOS DE LA VENTA Y EL PRODUCTO
-    Transaccion transaccionAux(getIDventa(), idProducto, cantidad, productoAux.getPrecioProducto(),'V', _idMesa);
+    if(productoAux.getIdProducto() != -1){
+        //CREAMOS UNA TRANSACCION AUX, POR PARÁMETROS, CON LOS DATOS DE LA VENTA Y EL PRODUCTO
+        Transaccion transaccionAux(getIDventa(), idProducto, cantidad, productoAux.getPrecioProducto(),'V', _idMesa);
 
-    //GRABAMOS EN ARCHIVO TRANSACCIÓN
+        //GRABAMOS EN ARCHIVO TRANSACCIÓN
 
-    transaccionAux.grabarEnDisco();
+        transaccionAux.grabarEnDisco()                                                    ;
 
-    //SUMAMOS EL IMPORTE TOTAL
+        //SUMAMOS EL IMPORTE TOTAL
 
-    _consumoTotal+=(productoAux.getPrecioProducto() * cantidad);
+        _consumoTotal+=(productoAux.getPrecioProducto() * cantidad);
 
-    return 0;
+        return 0;
+    }
+    else{
+        return -1;
+    }
 }
 
