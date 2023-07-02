@@ -4,7 +4,7 @@ using namespace std;
 
 #include "Empleado.h"
 #include "colors.h"
-#include "Menu.h"
+#include "Pantalla.h"
 
 /// - - - - -  FUNCIONES - - - - - - - -
 
@@ -65,39 +65,41 @@ void Empleado::cargarEmpleado(){
     cout<<"INGRESE ID DEL EMPLEADO: ";
     cin>>_idEmpleado;
 
-    if (valirdarIDEmpleado(_idEmpleado)==false){
+    if (validarIDEmpleado(_idEmpleado)==false){
         pantalla.gotoxy (2,13);
         cout<<"INGRESE EL NOMBRE DEL EMPLEADO: ";
         cargarCadenas(_nombre,11);
-        pantalla.gotoxy (2,14);
+       pantalla.gotoxy (2,14);
         cout<<"INGRESE EL APELLIDO DEL EMPLEADO: ";
         cargarCadenas(_apellido,19);
-        pantalla.gotoxy (2,15);
+       pantalla.gotoxy (2,15);
         cout<<"INGRESE PASSWORD: ";
         cin>>password1;
-        pantalla.gotoxy (2,16);
+       pantalla.gotoxy (2,16);
         cout<<"VUELVA A INGRESAR EL PASSWORD: ";
         cin>>password2;
         if(password1==password2){//strcmp(password1, password2)){
             //cargarCadenas(_password, 9);
             _password = password1;
             grabarEnDisco();
-            pantalla.gotoxy (2,18);
+           pantalla.gotoxy (2,18);
             cout<<"ALTA DE USUARIO CORRECTA!";
-            pantalla.gotoxy (2,19);
+           pantalla.gotoxy (2,19);
             system("pause");
         }
         else{
-            pantalla.gotoxy (2,18);
-            cout<<RED<<"LAS PASSWORD INGRESADAS NO COINCIDEN";
-            pantalla.gotoxy (2,19);
-            system("pause");
+           pantalla.gotoxy (2,18);
+           cout<<RED<<"LAS PASSWORD INGRESADAS NO COINCIDEN";
+           pantalla.gotoxy (2,19);
+           cout << BLUE;
+           system("pause");
         }
     }
     else{
-        pantalla.gotoxy (2,13);
+       pantalla.gotoxy (2,13);
         cout<<RED<<"ID DE EMPLEADO YA EXISTENTE";
         pantalla.gotoxy (2,15);
+        cout << BLUE;
         system("pause");
     }
 }
@@ -105,11 +107,11 @@ void Empleado::cargarEmpleado(){
 void Empleado::mostrarEmpleado(){
     if (_estado==true){
         Pantalla pantalla;
-        pantalla.gotoxy (2,9);
+       pantalla.gotoxy (2,9);
         cout<<"ID DEL EMPLEADO: "<<_idEmpleado;
-        pantalla.gotoxy (2,10);
+       pantalla.gotoxy (2,10);
         cout<<"NOMBRE: "<<_nombre;
-        pantalla.gotoxy (2,11);
+       pantalla.gotoxy (2,11);
         cout<<"APELLIDO: "<<_apellido;
     }
 }
@@ -144,7 +146,7 @@ int Empleado::cantidadEnArchivo(){
     return cantidad;
 }
 
-bool Empleado::valirdarIDEmpleado(int idEmpleado){
+bool Empleado::validarIDEmpleado(int idEmpleado){
 
     Pantalla pantalla;
 
@@ -158,10 +160,11 @@ bool Empleado::valirdarIDEmpleado(int idEmpleado){
 	pArchivo=fopen("empleados.dat","rb");
 
 	if(pArchivo==NULL){
-        pantalla.gotoxy (2,7);
-		cout<<"NO SE PUDO VERIFICAR EL ARCHIVO DE EMPLEADOS. "<<endl;
-        pantalla.gotoxy (2,9);
-		system("pause");
+       pantalla.gotoxy (2,7);
+       cout<<"NO SE PUDO VERIFICAR EL ARCHIVO DE EMPLEADOS. "<<endl;
+       pantalla.gotoxy (2,9);
+       cout << BLUE;
+       system("pause");
 	}
 
     while(fread(&empleado, sizeof empleado, 1,pArchivo)==1){
@@ -176,6 +179,7 @@ bool Empleado::valirdarIDEmpleado(int idEmpleado){
     }
 
     fclose(pArchivo);
+    return encontrado;
 
 }
 
@@ -215,15 +219,15 @@ void Empleado::modificarRegistro(){
     char Confirmacion;
     int idEmpleado, posicion;
 
-    pantalla.gotoxy(30,2); cout<<"DELTAPOINT RESTO";
+   pantalla.gotoxy(30,2); cout<<"DELTAPOINT RESTO";
     pantalla.dibujarCuadro(0,0,78,24); //SE DIBUJA EL CUADRO PRINCIPAL
     pantalla.dibujarCuadro(1,1,77,3); //SE DIBUJA EL CUADRO DEL TITULO
 
     //BUSCAR N° DE REGISTRO
-    pantalla.gotoxy(2,5);
+   pantalla.gotoxy(2,5);
     cout<<"Ingrese ID del empleado a modificar: ";
     cin>>idEmpleado;
-    pantalla.gotoxy (2,6);
+   pantalla.gotoxy (2,6);
     cout<<"------------------";
 
     posicion=buscarDato(idEmpleado);
@@ -233,7 +237,7 @@ void Empleado::modificarRegistro(){
         Empleado empleado;
         empleado.leerDeDisco(posicion);
 
-        pantalla.gotoxy(2,7);
+       pantalla.gotoxy(2,7);
         cout<<"EMPLEADO A MODIFICAR: "<<endl;
 
         empleado.mostrarEmpleado();
@@ -290,7 +294,7 @@ int Empleado::bajaEmpleado(){
     int idEmpleado, posicion=0;
     Pantalla pantalla;
 
-    pantalla.gotoxy(2,7);
+   pantalla.gotoxy(2,7);
     cout<<"INGRESE EL ID DEL EMPLEADO A ELIMINAR: ";
     cin>>idEmpleado;
     cout<<endl;

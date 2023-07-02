@@ -43,7 +43,7 @@ class Empleado
         int grabarEnDisco();
         int leerDeDisco(int pos);
         int cantidadEnArchivo();
-        bool valirdarIDEmpleado(int idEmpleado);
+        bool validarIDEmpleado(int idEmpleado);
         int buscarDato(int idVendedor);
         void modificarRegistro();
         int bajaEmpleado();

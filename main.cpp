@@ -1,18 +1,15 @@
-#include "Menu.h"
 #include "iostream"
 
 using namespace std;
 #include "Menu.h"
+#include "Pantalla.h"
 #define XSCREEN 78
-
-#include "Transaccion.h"
-#include "Venta.h"
-
 int main(){
 
     Pantalla pantalla;
+    Menu menu;
 
-    int Programa = pantalla.menuIdVendedor();
+    int Programa = menu.menuIdVendedor();
     system("cls");
     if(Programa == 0){
         pantalla.dibujarCuadro(0,0,79,24);

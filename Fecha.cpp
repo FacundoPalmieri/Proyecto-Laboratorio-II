@@ -1,7 +1,7 @@
 #include <iostream>
-#include<cstdio>
+#include <cstdio>
 #include <stdlib.h>
-#include<ctime>
+#include <ctime>
 
 using namespace std;
 
