@@ -14,16 +14,20 @@ public:
     int menuVenta(int idVendedor);
     int menuConsulta(int idVendedor);
     int menuListados(int idVendedor);
-    int vistaListadoProductos(int idVendedor);
-    int vistaListadoEmpleados(int idVendedor);
+    void vistaListadoProductos(int idVendedor);
+    void vistaListadoEmpleados(int idVendedor);
     int menuConsultasDeVentas(int idVendedor);
-    int vistaVentasPorMes(int idVendedor);
-    int vistaVentasPorEmpleado(int idVendedor);
-    int vistaVentasPorProducto(int idVendedor);
+    void vistaVentasPorMes(int idVendedor);
+    void vistaVentasPorEmpleado(int idVendedor);
+    void vistaVentasPorProducto(int idVendedor);
     int menuAjuste(int idVendedor);
     void vender(int idVendedor);
     int menuPedido(int idVendedor);
-    int menuConsumoMesa(int idVendedor);
+    void menuConsumoMesa(int idVendedor);
+
+
+    void FinalizarPrograma();
+    void OpcionIncorrecta();
 
 private:
     int _opcion;
