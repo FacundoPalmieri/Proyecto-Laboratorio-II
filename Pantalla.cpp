@@ -1,5 +1,4 @@
 #include "Pantalla.h"
-#include "Menu.h"
 #include <stdio.h>
 #include <windows.h>
 #include <iostream>
@@ -7,6 +6,7 @@
 #define XSCREEN 78
 #define YSCREEN 24
 using namespace std;
+
 //FUNCION pantalla.gotoxy
 void Pantalla::gotoxy(int x,int y)
 {
@@ -84,7 +84,6 @@ void Pantalla::dibujarCuadroDoble(int x1,int y1,int x2,int y2, int y3){
 
 void Pantalla::estiloMenu(){
     system("cls");
-    Pantalla pantalla;
     system("mode con: cols=80 lines=25"); //SE DEFINE LAS DIMENSIONES DE LA VENTANA DEL PROGRAMA A 80 COLUMNAS Y 25 FILAS
     system("COLOR 71"); //SE DA UN COLOR DE FONDO Y COLOR A LAS LETRAS
     dibujarCuadro(0,0,XSCREEN,YSCREEN); //SE DIBUJA EL CUADRO PRINCIPAL

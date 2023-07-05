@@ -685,7 +685,7 @@
 
 1688309714 d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main\proyecto-laboratorio-ii-main\pantalla.h
 
-1688516323 source:c:\users\krivera\desktop\proyecto labo ii\empleado.cpp
+1688566923 source:c:\users\krivera\desktop\proyecto labo ii\empleado.cpp
 	"Empleado.h"
 	"colors.h"
 	"Pantalla.h"
@@ -709,15 +709,14 @@
 
 1688516323 c:\users\krivera\desktop\proyecto labo ii\fecha.h
 
-1688516323 source:c:\users\krivera\desktop\proyecto labo ii\main.cpp
+1688566947 source:c:\users\krivera\desktop\proyecto labo ii\main.cpp
 	"iostream"
 	"Menu.h"
 
 1688518648 c:\users\krivera\desktop\proyecto labo ii\menu.h
 
-1688518534 source:c:\users\krivera\desktop\proyecto labo ii\pantalla.cpp
+1688554421 source:c:\users\krivera\desktop\proyecto labo ii\pantalla.cpp
 	"Pantalla.h"
-	"Menu.h"
 	<stdio.h>
 	<windows.h>
 	<iostream>
@@ -754,7 +753,7 @@
 
 1688516323 c:\users\krivera\desktop\proyecto labo ii\mesa.h
 
-1688518834 source:c:\users\krivera\desktop\proyecto labo ii\menu.cpp
+1688567006 source:c:\users\krivera\desktop\proyecto labo ii\menu.cpp
 	<iostream>
 	<conio.h>
 	<stdio.h>

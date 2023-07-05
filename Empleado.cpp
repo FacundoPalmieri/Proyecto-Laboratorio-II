@@ -81,7 +81,6 @@ void Empleado::cargarEmpleado(){
         if(password1==password2){//strcmp(password1, password2)){
             //cargarCadenas(_password, 9);
             _password = password1;
-            grabarEnDisco();
            pantalla.gotoxy (2,18);
             cout<<"ALTA DE USUARIO CORRECTA!";
            pantalla.gotoxy (2,19);

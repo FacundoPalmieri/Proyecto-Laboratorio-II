@@ -309,38 +309,76 @@ int Menu::menuListados(int idVendedor)
     return 0;
 }
 
-void Menu::vistaListadoProductos(int idVendedor)
-{
+void Menu::vistaListadoProductos(int idVendedor) {
     Pantalla pantalla;
     Empleado empleadoAux;
     Producto productoAux;
-    int pos, renglon;
+    int posicion, renglon, maximo;
 
     pantalla.estiloMenu();
 
-    pantalla.gotoxy (2,6); cout<<"LISTA DE PRODUCTOS:";
-    pantalla.gotoxy (2,7); cout<<"--------------------";
+    pantalla.gotoxy(2, 6);
+    cout << "LISTA DE PRODUCTOS:";
+    pantalla.gotoxy(2, 7);
+    cout << "--------------------";
 
-    pos=0;
+    posicion = 0;
     renglon = 8;
-    while(productoAux.leerDeDisco(pos++)>0){
-        if(productoAux.getEstado()==true){
-            pantalla.gotoxy (5,renglon); cout<<productoAux.getIdProducto();
-            pantalla.gotoxy (14,renglon); cout<<productoAux.getNombreProducto();
-            pantalla.gotoxy (60,renglon); cout<<"$"<<productoAux.getPrecioProducto();
-            renglon++;
+    maximo = 0;
+
+    int* VecIdProductos = nullptr;
+
+    for (int x = 0; x < productoAux.cantidadEnArchivo(); x++) {
+        productoAux.leerDeDisco(x);
+        if (productoAux.getIdProducto() > maximo) {
+            maximo = productoAux.getIdProducto();
         }
     }
 
-    pantalla.gotoxy (2,20); cout<< system("pause") ;
+    VecIdProductos = new int[maximo];
 
+    if (VecIdProductos != nullptr) {
+
+        // ASIGNAR AL VECTOR EL ID DE CADA PRODUCTO, YA ORDENADO
+        for (int i = 0; i < productoAux.cantidadEnArchivo(); i++) {
+            productoAux.leerDeDisco(i);
+            VecIdProductos[productoAux.getIdProducto()] = productoAux.getIdProducto();
+        }
+
+        for (int x = 0; x <= maximo; x++) {
+
+            for (int i = 0; i < productoAux.cantidadEnArchivo(); i++) {
+                productoAux.leerDeDisco(i);
+
+                if (productoAux.getIdProducto() == VecIdProductos[x] && productoAux.getEstado() == true) {
+
+                    pantalla.gotoxy(5, renglon);
+                    cout << productoAux.getIdProducto();
+                    pantalla.gotoxy(14, renglon);
+                    cout << productoAux.getNombreProducto();
+                    pantalla.gotoxy(60, renglon);
+                    cout << "$" << productoAux.getPrecioProducto();
+                    renglon++;
+                }
+            }
+        }
+    }
+    else {
+        cout << "NO SE PUDO ASIGNAR MEMORIA" << endl;
+    }
+
+    delete[] VecIdProductos;
+
+    pantalla.gotoxy(2, 20);
+    cout << system("pause");
 }
+
 
 void Menu::vistaListadoEmpleados(int idVendedor)
 {
     Pantalla pantalla;
     Empleado empleadoAux;
-    int pos, renglon;
+    int pos, renglon, maximo;
 
     pantalla.estiloMenu();
 
@@ -349,14 +387,47 @@ void Menu::vistaListadoEmpleados(int idVendedor)
 
     pos=0;
     renglon = 8;
-    while(empleadoAux.leerDeDisco(pos++)>0){
-        if(empleadoAux.getEstado()==true){
-            pantalla.gotoxy (5,renglon); cout<<empleadoAux.getIdEmpleado();
-            pantalla.gotoxy (14,renglon); cout<<empleadoAux.getApellido()<<", "<<empleadoAux.getNombre();
-            pantalla.gotoxy (45,renglon); cout<<empleadoAux.getPassword();
-            renglon++;
+    maximo=0;
+
+    int* VecIdEmpleados = nullptr;
+
+    for (int x = 0; x < empleadoAux.cantidadEnArchivo(); x++) {
+        empleadoAux.leerDeDisco(x);
+        if (empleadoAux.getIdEmpleado() > maximo) {
+            maximo = empleadoAux.getIdEmpleado();
         }
     }
+
+    VecIdEmpleados = new int[maximo]; // Incrementar en 1 el tamaño del arreglo
+
+    if (VecIdEmpleados != nullptr) {
+
+        // ASIGNAR AL VECTOR EL ID DE CADA EMPLEADO, YA ORDENADO
+        for (int i = 0; i < empleadoAux.cantidadEnArchivo(); i++) {
+            empleadoAux.leerDeDisco(i);
+            VecIdEmpleados[empleadoAux.getIdEmpleado()] = empleadoAux.getIdEmpleado();
+        }
+
+        for (int x = 0; x <= maximo; x++) {
+
+            for (int i = 0; i < empleadoAux.cantidadEnArchivo(); i++) {
+                empleadoAux.leerDeDisco(i);
+
+                if (empleadoAux.getIdEmpleado() == VecIdEmpleados[x] && empleadoAux.getEstado() == true) {
+
+                    pantalla.gotoxy (5,renglon); cout<<empleadoAux.getIdEmpleado();
+                    pantalla.gotoxy (14,renglon); cout<<empleadoAux.getApellido()<<", "<<empleadoAux.getNombre();
+                    pantalla.gotoxy (45,renglon); cout<<empleadoAux.getPassword();
+                    renglon++;
+                }
+            }
+        }
+    }
+    else {
+        cout << "NO SE PUDO ASIGNAR MEMORIA" << endl;
+    }
+
+    delete[] VecIdEmpleados;
 
     pantalla.gotoxy (2,20); cout<< system("pause");
 
