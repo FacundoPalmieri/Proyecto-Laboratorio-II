@@ -83,20 +83,20 @@ void Producto::cargar()
     for(int x = 0; x < CantidadRegistros; x++){
         producto.leerDeDisco(x);
         if(producto.getEstado() == true && _idProducto == producto.getIdProducto()){
-           pantalla.gotoxy(1,13);
+           pantalla.dimensiones(1,13);
             cout << "El producto ya existe.";
             return;
         }
     }
     pantalla.dibujarCuadro(0,0,79,24);
-   pantalla.gotoxy(1,13);
+   pantalla.dimensiones(1,13);
     cout<<" INGRESE NOMBRE DEL PRODUCTO: ";
     cargarCadenas(_nombreProducto, 49);
     pantalla.dibujarCuadro(0,0,79,24);
-   pantalla.gotoxy(1,14);
+   pantalla.dimensiones(1,14);
     cout<<" INGRESE PRECIO DE VENTA ($): ";
     cin>>_precioProducto;
-   pantalla.gotoxy(1,15);
+   pantalla.dimensiones(1,15);
     cout<<" PRODUCTO AGREGADO.";
 }
 
@@ -105,11 +105,11 @@ void Producto::mostrar()
     Pantalla pantalla;
 
     if(_estado==true){
-       pantalla.gotoxy(2,11);
+       pantalla.dimensiones(2,11);
         cout<<"ID DE PRODUCTO: "<<_idProducto<<endl;
-       pantalla.gotoxy(2,12);
+       pantalla.dimensiones(2,12);
         cout<<"NOMBRE DEL PRODUCTO: "<<_nombreProducto<<endl;
-       pantalla.gotoxy(2,13);
+       pantalla.dimensiones(2,13);
         cout<<"PRECIO: $"<<_precioProducto<<endl;
     }
 }
@@ -177,15 +177,15 @@ void Producto::modificarRegistro(){
     char Confirmacion;
     int idProducto, posicion;
 
-   pantalla.gotoxy(30,2); cout<<"DELTAPOINT RESTO";
+   pantalla.dimensiones(30,2); cout<<"DELTAPOINT RESTO";
     pantalla.dibujarCuadro(0,0,78,24); //SE DIBUJA EL CUADRO PRINCIPAL
     pantalla.dibujarCuadro(1,1,77,3); //SE DIBUJA EL CUADRO DEL TITULO
 
     //BUSCAR N° DE REGISTRO
-   pantalla.gotoxy(2,5);
+   pantalla.dimensiones(2,5);
     cout<<"Ingrese ID del producto a modificar: ";
     cin>>idProducto;
-   pantalla.gotoxy (2,7); cout<<"------------------";
+   pantalla.dimensiones (2,7); cout<<"------------------";
 
     posicion=buscarDato(idProducto);
 
@@ -195,24 +195,24 @@ void Producto::modificarRegistro(){
         Producto producto;
         producto.leerDeDisco(posicion);
 
-       pantalla.gotoxy(2,9);
+       pantalla.dimensiones(2,9);
         cout<<"PRODUCTO A MODIFICAR: "<<endl;
 
         producto.mostrar();
-        pantalla.gotoxy(2,14);
+        pantalla.dimensiones(2,14);
         cout<<"ESTA SEGURO/A DE CONTINUAR: (S/N): ";
         cin>>Confirmacion;
-        pantalla.gotoxy (2,15); cout<<"------------------";
+        pantalla.dimensiones (2,15); cout<<"------------------";
         cout<<endl<<endl;
         if(Confirmacion=='S' || Confirmacion=='s'){
 
             //CAMBIAR DATOS
-           pantalla.gotoxy(1,18);
+           pantalla.dimensiones(1,18);
             cout<<" INGRESE NOMBRE DEL PRODUCTO: ";
             cargarCadenas(_nombreProducto, 49);
             producto.setNombreProducto(_nombreProducto);
             pantalla.dibujarCuadro(0,0,79,24);
-            pantalla.gotoxy(1,20);
+            pantalla.dimensiones(1,20);
             cout<<" INGRESE PRECIO DE VENTA ($): ";
             cin>>_precioProducto;
             producto.setPrecioProducto(_precioProducto);
@@ -220,20 +220,20 @@ void Producto::modificarRegistro(){
             //SOBREESCRIBIR EL REGISTRO
 
             sobreEscribirRegistro(producto, posicion);
-            pantalla.gotoxy(2,22);
+            pantalla.dimensiones(2,22);
             cout<<"DATO MODIFICADO."<<endl<<endl;
-            pantalla.gotoxy(2,23);
+            pantalla.dimensiones(2,23);
             system("pause");
         }
         else{
-           pantalla.gotoxy(2,18);
+           pantalla.dimensiones(2,18);
             system("pause");
         }
     }
     else{
-       pantalla.gotoxy (2,9);
+       pantalla.dimensiones (2,9);
         cout<<"No existe un producto con ese ID"<<endl;
-       pantalla.gotoxy (2,11);
+       pantalla.dimensiones (2,11);
         system("pause");
     }
 }
@@ -244,17 +244,17 @@ int Producto::bajaProducto(){
     int idProducto, posicion=0;
     Pantalla pantalla;
 
-   pantalla.gotoxy(2,9);
+   pantalla.dimensiones(2,9);
     cout<<"INGRESE EL ID DEL PRODUCTO A ELIMINAR: ";
     cin>>idProducto;
     cout<<endl;
 
     posicion=buscarDato(idProducto);
     if(posicion== -1){
-       pantalla.gotoxy(2,11);
+       pantalla.dimensiones(2,11);
         cout<<"NO EXISTE ESE ID DE PRODUCTO"<<endl<<endl;
-       pantalla.gotoxy (2,13); cout<<"------------------";
-       pantalla.gotoxy (2,15);
+       pantalla.dimensiones (2,13); cout<<"------------------";
+       pantalla.dimensiones (2,15);
         system("pause");
         return -1;
     }
@@ -264,14 +264,14 @@ int Producto::bajaProducto(){
     producto.leerDeDisco(posicion);
 
     char Confirmacion;
-    pantalla.gotoxy(2,10);
+    pantalla.dimensiones(2,10);
     cout<<"ESTA ACCION DARA DE BAJA EL SIGUIENTE PRODUCTO: "<<endl<<endl;
-    pantalla.gotoxy(2,12);
+    pantalla.dimensiones(2,12);
     producto.mostrar();
-    pantalla.gotoxy(2,16);
+    pantalla.dimensiones(2,16);
     cout<<"ESTA SEGURO/A DE CONTINUAR: (S/N): ";
     cin>>Confirmacion;
-    pantalla.gotoxy (2,17); cout<<"------------------";
+    pantalla.dimensiones (2,17); cout<<"------------------";
 
     if(Confirmacion=='S' || Confirmacion=='s'){
         //cambiar estado
@@ -281,13 +281,13 @@ int Producto::bajaProducto(){
         sobreEscribirRegistro(producto, posicion);
 
         cout<<endl<<endl;
-       pantalla.gotoxy(2,18);
+       pantalla.dimensiones(2,18);
         cout<<"PRODUCTO DADO DE BAJA."<<endl<<endl;
-       pantalla.gotoxy(3,20);
+       pantalla.dimensiones(3,20);
         system("pause");
     }
     else{
-       pantalla.gotoxy(3,20);
+       pantalla.dimensiones(3,20);
         system("pause");
     }
     return 1;

@@ -17,8 +17,8 @@ void Menu::FinalizarPrograma(){
 
     pantalla.dibujarCuadro(0,0,79,24);
     pantalla.dibujarCuadro(1,1,(XSCREEN-1),3); //SE DIBUJA EL CUADRO DEL TITULO
-    pantalla.gotoxy(30,2); cout<<"DELTAPOINT RESTO";
-    pantalla.gotoxy(17,5);
+    pantalla.dimensiones(30,2); cout<<"DELTAPOINT RESTO";
+    pantalla.dimensiones(17,5);
     cout << " Gracias por utilizar nuestro programa :)" << endl << endl << endl << endl << endl ;
     exit(0);
 }
@@ -28,9 +28,9 @@ void Menu:: OpcionIncorrecta(){
     Pantalla pantalla;
 
     cout << RED;
-    pantalla.gotoxy (2,22);cout << "Opcion Incorrecta " << endl;
+    pantalla.dimensiones (2,22);cout << "Opcion Incorrecta " << endl;
     cout << BLUE;
-    pantalla.gotoxy (2,23); system("pause");
+    pantalla.dimensiones (2,23); system("pause");
 
 }
 
@@ -47,9 +47,9 @@ int Menu::menuIdVendedor(){
 
         pantalla.estiloMenu();
 
-        pantalla.gotoxy (25,6); cout<<"INGRESO AL SISTEMA";
-        pantalla.gotoxy (20,7); cout<<"--------------------------------";
-        pantalla.gotoxy (22,10); cout<<"INGRESE SU ID DE VENDEDOR: ";
+        pantalla.dimensiones (25,6); cout<<"INGRESO AL SISTEMA";
+        pantalla.dimensiones (20,7); cout<<"--------------------------------";
+        pantalla.dimensiones (22,10); cout<<"INGRESE SU ID DE VENDEDOR: ";
         cin>>idEmpleado;
 
         pos=0;
@@ -57,7 +57,7 @@ int Menu::menuIdVendedor(){
         while(empleadoAux.leerDeDisco(pos++)>0){ // Lee y aumenta la posición. Ingresa siempre que sea mayor a 0
             if(empleadoAux.getIdEmpleado()==idEmpleado&&empleadoAux.getEstado()==true){
                 posAux = pos-1; //  almacenar la posición del empleado encontrado antes de que pos sea incrementada nuevamente
-               pantalla.gotoxy (22,11); cout<<"- ("<<empleadoAux.getApellido()<<", "<<empleadoAux.getNombre()<<")"; // - PSW:"<<empleadoAux.getPassword();
+               pantalla.dimensiones (22,11); cout<<"- ("<<empleadoAux.getApellido()<<", "<<empleadoAux.getNombre()<<")"; // - PSW:"<<empleadoAux.getPassword();
             }
         }
 
@@ -66,8 +66,8 @@ int Menu::menuIdVendedor(){
             int IntentosClave = 3;
 
             for(int i = 0; i<3; i++){
-                pantalla.gotoxy (2,12); cout<<"                                     ";
-                pantalla.gotoxy (22,13); cout<< BLUE <<"INGRESE SU CLAVE: ";
+                pantalla.dimensiones (2,12); cout<<"                                     ";
+                pantalla.dimensiones (22,13); cout<< BLUE <<"INGRESE SU CLAVE: ";
                 cin>>password;
                 IntentosClave --;
                 //cout<<"psw ingresado: "<<password<<", psw encontrado: "<<empleadoAux.getPassword();
@@ -78,37 +78,37 @@ int Menu::menuIdVendedor(){
                     }
                 }
                 else{
-                    pantalla.gotoxy (26,16); cout<< RED <<" CLAVE INCORRECTA" << endl;
+                    pantalla.dimensiones (26,16); cout<< RED <<" CLAVE INCORRECTA" << endl;
                     if(IntentosClave == 0){
-                        pantalla.gotoxy (18,18);cout << " Ha alcanzado el limite de intentos " << endl;
+                        pantalla.dimensiones (18,18);cout << " Ha alcanzado el limite de intentos " << endl;
                         cout << BLUE;
-                        pantalla.gotoxy (1,23); system("pause");
+                        pantalla.dimensiones (1,23); system("pause");
                         FinalizarPrograma();
                     }
-                    pantalla.gotoxy (22,17); cout<< RED <<" - Le quedan " << IntentosClave << " intentos - " << endl;
+                    pantalla.dimensiones (22,17); cout<< RED <<" - Le quedan " << IntentosClave << " intentos - " << endl;
                     cout << BLUE;
-                    pantalla.gotoxy (1,23); system("pause");
-                    pantalla.gotoxy (26,16); cout << "                                       " << endl; // Limpia la menu en la parte posterior al ingreso de clave
-                    pantalla.gotoxy (22,17); cout << "                                       " << endl;
-                    pantalla.gotoxy (1,23);  cout << "                                       " <<endl;
-                    pantalla.gotoxy (40,13); cout << "                                       " <<endl;
+                    pantalla.dimensiones (1,23); system("pause");
+                    pantalla.dimensiones (26,16); cout << "                                       " << endl; // Limpia la menu en la parte posterior al ingreso de clave
+                    pantalla.dimensiones (22,17); cout << "                                       " << endl;
+                    pantalla.dimensiones (1,23);  cout << "                                       " <<endl;
+                    pantalla.dimensiones (40,13); cout << "                                       " <<endl;
 
                 }
 
             }
         }
         else{
-            pantalla.gotoxy (24,13); cout<< RED <<"USUARIO NO ENCONTRADO ";
+            pantalla.dimensiones (24,13); cout<< RED <<"USUARIO NO ENCONTRADO ";
             IntentosUsuario--;
             if(IntentosUsuario == 0){
-                pantalla.gotoxy (18,18);cout << " Ha alcanzado el limite de intentos " << endl;
+                pantalla.dimensiones (18,18);cout << " Ha alcanzado el limite de intentos " << endl;
                 cout << BLUE;
-                pantalla.gotoxy (1,23); system("pause");
+                pantalla.dimensiones (1,23); system("pause");
                 FinalizarPrograma();
             }
-            pantalla.gotoxy (22,17); cout<< RED <<" - Le quedan " << IntentosUsuario << " intentos - " << endl;
+            pantalla.dimensiones (22,17); cout<< RED <<" - Le quedan " << IntentosUsuario << " intentos - " << endl;
             cout << BLUE;
-            pantalla.gotoxy (1,23); system("pause");
+            pantalla.dimensiones (1,23); system("pause");
         }
 
 
@@ -123,17 +123,17 @@ int Menu::menuPrincipal(int idVendedor)
     {
         pantalla.estiloMenu();
 
-        pantalla.gotoxy (2,6); cout<<"MENU PRINCIPAL";
-        pantalla.gotoxy (2,7); cout<<"------------------";
-        pantalla.gotoxy (2,10); cout<<"INGRESE UNA OPCION: ";
+        pantalla.dimensiones (2,6); cout<<"MENU PRINCIPAL";
+        pantalla.dimensiones (2,7); cout<<"------------------";
+        pantalla.dimensiones (2,10); cout<<"INGRESE UNA OPCION: ";
 
-        pantalla.gotoxy (2,13); cout<<"1 - MENU VENTA ";
-        pantalla.gotoxy (2,14); cout<<"2 - MENU CONSULTA ";
-        pantalla.gotoxy (2,15); cout<<"3 - MENU AJUSTES ";
-        pantalla.gotoxy (2,16); cout<<"4 - CERRAR SESION DE USUARIO ";
-        pantalla.gotoxy (2,17); cout<<"0 - SALIR DEL PROGRAMA ";
+        pantalla.dimensiones (2,13); cout<<"1 - MENU VENTA ";
+        pantalla.dimensiones (2,14); cout<<"2 - MENU CONSULTA ";
+        pantalla.dimensiones (2,15); cout<<"3 - MENU AJUSTES ";
+        pantalla.dimensiones (2,16); cout<<"4 - CERRAR SESION DE USUARIO ";
+        pantalla.dimensiones (2,17); cout<<"0 - SALIR DEL PROGRAMA ";
 
-        pantalla.gotoxy (2,19); cout<<"->: ";
+        pantalla.dimensiones (2,19); cout<<"->: ";
         cin>>_opcion;
 
         switch (_opcion)
@@ -172,17 +172,17 @@ int Menu::menuVenta(int idVendedor)
     do{
         pantalla.estiloMenu();
 
-        pantalla.gotoxy (2,6); cout<<"MENU VENTA";
-        pantalla.gotoxy (2,7); cout<<"------------------";
-        pantalla.gotoxy (2,10); cout<<"INGRESE UNA OPCION: ";
+        pantalla.dimensiones (2,6); cout<<"MENU VENTA";
+        pantalla.dimensiones (2,7); cout<<"------------------";
+        pantalla.dimensiones (2,10); cout<<"INGRESE UNA OPCION: ";
 
-        pantalla.gotoxy (2,13); cout<<"1 - ATENDER CLIENTE: ";
-        pantalla.gotoxy (2,14); cout<<"2 - CONSUMO DE MESA: ";
-        pantalla.gotoxy (2,15); cout<<"3 - CERRAR MESA: ";
-        pantalla.gotoxy (2,16); cout<<"4 - VOLVER AL MENU PRINCIPAL: ";
-        pantalla.gotoxy (2,17); cout<<"0 - SALIR DEL PROGRAMA: ";
+        pantalla.dimensiones (2,13); cout<<"1 - ATENDER CLIENTE: ";
+        pantalla.dimensiones (2,14); cout<<"2 - CONSUMO DE MESA: ";
+        pantalla.dimensiones (2,15); cout<<"3 - CERRAR MESA: ";
+        pantalla.dimensiones (2,16); cout<<"4 - VOLVER AL MENU PRINCIPAL: ";
+        pantalla.dimensiones (2,17); cout<<"0 - SALIR DEL PROGRAMA: ";
 
-        pantalla.gotoxy (2,19); cout<<"->: ";
+        pantalla.dimensiones (2,19); cout<<"->: ";
         cin>>_opcion;
 
         switch (_opcion)
@@ -221,16 +221,16 @@ int Menu::menuConsulta(int idVendedor)
     do{
         pantalla.estiloMenu();
 
-        pantalla.gotoxy (2,6); cout<<"MENU CONSULTA";
-        pantalla.gotoxy (2,7); cout<<"------------------";
-        pantalla.gotoxy (2,10); cout<<"INGRESE UNA OPCION: ";
+        pantalla.dimensiones (2,6); cout<<"MENU CONSULTA";
+        pantalla.dimensiones (2,7); cout<<"------------------";
+        pantalla.dimensiones (2,10); cout<<"INGRESE UNA OPCION: ";
 
-        pantalla.gotoxy (2,13); cout<<"1 - LISTADOS: ";
-        pantalla.gotoxy (2,14); cout<<"2 - CONSULTA DE VENTAS: ";
-        pantalla.gotoxy (2,15); cout<<"3 - VOLVER AL MENU PRINCIPAL: ";
-        pantalla.gotoxy (2,16); cout<<"0 - SALIR DEL PROGRAMA: ";
+        pantalla.dimensiones (2,13); cout<<"1 - LISTADOS: ";
+        pantalla.dimensiones (2,14); cout<<"2 - CONSULTA DE VENTAS: ";
+        pantalla.dimensiones (2,15); cout<<"3 - VOLVER AL MENU PRINCIPAL: ";
+        pantalla.dimensiones (2,16); cout<<"0 - SALIR DEL PROGRAMA: ";
 
-        pantalla.gotoxy (2,19);
+        pantalla.dimensiones (2,19);
         cout<<"->: ";
         cin>>_opcion;
         switch (_opcion)
@@ -268,16 +268,16 @@ int Menu::menuListados(int idVendedor)
 
         pantalla.estiloMenu();
 
-        pantalla.gotoxy (2,6); cout << "MENU LISTADOS";
-        pantalla.gotoxy (2,7); cout << "------------------";
-        pantalla.gotoxy (2,10); cout << "INGRESE UNA OPCION: ";
+        pantalla.dimensiones (2,6); cout << "MENU LISTADOS";
+        pantalla.dimensiones (2,7); cout << "------------------";
+        pantalla.dimensiones (2,10); cout << "INGRESE UNA OPCION: ";
 
-        pantalla.gotoxy (2,13); cout << "1 - PRODUCTOS ";
-        pantalla.gotoxy (2,14); cout << "2 - EMPLEADOS ";
-        pantalla.gotoxy (2,15); cout << "3 - VOLVER AL MENU PRINCIPAL ";
-        pantalla.gotoxy (2,16); cout << "0 - SALIR DEL PROGRAMA ";
+        pantalla.dimensiones (2,13); cout << "1 - PRODUCTOS ";
+        pantalla.dimensiones (2,14); cout << "2 - EMPLEADOS ";
+        pantalla.dimensiones (2,15); cout << "3 - VOLVER AL MENU PRINCIPAL ";
+        pantalla.dimensiones (2,16); cout << "0 - SALIR DEL PROGRAMA ";
 
-        pantalla.gotoxy (2,19); cout << "->: ";
+        pantalla.dimensiones (2,19); cout << "->: ";
         cin >> _opcion;
 
         switch (_opcion)
@@ -312,9 +312,9 @@ void Menu::vistaListadoProductos(int idVendedor) {
 
     pantalla.estiloMenu();
 
-    pantalla.gotoxy(2, 6);
+    pantalla.dimensiones(2, 6);
     cout << "LISTA DE PRODUCTOS:";
-    pantalla.gotoxy(2, 7);
+    pantalla.dimensiones(2, 7);
     cout << "--------------------";
 
     renglon = 8;
@@ -346,11 +346,11 @@ void Menu::vistaListadoProductos(int idVendedor) {
 
                 if (productoAux.getIdProducto() == VecIdProductos[x] && productoAux.getEstado() == true) {
 
-                    pantalla.gotoxy(5, renglon);
+                    pantalla.dimensiones(5, renglon);
                     cout << productoAux.getIdProducto();
-                    pantalla.gotoxy(14, renglon);
+                    pantalla.dimensiones(14, renglon);
                     cout << productoAux.getNombreProducto();
-                    pantalla.gotoxy(60, renglon);
+                    pantalla.dimensiones(60, renglon);
                     cout << "$" << productoAux.getPrecioProducto();
                     renglon++;
                 }
@@ -363,7 +363,7 @@ void Menu::vistaListadoProductos(int idVendedor) {
 
     delete[] VecIdProductos;
 
-    pantalla.gotoxy(2, 20);
+    pantalla.dimensiones(2, 20);
     cout << system("pause");
 }
 
@@ -376,8 +376,8 @@ void Menu::vistaListadoEmpleados(int idVendedor)
 
     pantalla.estiloMenu();
 
-    pantalla.gotoxy (2,6); cout<<"LISTA DE EMPLEADOS:";
-    pantalla.gotoxy (2,7); cout<<"--------------------";
+    pantalla.dimensiones (2,6); cout<<"LISTA DE EMPLEADOS:";
+    pantalla.dimensiones (2,7); cout<<"--------------------";
 
     renglon = 8;
     maximo=0;
@@ -408,9 +408,9 @@ void Menu::vistaListadoEmpleados(int idVendedor)
 
                 if (empleadoAux.getIdEmpleado() == VecIdEmpleados[x] && empleadoAux.getEstado() == true) {
 
-                    pantalla.gotoxy (5,renglon); cout<<empleadoAux.getIdEmpleado();
-                    pantalla.gotoxy (14,renglon); cout<<empleadoAux.getApellido()<<", "<<empleadoAux.getNombre();
-                    pantalla.gotoxy (45,renglon); cout<<empleadoAux.getPassword();
+                    pantalla.dimensiones (5,renglon); cout<<empleadoAux.getIdEmpleado();
+                    pantalla.dimensiones (14,renglon); cout<<empleadoAux.getApellido()<<", "<<empleadoAux.getNombre();
+                    pantalla.dimensiones (45,renglon); cout<<empleadoAux.getPassword();
                     renglon++;
                 }
             }
@@ -422,7 +422,7 @@ void Menu::vistaListadoEmpleados(int idVendedor)
 
     delete[] VecIdEmpleados;
 
-    pantalla.gotoxy (2,20); cout<< system("pause");
+    pantalla.dimensiones (2,20); cout<< system("pause");
 
 }
 
@@ -432,17 +432,17 @@ int Menu::menuConsultasDeVentas(int idVendedor)
     do{
         pantalla.estiloMenu();
 
-        pantalla.gotoxy (2,6); cout<<"MENU CONSULTA DE VENTAS";
-        pantalla.gotoxy (2,7); cout<<"------------------";
-        pantalla.gotoxy (2,10); cout<<"INGRESE UNA OPCION: ";
+        pantalla.dimensiones (2,6); cout<<"MENU CONSULTA DE VENTAS";
+        pantalla.dimensiones (2,7); cout<<"------------------";
+        pantalla.dimensiones (2,10); cout<<"INGRESE UNA OPCION: ";
 
-        pantalla.gotoxy (2,13); cout<<"1 - VENTAS TOTALES POR MES ";
-        pantalla.gotoxy (2,14); cout<<"2 - VENTAS POR EMPLEADO ";
-        pantalla.gotoxy (2,15); cout<<"3 - VENTAS POR PRODUCTO ";
-        pantalla.gotoxy (2,16); cout<<"4 - VOLVER AL MENU ANTERIOR ";
-        pantalla.gotoxy (2,17); cout<<"0 - SALIR DEL PROGRAMA ";
+        pantalla.dimensiones (2,13); cout<<"1 - VENTAS TOTALES POR MES ";
+        pantalla.dimensiones (2,14); cout<<"2 - VENTAS POR EMPLEADO ";
+        pantalla.dimensiones (2,15); cout<<"3 - VENTAS POR PRODUCTO ";
+        pantalla.dimensiones (2,16); cout<<"4 - VOLVER AL MENU ANTERIOR ";
+        pantalla.dimensiones (2,17); cout<<"0 - SALIR DEL PROGRAMA ";
 
-        pantalla.gotoxy (2,19); cout<<"->: ";
+        pantalla.dimensiones (2,19); cout<<"->: ";
         cin>>_opcion;
         switch (_opcion)
         {
@@ -479,36 +479,36 @@ void Menu::vistaVentasPorMes(int idVendedor)
 
     pantalla.estiloMenu();
 
-    pantalla.gotoxy (2,4); cout<<"VENTAS POR MES:";
-    pantalla.gotoxy (2,5); cout<<"--------------------";
+    pantalla.dimensiones (2,4); cout<<"VENTAS POR MES:";
+    pantalla.dimensiones (2,5); cout<<"--------------------";
 
     int cantidad = ventaAux.cantidadVentas();
 
     for(int anio=2020; anio<2026; anio++){
-        pantalla.gotoxy ((anio-2017)*9-8,7); cout<<anio;
+        pantalla.dimensiones ((anio-2017)*9-8,7); cout<<anio;
         for(int mes=1; mes<13; mes++){
-            pantalla.gotoxy (2,mes+7); cout<<"MES "<<mes;
+            pantalla.dimensiones (2,mes+7); cout<<"MES "<<mes;
 
             for(int indice=0; indice<cantidad; indice++){
                 ventaAux.leerDeDisco(indice);
                 if(ventaAux.getFecha().getAnio()==anio){
                     if(ventaAux.getFecha().getMes()==mes){
                         consumoTotal += ventaAux.getConsumoTotal();
-                        pantalla.gotoxy ((anio-2017)*9-10,mes+7); cout<<consumoTotal<<"|";
+                        pantalla.dimensiones ((anio-2017)*9-10,mes+7); cout<<consumoTotal<<"|";
                     }
                     else{
-                        pantalla.gotoxy ((anio-2017)*9-8,mes+7); cout<<" - - |";
+                        pantalla.dimensiones ((anio-2017)*9-8,mes+7); cout<<" - - |";
                     }
                 }
                 else{
-                    pantalla.gotoxy ((anio-2017)*9-8,mes+7); cout<<" - - |";
+                    pantalla.dimensiones ((anio-2017)*9-8,mes+7); cout<<" - - |";
                 }
             }
         }
     }
 
 
-    pantalla.gotoxy (2,22); cout<< system ("pause");
+    pantalla.dimensiones (2,22); cout<< system ("pause");
 
 }
 
@@ -522,8 +522,8 @@ void Menu::vistaVentasPorEmpleado(int idVendedor)
 
     pantalla.estiloMenu();
 
-    pantalla.gotoxy (2,4); cout<<"VENTAS POR EMPLEADO:";
-    pantalla.gotoxy (2,5); cout<<"--------------------";
+    pantalla.dimensiones (2,4); cout<<"VENTAS POR EMPLEADO:";
+    pantalla.dimensiones (2,5); cout<<"--------------------";
 
     for(int id=0; id<10; id++){
 
@@ -531,20 +531,20 @@ void Menu::vistaVentasPorEmpleado(int idVendedor)
         pos1=0;
         while(empleadoAux.leerDeDisco(pos1++)>0){
             if(empleadoAux.getIdEmpleado()==id&&empleadoAux.getEstado()==true){
-                pantalla.gotoxy(2,renglon); cout<<empleadoAux.getNombre()<<" "<<empleadoAux.getApellido();
+                pantalla.dimensiones(2,renglon); cout<<empleadoAux.getNombre()<<" "<<empleadoAux.getApellido();
                 pos2=0;
                 while(ventaAux.leerDeDisco(pos2++)>0){
                     if(ventaAux.getIdVendedor()==id){
                         consumoTotal+=ventaAux.getConsumoTotal();
                     }
                 }
-                pantalla.gotoxy(25,renglon); cout<<"$ "<<consumoTotal;
+                pantalla.dimensiones(25,renglon); cout<<"$ "<<consumoTotal;
                 renglon++;
             }
         }
     }
 
-    pantalla.gotoxy (2,15); cout << system("pause");
+    pantalla.dimensiones (2,15); cout << system("pause");
 
 }
 
@@ -558,8 +558,8 @@ void Menu::vistaVentasPorProducto(int idVendedor)
 
     pantalla.estiloMenu();
 
-    pantalla.gotoxy (2,4); cout<<"VENTAS POR PRODUCTO:";
-    pantalla.gotoxy (2,5); cout<<"--------------------";
+    pantalla.dimensiones (2,4); cout<<"VENTAS POR PRODUCTO:";
+    pantalla.dimensiones (2,5); cout<<"--------------------";
 
     pos1=0;
     while(productoAux.leerDeDisco(pos1++)>0){
@@ -567,19 +567,19 @@ void Menu::vistaVentasPorProducto(int idVendedor)
         id = productoAux.getIdProducto();
 
         if (productoAux.getEstado()==true){
-            pantalla.gotoxy(2,renglon); cout<<productoAux.getNombreProducto();
+            pantalla.dimensiones(2,renglon); cout<<productoAux.getNombreProducto();
             pos2=0;
             while(transaccionAux.leerDeDisco(pos2++)>0){
                 if(transaccionAux.getIdProducto()==id){
                     consumoTotal+=(transaccionAux.getPrecio()*transaccionAux.getCantidad());
                 }
             }
-            pantalla.gotoxy(35,renglon); cout<<"$ "<<consumoTotal;
+            pantalla.dimensiones(35,renglon); cout<<"$ "<<consumoTotal;
             renglon++;
         }
     }
 
-    pantalla.gotoxy (2,22); cout << system("pause");
+    pantalla.dimensiones (2,22); cout << system("pause");
 }
 
 int Menu::menuAjuste(int idVendedor)
@@ -592,74 +592,74 @@ int Menu::menuAjuste(int idVendedor)
 
         pantalla.estiloMenu();
 
-        pantalla.gotoxy (2,6); cout<<"MENU AJUSTE";
-        pantalla.gotoxy (2,7); cout<<"------------------";
-        pantalla.gotoxy (2,9); cout<<"INGRESE UNA OPCION: ";
+        pantalla.dimensiones (2,6); cout<<"MENU AJUSTE";
+        pantalla.dimensiones (2,7); cout<<"------------------";
+        pantalla.dimensiones (2,9); cout<<"INGRESE UNA OPCION: ";
 
-        pantalla.gotoxy (2,11); cout<<"1 - CARGAR PRODUCTO ";
-        pantalla.gotoxy (2,12); cout<<"2 - MODIFICAR PRODUCTO ";
-        pantalla.gotoxy (2,13); cout<<"3 - DAR DE BAJA PRODUCTO ";
-        pantalla.gotoxy (2,14); cout<<"4 - CARGAR EMPLEADO ";
-        pantalla.gotoxy (2,15); cout<<"5 - MODIFICAR EMPLEADO ";
-        pantalla.gotoxy (2,16); cout<<"6 - DAR DE BAJA EMPLEADO ";
-        pantalla.gotoxy (2,17); cout<<"7 - VOLVER AL MENU PRINCIPAL ";
-        pantalla.gotoxy (2,18); cout<<"0 - SALIR DEL PROGRAMA ";
+        pantalla.dimensiones (2,11); cout<<"1 - CARGAR PRODUCTO ";
+        pantalla.dimensiones (2,12); cout<<"2 - MODIFICAR PRODUCTO ";
+        pantalla.dimensiones (2,13); cout<<"3 - DAR DE BAJA PRODUCTO ";
+        pantalla.dimensiones (2,14); cout<<"4 - CARGAR EMPLEADO ";
+        pantalla.dimensiones (2,15); cout<<"5 - MODIFICAR EMPLEADO ";
+        pantalla.dimensiones (2,16); cout<<"6 - DAR DE BAJA EMPLEADO ";
+        pantalla.dimensiones (2,17); cout<<"7 - VOLVER AL MENU PRINCIPAL ";
+        pantalla.dimensiones (2,18); cout<<"0 - SALIR DEL PROGRAMA ";
 
-        pantalla.gotoxy (2,20); cout<<"->: ";
+        pantalla.dimensiones (2,20); cout<<"->: ";
         cin>>opcion;
 
         switch (opcion)
         {
         case 1:
             pantalla.estiloMenu();
-            pantalla.gotoxy (2,6); cout<<"MENU AJUSTE - CARGAR PRODUCTO";
-            pantalla.gotoxy (2,7); cout<<"------------------";
-            pantalla.gotoxy (2,9);
+            pantalla.dimensiones (2,6); cout<<"MENU AJUSTE - CARGAR PRODUCTO";
+            pantalla.dimensiones (2,7); cout<<"------------------";
+            pantalla.dimensiones (2,9);
             productoAux.cargar();
-            pantalla.gotoxy (2,15);
+            pantalla.dimensiones (2,15);
             productoAux.grabarEnDisco(productoAux);
-            pantalla.gotoxy (2,16);
+            pantalla.dimensiones (2,16);
             system("pause");
             menuAjuste(idVendedor);
             break;
         case 2:
             pantalla.estiloMenu();
-            pantalla.gotoxy (2,6); cout<<"MENU AJUSTE - MODIFICAR PRODUCTO";
-            pantalla.gotoxy (2,7); cout<<"------------------";
-            pantalla.gotoxy (2,12);
+            pantalla.dimensiones (2,6); cout<<"MENU AJUSTE - MODIFICAR PRODUCTO";
+            pantalla.dimensiones (2,7); cout<<"------------------";
+            pantalla.dimensiones (2,12);
             productoAux.modificarRegistro();
             menuAjuste(idVendedor);
             break;
 
         case 3:
             pantalla.estiloMenu();
-            pantalla.gotoxy (2,6); cout<<"MENU AJUSTE - ELIMINAR PRODUCTO";
-            pantalla.gotoxy (2,7); cout<<"------------------";
-            pantalla.gotoxy (2,12);
+            pantalla.dimensiones (2,6); cout<<"MENU AJUSTE - ELIMINAR PRODUCTO";
+            pantalla.dimensiones (2,7); cout<<"------------------";
+            pantalla.dimensiones (2,12);
             productoAux.bajaProducto();
             menuAjuste(idVendedor);
             break;
         case 4:
             pantalla.estiloMenu();
-            pantalla.gotoxy (2,6); cout<<"MENU AJUSTE - CARGAR EMPLEADO";
-            pantalla.gotoxy (2,7); cout<<"------------------";
-            pantalla.gotoxy (2,12);
+            pantalla.dimensiones (2,6); cout<<"MENU AJUSTE - CARGAR EMPLEADO";
+            pantalla.dimensiones (2,7); cout<<"------------------";
+            pantalla.dimensiones (2,12);
             empleadoAux.cargarEmpleado();
             empleadoAux.grabarEnDisco();
             menuAjuste(idVendedor);
             break;
         case 5:
             pantalla.estiloMenu();
-            pantalla.gotoxy (2,6); cout<<"MENU AJUSTE - MODIFICAR EMPLEADO";
-            pantalla.gotoxy (2,7); cout<<"------------------";
-            pantalla.gotoxy (2,8);
+            pantalla.dimensiones (2,6); cout<<"MENU AJUSTE - MODIFICAR EMPLEADO";
+            pantalla.dimensiones (2,7); cout<<"------------------";
+            pantalla.dimensiones (2,8);
             empleadoAux.modificarRegistro();
             menuAjuste(idVendedor);
             break;
         case 6:
             pantalla.estiloMenu();
-            pantalla.gotoxy (2,5); cout<<"MENU AJUSTE - BAJA DE EMPLEADO";
-            pantalla.gotoxy (2,6); cout<<"------------------";
+            pantalla.dimensiones (2,5); cout<<"MENU AJUSTE - BAJA DE EMPLEADO";
+            pantalla.dimensiones (2,6); cout<<"------------------";
             empleadoAux.bajaEmpleado();
             menuAjuste(idVendedor);
             break;
@@ -694,48 +694,48 @@ int Menu::menuPedido(int idVendedor)
         system("COLOR 71"); //SE DA UN COLOR DE FONDO Y COLOR A LAS LETRAS
         pantalla.dibujarCuadro(0,0,98,25); //SE DIBUJA EL CUADRO PRINCIPAL
         pantalla.dibujarCuadro(1,1,97,3); //SE DIBUJA EL CUADRO DEL TITULO
-        pantalla.gotoxy(39,2); cout<<"DELTAPOINT RESTO";
+        pantalla.dimensiones(39,2); cout<<"DELTAPOINT RESTO";
 
         pantalla.dibujarCuadroDoble(2,4,96,6,23);
 
         pantalla.dibujarCuadroDoble(2,4,96,6,23);
-        pantalla.gotoxy (4,5); cout<<"MESA: ";
+        pantalla.dimensiones (4,5); cout<<"MESA: ";
         cin>> mesaAux;
         venta.setMesa(mesaAux);
         venta.setVendedor(idVendedor);
 
-        pantalla.gotoxy (3,renglon-1); cout<<"CODIGO";
-        pantalla.gotoxy (18,renglon-1);cout<<"NOMBRE PRODUCTO";
-        pantalla.gotoxy (50,renglon-1);cout<<"CANTIDAD";
-        pantalla.gotoxy (66,renglon-1);cout<<"PRECIO";
-        pantalla.gotoxy (82,renglon-1);cout<<"SUBTOTAL";
-        pantalla.gotoxy (3,24); cout<<"0 - FIN DE CARGA DE PRODUCTOS";
+        pantalla.dimensiones (3,renglon-1); cout<<"CODIGO";
+        pantalla.dimensiones (18,renglon-1);cout<<"NOMBRE PRODUCTO";
+        pantalla.dimensiones (50,renglon-1);cout<<"CANTIDAD";
+        pantalla.dimensiones (66,renglon-1);cout<<"PRECIO";
+        pantalla.dimensiones (82,renglon-1);cout<<"SUBTOTAL";
+        pantalla.dimensiones (3,24); cout<<"0 - FIN DE CARGA DE PRODUCTOS";
 
-        pantalla.gotoxy (3,renglon);
+        pantalla.dimensiones (3,renglon);
         cin>>codigoProducto;
-        pantalla.gotoxy (80,22); cout<<"TOTAL: ";
+        pantalla.dimensiones (80,22); cout<<"TOTAL: ";
 
         while(codigoProducto>0)
         {
             producto = buscarPorCodigo(codigoProducto);
-            pantalla.gotoxy (15,renglon); cout<<producto.getNombreProducto();
+            pantalla.dimensiones (15,renglon); cout<<producto.getNombreProducto();
             if(producto.getIdProducto()!=-1)
             {
-                pantalla.gotoxy (54,renglon);
+                pantalla.dimensiones (54,renglon);
                 cin>>cantidadProducto;
 
-                pantalla.gotoxy (66,renglon); cout<<"$"<<producto.getPrecioProducto();
+                pantalla.dimensiones (66,renglon); cout<<"$"<<producto.getPrecioProducto();
                 subtotal = cantidadProducto * producto.getPrecioProducto();
-                pantalla.gotoxy (82,renglon); cout<<"$"<<subtotal;
+                pantalla.dimensiones (82,renglon); cout<<"$"<<subtotal;
 
                 if(venta.agregarProductoALaVenta(codigoProducto,cantidadProducto) != -1){//GRABAMOS EN ARCHIVO TRANSACCIÓN
-                    pantalla.gotoxy (87,22); cout<<"$"<<venta.getConsumoTotal(); //EN EL MÉTODO ANTERIOR SE SUMÓ EL IMPORTE
+                    pantalla.dimensiones (87,22); cout<<"$"<<venta.getConsumoTotal(); //EN EL MÉTODO ANTERIOR SE SUMÓ EL IMPORTE
 
                     renglon++;
                 }
                 else{
                     cout << RED;
-                    pantalla.gotoxy (3,renglon+1);cout << "No se pudo cargar la venta. " ;
+                    pantalla.dimensiones (3,renglon+1);cout << "No se pudo cargar la venta. " ;
                     cout << BLUE;
                     renglon++;
                     renglon++;
@@ -746,23 +746,23 @@ int Menu::menuPedido(int idVendedor)
                 renglon++; // SI no encontró el producto se baja un renglon y pida un nuevo codigo de prod
             }
 
-            pantalla.gotoxy (3,renglon);
+            pantalla.dimensiones (3,renglon);
             cin>>codigoProducto;
         }
-        pantalla.gotoxy (4,renglon+1); cout<<" - - - FIN DE CARGA DE PRODUCTOS - - - ";
+        pantalla.dimensiones (4,renglon+1); cout<<" - - - FIN DE CARGA DE PRODUCTOS - - - ";
 
         do{
-            pantalla.gotoxy (3,24) ;  cout <<"1 - CONFIRMAR                ";
-            pantalla.gotoxy (25,24);  cout <<"2 - SALIR / MENU PRINCIPAL";
-            pantalla.gotoxy (4,22) ;  cout <<"INGRESE UNA OPCION: ";
+            pantalla.dimensiones (3,24) ;  cout <<"1 - CONFIRMAR                ";
+            pantalla.dimensiones (25,24);  cout <<"2 - SALIR / MENU PRINCIPAL";
+            pantalla.dimensiones (4,22) ;  cout <<"INGRESE UNA OPCION: ";
             cin>>opcion;
             switch (opcion)
             {
             case 1:
                 venta.grabarEnDisco(); ////GRABAMOS EN ARCHIVO VENTA
-                pantalla.gotoxy (4,22); cout<<"VENTA REGISTRADA                        ";
-                pantalla.gotoxy (35,24); cout << "                                                      " << endl;
-                pantalla.gotoxy (3,24); system("pause");
+                pantalla.dimensiones (4,22); cout<<"VENTA REGISTRADA                        ";
+                pantalla.dimensiones (35,24); cout << "                                                      " << endl;
+                pantalla.dimensiones (3,24); system("pause");
                 menuVenta(idVendedor);
                 break;
 
@@ -772,13 +772,13 @@ int Menu::menuPedido(int idVendedor)
 
             default:
                 cout << RED;
-                pantalla.gotoxy (4,22);  cout << "Opcion Incorrecta                                      " << endl;
+                pantalla.dimensiones (4,22);  cout << "Opcion Incorrecta                                      " << endl;
                 cout << BLUE;
-                pantalla.gotoxy (35,24); cout << "                                                      " << endl;
-                pantalla.gotoxy (3,24);  system("pause");
-                pantalla.gotoxy (4,22);  cout << "                                                     " << endl;
-                pantalla.gotoxy (25,24); cout << "                                                     " << endl;
-                pantalla.gotoxy (4,22);  cout  <<"INGRESE UNA OPCION: ";
+                pantalla.dimensiones (35,24); cout << "                                                      " << endl;
+                pantalla.dimensiones (3,24);  system("pause");
+                pantalla.dimensiones (4,22);  cout << "                                                     " << endl;
+                pantalla.dimensiones (25,24); cout << "                                                     " << endl;
+                pantalla.dimensiones (4,22);  cout  <<"INGRESE UNA OPCION: ";
                 break;
             }
 
@@ -807,19 +807,19 @@ void Menu::menuConsumoMesa(int idVendedor)
     system("COLOR 71"); //SE DA UN COLOR DE FONDO Y COLOR A LAS LETRAS
     pantalla.dibujarCuadro(0,0,98,25); //SE DIBUJA EL CUADRO PRINCIPAL
     pantalla.dibujarCuadro(1,1,97,3); //SE DIBUJA EL CUADRO DEL TITULO
-    pantalla.gotoxy(39,2); cout<<"DELTAPOINT RESTO";
+    pantalla.dimensiones(39,2); cout<<"DELTAPOINT RESTO";
 
     pantalla.dibujarCuadroDoble(2,4,96,6,23);
 
-    pantalla.gotoxy (4,5); cout<<"MESA: ";
+    pantalla.dimensiones (4,5); cout<<"MESA: ";
     cin>> mesaAux;
 
-    pantalla.gotoxy (3,renglon-1);  cout<<"CODIGO";
-    pantalla.gotoxy (18,renglon-1); cout<<"NOMBRE PRODUCTO";
-    pantalla.gotoxy (50,renglon-1); cout<<"CANTIDAD";
-    pantalla.gotoxy (66,renglon-1); cout<<"PRECIO";
-    pantalla.gotoxy (82,renglon-1); cout<<"SUBTOTAL";
-    pantalla.gotoxy (80,22);        cout<<"TOTAL: ";
+    pantalla.dimensiones (3,renglon-1);  cout<<"CODIGO";
+    pantalla.dimensiones (18,renglon-1); cout<<"NOMBRE PRODUCTO";
+    pantalla.dimensiones (50,renglon-1); cout<<"CANTIDAD";
+    pantalla.dimensiones (66,renglon-1); cout<<"PRECIO";
+    pantalla.dimensiones (82,renglon-1); cout<<"SUBTOTAL";
+    pantalla.dimensiones (80,22);        cout<<"TOTAL: ";
 
     while(venta.leerDeDisco(pos1++)>0) //RECORRE ARCHIVO VENTAS
     {
@@ -831,16 +831,16 @@ void Menu::menuConsumoMesa(int idVendedor)
             {
                 if(transaccion.getIdMesa() == venta.getIdMesa()&&transaccion.getEstado()==2) //FILTRA SI COINCIDE VENTA Y TRANSACCIÓN EN EL ID MESA
                 {
-                    pantalla.gotoxy (4,renglon); cout<<transaccion.getIdProducto();
+                    pantalla.dimensiones (4,renglon); cout<<transaccion.getIdProducto();
                     producto = buscarPorCodigo(transaccion.getIdProducto());
-                    pantalla.gotoxy (19,renglon); cout<<producto.getNombreProducto();
-                    pantalla.gotoxy (54,renglon); cout<<transaccion.getCantidad();
-                    pantalla.gotoxy (66,renglon); cout<<"$"<<transaccion.getPrecio();
+                    pantalla.dimensiones (19,renglon); cout<<producto.getNombreProducto();
+                    pantalla.dimensiones (54,renglon); cout<<transaccion.getCantidad();
+                    pantalla.dimensiones (66,renglon); cout<<"$"<<transaccion.getPrecio();
                     subtotal = transaccion.getCantidad() * transaccion.getPrecio();
-                    pantalla.gotoxy (82,renglon); cout<<"$"<<subtotal;
+                    pantalla.dimensiones (82,renglon); cout<<"$"<<subtotal;
                     total+= subtotal;
                     venta.setConsumoTotal(total);
-                    pantalla.gotoxy (87,22);  cout<<"$"<<total;
+                    pantalla.dimensiones (87,22);  cout<<"$"<<total;
 
                     renglon++;
                 }
@@ -848,7 +848,7 @@ void Menu::menuConsumoMesa(int idVendedor)
         }
     }
 
-    pantalla.gotoxy (3,24); system ("pause") ;
+    pantalla.dimensiones (3,24); system ("pause") ;
 
 }
 
@@ -866,11 +866,11 @@ void Menu::cerrarMesa(){
     system("COLOR 71"); //SE DA UN COLOR DE FONDO Y COLOR A LAS LETRAS
     pantalla.dibujarCuadro(0,0,98,25); //SE DIBUJA EL CUADRO PRINCIPAL
     pantalla.dibujarCuadro(1,1,97,3); //SE DIBUJA EL CUADRO DEL TITULO
-    pantalla.gotoxy(39,2); cout<<"DELTAPOINT RESTO";
+    pantalla.dimensiones(39,2); cout<<"DELTAPOINT RESTO";
 
     pantalla.dibujarCuadroDoble(2,4,96,6,23);
 
-    pantalla.gotoxy (4,5); cout<<"MESA: ";
+    pantalla.dimensiones (4,5); cout<<"MESA: ";
     cin>> mesaAux;
 
 
@@ -886,9 +886,9 @@ void Menu::cerrarMesa(){
         posicion++;
     }
 
-    pantalla.gotoxy (4,8);
+    pantalla.dimensiones (4,8);
     cout<<"MESA CERRADA."<<endl;
 
-    pantalla.gotoxy (80,22); cout<<"TOTAL: "<<total;
-    pantalla.gotoxy (2,24); cout<< system("pause") ;
+    pantalla.dimensiones (80,22); cout<<"TOTAL: "<<total;
+    pantalla.dimensiones (2,24); cout<< system("pause") ;
 }

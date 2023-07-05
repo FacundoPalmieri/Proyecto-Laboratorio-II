@@ -4,8 +4,8 @@
 #define YSCREEN 24
 using namespace std;
 
-//FUNCION pantalla.gotoxy
-void Pantalla::gotoxy(int x,int y)
+//FUNCION pantalla.dimensiones
+void Pantalla::dimensiones(int x,int y)
 {
     HANDLE hcon; //controlador (handle) de la salida estándar de la consola
     hcon = GetStdHandle(STD_OUTPUT_HANDLE); //utiliza la función GetStdHandle para obtener el controlador (handle) de la salida estándar de la consola, devolviendo el controlador de la consola que se utiliza para la salida estándar.
@@ -22,27 +22,27 @@ void Pantalla::dibujarCuadro(int x1,int y1,int x2,int y2)
 
     for (i=x1; i<x2; i++)
     {
-        gotoxy(i,y1);
+        dimensiones(i,y1);
         printf("\304"); //linea horizontal superior
-        gotoxy(i,y2);
+        dimensiones(i,y2);
         printf("\304"); //linea horizontal inferior
     }
 
     for (i=y1; i<y2; i++)
     {
-        gotoxy(x1,i);
+        dimensiones(x1,i);
         printf("\263"); //linea vertical izquierda
-        gotoxy(x2,i);
+        dimensiones(x2,i);
         printf("\263"); //linea vertical derecha
     }
 
-    gotoxy(x1,y1);
+    dimensiones(x1,y1);
     printf("\332");
-    gotoxy(x1,y2);
+    dimensiones(x1,y2);
     printf("\300");
-    gotoxy(x2,y1);
+    dimensiones(x2,y1);
     printf("\277");
-    gotoxy(x2,y2);
+    dimensiones(x2,y2);
     printf("\331");
 }
 
@@ -52,30 +52,30 @@ void Pantalla::dibujarCuadroDoble(int x1,int y1,int x2,int y2, int y3){
 
     for (i=x1; i<x2; i++)
     {
-        gotoxy(i,y1);
+        dimensiones(i,y1);
         printf("\304"); //linea horizontal superior
-        gotoxy(i,y2);
+        dimensiones(i,y2);
         printf("\304"); //linea horizontal intermedia
-        gotoxy(i,y3);
+        dimensiones(i,y3);
         printf("\304"); //linea horizontal inferior
 
     }
 
     for (i=y1; i<y3; i++)
     {
-        gotoxy(x1,i);
+        dimensiones(x1,i);
         printf("\263"); //linea vertical izquierda
-        gotoxy(x2,i);
+        dimensiones(x2,i);
         printf("\263"); //linea vertical derecha
     }
 
-    gotoxy(x1,y1);
+    dimensiones(x1,y1);
     printf("\332");
-    gotoxy(x1,y3);
+    dimensiones(x1,y3);
     printf("\300");
-    gotoxy(x2,y1);
+    dimensiones(x2,y1);
     printf("\277");
-    gotoxy(x2,y3);
+    dimensiones(x2,y3);
     printf("\331");
 }
 
@@ -85,6 +85,6 @@ void Pantalla::estiloMenu(){
     system("COLOR 71"); //SE DA UN COLOR DE FONDO Y COLOR A LAS LETRAS
     dibujarCuadro(0,0,XSCREEN,YSCREEN); //SE DIBUJA EL CUADRO PRINCIPAL
     dibujarCuadro(1,1,(XSCREEN-1),3); //SE DIBUJA EL CUADRO DEL TITULO
-    gotoxy(30,2); cout<<"DELTAPOINT RESTO";
+    dimensiones(30,2); cout<<"DELTAPOINT RESTO";
 }
 
