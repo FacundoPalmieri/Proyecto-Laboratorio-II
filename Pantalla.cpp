@@ -1,7 +1,4 @@
 #include "Pantalla.h"
-#include <stdio.h>
-#include <windows.h>
-#include <iostream>
 #include "rlutil.h"
 #define XSCREEN 78
 #define YSCREEN 24

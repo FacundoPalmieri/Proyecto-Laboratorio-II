@@ -1,15 +1,10 @@
-#include <iostream>
-#include <conio.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <windows.h>
-#include "rlutil.h"
-#include "colors.h"
 #define XSCREEN 78
 #define YSCREEN 24
 
 using namespace std;
-using namespace rlutil;
+#include "rlutil.h"
+#include "colors.h"
+
 #include "Pantalla.h"
 #include "Menu.h"
 #include "Producto.h"
@@ -313,7 +308,7 @@ void Menu::vistaListadoProductos(int idVendedor) {
     Pantalla pantalla;
     Empleado empleadoAux;
     Producto productoAux;
-    int posicion, renglon, maximo;
+    int renglon, maximo;
 
     pantalla.estiloMenu();
 
@@ -322,7 +317,6 @@ void Menu::vistaListadoProductos(int idVendedor) {
     pantalla.gotoxy(2, 7);
     cout << "--------------------";
 
-    posicion = 0;
     renglon = 8;
     maximo = 0;
 
@@ -378,14 +372,13 @@ void Menu::vistaListadoEmpleados(int idVendedor)
 {
     Pantalla pantalla;
     Empleado empleadoAux;
-    int pos, renglon, maximo;
+    int renglon, maximo;
 
     pantalla.estiloMenu();
 
     pantalla.gotoxy (2,6); cout<<"LISTA DE EMPLEADOS:";
     pantalla.gotoxy (2,7); cout<<"--------------------";
 
-    pos=0;
     renglon = 8;
     maximo=0;
 
@@ -696,7 +689,7 @@ int Menu::menuPedido(int idVendedor)
         int opcion, renglon = 8, codigoProducto = 0, cantidadProducto = 0, mesaAux = -1;
         float subtotal = 0;
 
-        cls();
+        system("cls");
         system("mode con: cols=100 lines=26"); //SE DEFINE LAS DIMENSIONES DE LA VENTANA DEL PROGRAMA A 80 COLUMNAS Y 25 FILAS
         system("COLOR 71"); //SE DA UN COLOR DE FONDO Y COLOR A LAS LETRAS
         pantalla.dibujarCuadro(0,0,98,25); //SE DIBUJA EL CUADRO PRINCIPAL
@@ -798,7 +791,7 @@ int Menu::menuPedido(int idVendedor)
 
 void Menu::menuConsumoMesa(int idVendedor)
 {
-    cls();
+    system("cls");
     Pantalla pantalla;
     Venta venta;
     Transaccion transaccion;
@@ -809,7 +802,7 @@ void Menu::menuConsumoMesa(int idVendedor)
     int renglon = 8, mesaAux = -1;
     float total = 0, subtotal = 0;
 
-    cls();
+    system("cls");
     system("mode con: cols=100 lines=26"); //SE DEFINE LAS DIMENSIONES DE LA VENTANA DEL PROGRAMA A 80 COLUMNAS Y 25 FILAS
     system("COLOR 71"); //SE DA UN COLOR DE FONDO Y COLOR A LAS LETRAS
     pantalla.dibujarCuadro(0,0,98,25); //SE DIBUJA EL CUADRO PRINCIPAL
@@ -838,9 +831,9 @@ void Menu::menuConsumoMesa(int idVendedor)
             {
                 if(transaccion.getIdMesa() == venta.getIdMesa()&&transaccion.getEstado()==2) //FILTRA SI COINCIDE VENTA Y TRANSACCIÓN EN EL ID MESA
                 {
-                    pantalla.gotoxy (3,renglon); cout<<transaccion.getIdProducto();
+                    pantalla.gotoxy (4,renglon); cout<<transaccion.getIdProducto();
                     producto = buscarPorCodigo(transaccion.getIdProducto());
-                    pantalla.gotoxy (15,renglon); cout<<producto.getNombreProducto();
+                    pantalla.gotoxy (19,renglon); cout<<producto.getNombreProducto();
                     pantalla.gotoxy (54,renglon); cout<<transaccion.getCantidad();
                     pantalla.gotoxy (66,renglon); cout<<"$"<<transaccion.getPrecio();
                     subtotal = transaccion.getCantidad() * transaccion.getPrecio();
@@ -868,7 +861,7 @@ void Menu::cerrarMesa(){
     int mesaAux = -1, posicion=0;
     float total=0;
 
-    cls();
+    system("cls");
     system("mode con: cols=100 lines=26"); //SE DEFINE LAS DIMENSIONES DE LA VENTANA DEL PROGRAMA A 80 COLUMNAS Y 25 FILAS
     system("COLOR 71"); //SE DA UN COLOR DE FONDO Y COLOR A LAS LETRAS
     pantalla.dibujarCuadro(0,0,98,25); //SE DIBUJA EL CUADRO PRINCIPAL

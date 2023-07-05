@@ -1,11 +1,5 @@
-#include <iostream>
-#include <stdlib.h>
-#include <cstdio>
-#include <cstring>
-
 #ifndef EMPLEADO_H
 #define EMPLEADO_H
-
 
 
 class Empleado
@@ -36,9 +30,7 @@ class Empleado
         void setPassword(int passwprd);
 
         void cargarEmpleado();
-        void mostrarEmpleado();
-
-        //bool valirdarPassword();NO ESTÁ IMPLEMENTADO
+        void mostrar();
 
         int grabarEnDisco();
         int leerDeDisco(int pos);

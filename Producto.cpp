@@ -1,12 +1,10 @@
 #include <iostream>
-#include <stdlib.h>
 #include <cstring>
 using namespace std;
 
 #include "Producto.h"
 #include "Menu.h"
 #include "Pantalla.h"
-
 
 
 Producto buscarPorCodigo(int codigo){
@@ -25,7 +23,6 @@ Producto buscarPorCodigo(int codigo){
 	return producto;
 }
 
-/// - - - - - - - PRODUCTOS::METODOS - - - - - - - -
 
 Producto::Producto()
 {
@@ -202,10 +199,10 @@ void Producto::modificarRegistro(){
         cout<<"PRODUCTO A MODIFICAR: "<<endl;
 
         producto.mostrar();
-       pantalla.gotoxy(2,14);
+        pantalla.gotoxy(2,14);
         cout<<"ESTA SEGURO/A DE CONTINUAR: (S/N): ";
         cin>>Confirmacion;
-       pantalla.gotoxy (2,15); cout<<"------------------";
+        pantalla.gotoxy (2,15); cout<<"------------------";
         cout<<endl<<endl;
         if(Confirmacion=='S' || Confirmacion=='s'){
 
@@ -215,7 +212,7 @@ void Producto::modificarRegistro(){
             cargarCadenas(_nombreProducto, 49);
             producto.setNombreProducto(_nombreProducto);
             pantalla.dibujarCuadro(0,0,79,24);
-           pantalla.gotoxy(1,20);
+            pantalla.gotoxy(1,20);
             cout<<" INGRESE PRECIO DE VENTA ($): ";
             cin>>_precioProducto;
             producto.setPrecioProducto(_precioProducto);
@@ -223,9 +220,9 @@ void Producto::modificarRegistro(){
             //SOBREESCRIBIR EL REGISTRO
 
             sobreEscribirRegistro(producto, posicion);
-           pantalla.gotoxy(2,22);
+            pantalla.gotoxy(2,22);
             cout<<"DATO MODIFICADO."<<endl<<endl;
-           pantalla.gotoxy(2,23);
+            pantalla.gotoxy(2,23);
             system("pause");
         }
         else{
@@ -267,14 +264,14 @@ int Producto::bajaProducto(){
     producto.leerDeDisco(posicion);
 
     char Confirmacion;
-   pantalla.gotoxy(2,10);
+    pantalla.gotoxy(2,10);
     cout<<"ESTA ACCION DARA DE BAJA EL SIGUIENTE PRODUCTO: "<<endl<<endl;
-   pantalla.gotoxy(2,12);
+    pantalla.gotoxy(2,12);
     producto.mostrar();
-   pantalla.gotoxy(2,16);
+    pantalla.gotoxy(2,16);
     cout<<"ESTA SEGURO/A DE CONTINUAR: (S/N): ";
     cin>>Confirmacion;
-   pantalla.gotoxy (2,17); cout<<"------------------";
+    pantalla.gotoxy (2,17); cout<<"------------------";
 
     if(Confirmacion=='S' || Confirmacion=='s'){
         //cambiar estado

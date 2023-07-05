@@ -27,9 +27,6 @@ Venta::Venta(int vendedor, int mesa)
     _estado = 1;        // se crea en estado BORRADOR
 }
 
-Venta::~Venta(){
-
-}
 int Venta::getIDventa()
 {
     return _IdVenta;
@@ -60,11 +57,11 @@ void Venta::cargarVenta()
 
 }
 
-void Venta::mostrarVenta()
+void Venta::mostrar()
 {
     Empleado empleado;
 
-    cout<<"\nID DE VENTA: "<<_IdVenta<<endl;
+    cout<<"\n ID DE VENTA: "<<_IdVenta<<endl;
     cout<<"FECHA: "; _fecha.mostrarFecha(); cout<<endl;
     cout<<"CONSUMO TOTAL: $"<<_consumoTotal<<endl;
     cout<<"NUMERO DE MESA: "<<_idMesa<<endl;

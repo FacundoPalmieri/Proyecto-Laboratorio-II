@@ -18,7 +18,6 @@ private:
 public:
     Venta();
     Venta(int vendedor, int mesa);
-    ~Venta();
 
     int getIDventa();
     int getIdMesa();
@@ -27,7 +26,7 @@ public:
     int getIdVendedor();
 
     void cargarVenta();
-    void mostrarVenta();
+    void mostrar();
 
     void setVendedor(int idVendedor);
     void setMesa(int mesa);

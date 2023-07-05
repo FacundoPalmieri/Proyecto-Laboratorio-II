@@ -1,16 +1,10 @@
-
-
-using namespace std;
+#include "colors.h"
+#include <iostream>
+#include <cstring>
 
 #include "Empleado.h"
-#include "colors.h"
 #include "Pantalla.h"
-
-/// - - - - -  FUNCIONES - - - - - - - -
-
-
-
-/// - - - - - - - EMPLEADO::METODOS - - - - - - - -
+using namespace std;
 
 Empleado::Empleado()
 {
@@ -69,21 +63,21 @@ void Empleado::cargarEmpleado(){
         pantalla.gotoxy (2,13);
         cout<<"INGRESE EL NOMBRE DEL EMPLEADO: ";
         cargarCadenas(_nombre,11);
-       pantalla.gotoxy (2,14);
+        pantalla.gotoxy (2,14);
         cout<<"INGRESE EL APELLIDO DEL EMPLEADO: ";
         cargarCadenas(_apellido,19);
-       pantalla.gotoxy (2,15);
+        pantalla.gotoxy (2,15);
         cout<<"INGRESE PASSWORD: ";
         cin>>password1;
-       pantalla.gotoxy (2,16);
+        pantalla.gotoxy (2,16);
         cout<<"VUELVA A INGRESAR EL PASSWORD: ";
         cin>>password2;
-        if(password1==password2){//strcmp(password1, password2)){
+        if(password1==password2){//strcmp(password1, password2))
             //cargarCadenas(_password, 9);
             _password = password1;
-           pantalla.gotoxy (2,18);
+            pantalla.gotoxy (2,18);
             cout<<"ALTA DE USUARIO CORRECTA!";
-           pantalla.gotoxy (2,19);
+            pantalla.gotoxy (2,19);
             system("pause");
         }
         else{
@@ -103,7 +97,7 @@ void Empleado::cargarEmpleado(){
     }
 }
 
-void Empleado::mostrarEmpleado(){
+void Empleado::mostrar(){
     if (_estado==true){
         Pantalla pantalla;
        pantalla.gotoxy (2,9);
@@ -239,7 +233,7 @@ void Empleado::modificarRegistro(){
        pantalla.gotoxy(2,7);
         cout<<"EMPLEADO A MODIFICAR: "<<endl;
 
-        empleado.mostrarEmpleado();
+        empleado.mostrar();
         pantalla.gotoxy(2,13);
         cout<<"ESTA SEGURO/A DE CONTINUAR: (S/N): ";
         cin>>Confirmacion;
@@ -314,7 +308,7 @@ int Empleado::bajaEmpleado(){
     char Confirmacion;
     pantalla.gotoxy(2,8);
     cout<<"ESTA ACCION DARA DE BAJA EL SIGUIENTE EMPLEADO: "<<endl<<endl;
-    empleado.mostrarEmpleado();
+    empleado.mostrar();
     pantalla.gotoxy(2,13);
     cout<<"ESTA SEGURO/A DE CONTINUAR: (S/N): ";
     cin>>Confirmacion;

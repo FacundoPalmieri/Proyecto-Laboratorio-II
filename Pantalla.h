@@ -1,7 +1,6 @@
 #ifndef PANTALLA_H
 #define PANTALLA_H
 
-
 class Pantalla
 {
     public:

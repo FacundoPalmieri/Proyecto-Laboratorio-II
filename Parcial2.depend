@@ -685,20 +685,18 @@
 
 1688309714 d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main\proyecto-laboratorio-ii-main\pantalla.h
 
-1688566923 source:c:\users\krivera\desktop\proyecto labo ii\empleado.cpp
-	"Empleado.h"
+1688569250 source:c:\users\krivera\desktop\proyecto labo ii\empleado.cpp
 	"colors.h"
+	<iostream>
+	<cstring>
+	"Empleado.h"
 	"Pantalla.h"
 
-1688516323 c:\users\krivera\desktop\proyecto labo ii\empleado.h
-	<iostream>
-	<stdlib.h>
-	<cstdio>
-	<cstring>
+1688569234 c:\users\krivera\desktop\proyecto labo ii\empleado.h
 
 1688516323 c:\users\krivera\desktop\proyecto labo ii\colors.h
 
-1688518510 c:\users\krivera\desktop\proyecto labo ii\pantalla.h
+1688568449 c:\users\krivera\desktop\proyecto labo ii\pantalla.h
 
 1688516323 source:c:\users\krivera\desktop\proyecto labo ii\fecha.cpp
 	<iostream>
@@ -715,16 +713,12 @@
 
 1688518648 c:\users\krivera\desktop\proyecto labo ii\menu.h
 
-1688554421 source:c:\users\krivera\desktop\proyecto labo ii\pantalla.cpp
+1688568444 source:c:\users\krivera\desktop\proyecto labo ii\pantalla.cpp
 	"Pantalla.h"
-	<stdio.h>
-	<windows.h>
-	<iostream>
 	"rlutil.h"
 
-1688516323 source:c:\users\krivera\desktop\proyecto labo ii\producto.cpp
+1688569322 source:c:\users\krivera\desktop\proyecto labo ii\producto.cpp
 	<iostream>
-	<stdlib.h>
 	<cstring>
 	"Producto.h"
 	"Menu.h"
@@ -739,7 +733,7 @@
 
 1688516323 c:\users\krivera\desktop\proyecto labo ii\transaccion.h
 
-1688516323 source:c:\users\krivera\desktop\proyecto labo ii\venta.cpp
+1688569843 source:c:\users\krivera\desktop\proyecto labo ii\venta.cpp
 	<iostream>
 	<list>
 	"Venta.h"
@@ -747,18 +741,13 @@
 	"Empleado.h"
 	"Mesa.h"
 
-1688516323 c:\users\krivera\desktop\proyecto labo ii\venta.h
+1688569696 c:\users\krivera\desktop\proyecto labo ii\venta.h
 	"Fecha.h"
 	"Transaccion.h"
 
 1688516323 c:\users\krivera\desktop\proyecto labo ii\mesa.h
 
-1688567006 source:c:\users\krivera\desktop\proyecto labo ii\menu.cpp
-	<iostream>
-	<conio.h>
-	<stdio.h>
-	<stdlib.h>
-	<windows.h>
+1688569955 source:c:\users\krivera\desktop\proyecto labo ii\menu.cpp
 	"rlutil.h"
 	"colors.h"
 	"Pantalla.h"
