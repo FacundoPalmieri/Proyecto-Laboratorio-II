@@ -24,10 +24,12 @@ public:
     void vender(int idVendedor);
     int menuPedido(int idVendedor);
     void menuConsumoMesa(int idVendedor);
+    void cerrarMesa();
 
 
     void FinalizarPrograma();
     void OpcionIncorrecta();
+    void marcoPantallaMenu();
 
 private:
     int _opcion;

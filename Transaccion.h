@@ -11,7 +11,7 @@ private:
     float _precio;
     bool _esCompra;
     bool _esVenta;
-    int _estado;    // 0 - cancelada / 1 - Borrador / 2 - Confirmada
+    int _estado;    // 0 - cerrada / 1 - Borrador / 2 - Confirmada
     int _contador;
     int _idMesa;
 
@@ -24,6 +24,7 @@ public:
     int getIdOperacionAsociada();
     float getPrecio();
     int getIdMesa();
+    int getEstado();
     void setIdProducto(int IdProducto);
     void setCantidad(int cantidad);
     void setPrecio(int precio);
@@ -40,6 +41,7 @@ public:
     int generarCodigoTransaccion();
     int getLastIdTransaction();
     int cantidadTransacciones();
+    void cerrarMesa(int mesaAux);
 
     void mostrar();
 

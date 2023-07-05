@@ -15,7 +15,7 @@ Transaccion::Transaccion(int idOperacion, int idProducto, int cantidad, float pr
     _cantidad = cantidad;
     _precio = precio;
     if(setTipo(tipo)) cout<<"Tipo de transaccion [compra o venta] INDEFINIDO"<<endl;
-    _estado = 1;
+    _estado = 2;
     _idMesa= idMesa;
 
     _contador++;
@@ -40,6 +40,10 @@ float Transaccion::getPrecio(){
 
 int Transaccion::getIdMesa(){
     return _idMesa;
+}
+
+int Transaccion::getEstado(){
+    return _estado;
 }
 
 void Transaccion::setIdProducto(int IdProducto){
@@ -155,4 +159,31 @@ void Transaccion::mostrar(){
     cout<<"\t\t\t"<<_cantidad;
     cout<<"\t"<<_precio;
     cout<<"\t"<<_estado<<endl;
+}
+
+void Transaccion::cerrarMesa(int mesaAux){
+    Transaccion transaccion;
+    int posicion=0;
+
+    while(transaccion.leerDeDisco(posicion)>0){ //RECORRE ARCHIVO VENTAS
+
+        transaccion.getIdMesa(); //POR VUELTA TOMAMOS EL ID
+
+            if(transaccion.getIdMesa() == mesaAux) //FILTRAMOS LAS VENTAS QUE COINCIDEN CON EL N° DE MESA INGRESADO
+            {
+                transaccion.setEstado(0);
+                FILE* p;
+                p = fopen("transaccion.dat", "rb+");
+                if (p == NULL) {
+                    cout << "NO SE PUDO ABRIR EL ARCHIVO" << endl;
+                }
+                fseek(p, sizeof transaccion*posicion,0);
+
+                // Escribe los datos modificados de vuelta al archivo
+                fwrite(&transaccion, sizeof(Transaccion), 1, p);
+                fclose(p);
+
+            }
+        posicion++;
+    }
 }

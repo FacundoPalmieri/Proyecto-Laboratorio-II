@@ -37,10 +37,17 @@ void Menu:: OpcionIncorrecta(){
     cout << BLUE;
     pantalla.gotoxy (2,23); system("pause");
 
-
 }
 
-
+void Menu::marcoPantallaMenu(){
+    cls();
+    Pantalla pantalla;
+    system("mode con: cols=80 lines=25"); //SE DEFINE LAS DIMENSIONES DE LA VENTANA DEL PROGRAMA A 80 COLUMNAS Y 25 FILAS
+    system("COLOR 71"); //SE DA UN COLOR DE FONDO Y COLOR A LAS LETRAS
+    pantalla.dibujarCuadro(0,0,XSCREEN,YSCREEN); //SE DIBUJA EL CUADRO PRINCIPAL
+    pantalla.dibujarCuadro(1,1,(XSCREEN-1),3); //SE DIBUJA EL CUADRO DEL TITULO
+    pantalla.gotoxy(30,2); cout<<"DELTAPOINT RESTO";
+}
 
 int Menu::menuIdVendedor(){
 
@@ -52,12 +59,7 @@ int Menu::menuIdVendedor(){
         int idEmpleado=-1, pos, posAux;
         int password=-1;
 
-        cls();
-        system("mode con: cols=80 lines=25"); //SE DEFINE LAS DIMENSIONES DE LA VENTANA DEL PROGRAMA A 80 COLUMNAS Y 25 FILAS
-        system("COLOR 71"); //SE DA UN COLOR DE FONDO Y COLOR A LAS LETRAS
-        pantalla.dibujarCuadro(0,0,XSCREEN,YSCREEN); //SE DIBUJA EL CUADRO PRINCIPAL
-        pantalla.dibujarCuadro(1,1,(XSCREEN-1),3); //SE DIBUJA EL CUADRO DEL TITULO
-        pantalla.gotoxy(30,2); cout<<"DELTAPOINT RESTO";
+        marcoPantallaMenu();
 
         pantalla.gotoxy (25,6); cout<<"INGRESO AL SISTEMA";
         pantalla.gotoxy (20,7); cout<<"--------------------------------";
@@ -105,10 +107,6 @@ int Menu::menuIdVendedor(){
                     pantalla.gotoxy (1,23);  cout << "                                       " <<endl;
                     pantalla.gotoxy (40,13); cout << "                                       " <<endl;
 
-
-
-
-
                 }
 
             }
@@ -137,28 +135,20 @@ int Menu::menuPrincipal(int idVendedor)
     Pantalla pantalla;
     do
     {
-        cls();
-        system("mode con: cols=80 lines=25"); //SE DEFINE LAS DIMENSIONES DE LA VENTANA DEL PROGRAMA A 80 COLUMNAS Y 25 FILAS
-        system("COLOR 71"); //SE DA UN COLOR DE FONDO Y COLOR A LAS LETRAS
-        pantalla.dibujarCuadro(0,0,XSCREEN,YSCREEN); //SE DIBUJA EL CUADRO PRINCIPAL
-        pantalla.dibujarCuadro(1,1,(XSCREEN-1),3); //SE DIBUJA EL CUADRO DEL TITULO
-
-        pantalla.gotoxy(30,2);cout<<"DELTAPOINT RESTO";
+        marcoPantallaMenu();
 
         pantalla.gotoxy (2,6); cout<<"MENU PRINCIPAL";
         pantalla.gotoxy (2,7); cout<<"------------------";
         pantalla.gotoxy (2,10); cout<<"INGRESE UNA OPCION: ";
 
-        pantalla.gotoxy (2,13); cout<<"1 - MODO VENTA: ";
-        pantalla.gotoxy (2,14); cout<<"2 - MODO CONSULTA: ";
-        pantalla.gotoxy (2,15); cout<<"3 - AJUSTES: ";
-        pantalla.gotoxy (2,16); cout<<"4 - CERRAR SESION DE USUARIO: ";
-        pantalla.gotoxy (2,17); cout<<"0 - SALIR DEL PROGRAMA: ";
+        pantalla.gotoxy (2,13); cout<<"1 - MENU VENTA ";
+        pantalla.gotoxy (2,14); cout<<"2 - MENU CONSULTA ";
+        pantalla.gotoxy (2,15); cout<<"3 - MENU AJUSTES ";
+        pantalla.gotoxy (2,16); cout<<"4 - CERRAR SESION DE USUARIO ";
+        pantalla.gotoxy (2,17); cout<<"0 - SALIR DEL PROGRAMA ";
 
         pantalla.gotoxy (2,19); cout<<"->: ";
         cin>>_opcion;
-
-
 
         switch (_opcion)
         {
@@ -192,13 +182,9 @@ int Menu::menuPrincipal(int idVendedor)
 int Menu::menuVenta(int idVendedor)
 {
     Pantalla pantalla;
+
     do{
-        cls();
-        system("mode con: cols=80 lines=25"); //SE DEFINE LAS DIMENSIONES DE LA VENTANA DEL PROGRAMA A 80 COLUMNAS Y 25 FILAS
-        system("COLOR 71"); //SE DA UN COLOR DE FONDO Y COLOR A LAS LETRAS
-        pantalla.dibujarCuadro(0,0,78,24); //SE DIBUJA EL CUADRO PRINCIPAL
-        pantalla.dibujarCuadro(1,1,77,3); //SE DIBUJA EL CUADRO DEL TITULO
-        pantalla.gotoxy(30,2);cout<<"DELTAPOINT RESTO";
+        marcoPantallaMenu();
 
         pantalla.gotoxy (2,6); cout<<"MENU VENTA";
         pantalla.gotoxy (2,7); cout<<"------------------";
@@ -206,10 +192,11 @@ int Menu::menuVenta(int idVendedor)
 
         pantalla.gotoxy (2,13); cout<<"1 - ATENDER CLIENTE: ";
         pantalla.gotoxy (2,14); cout<<"2 - CONSUMO DE MESA: ";
-        pantalla.gotoxy (2,15); cout<<"3 - VOLVER AL MENU PRINCIPAL: ";
-        pantalla.gotoxy (2,16); cout<<"0 - SALIR DEL PROGRAMA: ";
+        pantalla.gotoxy (2,15); cout<<"3 - CERRAR MESA: ";
+        pantalla.gotoxy (2,16); cout<<"4 - VOLVER AL MENU PRINCIPAL: ";
+        pantalla.gotoxy (2,17); cout<<"0 - SALIR DEL PROGRAMA: ";
 
-        pantalla.gotoxy (2,18); cout<<"->: ";
+        pantalla.gotoxy (2,19); cout<<"->: ";
         cin>>_opcion;
 
         switch (_opcion)
@@ -221,6 +208,9 @@ int Menu::menuVenta(int idVendedor)
             menuConsumoMesa(idVendedor);
             break;
         case 3:
+            cerrarMesa();
+            break;
+        case 4:
             menuPrincipal(idVendedor);
             break;
         case 0:
@@ -241,13 +231,9 @@ int Menu::menuVenta(int idVendedor)
 int Menu::menuConsulta(int idVendedor)
 {
     Pantalla pantalla;
+
     do{
-        cls();
-        system("mode con: cols=80 lines=25"); //SE DEFINE LAS DIMENSIONES DE LA VENTANA DEL PROGRAMA A 80 COLUMNAS Y 25 FILAS
-        system("COLOR 71"); //SE DA UN COLOR DE FONDO Y COLOR A LAS LETRAS
-        pantalla.dibujarCuadro(0,0,78,24); //SE DIBUJA EL CUADRO PRINCIPAL
-        pantalla.dibujarCuadro(1,1,77,3); //SE DIBUJA EL CUADRO DEL TITULO
-        pantalla.gotoxy(30,2); cout<<"DELTAPOINT RESTO";
+        marcoPantallaMenu();
 
         pantalla.gotoxy (2,6); cout<<"MENU CONSULTA";
         pantalla.gotoxy (2,7); cout<<"------------------";
@@ -290,27 +276,20 @@ int Menu::menuConsulta(int idVendedor)
 int Menu::menuListados(int idVendedor)
 {
  do{
-
-
-        cls();
         Pantalla pantalla;
         Empleado empleadoAux;
         Producto productoAux;
 
-        system("mode con: cols=80 lines=25");
-        system("COLOR 71");
-        pantalla.dibujarCuadro(0,0,78,24);
-        pantalla.dibujarCuadro(1,1,77,3);
-        pantalla.gotoxy(30,2); cout << "DELTAPOINT RESTO";
+        marcoPantallaMenu();
 
         pantalla.gotoxy (2,6); cout << "MENU LISTADOS";
         pantalla.gotoxy (2,7); cout << "------------------";
         pantalla.gotoxy (2,10); cout << "INGRESE UNA OPCION: ";
 
-        pantalla.gotoxy (2,13); cout << "1 - PRODUCTOS: ";
-        pantalla.gotoxy (2,14); cout << "2 - EMPLEADOS: ";
-        pantalla.gotoxy (2,15); cout << "3 - VOLVER AL MENU PRINCIPAL: ";
-        pantalla.gotoxy (2,16); cout << "0 - SALIR DEL PROGRAMA: ";
+        pantalla.gotoxy (2,13); cout << "1 - PRODUCTOS ";
+        pantalla.gotoxy (2,14); cout << "2 - EMPLEADOS ";
+        pantalla.gotoxy (2,15); cout << "3 - VOLVER AL MENU PRINCIPAL ";
+        pantalla.gotoxy (2,16); cout << "0 - SALIR DEL PROGRAMA ";
 
         pantalla.gotoxy (2,19); cout << "->: ";
         cin >> _opcion;
@@ -341,17 +320,12 @@ int Menu::menuListados(int idVendedor)
 
 void Menu::vistaListadoProductos(int idVendedor)
 {
-    cls();
     Pantalla pantalla;
     Empleado empleadoAux;
     Producto productoAux;
     int pos, renglon;
 
-    system("mode con: cols=80 lines=25"); //SE DEFINE LAS DIMENSIONES DE LA VENTANA DEL PROGRAMA A 80 COLUMNAS Y 25 FILAS
-    system("COLOR 71"); //SE DA UN COLOR DE FONDO Y COLOR A LAS LETRAS
-    pantalla.dibujarCuadro(0,0,78,24); //SE DIBUJA EL CUADRO PRINCIPAL
-    pantalla.dibujarCuadro(1,1,77,3); //SE DIBUJA EL CUADRO DEL TITULO
-    pantalla.gotoxy(30,2); cout<<"DELTAPOINT RESTO";
+    marcoPantallaMenu();
 
     pantalla.gotoxy (2,6); cout<<"LISTA DE PRODUCTOS:";
     pantalla.gotoxy (2,7); cout<<"--------------------";
@@ -373,16 +347,11 @@ void Menu::vistaListadoProductos(int idVendedor)
 
 void Menu::vistaListadoEmpleados(int idVendedor)
 {
-    cls();
     Pantalla pantalla;
     Empleado empleadoAux;
     int pos, renglon;
 
-    system("mode con: cols=80 lines=25"); //SE DEFINE LAS DIMENSIONES DE LA VENTANA DEL PROGRAMA A 80 COLUMNAS Y 25 FILAS
-    system("COLOR 71"); //SE DA UN COLOR DE FONDO Y COLOR A LAS LETRAS
-    pantalla.dibujarCuadro(0,0,78,24); //SE DIBUJA EL CUADRO PRINCIPAL
-    pantalla.dibujarCuadro(1,1,77,3); //SE DIBUJA EL CUADRO DEL TITULO
-    pantalla.gotoxy(30,2); cout<<"DELTAPOINT RESTO";
+    marcoPantallaMenu();
 
     pantalla.gotoxy (2,6); cout<<"LISTA DE EMPLEADOS:";
     pantalla.gotoxy (2,7); cout<<"--------------------";
@@ -406,22 +375,17 @@ int Menu::menuConsultasDeVentas(int idVendedor)
 {
     Pantalla pantalla;
     do{
-        cls();
-        system("mode con: cols=80 lines=25"); //SE DEFINE LAS DIMENSIONES DE LA VENTANA DEL PROGRAMA A 80 COLUMNAS Y 25 FILAS
-        system("COLOR 71"); //SE DA UN COLOR DE FONDO Y COLOR A LAS LETRAS
-        pantalla.dibujarCuadro(0,0,78,24); //SE DIBUJA EL CUADRO PRINCIPAL
-        pantalla.dibujarCuadro(1,1,77,3); //SE DIBUJA EL CUADRO DEL TITULO
-        pantalla.gotoxy(30,2); cout<<"DELTAPOINT RESTO";
+        marcoPantallaMenu();
 
         pantalla.gotoxy (2,6); cout<<"MENU CONSULTA DE VENTAS";
         pantalla.gotoxy (2,7); cout<<"------------------";
         pantalla.gotoxy (2,10); cout<<"INGRESE UNA OPCION: ";
 
-        pantalla.gotoxy (2,13); cout<<"1 - VENTAS TOTALES POR MES: ";
-        pantalla.gotoxy (2,14); cout<<"2 - VENTAS POR EMPLEADO: ";
-        pantalla.gotoxy (2,15); cout<<"3 - VENTAS POR PRODUCTO: ";
-        pantalla.gotoxy (2,16); cout<<"4 - VOLVER AL MENU ANTERIOR: ";
-        pantalla.gotoxy (2,17); cout<<"0 - SALIR DEL PROGRAMA: ";
+        pantalla.gotoxy (2,13); cout<<"1 - VENTAS TOTALES POR MES ";
+        pantalla.gotoxy (2,14); cout<<"2 - VENTAS POR EMPLEADO ";
+        pantalla.gotoxy (2,15); cout<<"3 - VENTAS POR PRODUCTO ";
+        pantalla.gotoxy (2,16); cout<<"4 - VOLVER AL MENU ANTERIOR ";
+        pantalla.gotoxy (2,17); cout<<"0 - SALIR DEL PROGRAMA ";
 
         pantalla.gotoxy (2,19); cout<<"->: ";
         cin>>_opcion;
@@ -454,16 +418,11 @@ int Menu::menuConsultasDeVentas(int idVendedor)
 
 void Menu::vistaVentasPorMes(int idVendedor)
 {
-    cls();
     Pantalla pantalla;
     Venta ventaAux;
     float consumoTotal;
 
-    system("mode con: cols=80 lines=25"); //SE DEFINE LAS DIMENSIONES DE LA VENTANA DEL PROGRAMA A 80 COLUMNAS Y 25 FILAS
-    system("COLOR 71"); //SE DA UN COLOR DE FONDO Y COLOR A LAS LETRAS
-    pantalla.dibujarCuadro(0,0,78,24); //SE DIBUJA EL CUADRO PRINCIPAL
-    pantalla.dibujarCuadro(1,1,77,3); //SE DIBUJA EL CUADRO DEL TITULO
-    pantalla.gotoxy(30,2); cout<<"DELTAPOINT RESTO";
+    marcoPantallaMenu();
 
     pantalla.gotoxy (2,4); cout<<"VENTAS POR MES:";
     pantalla.gotoxy (2,5); cout<<"--------------------";
@@ -500,19 +459,13 @@ void Menu::vistaVentasPorMes(int idVendedor)
 
 void Menu::vistaVentasPorEmpleado(int idVendedor)
 {
-    cls();
-
     Pantalla pantalla;
     Venta ventaAux;
     Empleado empleadoAux;
     int pos1, pos2, renglon = 8;
     float consumoTotal;
 
-    system("mode con: cols=80 lines=25"); //SE DEFINE LAS DIMENSIONES DE LA VENTANA DEL PROGRAMA A 80 COLUMNAS Y 25 FILAS
-    system("COLOR 71"); //SE DA UN COLOR DE FONDO Y COLOR A LAS LETRAS
-    pantalla.dibujarCuadro(0,0,78,24); //SE DIBUJA EL CUADRO PRINCIPAL
-    pantalla.dibujarCuadro(1,1,77,3); //SE DIBUJA EL CUADRO DEL TITULO
-    pantalla.gotoxy(30,2); cout<<"DELTAPOINT RESTO";
+    marcoPantallaMenu();
 
     pantalla.gotoxy (2,4); cout<<"VENTAS POR EMPLEADO:";
     pantalla.gotoxy (2,5); cout<<"--------------------";
@@ -542,18 +495,13 @@ void Menu::vistaVentasPorEmpleado(int idVendedor)
 
 void Menu::vistaVentasPorProducto(int idVendedor)
 {
-    cls();
     Pantalla pantalla;
     Transaccion transaccionAux;
     Producto productoAux;
     int pos1, pos2, renglon = 8, id;
     float consumoTotal;
 
-    system("mode con: cols=80 lines=25"); //SE DEFINE LAS DIMENSIONES DE LA VENTANA DEL PROGRAMA A 80 COLUMNAS Y 25 FILAS
-    system("COLOR 71"); //SE DA UN COLOR DE FONDO Y COLOR A LAS LETRAS
-    pantalla.dibujarCuadro(0,0,78,24); //SE DIBUJA EL CUADRO PRINCIPAL
-    pantalla.dibujarCuadro(1,1,77,3); //SE DIBUJA EL CUADRO DEL TITULO
-    pantalla.gotoxy(30,2); cout<<"DELTAPOINT RESTO";
+    marcoPantallaMenu();
 
     pantalla.gotoxy (2,4); cout<<"VENTAS POR PRODUCTO:";
     pantalla.gotoxy (2,5); cout<<"--------------------";
@@ -587,25 +535,20 @@ int Menu::menuAjuste(int idVendedor)
         Empleado empleadoAux;
         int opcion;
 
-        cls();
-        system("mode con: cols=80 lines=25"); //SE DEFINE LAS DIMENSIONES DE LA VENTANA DEL PROGRAMA A 80 COLUMNAS Y 25 FILAS
-        system("COLOR 71"); //SE DA UN COLOR DE FONDO Y COLOR A LAS LETRAS
-        pantalla.dibujarCuadro(0,0,78,24); //SE DIBUJA EL CUADRO PRINCIPAL
-        pantalla.dibujarCuadro(1,1,77,3); //SE DIBUJA EL CUADRO DEL TITULO
-        pantalla.gotoxy(30,2); cout<<"DELTAPOINT RESTO";
+        marcoPantallaMenu();
 
         pantalla.gotoxy (2,6); cout<<"MENU AJUSTE";
         pantalla.gotoxy (2,7); cout<<"------------------";
         pantalla.gotoxy (2,9); cout<<"INGRESE UNA OPCION: ";
 
-        pantalla.gotoxy (2,11); cout<<"1 - CARGAR PRODUCTO: ";
-        pantalla.gotoxy (2,12); cout<<"2 - MODIFICAR PRODUCTO: ";
-        pantalla.gotoxy (2,13); cout<<"3 - DAR DE BAJA PRODUCTO: ";
-        pantalla.gotoxy (2,14); cout<<"4 - CARGAR EMPLEADO: ";
-        pantalla.gotoxy (2,15); cout<<"5 - MODIFICAR EMPLEADO: ";
-        pantalla.gotoxy (2,16); cout<<"6 - DAR DE BAJA EMPLEADO: ";
-        pantalla.gotoxy (2,17); cout<<"7 - VOLVER AL MENU PRINCIPAL: ";
-        pantalla.gotoxy (2,18); cout<<"0 - SALIR DEL PROGRAMA: ";
+        pantalla.gotoxy (2,11); cout<<"1 - CARGAR PRODUCTO ";
+        pantalla.gotoxy (2,12); cout<<"2 - MODIFICAR PRODUCTO ";
+        pantalla.gotoxy (2,13); cout<<"3 - DAR DE BAJA PRODUCTO ";
+        pantalla.gotoxy (2,14); cout<<"4 - CARGAR EMPLEADO ";
+        pantalla.gotoxy (2,15); cout<<"5 - MODIFICAR EMPLEADO ";
+        pantalla.gotoxy (2,16); cout<<"6 - DAR DE BAJA EMPLEADO ";
+        pantalla.gotoxy (2,17); cout<<"7 - VOLVER AL MENU PRINCIPAL ";
+        pantalla.gotoxy (2,18); cout<<"0 - SALIR DEL PROGRAMA ";
 
         pantalla.gotoxy (2,20); cout<<"->: ";
         cin>>opcion;
@@ -613,10 +556,7 @@ int Menu::menuAjuste(int idVendedor)
         switch (opcion)
         {
         case 1:
-            cls();
-            pantalla.gotoxy(30,2); cout<<"DELTAPOINT RESTO";
-            pantalla.dibujarCuadro(0,0,78,24); //SE DIBUJA EL CUADRO PRINCIPAL
-            pantalla.dibujarCuadro(1,1,77,3); //SE DIBUJA EL CUADRO DEL TITULO
+            marcoPantallaMenu();
             pantalla.gotoxy (2,6); cout<<"MENU AJUSTE - CARGAR PRODUCTO";
             pantalla.gotoxy (2,7); cout<<"------------------";
             pantalla.gotoxy (2,9);
@@ -628,10 +568,7 @@ int Menu::menuAjuste(int idVendedor)
             menuAjuste(idVendedor);
             break;
         case 2:
-            cls();
-            pantalla.gotoxy(30,2); cout<<"DELTAPOINT RESTO";
-            pantalla.dibujarCuadro(0,0,78,24); //SE DIBUJA EL CUADRO PRINCIPAL
-            pantalla.dibujarCuadro(1,1,77,3); //SE DIBUJA EL CUADRO DEL TITULO
+            marcoPantallaMenu();
             pantalla.gotoxy (2,6); cout<<"MENU AJUSTE - MODIFICAR PRODUCTO";
             pantalla.gotoxy (2,7); cout<<"------------------";
             pantalla.gotoxy (2,12);
@@ -640,10 +577,7 @@ int Menu::menuAjuste(int idVendedor)
             break;
 
         case 3:
-            cls();
-            pantalla.gotoxy(30,2); cout<<"DELTAPOINT RESTO";
-            pantalla.dibujarCuadro(0,0,78,24); //SE DIBUJA EL CUADRO PRINCIPAL
-            pantalla.dibujarCuadro(1,1,77,3); //SE DIBUJA EL CUADRO DEL TITULO
+            marcoPantallaMenu();
             pantalla.gotoxy (2,6); cout<<"MENU AJUSTE - ELIMINAR PRODUCTO";
             pantalla.gotoxy (2,7); cout<<"------------------";
             pantalla.gotoxy (2,12);
@@ -651,9 +585,7 @@ int Menu::menuAjuste(int idVendedor)
             menuAjuste(idVendedor);
             break;
         case 4:
-            cls();
-            pantalla.dibujarCuadro(0,0,78,24); //SE DIBUJA EL CUADRO PRINCIPAL
-            pantalla.dibujarCuadro(1,1,77,3); //SE DIBUJA EL CUADRO DEL TITULO
+            marcoPantallaMenu();
             pantalla.gotoxy (2,6); cout<<"MENU AJUSTE - CARGAR EMPLEADO";
             pantalla.gotoxy (2,7); cout<<"------------------";
             pantalla.gotoxy (2,12);
@@ -662,10 +594,7 @@ int Menu::menuAjuste(int idVendedor)
             menuAjuste(idVendedor);
             break;
         case 5:
-            cls();
-            pantalla.gotoxy(30,2); cout<<"DELTAPOINT RESTO";
-            pantalla.dibujarCuadro(0,0,78,24); //SE DIBUJA EL CUADRO PRINCIPAL
-            pantalla.dibujarCuadro(1,1,77,3); //SE DIBUJA EL CUADRO DEL TITULO
+            marcoPantallaMenu();
             pantalla.gotoxy (2,6); cout<<"MENU AJUSTE - MODIFICAR EMPLEADO";
             pantalla.gotoxy (2,7); cout<<"------------------";
             pantalla.gotoxy (2,8);
@@ -673,13 +602,9 @@ int Menu::menuAjuste(int idVendedor)
             menuAjuste(idVendedor);
             break;
         case 6:
-            cls();
-            pantalla.gotoxy(30,2); cout<<"DELTAPOINT RESTO";
-            pantalla.dibujarCuadro(0,0,78,24); //SE DIBUJA EL CUADRO PRINCIPAL
-            pantalla.dibujarCuadro(1,1,77,3); //SE DIBUJA EL CUADRO DEL TITULO
+            marcoPantallaMenu();
             pantalla.gotoxy (2,5); cout<<"MENU AJUSTE - BAJA DE EMPLEADO";
             pantalla.gotoxy (2,6); cout<<"------------------";
-            //pantalla.gotoxy (2,12);
             empleadoAux.bajaEmpleado();
             menuAjuste(idVendedor);
             break;
@@ -715,6 +640,8 @@ int Menu::menuPedido(int idVendedor)
         pantalla.dibujarCuadro(0,0,98,25); //SE DIBUJA EL CUADRO PRINCIPAL
         pantalla.dibujarCuadro(1,1,97,3); //SE DIBUJA EL CUADRO DEL TITULO
         pantalla.gotoxy(39,2); cout<<"DELTAPOINT RESTO";
+
+        pantalla.dibujarCuadroDoble(2,4,96,6,23);
 
         pantalla.dibujarCuadroDoble(2,4,96,6,23);
         pantalla.gotoxy (4,5); cout<<"MESA: ";
@@ -781,7 +708,7 @@ int Menu::menuPedido(int idVendedor)
                 pantalla.gotoxy (4,22); cout<<"VENTA REGISTRADA                        ";
                 pantalla.gotoxy (35,24); cout << "                                                      " << endl;
                 pantalla.gotoxy (3,24); system("pause");
-                menuPrincipal(idVendedor);
+                menuVenta(idVendedor);
                 break;
 
             case 2:
@@ -817,9 +744,10 @@ void Menu::menuConsumoMesa(int idVendedor)
 
     int pos1=0, pos2=0;
 
-    int opcion, renglon = 8, mesaAux = -1;
+    int renglon = 8, mesaAux = -1;
     float total = 0, subtotal = 0;
 
+    cls();
     system("mode con: cols=100 lines=26"); //SE DEFINE LAS DIMENSIONES DE LA VENTANA DEL PROGRAMA A 80 COLUMNAS Y 25 FILAS
     system("COLOR 71"); //SE DA UN COLOR DE FONDO Y COLOR A LAS LETRAS
     pantalla.dibujarCuadro(0,0,98,25); //SE DIBUJA EL CUADRO PRINCIPAL
@@ -827,6 +755,7 @@ void Menu::menuConsumoMesa(int idVendedor)
     pantalla.gotoxy(39,2); cout<<"DELTAPOINT RESTO";
 
     pantalla.dibujarCuadroDoble(2,4,96,6,23);
+
     pantalla.gotoxy (4,5); cout<<"MESA: ";
     cin>> mesaAux;
 
@@ -845,7 +774,7 @@ void Menu::menuConsumoMesa(int idVendedor)
         {
             while(transaccion.leerDeDisco(pos2++)) //RECORREMOS ARCHIVO TRANSACCIÓN
             {
-                if(transaccion.getIdMesa() == venta.getIdMesa()) //FILTRA SI COINCIDE VENTA Y TRANSACCIÓN EN EL ID MESA
+                if(transaccion.getIdMesa() == venta.getIdMesa()&&transaccion.getEstado()==2) //FILTRA SI COINCIDE VENTA Y TRANSACCIÓN EN EL ID MESA
                 {
                     pantalla.gotoxy (3,renglon); cout<<transaccion.getIdProducto();
                     producto = buscarPorCodigo(transaccion.getIdProducto());
@@ -866,4 +795,45 @@ void Menu::menuConsumoMesa(int idVendedor)
 
     pantalla.gotoxy (3,24); system ("pause") ;
 
+}
+
+
+void Menu::cerrarMesa(){
+
+    Pantalla pantalla;
+    Transaccion transaccion;
+
+    int mesaAux = -1, posicion=0;
+    float total=0;
+
+    cls();
+    system("mode con: cols=100 lines=26"); //SE DEFINE LAS DIMENSIONES DE LA VENTANA DEL PROGRAMA A 80 COLUMNAS Y 25 FILAS
+    system("COLOR 71"); //SE DA UN COLOR DE FONDO Y COLOR A LAS LETRAS
+    pantalla.dibujarCuadro(0,0,98,25); //SE DIBUJA EL CUADRO PRINCIPAL
+    pantalla.dibujarCuadro(1,1,97,3); //SE DIBUJA EL CUADRO DEL TITULO
+    pantalla.gotoxy(39,2); cout<<"DELTAPOINT RESTO";
+
+    pantalla.dibujarCuadroDoble(2,4,96,6,23);
+
+    pantalla.gotoxy (4,5); cout<<"MESA: ";
+    cin>> mesaAux;
+
+
+    while(transaccion.leerDeDisco(posicion)>0) //RECORRE ARCHIVO VENTAS
+    {
+        transaccion.getIdMesa(); //POR VUELTA TOMAMOS EL ID
+
+        if(transaccion.getIdMesa() == mesaAux) //FILTRAMOS LAS VENTAS QUE COINCIDEN CON EL N° DE MESA INGRESADO
+        {
+            total+=transaccion.getPrecio();
+            transaccion.cerrarMesa(mesaAux);
+        }
+        posicion++;
+    }
+
+    pantalla.gotoxy (4,8);
+    cout<<"MESA CERRADA."<<endl;
+
+    pantalla.gotoxy (80,22); cout<<"TOTAL: "<<total;
+    pantalla.gotoxy (2,24); cout<< system("pause") ;
 }

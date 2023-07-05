@@ -685,3 +685,98 @@
 
 1688309714 d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main\proyecto-laboratorio-ii-main\pantalla.h
 
+1688511791 source:c:\users\krivera\desktop\proyecto labo ii\empleado.cpp
+	"Empleado.h"
+	"colors.h"
+	"Pantalla.h"
+
+1688511791 c:\users\krivera\desktop\proyecto labo ii\empleado.h
+	<iostream>
+	<stdlib.h>
+	<cstdio>
+	<cstring>
+
+1688511791 c:\users\krivera\desktop\proyecto labo ii\colors.h
+
+1688511791 c:\users\krivera\desktop\proyecto labo ii\pantalla.h
+
+1688511791 source:c:\users\krivera\desktop\proyecto labo ii\fecha.cpp
+	<iostream>
+	<cstdio>
+	<stdlib.h>
+	<ctime>
+	"Fecha.h"
+
+1688511791 c:\users\krivera\desktop\proyecto labo ii\fecha.h
+
+1688511791 source:c:\users\krivera\desktop\proyecto labo ii\main.cpp
+	"iostream"
+	"Menu.h"
+
+1688515458 c:\users\krivera\desktop\proyecto labo ii\menu.h
+
+1688511791 source:c:\users\krivera\desktop\proyecto labo ii\pantalla.cpp
+	"Pantalla.h"
+	"Menu.h"
+	<stdio.h>
+	<windows.h>
+
+1688511791 source:c:\users\krivera\desktop\proyecto labo ii\producto.cpp
+	<iostream>
+	<stdlib.h>
+	<cstring>
+	"Producto.h"
+	"Menu.h"
+	"Pantalla.h"
+
+1688511791 c:\users\krivera\desktop\proyecto labo ii\producto.h
+
+1688513892 source:c:\users\krivera\desktop\proyecto labo ii\transaccion.cpp
+	<iostream>
+	"Transaccion.h"
+	"Producto.h"
+
+1688513874 c:\users\krivera\desktop\proyecto labo ii\transaccion.h
+
+1688511791 source:c:\users\krivera\desktop\proyecto labo ii\venta.cpp
+	<iostream>
+	<list>
+	"Venta.h"
+	"Producto.h"
+	"Empleado.h"
+	"Mesa.h"
+
+1688511791 c:\users\krivera\desktop\proyecto labo ii\venta.h
+	"Fecha.h"
+	"Transaccion.h"
+
+1688511791 c:\users\krivera\desktop\proyecto labo ii\mesa.h
+
+1688516053 source:c:\users\krivera\desktop\proyecto labo ii\menu.cpp
+	<iostream>
+	<conio.h>
+	<stdio.h>
+	<stdlib.h>
+	<windows.h>
+	"rlutil.h"
+	"colors.h"
+	"Pantalla.h"
+	"Menu.h"
+	"Producto.h"
+	"Venta.h"
+	"Empleado.h"
+
+1688511791 c:\users\krivera\desktop\proyecto labo ii\rlutil.h
+	<iostream>
+	<string>
+	<cstdio>
+	<stdio.h>
+	<string.h>
+	<windows.h>
+	<conio.h>
+	<termios.h>
+	<unistd.h>
+	<sys/ioctl.h>
+	<sys/types.h>
+	<sys/time.h>
+
