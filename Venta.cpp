@@ -1,5 +1,4 @@
 #include <iostream>
-#include <list>
 
 using namespace std;
 
@@ -7,7 +6,6 @@ using namespace std;
 #include "Producto.h"
 #include "Empleado.h"
 #include "Mesa.h"
-
 
 Venta::Venta(){
     _IdVenta = generarCodigoVenta();
