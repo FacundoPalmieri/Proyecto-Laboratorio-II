@@ -33,7 +33,7 @@ int ArchivoEmpleado::grabarEnDisco(Empleado empleado){
 
 
 
-int  ArchivoEmpleado:: leerDeDisco(int pos){
+Empleado  ArchivoEmpleado:: leerDeDisco(int pos){
     Pantalla pantalla;
     Empleado empleado;
     FILE *p;
@@ -53,7 +53,7 @@ int  ArchivoEmpleado:: leerDeDisco(int pos){
     fseek(p, pos*sizeof(Empleado), SEEK_SET);
     int leyo = fread(&empleado, sizeof(Empleado), 1, p);
     fclose(p);
-    return leyo;
+    return empleado;
 
 
 }

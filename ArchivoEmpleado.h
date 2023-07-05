@@ -13,7 +13,7 @@ class ArchivoEmpleado{
         ArchivoEmpleado(const char* Nombre);
 
         int grabarEnDisco(Empleado empleado);
-        int leerDeDisco(int pos);
+        Empleado leerDeDisco(int pos);
         int cantidadEnArchivo();
         bool validarIDEmpleado(int idEmpleado);
         int buscarDato(int idEmpleado);

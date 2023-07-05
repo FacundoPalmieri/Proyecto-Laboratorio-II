@@ -55,7 +55,9 @@ int Menu::menuIdVendedor(){
 
         pos=0;
         posAux=-1;
-        while(archivoEmpleado.leerDeDisco(pos++)>0){// Lee y aumenta la posición. Ingresa siempre que sea mayor a 0
+        while(pos < archivoEmpleado.cantidadEnArchivo()){// Lee y aumenta la posición. Ingresa siempre que sea mayor a 0
+            empleadoAux = archivoEmpleado.leerDeDisco(pos);
+            pos++;
             if(empleadoAux.getIdEmpleado()==idEmpleado&&empleadoAux.getEstado()==true){
                 posAux = pos-1; //  almacenar la posición del empleado encontrado antes de que pos sea incrementada nuevamente
                pantalla.dimensiones (22,11); cout<<"- ("<<empleadoAux.getApellido()<<", "<<empleadoAux.getNombre()<<")"; // - PSW:"<<empleadoAux.getPassword();
@@ -71,7 +73,7 @@ int Menu::menuIdVendedor(){
                 pantalla.dimensiones (22,13); cout<< BLUE <<"INGRESE SU CLAVE: ";
                 cin>>password;
                 IntentosClave --;
-                cout<<"psw ingresado: "<<password<<", psw encontrado: "<<empleadoAux.getPassword();
+                //cout<<"psw ingresado: "<<password<<", psw encontrado: "<<empleadoAux.getPassword();
                 if(empleadoAux.getPassword()==password){
                   menuPrincipal(empleadoAux.getIdEmpleado()); // Si coinciden las contraseñas ingresa al método menuPrincipal, pasando como parametros el ID)
 
@@ -531,7 +533,9 @@ void Menu::vistaVentasPorEmpleado(int idVendedor)
 
         consumoTotal=0;
         pos1=0;
-        while(archivoEmpleado.leerDeDisco(pos1++)>0){
+        while(pos1< archivoEmpleado.cantidadEnArchivo()){
+            empleadoAux = archivoEmpleado.leerDeDisco(pos1);
+            pos1++;
             if(empleadoAux.getIdEmpleado()==id&&empleadoAux.getEstado()==true){
                 pantalla.dimensiones(2,renglon); cout<<empleadoAux.getNombre()<<" "<<empleadoAux.getApellido();
                 pos2=0;
