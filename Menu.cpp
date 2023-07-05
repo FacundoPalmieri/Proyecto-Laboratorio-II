@@ -39,15 +39,6 @@ void Menu:: OpcionIncorrecta(){
 
 }
 
-void Menu::marcoPantallaMenu(){
-    cls();
-    Pantalla pantalla;
-    system("mode con: cols=80 lines=25"); //SE DEFINE LAS DIMENSIONES DE LA VENTANA DEL PROGRAMA A 80 COLUMNAS Y 25 FILAS
-    system("COLOR 71"); //SE DA UN COLOR DE FONDO Y COLOR A LAS LETRAS
-    pantalla.dibujarCuadro(0,0,XSCREEN,YSCREEN); //SE DIBUJA EL CUADRO PRINCIPAL
-    pantalla.dibujarCuadro(1,1,(XSCREEN-1),3); //SE DIBUJA EL CUADRO DEL TITULO
-    pantalla.gotoxy(30,2); cout<<"DELTAPOINT RESTO";
-}
 
 int Menu::menuIdVendedor(){
 
@@ -59,7 +50,7 @@ int Menu::menuIdVendedor(){
         int idEmpleado=-1, pos, posAux;
         int password=-1;
 
-        marcoPantallaMenu();
+        pantalla.estiloMenu();
 
         pantalla.gotoxy (25,6); cout<<"INGRESO AL SISTEMA";
         pantalla.gotoxy (20,7); cout<<"--------------------------------";
@@ -135,7 +126,7 @@ int Menu::menuPrincipal(int idVendedor)
     Pantalla pantalla;
     do
     {
-        marcoPantallaMenu();
+        pantalla.estiloMenu();
 
         pantalla.gotoxy (2,6); cout<<"MENU PRINCIPAL";
         pantalla.gotoxy (2,7); cout<<"------------------";
@@ -184,7 +175,7 @@ int Menu::menuVenta(int idVendedor)
     Pantalla pantalla;
 
     do{
-        marcoPantallaMenu();
+        pantalla.estiloMenu();
 
         pantalla.gotoxy (2,6); cout<<"MENU VENTA";
         pantalla.gotoxy (2,7); cout<<"------------------";
@@ -233,7 +224,7 @@ int Menu::menuConsulta(int idVendedor)
     Pantalla pantalla;
 
     do{
-        marcoPantallaMenu();
+        pantalla.estiloMenu();
 
         pantalla.gotoxy (2,6); cout<<"MENU CONSULTA";
         pantalla.gotoxy (2,7); cout<<"------------------";
@@ -280,7 +271,7 @@ int Menu::menuListados(int idVendedor)
         Empleado empleadoAux;
         Producto productoAux;
 
-        marcoPantallaMenu();
+        pantalla.estiloMenu();
 
         pantalla.gotoxy (2,6); cout << "MENU LISTADOS";
         pantalla.gotoxy (2,7); cout << "------------------";
@@ -325,7 +316,7 @@ void Menu::vistaListadoProductos(int idVendedor)
     Producto productoAux;
     int pos, renglon;
 
-    marcoPantallaMenu();
+    pantalla.estiloMenu();
 
     pantalla.gotoxy (2,6); cout<<"LISTA DE PRODUCTOS:";
     pantalla.gotoxy (2,7); cout<<"--------------------";
@@ -351,7 +342,7 @@ void Menu::vistaListadoEmpleados(int idVendedor)
     Empleado empleadoAux;
     int pos, renglon;
 
-    marcoPantallaMenu();
+    pantalla.estiloMenu();
 
     pantalla.gotoxy (2,6); cout<<"LISTA DE EMPLEADOS:";
     pantalla.gotoxy (2,7); cout<<"--------------------";
@@ -375,7 +366,7 @@ int Menu::menuConsultasDeVentas(int idVendedor)
 {
     Pantalla pantalla;
     do{
-        marcoPantallaMenu();
+        pantalla.estiloMenu();
 
         pantalla.gotoxy (2,6); cout<<"MENU CONSULTA DE VENTAS";
         pantalla.gotoxy (2,7); cout<<"------------------";
@@ -422,7 +413,7 @@ void Menu::vistaVentasPorMes(int idVendedor)
     Venta ventaAux;
     float consumoTotal;
 
-    marcoPantallaMenu();
+    pantalla.estiloMenu();
 
     pantalla.gotoxy (2,4); cout<<"VENTAS POR MES:";
     pantalla.gotoxy (2,5); cout<<"--------------------";
@@ -465,7 +456,7 @@ void Menu::vistaVentasPorEmpleado(int idVendedor)
     int pos1, pos2, renglon = 8;
     float consumoTotal;
 
-    marcoPantallaMenu();
+    pantalla.estiloMenu();
 
     pantalla.gotoxy (2,4); cout<<"VENTAS POR EMPLEADO:";
     pantalla.gotoxy (2,5); cout<<"--------------------";
@@ -501,7 +492,7 @@ void Menu::vistaVentasPorProducto(int idVendedor)
     int pos1, pos2, renglon = 8, id;
     float consumoTotal;
 
-    marcoPantallaMenu();
+    pantalla.estiloMenu();
 
     pantalla.gotoxy (2,4); cout<<"VENTAS POR PRODUCTO:";
     pantalla.gotoxy (2,5); cout<<"--------------------";
@@ -535,7 +526,7 @@ int Menu::menuAjuste(int idVendedor)
         Empleado empleadoAux;
         int opcion;
 
-        marcoPantallaMenu();
+        pantalla.estiloMenu();
 
         pantalla.gotoxy (2,6); cout<<"MENU AJUSTE";
         pantalla.gotoxy (2,7); cout<<"------------------";
@@ -556,7 +547,7 @@ int Menu::menuAjuste(int idVendedor)
         switch (opcion)
         {
         case 1:
-            marcoPantallaMenu();
+            pantalla.estiloMenu();
             pantalla.gotoxy (2,6); cout<<"MENU AJUSTE - CARGAR PRODUCTO";
             pantalla.gotoxy (2,7); cout<<"------------------";
             pantalla.gotoxy (2,9);
@@ -568,7 +559,7 @@ int Menu::menuAjuste(int idVendedor)
             menuAjuste(idVendedor);
             break;
         case 2:
-            marcoPantallaMenu();
+            pantalla.estiloMenu();
             pantalla.gotoxy (2,6); cout<<"MENU AJUSTE - MODIFICAR PRODUCTO";
             pantalla.gotoxy (2,7); cout<<"------------------";
             pantalla.gotoxy (2,12);
@@ -577,7 +568,7 @@ int Menu::menuAjuste(int idVendedor)
             break;
 
         case 3:
-            marcoPantallaMenu();
+            pantalla.estiloMenu();
             pantalla.gotoxy (2,6); cout<<"MENU AJUSTE - ELIMINAR PRODUCTO";
             pantalla.gotoxy (2,7); cout<<"------------------";
             pantalla.gotoxy (2,12);
@@ -585,7 +576,7 @@ int Menu::menuAjuste(int idVendedor)
             menuAjuste(idVendedor);
             break;
         case 4:
-            marcoPantallaMenu();
+            pantalla.estiloMenu();
             pantalla.gotoxy (2,6); cout<<"MENU AJUSTE - CARGAR EMPLEADO";
             pantalla.gotoxy (2,7); cout<<"------------------";
             pantalla.gotoxy (2,12);
@@ -594,7 +585,7 @@ int Menu::menuAjuste(int idVendedor)
             menuAjuste(idVendedor);
             break;
         case 5:
-            marcoPantallaMenu();
+            pantalla.estiloMenu();
             pantalla.gotoxy (2,6); cout<<"MENU AJUSTE - MODIFICAR EMPLEADO";
             pantalla.gotoxy (2,7); cout<<"------------------";
             pantalla.gotoxy (2,8);
@@ -602,7 +593,7 @@ int Menu::menuAjuste(int idVendedor)
             menuAjuste(idVendedor);
             break;
         case 6:
-            marcoPantallaMenu();
+            pantalla.estiloMenu();
             pantalla.gotoxy (2,5); cout<<"MENU AJUSTE - BAJA DE EMPLEADO";
             pantalla.gotoxy (2,6); cout<<"------------------";
             empleadoAux.bajaEmpleado();

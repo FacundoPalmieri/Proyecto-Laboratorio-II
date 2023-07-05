@@ -29,7 +29,6 @@ public:
 
     void FinalizarPrograma();
     void OpcionIncorrecta();
-    void marcoPantallaMenu();
 
 private:
     int _opcion;
