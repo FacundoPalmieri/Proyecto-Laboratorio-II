@@ -4,7 +4,7 @@
 #define YSCREEN 24
 using namespace std;
 
-//FUNCION pantalla.dimensiones
+//Metodo pantalla.dimensiones
 void Pantalla::dimensiones(int x,int y)
 {
     HANDLE hcon; //controlador (handle) de la salida estándar de la consola
@@ -15,7 +15,7 @@ void Pantalla::dimensiones(int x,int y)
     SetConsoleCursorPosition(hcon,dwPos); //utiliza la función SetConsoleCursorPosition para establecer la posición del cursor en la menu de la consola.
 }
 
-//FUNCION QUE DIBUJA EL CUADRO
+//Metodo QUE DIBUJA EL CUADRO
 void Pantalla::dibujarCuadro(int x1,int y1,int x2,int y2)
 {
     int i;

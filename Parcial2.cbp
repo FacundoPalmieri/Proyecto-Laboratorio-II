@@ -33,6 +33,8 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="ArchivoEmpleado.cpp" />
+		<Unit filename="ArchivoEmpleado.h" />
 		<Unit filename="Empleado.cpp" />
 		<Unit filename="Empleado.h" />
 		<Unit filename="Fecha.cpp" />

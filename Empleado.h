@@ -32,14 +32,6 @@ class Empleado
         void cargarEmpleado();
         void mostrar();
 
-        int grabarEnDisco();
-        int leerDeDisco(int pos);
-        int cantidadEnArchivo();
-        bool validarIDEmpleado(int idEmpleado);
-        int buscarDato(int idVendedor);
-        void modificarRegistro();
-        int bajaEmpleado();
-        int sobreEscribirRegistro(Empleado empleado, int posicion);
         void cargarCadenas(char *pal, int tam);
 
 };
