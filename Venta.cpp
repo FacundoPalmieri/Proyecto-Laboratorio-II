@@ -170,4 +170,3 @@ int Venta::agregarProductoALaVenta(int idProducto, int cantidad){
         return -1;
     }
 }
-

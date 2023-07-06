@@ -50,38 +50,27 @@ Empleado  ArchivoEmpleado:: leerDeDisco(int pos){
        exit(20);
 
     }
-    fseek(p, pos*sizeof(Empleado), SEEK_SET);
-    int leyo = fread(&empleado, sizeof(Empleado), 1, p);
+    fseek(p, sizeof(Empleado)*pos,0);
+    fread(&empleado, sizeof empleado, 1, p);
+
     fclose(p);
     return empleado;
-
-
 }
 
 
 
 int  ArchivoEmpleado:: cantidadEnArchivo(){
-    Pantalla pantalla;
     Empleado empleado;
-    FILE* p;
-    int cantidad = 0;
-    p = fopen(_Nombre, "rb");
-    if (p == nullptr){
-       cout << RED;
-       pantalla.dimensiones(15,15);
-       cout << "El archivo de -Empleados - no se pudo abrir." << endl;
-       pantalla.dimensiones(15,16);
-       cout << "Comuniquese con el area de sistemas" << endl;
-       pantalla.dimensiones(15,20);
-       cout << BLUE;
-       system("pause");
 
-      return -1;
+
+    FILE* p = fopen("empleados.dat", "rb");
+    if (p == NULL) {
+        return 0;
     }
     fseek(p, 0, SEEK_END);
-    cantidad = ftell(p) / sizeof(Empleado);
+    int cant = ftell(p) / sizeof(Empleado);
     fclose(p);
-    return cantidad;
+    return cant;
 }
 
 

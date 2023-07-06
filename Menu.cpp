@@ -10,6 +10,7 @@ using namespace std;
 #include "Venta.h"
 #include "Empleado.h"
 #include "ArchivoEmpleado.h"
+#include "ArchivoVenta.h"
 
 void Menu::FinalizarPrograma(){
     system("cls");
@@ -41,9 +42,10 @@ int Menu::menuIdVendedor(){
     int IntentosUsuario = 3;
     do{
         Pantalla pantalla;
-        Empleado empleadoAux;
+        Empleado empleado;
         ArchivoEmpleado archivoEmpleado("empleados.dat");
-        int idEmpleado=-1, pos, posAux;
+
+        int idEmpleado=-1, posEmpleado=-1;
         int password=-1;
 
         pantalla.estiloMenu();
@@ -53,19 +55,17 @@ int Menu::menuIdVendedor(){
         pantalla.dimensiones (22,10); cout<<"INGRESE SU ID DE VENDEDOR: ";
         cin>>idEmpleado;
 
-        pos=0;
-        posAux=-1;
-        while(pos < archivoEmpleado.cantidadEnArchivo()){// Lee y aumenta la posición. Ingresa siempre que sea mayor a 0
-            empleadoAux = archivoEmpleado.leerDeDisco(pos);
-            pos++;
-            if(empleadoAux.getIdEmpleado()==idEmpleado&&empleadoAux.getEstado()==true){
-                posAux = pos-1; //  almacenar la posición del empleado encontrado antes de que pos sea incrementada nuevamente
-               pantalla.dimensiones (22,11); cout<<"- ("<<empleadoAux.getApellido()<<", "<<empleadoAux.getNombre()<<")"; // - PSW:"<<empleadoAux.getPassword();
+        for(int x=0; x<archivoEmpleado.cantidadEnArchivo();x++){
+            empleado = archivoEmpleado.leerDeDisco(x);
+
+            if(empleado.getIdEmpleado()==idEmpleado&&empleado.getEstado()==true){
+               posEmpleado = x; //  almacenar la posición del empleado encontrado antes de que posEmpleado sea incrementada nuevamente
+               pantalla.dimensiones (22,11); cout<<"- ("<<empleado.getApellido()<<", "<<empleado.getNombre()<<")"; // - PSW:"<<empleadoAux.getPassword();
             }
         }
 
-        if(posAux!=-1){
-            archivoEmpleado.leerDeDisco(posAux);
+        if(posEmpleado!=-1){
+            empleado=archivoEmpleado.leerDeDisco(posEmpleado);
             int IntentosClave = 3;
 
             for(int i = 0; i<3; i++){
@@ -73,11 +73,16 @@ int Menu::menuIdVendedor(){
                 pantalla.dimensiones (22,13); cout<< BLUE <<"INGRESE SU CLAVE: ";
                 cin>>password;
                 IntentosClave --;
-                //cout<<"psw ingresado: "<<password<<", psw encontrado: "<<empleadoAux.getPassword();
-                if(empleadoAux.getPassword()==password){
-                  menuPrincipal(empleadoAux.getIdEmpleado()); // Si coinciden las contraseñas ingresa al método menuPrincipal, pasando como parametros el ID)
 
+                pantalla.dimensiones (22,14);
+                cout<<"NOMBRE USUARIO: "<<empleado.getNombre()<<endl;
+                pantalla.dimensiones (22,15);
+                cout<<"CONTRASEÑA USUARIO: "<<empleado.getPassword()<<endl;
+                pantalla.dimensiones (22,17);
+                cout<<"POSICION: "<<posEmpleado<<endl;
 
+                if(empleado.getPassword()==password){
+                  menuPrincipal(empleado.getIdEmpleado()); // Si coinciden las contraseñas ingresa al método menuPrincipal, pasando como parametros el ID)
                 }
                 else{
                     pantalla.dimensiones (26,16); cout<< RED <<" CLAVE INCORRECTA" << endl;
@@ -115,6 +120,7 @@ int Menu::menuIdVendedor(){
 
 
     }while(IntentosUsuario>0);
+
    return 0;
 }
 
@@ -225,12 +231,12 @@ int Menu::menuConsulta(int idVendedor)
 
         pantalla.dimensiones (2,6); cout<<"MENU CONSULTA";
         pantalla.dimensiones (2,7); cout<<"------------------";
-        pantalla.dimensiones (2,10); cout<<"INGRESE UNA OPCION: ";
+        pantalla.dimensiones (2,10); cout<<"INGRESE UNA OPCION ";
 
-        pantalla.dimensiones (2,13); cout<<"1 - LISTADOS: ";
-        pantalla.dimensiones (2,14); cout<<"2 - CONSULTA DE VENTAS: ";
-        pantalla.dimensiones (2,15); cout<<"3 - VOLVER AL MENU PRINCIPAL: ";
-        pantalla.dimensiones (2,16); cout<<"0 - SALIR DEL PROGRAMA: ";
+        pantalla.dimensiones (2,13); cout<<"1 - LISTADOS ";
+        pantalla.dimensiones (2,14); cout<<"2 - CONSULTA DE VENTAS ";
+        pantalla.dimensiones (2,15); cout<<"3 - VOLVER AL MENU PRINCIPAL ";
+        pantalla.dimensiones (2,16); cout<<"0 - SALIR DEL PROGRAMA ";
 
         pantalla.dimensiones (2,19);
         cout<<"->: ";
@@ -373,47 +379,46 @@ void Menu::vistaListadoProductos(int idVendedor) {
 void Menu::vistaListadoEmpleados(int idVendedor)
 {
     Pantalla pantalla;
-    Empleado empleadoAux;
+    Empleado empleado;
+
     ArchivoEmpleado archivoEmpleado("empleados.dat");
-    int renglon, maximo;
+    int renglon=8, maximo=0;
 
     pantalla.estiloMenu();
 
     pantalla.dimensiones (2,6); cout<<"LISTA DE EMPLEADOS:";
     pantalla.dimensiones (2,7); cout<<"--------------------";
 
-    renglon = 8;
-    maximo=0;
-
     int* VecIdEmpleados = nullptr;
 
     for (int x = 0; x < archivoEmpleado.cantidadEnArchivo(); x++) {
-        archivoEmpleado.leerDeDisco(x);
-        if (empleadoAux.getIdEmpleado() > maximo) {
-            maximo = empleadoAux.getIdEmpleado();
+        empleado=archivoEmpleado.leerDeDisco(x);
+
+        if (empleado.getIdEmpleado() > maximo) {
+            maximo = empleado.getIdEmpleado();
         }
     }
 
-    VecIdEmpleados = new int[maximo]; // Incrementar en 1 el tamaño del arreglo
+    VecIdEmpleados = new int[maximo];
 
     if (VecIdEmpleados != nullptr) {
 
-        // ASIGNAR AL VECTOR EL ID DE CADA EMPLEADO, YA ORDENADO
+        // ASIGNO AL VECTOR EL ID DE CADA EMPLEADO, YA ORDENADO
         for (int i = 0; i < archivoEmpleado.cantidadEnArchivo(); i++) {
-            archivoEmpleado.leerDeDisco(i);
-            VecIdEmpleados[empleadoAux.getIdEmpleado()] = empleadoAux.getIdEmpleado();
+            empleado=archivoEmpleado.leerDeDisco(i);
+            VecIdEmpleados[empleado.getIdEmpleado()] = empleado.getIdEmpleado();
         }
 
         for (int x = 0; x <= maximo; x++) {
 
             for (int i = 0; i < archivoEmpleado.cantidadEnArchivo(); i++) {
-                archivoEmpleado.leerDeDisco(i);
+                empleado=archivoEmpleado.leerDeDisco(i);
 
-                if (empleadoAux.getIdEmpleado() == VecIdEmpleados[x] && empleadoAux.getEstado() == true) {
+                if (empleado.getIdEmpleado() == VecIdEmpleados[x] && empleado.getEstado() == true) {
 
-                    pantalla.dimensiones (5,renglon); cout<<empleadoAux.getIdEmpleado();
-                    pantalla.dimensiones (14,renglon); cout<<empleadoAux.getApellido()<<", "<<empleadoAux.getNombre();
-                    pantalla.dimensiones (45,renglon); cout<<empleadoAux.getPassword();
+                    pantalla.dimensiones (5,renglon); cout<<empleado.getIdEmpleado();
+                    pantalla.dimensiones (14,renglon); cout<<empleado.getApellido()<<", "<<empleado.getNombre();
+                    pantalla.dimensiones (45,renglon); cout<<empleado.getPassword();
                     renglon++;
                 }
             }
@@ -518,36 +523,41 @@ void Menu::vistaVentasPorMes(int idVendedor)
 void Menu::vistaVentasPorEmpleado(int idVendedor)
 {
     Pantalla pantalla;
-    Venta ventaAux;
-    Empleado empleadoAux;
+    Venta venta;
+    Empleado empleado;
     ArchivoEmpleado archivoEmpleado("empleados.dat");
-    int pos1, pos2, renglon = 8;
-    float consumoTotal;
+
+    int renglon = 8;
+    float consumoTotal=0;
 
     pantalla.estiloMenu();
 
     pantalla.dimensiones (2,4); cout<<"VENTAS POR EMPLEADO:";
     pantalla.dimensiones (2,5); cout<<"--------------------";
 
-    for(int id=0; id<10; id++){
+    for(int id=0; id<archivoEmpleado.cantidadEnArchivo(); id++){
 
+        empleado = archivoEmpleado.leerDeDisco(id);
         consumoTotal=0;
-        pos1=0;
-        while(pos1< archivoEmpleado.cantidadEnArchivo()){
-            empleadoAux = archivoEmpleado.leerDeDisco(pos1);
-            pos1++;
-            if(empleadoAux.getIdEmpleado()==id&&empleadoAux.getEstado()==true){
-                pantalla.dimensiones(2,renglon); cout<<empleadoAux.getNombre()<<" "<<empleadoAux.getApellido();
-                pos2=0;
-                while(ventaAux.leerDeDisco(pos2++)>0){
-                    if(ventaAux.getIdVendedor()==id){
-                        consumoTotal+=ventaAux.getConsumoTotal();
-                    }
+
+        if(empleado.getEstado()==true){
+
+            pantalla.dimensiones(2,renglon);
+            cout<<empleado.getNombre()<<" "<<empleado.getApellido();
+
+            for (int x=0; x<venta.cantidadVentas();x++){
+                venta.leerDeDisco(x);
+
+                if(venta.getIdVendedor()==empleado.getIdEmpleado()){
+                    consumoTotal+=venta.getConsumoTotal();
                 }
-                pantalla.dimensiones(25,renglon); cout<<"$ "<<consumoTotal;
-                renglon++;
+
             }
+
+            pantalla.dimensiones(25,renglon); cout<<"$ "<<consumoTotal;
+            renglon++;
         }
+
     }
 
     pantalla.dimensiones (2,15); cout << system("pause");
@@ -706,8 +716,11 @@ int Menu::menuPedido(int idVendedor)
         pantalla.dibujarCuadroDoble(2,4,96,6,23);
 
         pantalla.dibujarCuadroDoble(2,4,96,6,23);
-        pantalla.dimensiones (4,5); cout<<"MESA: ";
+        pantalla.dimensiones (4,5);
+
+        cout<<"MESA: ";
         cin>> mesaAux;
+
         venta.setMesa(mesaAux);
         venta.setVendedor(idVendedor);
 
