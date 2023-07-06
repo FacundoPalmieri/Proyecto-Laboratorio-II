@@ -482,7 +482,9 @@ int Menu::menuConsultasDeVentas(int idVendedor)
 void Menu::vistaVentasPorMes(int idVendedor)
 {
     Pantalla pantalla;
-    Venta ventaAux;
+    Venta venta;
+    ArchivoVenta archivoVenta("venta.dat");
+
     float consumoTotal;
 
     pantalla.estiloMenu();
@@ -490,7 +492,7 @@ void Menu::vistaVentasPorMes(int idVendedor)
     pantalla.dimensiones (2,4); cout<<"VENTAS POR MES:";
     pantalla.dimensiones (2,5); cout<<"--------------------";
 
-    int cantidad = ventaAux.cantidadVentas();
+    int cantidad = archivoVenta.cantidadVentas();
 
     for(int anio=2020; anio<2026; anio++){
         pantalla.dimensiones ((anio-2017)*9-8,7); cout<<anio;
@@ -498,10 +500,11 @@ void Menu::vistaVentasPorMes(int idVendedor)
             pantalla.dimensiones (2,mes+7); cout<<"MES "<<mes;
 
             for(int indice=0; indice<cantidad; indice++){
-                ventaAux.leerDeDisco(indice);
-                if(ventaAux.getFecha().getAnio()==anio){
-                    if(ventaAux.getFecha().getMes()==mes){
-                        consumoTotal += ventaAux.getConsumoTotal();
+                venta=archivoVenta.leerDeDisco(indice);
+
+                if(venta.getFecha().getAnio()==anio){
+                    if(venta.getFecha().getMes()==mes){
+                        consumoTotal += venta.getConsumoTotal();
                         pantalla.dimensiones ((anio-2017)*9-10,mes+7); cout<<consumoTotal<<"|";
                     }
                     else{
@@ -526,6 +529,7 @@ void Menu::vistaVentasPorEmpleado(int idVendedor)
     Venta venta;
     Empleado empleado;
     ArchivoEmpleado archivoEmpleado("empleados.dat");
+    ArchivoVenta archivoVenta("venta.dat");
 
     int renglon = 8;
     float consumoTotal=0;
@@ -545,8 +549,8 @@ void Menu::vistaVentasPorEmpleado(int idVendedor)
             pantalla.dimensiones(2,renglon);
             cout<<empleado.getNombre()<<" "<<empleado.getApellido();
 
-            for (int x=0; x<venta.cantidadVentas();x++){
-                venta.leerDeDisco(x);
+            for (int x=0; x<archivoVenta.cantidadVentas();x++){
+                venta=archivoVenta.leerDeDisco(x);
 
                 if(venta.getIdVendedor()==empleado.getIdEmpleado()){
                     consumoTotal+=venta.getConsumoTotal();
@@ -703,6 +707,8 @@ int Menu::menuPedido(int idVendedor)
         Pantalla pantalla;
         Venta venta;
         Producto producto;
+        ArchivoVenta archivoVenta("venta.dat");
+
         int opcion, renglon = 8, codigoProducto = 0, cantidadProducto = 0, mesaAux = -1;
         float subtotal = 0;
 
@@ -779,7 +785,7 @@ int Menu::menuPedido(int idVendedor)
             switch (opcion)
             {
             case 1:
-                venta.grabarEnDisco(); ////GRABAMOS EN ARCHIVO VENTA
+                archivoVenta.grabarEnDisco(venta); ////GRABAMOS EN ARCHIVO VENTA
                 pantalla.dimensiones (4,22); cout<<"VENTA REGISTRADA                        ";
                 pantalla.dimensiones (35,24); cout << "                                                      " << endl;
                 pantalla.dimensiones (3,24); system("pause");
@@ -817,7 +823,9 @@ void Menu::menuConsumoMesa(int idVendedor)
     Transaccion transaccion;
     Producto producto;
 
-    int pos1=0, pos2=0;
+    ArchivoVenta archivoVenta("venta.dat");
+
+    int pos2=0;
 
     int renglon = 8, mesaAux = -1;
     float total = 0, subtotal = 0;
@@ -841,8 +849,9 @@ void Menu::menuConsumoMesa(int idVendedor)
     pantalla.dimensiones (82,renglon-1); cout<<"SUBTOTAL";
     pantalla.dimensiones (80,22);        cout<<"TOTAL: ";
 
-    while(venta.leerDeDisco(pos1++)>0) //RECORRE ARCHIVO VENTAS
+    for (int x=0; x<archivoVenta.cantidadVentas();x++)  //RECORRE ARCHIVO VENTAS
     {
+        venta=archivoVenta.leerDeDisco(x);
         venta.getIdMesa(); //POR VUELTA TOMAMOS EL ID
 
         if(venta.getIdMesa() == mesaAux) //FILTRAMOS LAS VENTAS QUE COINCIDEN CON EL N° DE MESA INGRESADO

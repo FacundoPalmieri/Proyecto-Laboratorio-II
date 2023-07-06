@@ -6,6 +6,8 @@ using namespace std;
 #include "Producto.h"
 #include "Empleado.h"
 #include "Mesa.h"
+#include "ArchivoVenta.h"
+
 
 Venta::Venta(){
     _IdVenta = generarCodigoVenta();
@@ -98,30 +100,11 @@ bool Venta::confirmarVenta(){
     return true;
 }
 
-int Venta::grabarEnDisco(){
-
-    FILE *p = fopen("venta.dat", "ab");
-    int grabo=fwrite(this, sizeof(Venta),1, p);
-
-    if (p == NULL){return grabo;}
-
-    fclose(p);
-    return grabo;
-}
-
-int Venta::leerDeDisco(int pos){
-    FILE *p;
-    p=fopen("venta.dat","rb");
-    if(p==NULL) return -1;
-    fseek(p,pos * sizeof(Venta), SEEK_SET);
-    int leyo = fread(this, sizeof(Venta), 1, p);
-    fclose(p);
-    return leyo;
-
-}
 
 int Venta::generarCodigoVenta(){
-  return cantidadVentas() + 1;
+    ArchivoVenta archivoVenta("venta.dat");
+    int cantidadVentas=archivoVenta.cantidadVentas()+1;
+    return cantidadVentas;
 }
 
 int Venta::getLastIdVenta(){
@@ -134,18 +117,6 @@ int Venta::getLastIdVenta(){
     return lecturas;
 }
 
-int Venta::cantidadVentas(){
-    FILE* pFile;
-    int cantidad = 0;
-    pFile = fopen("venta.dat", "rb");
-    if (pFile == nullptr) {
-        return 0;
-    }
-    fseek(pFile, 0, SEEK_END);
-    cantidad = ftell(pFile) / sizeof(Venta);
-    fclose(pFile);
-    return cantidad;
-}
 
 int Venta::agregarProductoALaVenta(int idProducto, int cantidad){
 

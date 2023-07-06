@@ -14,10 +14,11 @@ int ArchivoEmpleado::grabarEnDisco(Empleado empleado){
     Pantalla pantalla;
     FILE *p;
     p=fopen(_Nombre, "ab");
+
     if(p==NULL){
        cout << RED;
        pantalla.dimensiones(15,15);
-       cout << "El archivo de -Empleados - no se pudo abrir." << endl;
+       cout << "El archivo de - Empleados - no se pudo abrir." << endl;
        pantalla.dimensiones(15,16);
        cout << "Comuniquese con el area de sistemas" << endl;
        pantalla.dimensiones(15,20);

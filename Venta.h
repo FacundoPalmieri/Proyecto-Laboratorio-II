@@ -15,6 +15,7 @@ private:
     int _idMesa;
     int _estado;    // 0 - cancelada / 1 - Borrador / 2 - Confirmada
 
+
 public:
     Venta();
     Venta(int vendedor, int mesa);
