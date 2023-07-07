@@ -7,6 +7,7 @@ using namespace std;
 #include "Empleado.h"
 #include "Mesa.h"
 #include "ArchivoVenta.h"
+#include "ArchivoProducto.h"
 
 
 Venta::Venta(){
@@ -118,20 +119,21 @@ int Venta::getLastIdVenta(){
 
 int Venta::agregarProductoALaVenta(int idProducto, int cantidad){
 
-    Producto productoAux; //SE UTILIZA PARA BUSCAR EL ID DEL PRODUCTO QUE RECIBIMOS POR PARÁMETRO
-    productoAux = buscarPorCodigo(idProducto);
+    Producto producto; //SE UTILIZA PARA BUSCAR EL ID DEL PRODUCTO QUE RECIBIMOS POR PARÁMETRO
+    ArchivoProducto archivoProducto("productos.dat");
+    producto = archivoProducto.buscarPorCodigo(idProducto);
 
-    if(productoAux.getIdProducto() != -1){
+    if(producto.getIdProducto() != -1){
         //CREAMOS UNA TRANSACCION AUX, POR PARÁMETROS, CON LOS DATOS DE LA VENTA Y EL PRODUCTO
-        Transaccion transaccionAux(getIDventa(), idProducto, cantidad, productoAux.getPrecioProducto(),'V', _idMesa);
+        Transaccion transaccion(getIDventa(), idProducto, cantidad, producto.getPrecioProducto(),'V', _idMesa);
 
         //GRABAMOS EN ARCHIVO TRANSACCIÓN
 
-        transaccionAux.grabarEnDisco()                                                    ;
+        transaccion.grabarEnDisco();                                                   ;
 
         //SUMAMOS EL IMPORTE TOTAL
 
-        _consumoTotal+=(productoAux.getPrecioProducto() * cantidad);
+        _consumoTotal+=(producto.getPrecioProducto() * cantidad);
 
         return 0;
     }

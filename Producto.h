@@ -27,17 +27,10 @@ public:
     void cargar();
     void mostrar();
 
-    void grabarEnDisco(Producto producto);
-    int leerDeDisco(int pos);
-    int cantidadEnArchivo();
-    int buscarDato(int idProducto);
-    void modificarRegistro();
-    int bajaProducto();
-    int sobreEscribirRegistro(Producto producto, int posicion);
     void cargarCadenas(char *pal, int tam);
 
 };
 
-Producto buscarPorCodigo(int codigo);
+
 
 #endif // PRODUCTO_H

@@ -4,6 +4,7 @@ using namespace std;
 
 #include "Transaccion.h"
 #include "Producto.h"
+#include "ArchivoProducto.h"
 
 Transaccion::Transaccion(){
 }
@@ -149,13 +150,14 @@ int Transaccion::cantidadTransacciones(){
 
 
 void Transaccion::mostrar(){
-    Producto productoAux;
+    Producto producto;
+    ArchivoProducto archivoProducto("productos.dat");
 
     cout<<_idTransaccion;
     cout<<"\t\t"<<_idOperacionAsociada;
     cout<<"\t"<<_idProducto;
-    productoAux = buscarPorCodigo(_idProducto);
-    cout<<"\t\t"<<productoAux.getNombreProducto();
+    producto = archivoProducto.buscarPorCodigo(_idProducto);
+    cout<<"\t\t"<<producto.getNombreProducto();
     cout<<"\t\t\t"<<_cantidad;
     cout<<"\t"<<_precio;
     cout<<"\t"<<_estado<<endl;

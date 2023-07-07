@@ -35,9 +35,6 @@ public:
 
     bool confirmarVenta();
 
-    int grabarEnDisco();
-    int leerDeDisco(int pos);
-
     int generarCodigoVenta();
     int getLastIdVenta();
     int cantidadVentas();

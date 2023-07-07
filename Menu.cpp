@@ -11,6 +11,7 @@ using namespace std;
 #include "Empleado.h"
 #include "ArchivoEmpleado.h"
 #include "ArchivoVenta.h"
+#include "ArchivoProducto.h"
 
 void Menu::FinalizarPrograma(){
     system("cls");
@@ -271,8 +272,6 @@ int Menu::menuListados(int idVendedor)
 {
  do{
         Pantalla pantalla;
-        Empleado empleadoAux;
-        Producto productoAux;
 
         pantalla.estiloMenu();
 
@@ -314,8 +313,11 @@ int Menu::menuListados(int idVendedor)
 
 void Menu::vistaListadoProductos(int idVendedor) {
     Pantalla pantalla;
-    Empleado empleadoAux;
-    Producto productoAux;
+    Empleado empleado;
+    Producto producto;
+
+    ArchivoProducto archivoProducto("productos.dat");
+
     int renglon, maximo;
 
     pantalla.estiloMenu();
@@ -328,48 +330,45 @@ void Menu::vistaListadoProductos(int idVendedor) {
     renglon = 8;
     maximo = 0;
 
-    int* VecIdProductos = nullptr;
-
-    for (int x = 0; x < productoAux.cantidadEnArchivo(); x++) {
-        productoAux.leerDeDisco(x);
-        if (productoAux.getIdProducto() > maximo) {
-            maximo = productoAux.getIdProducto();
+    for (int x = 0; x < archivoProducto.cantidadEnArchivo(); x++) {
+        producto = archivoProducto.leerDeDisco(x);
+        if (producto.getIdProducto() > maximo) {
+            maximo = producto.getIdProducto();
         }
     }
 
-    VecIdProductos = new int[maximo];
+    int* VecIdProductos = new int[maximo + 1];
 
     if (VecIdProductos != nullptr) {
 
-        // ASIGNAR AL VECTOR EL ID DE CADA PRODUCTO, YA ORDENADO
-        for (int i = 0; i < productoAux.cantidadEnArchivo(); i++) {
-            productoAux.leerDeDisco(i);
-            VecIdProductos[productoAux.getIdProducto()] = productoAux.getIdProducto();
+        // Asignar al vector el ID de cada producto, ya ordenado
+        for (int i = 0; i < archivoProducto.cantidadEnArchivo(); i++) {
+            producto = archivoProducto.leerDeDisco(i);
+            VecIdProductos[producto.getIdProducto()] = producto.getIdProducto();
         }
 
         for (int x = 0; x <= maximo; x++) {
 
-            for (int i = 0; i < productoAux.cantidadEnArchivo(); i++) {
-                productoAux.leerDeDisco(i);
+            for (int i = 0; i < archivoProducto.cantidadEnArchivo(); i++) {
+                producto = archivoProducto.leerDeDisco(i);
 
-                if (productoAux.getIdProducto() == VecIdProductos[x] && productoAux.getEstado() == true) {
+                if (producto.getIdProducto() == VecIdProductos[x] && producto.getEstado() == true) {
 
                     pantalla.dimensiones(5, renglon);
-                    cout << productoAux.getIdProducto();
+                    cout << producto.getIdProducto();
                     pantalla.dimensiones(14, renglon);
-                    cout << productoAux.getNombreProducto();
+                    cout << producto.getNombreProducto();
                     pantalla.dimensiones(60, renglon);
-                    cout << "$" << productoAux.getPrecioProducto();
+                    cout << "$" << producto.getPrecioProducto();
                     renglon++;
                 }
             }
         }
-    }
-    else {
+
+        delete[] VecIdProductos;
+    } else {
         cout << "NO SE PUDO ASIGNAR MEMORIA" << endl;
     }
-
-    delete[] VecIdProductos;
 
     pantalla.dimensiones(2, 20);
     cout << system("pause");
@@ -571,9 +570,11 @@ void Menu::vistaVentasPorEmpleado(int idVendedor)
 void Menu::vistaVentasPorProducto(int idVendedor)
 {
     Pantalla pantalla;
-    Transaccion transaccionAux;
-    Producto productoAux;
-    int pos1, pos2, renglon = 8, id;
+    Transaccion transaccion;
+    Producto producto;
+    ArchivoProducto archivoProducto("productos.dat");
+
+    int pos2, renglon = 8;
     float consumoTotal;
 
     pantalla.estiloMenu();
@@ -581,17 +582,16 @@ void Menu::vistaVentasPorProducto(int idVendedor)
     pantalla.dimensiones (2,4); cout<<"VENTAS POR PRODUCTO:";
     pantalla.dimensiones (2,5); cout<<"--------------------";
 
-    pos1=0;
-    while(productoAux.leerDeDisco(pos1++)>0){
+    for (int x=0; x<archivoProducto.cantidadEnArchivo();x++){
         consumoTotal=0;
-        id = productoAux.getIdProducto();
+        producto=archivoProducto.leerDeDisco(x);
 
-        if (productoAux.getEstado()==true){
-            pantalla.dimensiones(2,renglon); cout<<productoAux.getNombreProducto();
+        if (producto.getEstado()==true){
+            pantalla.dimensiones(2,renglon); cout<<producto.getNombreProducto();
             pos2=0;
-            while(transaccionAux.leerDeDisco(pos2++)>0){
-                if(transaccionAux.getIdProducto()==id){
-                    consumoTotal+=(transaccionAux.getPrecio()*transaccionAux.getCantidad());
+            while(transaccion.leerDeDisco(pos2++)>0){
+                if(transaccion.getIdProducto()==producto.getIdProducto()){
+                    consumoTotal+=(transaccion.getPrecio()*transaccion.getCantidad());
                 }
             }
             pantalla.dimensiones(35,renglon); cout<<"$ "<<consumoTotal;
@@ -606,9 +606,10 @@ int Menu::menuAjuste(int idVendedor)
 {
     do{
         Pantalla pantalla;
-        Producto productoAux;
-        Empleado empleadoAux;
+        Producto producto;
+        Empleado empleado;
         ArchivoEmpleado archivoEmpleado("empleados.dat");
+        ArchivoProducto archivoProducto("productos.dat");
         int opcion;
 
         pantalla.estiloMenu();
@@ -636,9 +637,9 @@ int Menu::menuAjuste(int idVendedor)
             pantalla.dimensiones (2,6); cout<<"MENU AJUSTE - CARGAR PRODUCTO";
             pantalla.dimensiones (2,7); cout<<"------------------";
             pantalla.dimensiones (2,9);
-            productoAux.cargar();
+            producto.cargar();
             pantalla.dimensiones (2,15);
-            productoAux.grabarEnDisco(productoAux);
+            archivoProducto.grabarEnDisco(producto);
             pantalla.dimensiones (2,16);
             system("pause");
             menuAjuste(idVendedor);
@@ -648,7 +649,7 @@ int Menu::menuAjuste(int idVendedor)
             pantalla.dimensiones (2,6); cout<<"MENU AJUSTE - MODIFICAR PRODUCTO";
             pantalla.dimensiones (2,7); cout<<"------------------";
             pantalla.dimensiones (2,12);
-            productoAux.modificarRegistro();
+            archivoProducto.modificarRegistro();
             menuAjuste(idVendedor);
             break;
 
@@ -657,7 +658,7 @@ int Menu::menuAjuste(int idVendedor)
             pantalla.dimensiones (2,6); cout<<"MENU AJUSTE - ELIMINAR PRODUCTO";
             pantalla.dimensiones (2,7); cout<<"------------------";
             pantalla.dimensiones (2,12);
-            productoAux.bajaProducto();
+            archivoProducto.bajaProducto();
             menuAjuste(idVendedor);
             break;
         case 4:
@@ -665,8 +666,8 @@ int Menu::menuAjuste(int idVendedor)
             pantalla.dimensiones (2,6); cout<<"MENU AJUSTE - CARGAR EMPLEADO";
             pantalla.dimensiones (2,7); cout<<"------------------";
             pantalla.dimensiones (2,12);
-            empleadoAux.cargarEmpleado();
-            archivoEmpleado.grabarEnDisco(empleadoAux);
+            empleado.cargarEmpleado();
+            archivoEmpleado.grabarEnDisco(empleado);
             menuAjuste(idVendedor);
             break;
         case 5:
@@ -708,6 +709,7 @@ int Menu::menuPedido(int idVendedor)
         Venta venta;
         Producto producto;
         ArchivoVenta archivoVenta("venta.dat");
+        ArchivoProducto archivoProducto("productos.dat");
 
         int opcion, renglon = 8, codigoProducto = 0, cantidadProducto = 0, mesaAux = -1;
         float subtotal = 0;
@@ -743,7 +745,7 @@ int Menu::menuPedido(int idVendedor)
 
         while(codigoProducto>0)
         {
-            producto = buscarPorCodigo(codigoProducto);
+            producto = archivoProducto.buscarPorCodigo(codigoProducto);
             pantalla.dimensiones (15,renglon); cout<<producto.getNombreProducto();
             if(producto.getIdProducto()!=-1)
             {
@@ -824,10 +826,11 @@ void Menu::menuConsumoMesa(int idVendedor)
     Producto producto;
 
     ArchivoVenta archivoVenta("venta.dat");
+    ArchivoProducto archivoProducto("productos.dat");
 
     int indice=0;
 
-    int renglon = 8, mesaAux = -1;
+    int renglon = 8, mesa = -1;
     float total = 0, subtotal = 0;
 
     system("cls");
@@ -840,7 +843,7 @@ void Menu::menuConsumoMesa(int idVendedor)
     pantalla.dibujarCuadroDoble(2,4,96,6,23);
 
     pantalla.dimensiones (4,5); cout<<"MESA: ";
-    cin>> mesaAux;
+    cin>> mesa;
 
     pantalla.dimensiones (3,renglon-1);  cout<<"CODIGO";
     pantalla.dimensiones (18,renglon-1); cout<<"NOMBRE PRODUCTO";
@@ -854,14 +857,14 @@ void Menu::menuConsumoMesa(int idVendedor)
         venta=archivoVenta.leerDeDisco(x);
         venta.getIdMesa(); //POR VUELTA TOMAMOS EL ID
 
-        if(venta.getIdMesa() == mesaAux) //FILTRAMOS LAS VENTAS QUE COINCIDEN CON EL N° DE MESA INGRESADO
+        if(venta.getIdMesa() == mesa) //FILTRAMOS LAS VENTAS QUE COINCIDEN CON EL N° DE MESA INGRESADO
         {
             while(transaccion.leerDeDisco(indice++)>0) //RECORREMOS ARCHIVO TRANSACCIÓN
             {
                 if(transaccion.getIdMesa() == venta.getIdMesa()&&transaccion.getEstado()==2) //FILTRA SI COINCIDE VENTA Y TRANSACCIÓN EN EL ID MESA
                 {
                     pantalla.dimensiones (4,renglon); cout<<transaccion.getIdProducto();
-                    producto = buscarPorCodigo(transaccion.getIdProducto());
+                    producto = archivoProducto.buscarPorCodigo(transaccion.getIdProducto());
                     pantalla.dimensiones (19,renglon); cout<<producto.getNombreProducto();
                     pantalla.dimensiones (54,renglon); cout<<transaccion.getCantidad();
                     pantalla.dimensiones (66,renglon); cout<<"$"<<transaccion.getPrecio();
@@ -887,7 +890,7 @@ void Menu::cerrarMesa(){
     Pantalla pantalla;
     Transaccion transaccion;
 
-    int mesaAux = -1, posicion=0;
+    int mesa = -1, posicion=0;
     float total=0;
 
     system("cls");
@@ -900,17 +903,17 @@ void Menu::cerrarMesa(){
     pantalla.dibujarCuadroDoble(2,4,96,6,23);
 
     pantalla.dimensiones (4,5); cout<<"MESA: ";
-    cin>> mesaAux;
+    cin>> mesa;
 
 
     while(transaccion.leerDeDisco(posicion)>0) //RECORRE ARCHIVO VENTAS
     {
         transaccion.getIdMesa(); //POR VUELTA TOMAMOS EL ID
 
-        if(transaccion.getIdMesa() == mesaAux) //FILTRAMOS LAS VENTAS QUE COINCIDEN CON EL N° DE MESA INGRESADO
+        if(transaccion.getIdMesa() == mesa) //FILTRAMOS LAS VENTAS QUE COINCIDEN CON EL N° DE MESA INGRESADO
         {
             total+=transaccion.getPrecio();
-            transaccion.cerrarMesa(mesaAux);
+            transaccion.cerrarMesa(mesa);
         }
         posicion++;
     }

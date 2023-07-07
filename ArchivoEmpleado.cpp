@@ -1,10 +1,10 @@
 #define XSCREEN 78
 #define YSCREEN 24
 #include <iostream>
+#include "colors.h"
 using namespace std;
 #include "ArchivoEmpleado.h"
 #include "Pantalla.h"
-#include "colors.h"
 
 ArchivoEmpleado::ArchivoEmpleado(const char* Nombre){
     strcpy(_Nombre, Nombre);
@@ -126,7 +126,7 @@ int ArchivoEmpleado:: buscarDato(int idEmpleado){
 	if(pArchivo==NULL){
        cout << RED;
        pantalla.dimensiones(15,15);
-       cout << "El archivo de -Empleados - no se pudo abrir." << endl;
+       cout << "El archivo de - Empleados - no se pudo abrir." << endl;
        pantalla.dimensiones(15,16);
        cout << "Comuniquese con el area de sistemas" << endl;
        pantalla.dimensiones(15,20);
