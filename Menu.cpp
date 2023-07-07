@@ -307,7 +307,7 @@ int Menu::menuListados(int idVendedor)
 
 void Menu::vistaListadoProductos(int idVendedor) {
     Pantalla pantalla;
-    Empleado empleado;
+
     Producto producto;
 
     ArchivoProducto archivoProducto("productos.dat");
@@ -324,27 +324,30 @@ void Menu::vistaListadoProductos(int idVendedor) {
     renglon = 8;
     maximo = 0;
 
+    int* VecIdProductos = nullptr;
+
     for (int x = 0; x < archivoProducto.cantidadEnArchivo(); x++) {
-        producto = archivoProducto.leerDeDisco(x);
+        producto=archivoProducto.leerDeDisco(x);
+
         if (producto.getIdProducto() > maximo) {
             maximo = producto.getIdProducto();
         }
     }
 
-    int* VecIdProductos = new int[maximo + 1];
+    VecIdProductos = new int[maximo];
 
     if (VecIdProductos != nullptr) {
 
-        // Asignar al vector el ID de cada producto, ya ordenado
+        // ASIGNO AL VECTOR EL ID DE CADA EMPLEADO, YA ORDENADO
         for (int i = 0; i < archivoProducto.cantidadEnArchivo(); i++) {
-            producto = archivoProducto.leerDeDisco(i);
-            VecIdProductos[producto.getIdProducto()] = producto.getIdProducto();
+            producto=archivoProducto.leerDeDisco(i);
+            VecIdProductos[producto.getIdProducto()-1] = producto.getIdProducto();
         }
 
         for (int x = 0; x <= maximo; x++) {
 
             for (int i = 0; i < archivoProducto.cantidadEnArchivo(); i++) {
-                producto = archivoProducto.leerDeDisco(i);
+                producto=archivoProducto.leerDeDisco(i);
 
                 if (producto.getIdProducto() == VecIdProductos[x] && producto.getEstado() == true) {
 
@@ -358,14 +361,15 @@ void Menu::vistaListadoProductos(int idVendedor) {
                 }
             }
         }
-
-        delete[] VecIdProductos;
-    } else {
+    }
+    else {
         cout << "NO SE PUDO ASIGNAR MEMORIA" << endl;
     }
 
-    pantalla.dimensiones(2, 20);
-    cout << system("pause");
+    delete[] VecIdProductos;
+
+    pantalla.dimensiones (2,20); cout<< system("pause");
+
 }
 
 
