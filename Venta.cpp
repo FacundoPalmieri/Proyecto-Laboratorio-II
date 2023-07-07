@@ -8,6 +8,7 @@ using namespace std;
 #include "Mesa.h"
 #include "ArchivoVenta.h"
 #include "ArchivoProducto.h"
+#include "ArchivoTransaccion.h"
 
 
 Venta::Venta(){
@@ -80,16 +81,18 @@ void Venta::setConsumoTotal(float total){
 }
 
 bool Venta::confirmarVenta(){
-
-    Transaccion transaccionAux;
+    ArchivoTransaccion archivoTransaccion("transacciones.dat");
+    Transaccion transaccion;
     int pos=0;
 
-    while(transaccionAux.leerDeDisco(pos)){
-        if(transaccionAux.esVenta()==true){
-            if(transaccionAux.getIdOperacionAsociada() == getIDventa()){
-                transaccionAux.confirmarTransaccion();
-                transaccionAux.mostrar();
-                transaccionAux.grabarEnDiscoPorPosicion(pos);
+    for(int x = 0; x <archivoTransaccion.cantidadTransacciones(); x++){
+        transaccion = archivoTransaccion.leerDeDisco(x);
+
+        if(transaccion.esVenta()==true){
+            if(transaccion.getIdOperacionAsociada() == getIDventa()){
+                transaccion.confirmarTransaccion();
+                transaccion.mostrar();
+                archivoTransaccion.grabarEnDiscoPorPosicion(pos, transaccion);
             }
         }
         pos++;
@@ -122,14 +125,16 @@ int Venta::agregarProductoALaVenta(int idProducto, int cantidad){
     Producto producto; //SE UTILIZA PARA BUSCAR EL ID DEL PRODUCTO QUE RECIBIMOS POR PARÁMETRO
     ArchivoProducto archivoProducto("productos.dat");
     producto = archivoProducto.buscarPorCodigo(idProducto);
+    ArchivoTransaccion archivoTransaccion("transacciones.dat");
 
     if(producto.getIdProducto() != -1){
         //CREAMOS UNA TRANSACCION AUX, POR PARÁMETROS, CON LOS DATOS DE LA VENTA Y EL PRODUCTO
-        Transaccion transaccion(getIDventa(), idProducto, cantidad, producto.getPrecioProducto(),'V', _idMesa);
+
+       Transaccion transaccion(getIDventa(), idProducto, cantidad, producto.getPrecioProducto(),'V', _idMesa);
 
         //GRABAMOS EN ARCHIVO TRANSACCIÓN
 
-        transaccion.grabarEnDisco();                                                   ;
+        archivoTransaccion.grabarEnDisco(transaccion);
 
         //SUMAMOS EL IMPORTE TOTAL
 

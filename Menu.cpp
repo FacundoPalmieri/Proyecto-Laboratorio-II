@@ -12,6 +12,7 @@ using namespace std;
 #include "ArchivoEmpleado.h"
 #include "ArchivoVenta.h"
 #include "ArchivoProducto.h"
+#include "ArchivoTransaccion.h"
 
 void Menu::FinalizarPrograma(){
     system("cls");
@@ -74,13 +75,6 @@ int Menu::menuIdVendedor(){
                 pantalla.dimensiones (22,13); cout<< BLUE <<"INGRESE SU CLAVE: ";
                 cin>>password;
                 IntentosClave --;
-
-                pantalla.dimensiones (22,14);
-                cout<<"NOMBRE USUARIO: "<<empleado.getNombre()<<endl;
-                pantalla.dimensiones (22,15);
-                cout<<"CONTRASEÑA USUARIO: "<<empleado.getPassword()<<endl;
-                pantalla.dimensiones (22,17);
-                cout<<"POSICION: "<<posEmpleado<<endl;
 
                 if(empleado.getPassword()==password){
                   menuPrincipal(empleado.getIdEmpleado()); // Si coinciden las contraseñas ingresa al método menuPrincipal, pasando como parametros el ID)
@@ -570,11 +564,12 @@ void Menu::vistaVentasPorEmpleado(int idVendedor)
 void Menu::vistaVentasPorProducto(int idVendedor)
 {
     Pantalla pantalla;
+    ArchivoTransaccion archivoTransaccion ("transacciones.dat");
     Transaccion transaccion;
     Producto producto;
     ArchivoProducto archivoProducto("productos.dat");
 
-    int pos2, renglon = 8;
+    int renglon = 8;
     float consumoTotal;
 
     pantalla.estiloMenu();
@@ -588,11 +583,14 @@ void Menu::vistaVentasPorProducto(int idVendedor)
 
         if (producto.getEstado()==true){
             pantalla.dimensiones(2,renglon); cout<<producto.getNombreProducto();
-            pos2=0;
-            while(transaccion.leerDeDisco(pos2++)>0){
+
+            for(int x = 0; x < archivoTransaccion.cantidadTransacciones(); x++){
+                transaccion = archivoTransaccion.leerDeDisco(x);
                 if(transaccion.getIdProducto()==producto.getIdProducto()){
                     consumoTotal+=(transaccion.getPrecio()*transaccion.getCantidad());
                 }
+
+
             }
             pantalla.dimensiones(35,renglon); cout<<"$ "<<consumoTotal;
             renglon++;
@@ -824,11 +822,9 @@ void Menu::menuConsumoMesa(int idVendedor)
     Venta venta;
     Transaccion transaccion;
     Producto producto;
-
+    ArchivoTransaccion archivoTransaccion("transacciones.dat");
     ArchivoVenta archivoVenta("venta.dat");
     ArchivoProducto archivoProducto("productos.dat");
-
-    int indice=0;
 
     int renglon = 8, mesa = -1;
     float total = 0, subtotal = 0;
@@ -859,8 +855,9 @@ void Menu::menuConsumoMesa(int idVendedor)
 
         if(venta.getIdMesa() == mesa) //FILTRAMOS LAS VENTAS QUE COINCIDEN CON EL N° DE MESA INGRESADO
         {
-            while(transaccion.leerDeDisco(indice++)>0) //RECORREMOS ARCHIVO TRANSACCIÓN
+            for(int x = 0; x < archivoTransaccion.cantidadTransacciones();x++) //RECORREMOS ARCHIVO TRANSACCIÓN
             {
+                transaccion = archivoTransaccion.leerDeDisco(x);
                 if(transaccion.getIdMesa() == venta.getIdMesa()&&transaccion.getEstado()==2) //FILTRA SI COINCIDE VENTA Y TRANSACCIÓN EN EL ID MESA
                 {
                     pantalla.dimensiones (4,renglon); cout<<transaccion.getIdProducto();
@@ -888,6 +885,7 @@ void Menu::menuConsumoMesa(int idVendedor)
 void Menu::cerrarMesa(){
 
     Pantalla pantalla;
+    ArchivoTransaccion archivoTransaccion("transacciones.dat");
     Transaccion transaccion;
 
     int mesa = -1, posicion=0;
@@ -906,8 +904,9 @@ void Menu::cerrarMesa(){
     cin>> mesa;
 
 
-    while(transaccion.leerDeDisco(posicion)>0) //RECORRE ARCHIVO VENTAS
+    for(int x = 0; x < archivoTransaccion.cantidadTransacciones(); x++)//RECORRE ARCHIVO TRANSACCION
     {
+        transaccion = archivoTransaccion.leerDeDisco(x);
         transaccion.getIdMesa(); //POR VUELTA TOMAMOS EL ID
 
         if(transaccion.getIdMesa() == mesa) //FILTRAMOS LAS VENTAS QUE COINCIDEN CON EL N° DE MESA INGRESADO

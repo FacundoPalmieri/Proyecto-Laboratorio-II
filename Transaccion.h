@@ -33,14 +33,8 @@ public:
 
     bool esVenta();
     void confirmarTransaccion();
-
-    int grabarEnDisco();
-    int grabarEnDiscoPorPosicion(int posicion);
-    int leerDeDisco(int pos);
-
     int generarCodigoTransaccion();
-    int getLastIdTransaction();
-    int cantidadTransacciones();
+
     void cerrarMesa(int mesaAux);
 
     void mostrar();

@@ -5,6 +5,7 @@ using namespace std;
 #include "Transaccion.h"
 #include "Producto.h"
 #include "ArchivoProducto.h"
+#include "ArchivoTransaccion.h"
 
 Transaccion::Transaccion(){
 }
@@ -93,60 +94,15 @@ void Transaccion::confirmarTransaccion(){
     _estado = 2;
 }
 
-int Transaccion::grabarEnDisco(){
-    FILE *p;
-    p=fopen("transaccion.dat", "ab");
-    if(p==NULL) return -1;
-    int grabo=fwrite(this, sizeof(Transaccion), 1, p);
-    fclose(p);
-    return grabo;
-}
 
-int Transaccion::grabarEnDiscoPorPosicion(int posicion){
-	FILE *p;
-	p = fopen("transaccion.dat", "rb+");
-	if(p==NULL) return false;
-	fseek(p, sizeof(Transaccion)*posicion, 0);
-	int escribio = fwrite(this, sizeof(Transaccion), 1, 0);
-	fclose(p);
-	return escribio;
-}
-
-int Transaccion::leerDeDisco(int pos){
-    FILE *p;
-    p=fopen("transaccion.dat","rb");
-    if(p==NULL) return -1;
-    fseek(p,pos * sizeof(Transaccion), SEEK_SET);
-    int leyo = fread(this, sizeof(Transaccion), 1, p);
-    fclose(p);
-    return leyo;
-}
 
 
 int Transaccion::generarCodigoTransaccion(){
-  return cantidadTransacciones() + 1;
+   ArchivoTransaccion archivoTransaccion ("transacciones.dat");
+   return archivoTransaccion.cantidadTransacciones()+ 1;
 }
 
-int Transaccion::getLastIdTransaction(){
-    FILE *p;
-    p=fopen("transaccion.dat","rb+");
-    if(p==NULL) return 0;
-    fseek(p,sizeof(Transaccion), SEEK_END);
-    int lecturas = fread(this,sizeof(Transaccion), 1, p);
-    fclose(p);
-    return lecturas;
-}
 
-int Transaccion::cantidadTransacciones(){
-    FILE* pFile;
-    int cantidad = 0;
-    pFile = fopen("transaccion.dat", "rb");
-    if (pFile == nullptr) return 0;
-    fseek(pFile, 0, SEEK_END);
-    cantidad = ftell(pFile) / sizeof(Transaccion);
-    fclose(pFile);
-    return cantidad;
-}
 
 
 void Transaccion::mostrar(){
@@ -164,26 +120,16 @@ void Transaccion::mostrar(){
 }
 
 void Transaccion::cerrarMesa(int mesaAux){
+    ArchivoTransaccion archivoTransaccion("transacciones.dat");
     Transaccion transaccion;
     int posicion=0;
 
-    while(transaccion.leerDeDisco(posicion)>0){ //RECORRE ARCHIVO VENTAS
+    for(int x = 0; x < archivoTransaccion.cantidadTransacciones(); x++){
+        transaccion = archivoTransaccion.leerDeDisco(x);
 
-        transaccion.getIdMesa(); //POR VUELTA TOMAMOS EL ID
-
-            if(transaccion.getIdMesa() == mesaAux) //FILTRAMOS LAS VENTAS QUE COINCIDEN CON EL N° DE MESA INGRESADO
-            {
+            if(transaccion.getIdMesa() == mesaAux){ //FILTRAMOS LAS VENTAS QUE COINCIDEN CON EL N° DE MESA INGRESADO
                 transaccion.setEstado(0);
-                FILE* p;
-                p = fopen("transaccion.dat", "rb+");
-                if (p == NULL) {
-                    cout << "NO SE PUDO ABRIR EL ARCHIVO" << endl;
-                }
-                fseek(p, sizeof transaccion*posicion,0);
-
-                // Escribe los datos modificados de vuelta al archivo
-                fwrite(&transaccion, sizeof(Transaccion), 1, p);
-                fclose(p);
+                archivoTransaccion.sobreEscribirRegistro(mesaAux, transaccion);
 
             }
         posicion++;

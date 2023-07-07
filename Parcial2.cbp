@@ -41,6 +41,8 @@
 		<Unit filename="ArchivoEmpleado.h" />
 		<Unit filename="ArchivoProducto.cpp" />
 		<Unit filename="ArchivoProducto.h" />
+		<Unit filename="ArchivoTransaccion.cpp" />
+		<Unit filename="ArchivoTransaccion.h" />
 		<Unit filename="ArchivoVenta.cpp" />
 		<Unit filename="ArchivoVenta.h" />
 		<Unit filename="Empleado.cpp" />
