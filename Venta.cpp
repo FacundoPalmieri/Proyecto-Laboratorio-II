@@ -59,8 +59,6 @@ void Venta::cargarVenta()
 
 void Venta::mostrar()
 {
-    Empleado empleado;
-
     cout<<"\n ID DE VENTA: "<<_IdVenta<<endl;
     cout<<"FECHA: "; _fecha.mostrarFecha(); cout<<endl;
     cout<<"CONSUMO TOTAL: $"<<_consumoTotal<<endl;
@@ -103,7 +101,7 @@ bool Venta::confirmarVenta(){
 
 int Venta::generarCodigoVenta(){
     ArchivoVenta archivoVenta("venta.dat");
-    int cantidadVentas=archivoVenta.cantidadVentas()+1;
+    int cantidadVentas=archivoVenta.cantidadVentas();
     return cantidadVentas;
 }
 

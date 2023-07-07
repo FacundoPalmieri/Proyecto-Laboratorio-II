@@ -36,8 +36,8 @@ int ArchivoVenta::grabarEnDisco(Venta venta){
 }
 
 Venta ArchivoVenta::leerDeDisco(int pos){
-    Venta venta;
     Pantalla pantalla;
+    Venta venta;
 
     FILE *p;
     p=fopen("venta.dat","rb");
@@ -46,8 +46,11 @@ Venta ArchivoVenta::leerDeDisco(int pos){
         pantalla.dimensiones(15,15);
         cout << "El archivo de - Ventas - no se pudo abrir." << endl;
     }
-    fseek(p,pos * sizeof(Venta), SEEK_SET);
-    fread(this, sizeof(Venta), 1, p);
+
+    fseek(p, sizeof(Venta)*pos, SEEK_SET);
+    fread(&venta, sizeof venta, 1, p);
+
+
     fclose(p);
 
     return venta;

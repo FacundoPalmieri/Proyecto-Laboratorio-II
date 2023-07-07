@@ -37,6 +37,7 @@ int ArchivoEmpleado::grabarEnDisco(Empleado empleado){
 Empleado  ArchivoEmpleado:: leerDeDisco(int pos){
     Pantalla pantalla;
     Empleado empleado;
+
     FILE *p;
     p=fopen(_Nombre,"rb");
     if(p==NULL){

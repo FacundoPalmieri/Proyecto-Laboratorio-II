@@ -825,7 +825,7 @@ void Menu::menuConsumoMesa(int idVendedor)
 
     ArchivoVenta archivoVenta("venta.dat");
 
-    int pos2=0;
+    int indice=0;
 
     int renglon = 8, mesaAux = -1;
     float total = 0, subtotal = 0;
@@ -856,7 +856,7 @@ void Menu::menuConsumoMesa(int idVendedor)
 
         if(venta.getIdMesa() == mesaAux) //FILTRAMOS LAS VENTAS QUE COINCIDEN CON EL N° DE MESA INGRESADO
         {
-            while(transaccion.leerDeDisco(pos2++)) //RECORREMOS ARCHIVO TRANSACCIÓN
+            while(transaccion.leerDeDisco(indice++)>0) //RECORREMOS ARCHIVO TRANSACCIÓN
             {
                 if(transaccion.getIdMesa() == venta.getIdMesa()&&transaccion.getEstado()==2) //FILTRA SI COINCIDE VENTA Y TRANSACCIÓN EN EL ID MESA
                 {
