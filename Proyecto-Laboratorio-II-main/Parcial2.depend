@@ -1,0 +1,1015 @@
+# depslib dependency file v1.0
+1668193994 source:c:\users\pablo.eckerdt\desktop\archivos pablo\000 - tup\2 - 2c - laboratorio 2\tp parcial 2\proyecto-en-c--main\parcial2\fecha.cpp
+	<iostream>
+	<cstdio>
+	<stdlib.h>
+	<ctime>
+	"Fecha.h"
+
+1668193994 c:\users\pablo.eckerdt\desktop\archivos pablo\000 - tup\2 - 2c - laboratorio 2\tp parcial 2\proyecto-en-c--main\parcial2\fecha.h
+
+1671084060 source:c:\users\pablo.eckerdt\desktop\archivos pablo\000 - tup\2 - 2c - laboratorio 2\tp parcial 2\proyecto-en-c--main\parcial2\main.cpp
+	<iostream>
+	<conio.h>
+	<stdio.h>
+	<stdlib.h>
+	<windows.h>
+	"Mesa.h"
+	"Producto.h"
+	"Venta.h"
+
+1668036948 c:\users\pablo.eckerdt\desktop\archivos pablo\000 - tup\2 - 2c - laboratorio 2\tp parcial 2\proyecto-en-c--main\parcial2\mesa.h
+
+1668687331 c:\users\pablo.eckerdt\desktop\archivos pablo\000 - tup\2 - 2c - laboratorio 2\tp parcial 2\proyecto-en-c--main\parcial2\producto.h
+	<cstring>
+	"Fecha.h"
+
+1667525646 source:c:\users\pablo.eckerdt\desktop\archivos pablo\000 - tup\2 - 2c - laboratorio 2\tp parcial 2\proyecto-en-c--main\parcial2\menu.cpp
+	<iostream>
+	<conio.h>
+	<stdio.h>
+	<stdlib.h>
+	<windows.h>
+	<stdlib.h>
+	"rlutil.h"
+	"Menu.h"
+	"Cliente.h"
+
+1662381029 c:\users\pablo.eckerdt\desktop\archivos pablo\000 - tup\2 - 2c - laboratorio 2\tp parcial 2\proyecto-en-c--main\parcial2\rlutil.h
+	<iostream>
+	<string>
+	<cstdio>
+	<stdio.h>
+	<string.h>
+	<windows.h>
+	<conio.h>
+	<termios.h>
+	<unistd.h>
+	<sys/ioctl.h>
+	<sys/types.h>
+	<sys/time.h>
+
+1667423347 c:\users\pablo.eckerdt\desktop\archivos pablo\000 - tup\2 - 2c - laboratorio 2\tp parcial 2\proyecto-en-c--main\parcial2\menu.h
+
+1668041349 c:\users\pablo.eckerdt\desktop\archivos pablo\000 - tup\2 - 2c - laboratorio 2\tp parcial 2\proyecto-en-c--main\parcial2\cliente.h
+	"Persona.h"
+	"Fecha.h"
+
+1668041351 c:\users\pablo.eckerdt\desktop\archivos pablo\000 - tup\2 - 2c - laboratorio 2\tp parcial 2\proyecto-en-c--main\parcial2\persona.h
+
+1668213920 source:c:\users\pablo.eckerdt\desktop\archivos pablo\000 - tup\2 - 2c - laboratorio 2\tp parcial 2\proyecto-en-c--main\parcial2\mesa.cpp
+	<iostream>
+	"Mesa.h"
+
+1671082502 source:c:\users\pablo.eckerdt\desktop\archivos pablo\000 - tup\2 - 2c - laboratorio 2\tp parcial 2\proyecto-en-c--main\parcial2\producto.cpp
+	<iostream>
+	<stdlib.h>
+	<cstring>
+	"Producto.h"
+
+1671083953 source:c:\users\pablo.eckerdt\desktop\archivos pablo\000 - tup\2 - 2c - laboratorio 2\tp parcial 2\proyecto-en-c--main\parcial2\venta.cpp
+	<iostream>
+	"Venta.h"
+	"Producto.h"
+
+1671083755 c:\users\pablo.eckerdt\desktop\archivos pablo\000 - tup\2 - 2c - laboratorio 2\tp parcial 2\proyecto-en-c--main\parcial2\venta.h
+	"Empleado.h"
+	"Cliente.h"
+	"Fecha.h"
+	"Transaccion.h"
+
+1668041349 source:c:\users\pablo.eckerdt\desktop\archivos pablo\000 - tup\2 - 2c - laboratorio 2\tp parcial 2\proyecto-en-c--main\parcial2\cliente.cpp
+	<iostream>
+	<cstdio>
+	"Cliente.h"
+	"Fecha.h"
+	"Menu.h"
+	"Persona.h"
+
+1668041349 source:c:\users\pablo.eckerdt\desktop\archivos pablo\000 - tup\2 - 2c - laboratorio 2\tp parcial 2\proyecto-en-c--main\parcial2\persona.cpp
+	<iostream>
+	<stdlib.h>
+	<cstring>
+	"Persona.h"
+
+1668041347 source:c:\users\pablo.eckerdt\desktop\archivos pablo\000 - tup\2 - 2c - laboratorio 2\tp parcial 2\proyecto-en-c--main\parcial2\proveedor.cpp
+	<iostream>
+	<cstdio>
+	<cstring>
+	"Proveedor.h"
+	"Persona.h"
+	"Fecha.h"
+
+1668041341 c:\users\pablo.eckerdt\desktop\archivos pablo\000 - tup\2 - 2c - laboratorio 2\tp parcial 2\proyecto-en-c--main\parcial2\proveedor.h
+	"Persona.h"
+	"Fecha.h"
+
+1669144783 source:c:\users\pablo.eckerdt\desktop\archivos pablo\000 - tup\2 - 2c - laboratorio 2\tp parcial 2\proyecto-en-c--main\parcial2\transaccion.cpp
+	<iostream>
+	"Transaccion.h"
+
+1669143937 c:\users\pablo.eckerdt\desktop\archivos pablo\000 - tup\2 - 2c - laboratorio 2\tp parcial 2\proyecto-en-c--main\parcial2\transaccion.h
+
+1668041341 source:c:\users\pablo.eckerdt\desktop\archivos pablo\000 - tup\2 - 2c - laboratorio 2\tp parcial 2\proyecto-en-c--main\parcial2\empleado.cpp
+	<iostream>
+	<stdlib.h>
+	<cstdio>
+	"Empleado.h"
+	"Persona.h"
+	"Menu.h"
+
+1668041341 c:\users\pablo.eckerdt\desktop\archivos pablo\000 - tup\2 - 2c - laboratorio 2\tp parcial 2\proyecto-en-c--main\parcial2\empleado.h
+	"Persona.h"
+
+1671111302 source:c:\users\pablo.eckerdt\desktop\archivos pablo\000 - tup\2 - 2c - laboratorio 2\tp parcial 2\proyecto-en-c--main\parcial2 - v2\cliente.cpp
+	<iostream>
+	<cstdio>
+	"Cliente.h"
+	"Fecha.h"
+	"Menu.h"
+	"Persona.h"
+
+1671111171 c:\users\pablo.eckerdt\desktop\archivos pablo\000 - tup\2 - 2c - laboratorio 2\tp parcial 2\proyecto-en-c--main\parcial2 - v2\cliente.h
+	"Persona.h"
+	"Fecha.h"
+
+1668041351 c:\users\pablo.eckerdt\desktop\archivos pablo\000 - tup\2 - 2c - laboratorio 2\tp parcial 2\proyecto-en-c--main\parcial2 - v2\persona.h
+
+1676563429 c:\users\pablo.eckerdt\desktop\archivos pablo\000 - tup\2 - 2c - laboratorio 2\tp parcial 2\proyecto-en-c--main\parcial2 - v2\fecha.h
+
+1676565743 c:\users\pablo.eckerdt\desktop\archivos pablo\000 - tup\2 - 2c - laboratorio 2\tp parcial 2\proyecto-en-c--main\parcial2 - v2\menu.h
+
+1676551809 source:c:\users\pablo.eckerdt\desktop\archivos pablo\000 - tup\2 - 2c - laboratorio 2\tp parcial 2\proyecto-en-c--main\parcial2 - v2\empleado.cpp
+	"Empleado.h"
+
+1676551809 c:\users\pablo.eckerdt\desktop\archivos pablo\000 - tup\2 - 2c - laboratorio 2\tp parcial 2\proyecto-en-c--main\parcial2 - v2\empleado.h
+	<iostream>
+	<stdlib.h>
+	<cstdio>
+	<cstring>
+
+1676563429 source:c:\users\pablo.eckerdt\desktop\archivos pablo\000 - tup\2 - 2c - laboratorio 2\tp parcial 2\proyecto-en-c--main\parcial2 - v2\fecha.cpp
+	<iostream>
+	<cstdio>
+	<stdlib.h>
+	<ctime>
+	"Fecha.h"
+
+1676576144 source:c:\users\pablo.eckerdt\desktop\archivos pablo\000 - tup\2 - 2c - laboratorio 2\tp parcial 2\proyecto-en-c--main\parcial2 - v2\menu.cpp
+	<iostream>
+	<conio.h>
+	<stdio.h>
+	<stdlib.h>
+	<windows.h>
+	<stdlib.h>
+	<list>
+	"rlutil.h"
+	"colors.h"
+	"Menu.h"
+	"Producto.h"
+	"Venta.h"
+	"Empleado.h"
+
+1662381029 c:\users\pablo.eckerdt\desktop\archivos pablo\000 - tup\2 - 2c - laboratorio 2\tp parcial 2\proyecto-en-c--main\parcial2 - v2\rlutil.h
+	<iostream>
+	<string>
+	<cstdio>
+	<stdio.h>
+	<string.h>
+	<windows.h>
+	<conio.h>
+	<termios.h>
+	<unistd.h>
+	<sys/ioctl.h>
+	<sys/types.h>
+	<sys/time.h>
+
+1676565258 source:c:\users\pablo.eckerdt\desktop\archivos pablo\000 - tup\2 - 2c - laboratorio 2\tp parcial 2\proyecto-en-c--main\parcial2 - v2\mesa.cpp
+	<iostream>
+	"Mesa.h"
+
+1676565230 c:\users\pablo.eckerdt\desktop\archivos pablo\000 - tup\2 - 2c - laboratorio 2\tp parcial 2\proyecto-en-c--main\parcial2 - v2\mesa.h
+
+1671112195 source:c:\users\pablo.eckerdt\desktop\archivos pablo\000 - tup\2 - 2c - laboratorio 2\tp parcial 2\proyecto-en-c--main\parcial2 - v2\persona.cpp
+	<iostream>
+	<stdlib.h>
+	<cstring>
+	"Persona.h"
+	"Menu.h"
+
+1676484638 source:c:\users\pablo.eckerdt\desktop\archivos pablo\000 - tup\2 - 2c - laboratorio 2\tp parcial 2\proyecto-en-c--main\parcial2 - v2\producto.cpp
+	<iostream>
+	<stdlib.h>
+	<cstring>
+	"Producto.h"
+
+1676563817 c:\users\pablo.eckerdt\desktop\archivos pablo\000 - tup\2 - 2c - laboratorio 2\tp parcial 2\proyecto-en-c--main\parcial2 - v2\producto.h
+
+1668041347 source:c:\users\pablo.eckerdt\desktop\archivos pablo\000 - tup\2 - 2c - laboratorio 2\tp parcial 2\proyecto-en-c--main\parcial2 - v2\proveedor.cpp
+	<iostream>
+	<cstdio>
+	<cstring>
+	"Proveedor.h"
+	"Persona.h"
+	"Fecha.h"
+
+1668041341 c:\users\pablo.eckerdt\desktop\archivos pablo\000 - tup\2 - 2c - laboratorio 2\tp parcial 2\proyecto-en-c--main\parcial2 - v2\proveedor.h
+	"Persona.h"
+	"Fecha.h"
+
+1676566101 source:c:\users\pablo.eckerdt\desktop\archivos pablo\000 - tup\2 - 2c - laboratorio 2\tp parcial 2\proyecto-en-c--main\parcial2 - v2\venta.cpp
+	<iostream>
+	<list>
+	"Venta.h"
+	"Producto.h"
+	"Empleado.h"
+	"Mesa.h"
+
+1676563949 c:\users\pablo.eckerdt\desktop\archivos pablo\000 - tup\2 - 2c - laboratorio 2\tp parcial 2\proyecto-en-c--main\parcial2 - v2\venta.h
+	"Fecha.h"
+	"Transaccion.h"
+
+1676566007 source:c:\users\pablo.eckerdt\desktop\archivos pablo\000 - tup\2 - 2c - laboratorio 2\tp parcial 2\proyecto-en-c--main\parcial2 - v2\main.cpp
+	"Menu.h"
+
+1671109719 c:\users\pablo.eckerdt\desktop\archivos pablo\000 - tup\2 - 2c - laboratorio 2\tp parcial 2\proyecto-en-c--main\parcial2 - v2\funciones.h
+
+1676566056 source:c:\users\pablo.eckerdt\desktop\archivos pablo\000 - tup\2 - 2c - laboratorio 2\tp parcial 2\proyecto-en-c--main\parcial2 - v2\transaccion.cpp
+	<iostream>
+	"Transaccion.h"
+	"Producto.h"
+
+1676316555 c:\users\pablo.eckerdt\desktop\archivos pablo\000 - tup\2 - 2c - laboratorio 2\tp parcial 2\proyecto-en-c--main\parcial2 - v2\transaccion.h
+
+1676548409 c:\users\pablo.eckerdt\desktop\archivos pablo\000 - tup\2 - 2c - laboratorio 2\tp parcial 2\proyecto-en-c--main\parcial2 - v2\colors.h
+
+1676551809 source:c:\users\hugol\desktop\utn\laboratorio 2\programa de sistema de gestion\parcial2 - v2\empleado.cpp
+	"Empleado.h"
+
+1676551809 c:\users\hugol\desktop\utn\laboratorio 2\programa de sistema de gestion\parcial2 - v2\empleado.h
+	<iostream>
+	<stdlib.h>
+	<cstdio>
+	<cstring>
+
+1676563429 source:c:\users\hugol\desktop\utn\laboratorio 2\programa de sistema de gestion\parcial2 - v2\fecha.cpp
+	<iostream>
+	<cstdio>
+	<stdlib.h>
+	<ctime>
+	"Fecha.h"
+
+1676563429 c:\users\hugol\desktop\utn\laboratorio 2\programa de sistema de gestion\parcial2 - v2\fecha.h
+
+1676566007 source:c:\users\hugol\desktop\utn\laboratorio 2\programa de sistema de gestion\parcial2 - v2\main.cpp
+	"Menu.h"
+
+1676565743 c:\users\hugol\desktop\utn\laboratorio 2\programa de sistema de gestion\parcial2 - v2\menu.h
+
+1676576144 source:c:\users\hugol\desktop\utn\laboratorio 2\programa de sistema de gestion\parcial2 - v2\menu.cpp
+	<iostream>
+	<conio.h>
+	<stdio.h>
+	<stdlib.h>
+	<windows.h>
+	<stdlib.h>
+	<list>
+	"rlutil.h"
+	"colors.h"
+	"Menu.h"
+	"Producto.h"
+	"Venta.h"
+	"Empleado.h"
+
+1662381029 c:\users\hugol\desktop\utn\laboratorio 2\programa de sistema de gestion\parcial2 - v2\rlutil.h
+	<iostream>
+	<string>
+	<cstdio>
+	<stdio.h>
+	<string.h>
+	<windows.h>
+	<conio.h>
+	<termios.h>
+	<unistd.h>
+	<sys/ioctl.h>
+	<sys/types.h>
+	<sys/time.h>
+
+1676548409 c:\users\hugol\desktop\utn\laboratorio 2\programa de sistema de gestion\parcial2 - v2\colors.h
+
+1676563817 c:\users\hugol\desktop\utn\laboratorio 2\programa de sistema de gestion\parcial2 - v2\producto.h
+
+1676563949 c:\users\hugol\desktop\utn\laboratorio 2\programa de sistema de gestion\parcial2 - v2\venta.h
+	"Fecha.h"
+	"Transaccion.h"
+
+1676316555 c:\users\hugol\desktop\utn\laboratorio 2\programa de sistema de gestion\parcial2 - v2\transaccion.h
+
+1676484638 source:c:\users\hugol\desktop\utn\laboratorio 2\programa de sistema de gestion\parcial2 - v2\producto.cpp
+	<iostream>
+	<stdlib.h>
+	<cstring>
+	"Producto.h"
+
+1676566056 source:c:\users\hugol\desktop\utn\laboratorio 2\programa de sistema de gestion\parcial2 - v2\transaccion.cpp
+	<iostream>
+	"Transaccion.h"
+	"Producto.h"
+
+1676566101 source:c:\users\hugol\desktop\utn\laboratorio 2\programa de sistema de gestion\parcial2 - v2\venta.cpp
+	<iostream>
+	<list>
+	"Venta.h"
+	"Producto.h"
+	"Empleado.h"
+	"Mesa.h"
+
+1676565230 c:\users\hugol\desktop\utn\laboratorio 2\programa de sistema de gestion\parcial2 - v2\mesa.h
+
+1687455502 source:c:\users\facundo\desktop\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\parcial2-main\parcial2-main\empleado.cpp
+	"Empleado.h"
+
+1687455502 c:\users\facundo\desktop\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\parcial2-main\parcial2-main\empleado.h
+	<iostream>
+	<stdlib.h>
+	<cstdio>
+	<cstring>
+
+1687455502 source:c:\users\facundo\desktop\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\parcial2-main\parcial2-main\fecha.cpp
+	<iostream>
+	<cstdio>
+	<stdlib.h>
+	<ctime>
+	"Fecha.h"
+
+1687455502 c:\users\facundo\desktop\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\parcial2-main\parcial2-main\fecha.h
+
+1687548677 source:c:\users\facundo\desktop\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\parcial2-main\parcial2-main\main.cpp
+	"Menu.h"
+	"iostream"
+	"Menu.h"
+
+1687474268 c:\users\facundo\desktop\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\parcial2-main\parcial2-main\menu.h
+
+1687549830 source:c:\users\facundo\desktop\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\parcial2-main\parcial2-main\menu.cpp
+	<iostream>
+	<conio.h>
+	<stdio.h>
+	<stdlib.h>
+	<windows.h>
+	<list>
+	"rlutil.h"
+	"colors.h"
+	<limits>
+	"Menu.h"
+	"Producto.h"
+	"Venta.h"
+	"Empleado.h"
+
+1687455502 c:\users\facundo\desktop\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\parcial2-main\parcial2-main\rlutil.h
+	<iostream>
+	<string>
+	<cstdio>
+	<stdio.h>
+	<string.h>
+	<windows.h>
+	<conio.h>
+	<termios.h>
+	<unistd.h>
+	<sys/ioctl.h>
+	<sys/types.h>
+	<sys/time.h>
+
+1687455502 c:\users\facundo\desktop\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\parcial2-main\parcial2-main\colors.h
+
+1687455502 c:\users\facundo\desktop\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\parcial2-main\parcial2-main\producto.h
+
+1687455502 c:\users\facundo\desktop\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\parcial2-main\parcial2-main\venta.h
+	"Fecha.h"
+	"Transaccion.h"
+
+1687455502 c:\users\facundo\desktop\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\parcial2-main\parcial2-main\transaccion.h
+
+1687474969 source:c:\users\facundo\desktop\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\parcial2-main\parcial2-main\producto.cpp
+	<iostream>
+	<stdlib.h>
+	<cstring>
+	"Producto.h"
+	"Menu.h"
+
+1687455502 source:c:\users\facundo\desktop\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\parcial2-main\parcial2-main\transaccion.cpp
+	<iostream>
+	"Transaccion.h"
+	"Producto.h"
+
+1687455502 source:c:\users\facundo\desktop\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\parcial2-main\parcial2-main\venta.cpp
+	<iostream>
+	<list>
+	"Venta.h"
+	"Producto.h"
+	"Empleado.h"
+	"Mesa.h"
+
+1687455502 c:\users\facundo\desktop\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\parcial2-main\parcial2-main\mesa.h
+
+1687881560 source:c:\users\krivera\desktop\proyecto parcial ii - labo\empleado.cpp
+	"Empleado.h"
+	"colors.h"
+	"Menu.h"
+
+1687881269 c:\users\krivera\desktop\proyecto parcial ii - labo\empleado.h
+	<iostream>
+	<stdlib.h>
+	<cstdio>
+	<cstring>
+
+1687704099 source:c:\users\krivera\desktop\proyecto parcial ii - labo\fecha.cpp
+	<iostream>
+	<cstdio>
+	<stdlib.h>
+	<ctime>
+	"Fecha.h"
+
+1687704099 c:\users\krivera\desktop\proyecto parcial ii - labo\fecha.h
+
+1688231314 source:c:\users\krivera\desktop\proyecto parcial ii - labo\menu.cpp
+	<iostream>
+	<conio.h>
+	<stdio.h>
+	<stdlib.h>
+	<windows.h>
+	<list>
+	"rlutil.h"
+	"colors.h"
+	<limits>
+	"Menu.h"
+	"Producto.h"
+	"Venta.h"
+	"Empleado.h"
+
+1687704099 c:\users\krivera\desktop\proyecto parcial ii - labo\rlutil.h
+	<iostream>
+	<string>
+	<cstdio>
+	<stdio.h>
+	<string.h>
+	<windows.h>
+	<conio.h>
+	<termios.h>
+	<unistd.h>
+	<sys/ioctl.h>
+	<sys/types.h>
+	<sys/time.h>
+
+1687704099 c:\users\krivera\desktop\proyecto parcial ii - labo\colors.h
+
+1687704099 c:\users\krivera\desktop\proyecto parcial ii - labo\menu.h
+
+1687704099 c:\users\krivera\desktop\proyecto parcial ii - labo\producto.h
+
+1688143852 c:\users\krivera\desktop\proyecto parcial ii - labo\venta.h
+	"Fecha.h"
+	"Transaccion.h"
+
+1688144496 c:\users\krivera\desktop\proyecto parcial ii - labo\transaccion.h
+
+1687877301 source:c:\users\krivera\desktop\proyecto parcial ii - labo\producto.cpp
+	<iostream>
+	<stdlib.h>
+	<cstring>
+	"Producto.h"
+	"Menu.h"
+
+1688144496 source:c:\users\krivera\desktop\proyecto parcial ii - labo\transaccion.cpp
+	<iostream>
+	"Transaccion.h"
+	"Producto.h"
+
+1688231036 source:c:\users\krivera\desktop\proyecto parcial ii - labo\venta.cpp
+	<iostream>
+	<list>
+	"Venta.h"
+	"Producto.h"
+	"Empleado.h"
+	"Mesa.h"
+
+1687704099 c:\users\krivera\desktop\proyecto parcial ii - labo\mesa.h
+
+1688231734 source:c:\users\krivera\desktop\proyecto parcial ii - labo\main.cpp
+	"Menu.h"
+	"iostream"
+	"Menu.h"
+	"Transaccion.h"
+	"Venta.h"
+
+1687649469 source:c:\users\facundo\desktop\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\empleado.cpp
+	"Empleado.h"
+	"colors.h"
+	"Menu.h"
+
+1687649471 c:\users\facundo\desktop\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\empleado.h
+	<iostream>
+	<stdlib.h>
+	<cstdio>
+	<cstring>
+
+1687649479 c:\users\facundo\desktop\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\colors.h
+
+1687649467 c:\users\facundo\desktop\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\menu.h
+
+1687649481 source:c:\users\facundo\desktop\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\fecha.cpp
+	<iostream>
+	<cstdio>
+	<stdlib.h>
+	<ctime>
+	"Fecha.h"
+
+1687649480 c:\users\facundo\desktop\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\fecha.h
+
+1687649468 source:c:\users\facundo\desktop\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\main.cpp
+	"Menu.h"
+	"iostream"
+	"Menu.h"
+
+1687703566 source:c:\users\facundo\desktop\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\menu.cpp
+	<iostream>
+	<conio.h>
+	<stdio.h>
+	<stdlib.h>
+	<windows.h>
+	<list>
+	"rlutil.h"
+	"colors.h"
+	<limits>
+	"Menu.h"
+	"Producto.h"
+	"Venta.h"
+	"Empleado.h"
+
+1687649489 c:\users\facundo\desktop\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\rlutil.h
+	<iostream>
+	<string>
+	<cstdio>
+	<stdio.h>
+	<string.h>
+	<windows.h>
+	<conio.h>
+	<termios.h>
+	<unistd.h>
+	<sys/ioctl.h>
+	<sys/types.h>
+	<sys/time.h>
+
+1687649473 c:\users\facundo\desktop\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\producto.h
+
+1687649493 c:\users\facundo\desktop\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\venta.h
+	"Fecha.h"
+	"Transaccion.h"
+
+1687649488 c:\users\facundo\desktop\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\transaccion.h
+
+1687649475 source:c:\users\facundo\desktop\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\producto.cpp
+	<iostream>
+	<stdlib.h>
+	<cstring>
+	"Producto.h"
+	"Menu.h"
+
+1687649490 source:c:\users\facundo\desktop\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\transaccion.cpp
+	<iostream>
+	"Transaccion.h"
+	"Producto.h"
+
+1687649494 source:c:\users\facundo\desktop\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\venta.cpp
+	<iostream>
+	<list>
+	"Venta.h"
+	"Producto.h"
+	"Empleado.h"
+	"Mesa.h"
+
+1687649485 c:\users\facundo\desktop\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\mesa.h
+
+1688772486 source:d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main\proyecto-laboratorio-ii-main\empleado.cpp
+	"colors.h"
+	<iostream>
+	<cstring>
+	"ArchivoEmpleado.h"
+	"Empleado.h"
+	"Pantalla.h"
+
+1688772486 d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main\proyecto-laboratorio-ii-main\empleado.h
+
+1688772486 d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main\proyecto-laboratorio-ii-main\colors.h
+
+1688772486 d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main\proyecto-laboratorio-ii-main\menu.h
+
+1688772486 source:d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main\proyecto-laboratorio-ii-main\fecha.cpp
+	<iostream>
+	<cstdio>
+	<stdlib.h>
+	<ctime>
+	"Fecha.h"
+
+1688772486 d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main\proyecto-laboratorio-ii-main\fecha.h
+
+1688772486 source:d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main\proyecto-laboratorio-ii-main\main.cpp
+	"iostream"
+	"Menu.h"
+	"ArchivoTransaccion.h"
+	"ArchivoProducto.h"
+	"Transaccion.h"
+	"Producto.h"
+
+1688772486 d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main\proyecto-laboratorio-ii-main\transaccion.h
+
+1688772486 d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main\proyecto-laboratorio-ii-main\venta.h
+	"Fecha.h"
+	"Transaccion.h"
+
+1688826836 source:d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main\proyecto-laboratorio-ii-main\menu.cpp
+	"rlutil.h"
+	"colors.h"
+	"Pantalla.h"
+	"Menu.h"
+	"Producto.h"
+	"Venta.h"
+	"Empleado.h"
+	"ArchivoEmpleado.h"
+	"ArchivoVenta.h"
+	"ArchivoProducto.h"
+	"ArchivoTransaccion.h"
+
+1688772486 d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main\proyecto-laboratorio-ii-main\rlutil.h
+	<iostream>
+	<string>
+	<cstdio>
+	<stdio.h>
+	<string.h>
+	<windows.h>
+	<conio.h>
+	<termios.h>
+	<unistd.h>
+	<sys/ioctl.h>
+	<sys/types.h>
+	<sys/time.h>
+
+1688772486 d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main\proyecto-laboratorio-ii-main\producto.h
+
+1688772486 source:d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main\proyecto-laboratorio-ii-main\producto.cpp
+	<iostream>
+	<cstring>
+	"Producto.h"
+	"Menu.h"
+	"Pantalla.h"
+	"ArchivoProducto.h"
+
+1688826294 source:d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main\proyecto-laboratorio-ii-main\transaccion.cpp
+	<iostream>
+	"Transaccion.h"
+	"Producto.h"
+	"ArchivoProducto.h"
+	"ArchivoTransaccion.h"
+	"Pantalla.h"
+
+1688772486 source:d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main\proyecto-laboratorio-ii-main\venta.cpp
+	<iostream>
+	"Venta.h"
+	"Producto.h"
+	"Empleado.h"
+	"Mesa.h"
+	"ArchivoVenta.h"
+	"ArchivoProducto.h"
+	"ArchivoTransaccion.h"
+
+1688772486 d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main\proyecto-laboratorio-ii-main\mesa.h
+
+1688772486 source:d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main\proyecto-laboratorio-ii-main\pantalla.cpp
+	"Pantalla.h"
+	"rlutil.h"
+
+1688772486 d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main\proyecto-laboratorio-ii-main\pantalla.h
+
+1688767378 source:c:\users\krivera\desktop\proyecto labo ii\empleado.cpp
+	"colors.h"
+	<iostream>
+	<cstring>
+	"ArchivoEmpleado.h"
+	"Empleado.h"
+	"Pantalla.h"
+
+1688767378 c:\users\krivera\desktop\proyecto labo ii\empleado.h
+
+1688767378 c:\users\krivera\desktop\proyecto labo ii\colors.h
+
+1688767378 c:\users\krivera\desktop\proyecto labo ii\pantalla.h
+
+1688767378 source:c:\users\krivera\desktop\proyecto labo ii\fecha.cpp
+	<iostream>
+	<cstdio>
+	<stdlib.h>
+	<ctime>
+	"Fecha.h"
+
+1688767378 c:\users\krivera\desktop\proyecto labo ii\fecha.h
+
+1688771482 source:c:\users\krivera\desktop\proyecto labo ii\main.cpp
+	"iostream"
+	"Menu.h"
+	"ArchivoTransaccion.h"
+	"ArchivoProducto.h"
+	"Transaccion.h"
+	"Producto.h"
+
+1688767378 c:\users\krivera\desktop\proyecto labo ii\menu.h
+
+1688767378 source:c:\users\krivera\desktop\proyecto labo ii\pantalla.cpp
+	"Pantalla.h"
+	"rlutil.h"
+
+1688767378 source:c:\users\krivera\desktop\proyecto labo ii\producto.cpp
+	<iostream>
+	<cstring>
+	"Producto.h"
+	"Menu.h"
+	"Pantalla.h"
+	"ArchivoProducto.h"
+
+1688767378 c:\users\krivera\desktop\proyecto labo ii\producto.h
+
+1688767378 source:c:\users\krivera\desktop\proyecto labo ii\transaccion.cpp
+	<iostream>
+	"Transaccion.h"
+	"Producto.h"
+	"ArchivoProducto.h"
+	"ArchivoTransaccion.h"
+
+1688767378 c:\users\krivera\desktop\proyecto labo ii\transaccion.h
+
+1688767378 source:c:\users\krivera\desktop\proyecto labo ii\venta.cpp
+	<iostream>
+	"Venta.h"
+	"Producto.h"
+	"Empleado.h"
+	"Mesa.h"
+	"ArchivoVenta.h"
+	"ArchivoProducto.h"
+	"ArchivoTransaccion.h"
+
+1688767378 c:\users\krivera\desktop\proyecto labo ii\venta.h
+	"Fecha.h"
+	"Transaccion.h"
+
+1688767378 c:\users\krivera\desktop\proyecto labo ii\mesa.h
+
+1688772065 source:c:\users\krivera\desktop\proyecto labo ii\menu.cpp
+	"rlutil.h"
+	"colors.h"
+	"Pantalla.h"
+	"Menu.h"
+	"Producto.h"
+	"Venta.h"
+	"Empleado.h"
+	"ArchivoEmpleado.h"
+	"ArchivoVenta.h"
+	"ArchivoProducto.h"
+	"ArchivoTransaccion.h"
+
+1688767378 c:\users\krivera\desktop\proyecto labo ii\rlutil.h
+	<iostream>
+	<string>
+	<cstdio>
+	<stdio.h>
+	<string.h>
+	<windows.h>
+	<conio.h>
+	<termios.h>
+	<unistd.h>
+	<sys/ioctl.h>
+	<sys/types.h>
+	<sys/time.h>
+
+1688772486 d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main\proyecto-laboratorio-ii-main\archivoempleado.h
+	<cstring>
+	"Empleado.h"
+
+1688772486 source:d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main\proyecto-laboratorio-ii-main\archivoempleado.cpp
+	<iostream>
+	"colors.h"
+	"ArchivoEmpleado.h"
+	"Pantalla.h"
+
+1688767378 source:c:\users\krivera\desktop\proyecto labo ii\archivoempleado.cpp
+	<iostream>
+	"colors.h"
+	"ArchivoEmpleado.h"
+	"Pantalla.h"
+
+1688767378 c:\users\krivera\desktop\proyecto labo ii\archivoempleado.h
+	<cstring>
+	"Empleado.h"
+
+1688767378 c:\users\krivera\desktop\proyecto labo ii\archivoventa.h
+	<cstring>
+	"Venta.h"
+
+1688767378 source:c:\users\krivera\desktop\proyecto labo ii\archivoventa.cpp
+	<iostream>
+	"ArchivoVenta.h"
+	"Pantalla.h"
+	"colors.h"
+	"Venta.h"
+
+1688767378 c:\users\krivera\desktop\proyecto labo ii\archivoproducto.h
+	"Producto.h"
+
+1688767378 source:c:\users\krivera\desktop\proyecto labo ii\archivoproducto.cpp
+	<iostream>
+	<cstring>
+	"colors.h"
+	"ArchivoProducto.h"
+	"Producto.h"
+	"Menu.h"
+	"Pantalla.h"
+
+1688752318 source:d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main (1)\proyecto-laboratorio-ii-main\archivoempleado.cpp
+	<iostream>
+	"colors.h"
+	"ArchivoEmpleado.h"
+	"Pantalla.h"
+
+1688726482 d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main (1)\proyecto-laboratorio-ii-main\colors.h
+
+1688726482 d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main (1)\proyecto-laboratorio-ii-main\archivoempleado.h
+	<cstring>
+	"Empleado.h"
+
+1688726482 d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main (1)\proyecto-laboratorio-ii-main\empleado.h
+
+1688726482 d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main (1)\proyecto-laboratorio-ii-main\pantalla.h
+
+1688726482 source:d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main (1)\proyecto-laboratorio-ii-main\empleado.cpp
+	"colors.h"
+	<iostream>
+	<cstring>
+	"ArchivoEmpleado.h"
+	"Empleado.h"
+	"Pantalla.h"
+
+1688726482 source:d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main (1)\proyecto-laboratorio-ii-main\fecha.cpp
+	<iostream>
+	<cstdio>
+	<stdlib.h>
+	<ctime>
+	"Fecha.h"
+
+1688726482 d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main (1)\proyecto-laboratorio-ii-main\fecha.h
+
+1688726482 source:d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main (1)\proyecto-laboratorio-ii-main\main.cpp
+	"iostream"
+	"Menu.h"
+
+1688726482 d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main (1)\proyecto-laboratorio-ii-main\menu.h
+
+1688756878 source:d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main (1)\proyecto-laboratorio-ii-main\menu.cpp
+	"rlutil.h"
+	"colors.h"
+	"Pantalla.h"
+	"Menu.h"
+	"Producto.h"
+	"Venta.h"
+	"Empleado.h"
+	"ArchivoEmpleado.h"
+	"ArchivoVenta.h"
+	"ArchivoProducto.h"
+	"ArchivoTransaccion.h"
+
+1688726482 d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main (1)\proyecto-laboratorio-ii-main\rlutil.h
+	<iostream>
+	<string>
+	<cstdio>
+	<stdio.h>
+	<string.h>
+	<windows.h>
+	<conio.h>
+	<termios.h>
+	<unistd.h>
+	<sys/ioctl.h>
+	<sys/types.h>
+	<sys/time.h>
+
+1688726482 d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main (1)\proyecto-laboratorio-ii-main\producto.h
+
+1688726482 d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main (1)\proyecto-laboratorio-ii-main\venta.h
+	"Fecha.h"
+	"Transaccion.h"
+
+1688752000 d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main (1)\proyecto-laboratorio-ii-main\transaccion.h
+
+1688726482 d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main (1)\proyecto-laboratorio-ii-main\archivoventa.h
+	<cstring>
+	"Venta.h"
+
+1688726482 d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main (1)\proyecto-laboratorio-ii-main\archivoproducto.h
+	"Producto.h"
+
+1688726482 source:d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main (1)\proyecto-laboratorio-ii-main\pantalla.cpp
+	"Pantalla.h"
+	"rlutil.h"
+
+1688726482 source:d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main (1)\proyecto-laboratorio-ii-main\producto.cpp
+	<iostream>
+	<cstring>
+	"Producto.h"
+	"Menu.h"
+	"Pantalla.h"
+	"ArchivoProducto.h"
+
+1688752586 source:d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main (1)\proyecto-laboratorio-ii-main\transaccion.cpp
+	<iostream>
+	"Transaccion.h"
+	"Producto.h"
+	"ArchivoProducto.h"
+	"ArchivoTransaccion.h"
+
+1688755104 source:d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main (1)\proyecto-laboratorio-ii-main\venta.cpp
+	<iostream>
+	"Venta.h"
+	"Producto.h"
+	"Empleado.h"
+	"Mesa.h"
+	"ArchivoVenta.h"
+	"ArchivoProducto.h"
+	"ArchivoTransaccion.h"
+
+1688726482 d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main (1)\proyecto-laboratorio-ii-main\mesa.h
+
+1688757052 source:d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main (1)\proyecto-laboratorio-ii-main\archivoproducto.cpp
+	<iostream>
+	<cstring>
+	"colors.h"
+	"ArchivoProducto.h"
+	"Producto.h"
+	"Menu.h"
+	"Pantalla.h"
+
+1688726482 source:d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main (1)\proyecto-laboratorio-ii-main\archivoventa.cpp
+	<iostream>
+	"ArchivoVenta.h"
+	"Pantalla.h"
+	"colors.h"
+	"Venta.h"
+
+1688757672 source:d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main (1)\proyecto-laboratorio-ii-main\archivotransaccion.cpp
+	<iostream>
+	"colors.h"
+	"ArchivoTransaccion.h"
+	"Pantalla.h"
+
+1688752366 d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main (1)\proyecto-laboratorio-ii-main\archivotransaccion.h
+	<cstring>
+	"Transaccion.h"
+
+1688767378 source:c:\users\krivera\desktop\proyecto labo ii\archivotransaccion.cpp
+	<iostream>
+	"colors.h"
+	"ArchivoTransaccion.h"
+	"Pantalla.h"
+
+1688767378 c:\users\krivera\desktop\proyecto labo ii\archivotransaccion.h
+	<cstring>
+	"Transaccion.h"
+
+1688772486 source:d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main\proyecto-laboratorio-ii-main\archivoproducto.cpp
+	<iostream>
+	<cstring>
+	"colors.h"
+	"ArchivoProducto.h"
+	"Producto.h"
+	"Menu.h"
+	"Pantalla.h"
+
+1688772486 d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main\proyecto-laboratorio-ii-main\archivoproducto.h
+	"Producto.h"
+
+1688826256 source:d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main\proyecto-laboratorio-ii-main\archivotransaccion.cpp
+	<iostream>
+	"colors.h"
+	"ArchivoTransaccion.h"
+	"Pantalla.h"
+
+1688772486 d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main\proyecto-laboratorio-ii-main\archivotransaccion.h
+	<cstring>
+	"Transaccion.h"
+
+1688772486 source:d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main\proyecto-laboratorio-ii-main\archivoventa.cpp
+	<iostream>
+	"ArchivoVenta.h"
+	"Pantalla.h"
+	"colors.h"
+	"Venta.h"
+
+1688772486 d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main\proyecto-laboratorio-ii-main\archivoventa.h
+	<cstring>
+	"Venta.h"
+
