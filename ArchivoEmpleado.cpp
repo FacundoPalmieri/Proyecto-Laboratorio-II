@@ -62,21 +62,10 @@ Empleado  ArchivoEmpleado:: leerDeDisco(int pos){
 
 
 int  ArchivoEmpleado:: cantidadEnArchivo(){
-    Empleado empleado;
-    Pantalla pantalla;
 
-
-    FILE* p = fopen(_Nombre, "rb");
+    FILE* p = fopen("empleados.dat", "rb");
     if (p == NULL) {
-        cout << RED;
-       pantalla.dimensiones(15,15);
-       cout << "El archivo de -Empleados - no se pudo abrir." << endl;
-       pantalla.dimensiones(15,16);
-       cout << "Comuniquese con el area de sistemas" << endl;
-       pantalla.dimensiones(15,20);
-       cout << BLUE;
-       system("pause");
-       exit (20);
+        return 0;
     }
     fseek(p, 0, SEEK_END);
     int cant = ftell(p) / sizeof(Empleado);

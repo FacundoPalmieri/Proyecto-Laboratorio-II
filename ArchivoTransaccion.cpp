@@ -17,10 +17,11 @@ int ArchivoTransaccion::grabarEnDisco(Transaccion transaccion){
 
     FILE *p;
     p=fopen(_Nombre, "ab");
+
     if(p==NULL){
        cout << RED;
        pantalla.dimensiones(15,15);
-       cout << "El archivo de - Transaccion - no se pudo abrir." << endl;
+       cout << "El archivo de - Transaccion - no se pudo abrir. ESTOY EN MÉTODO GRABAR EN DISCO DE TRANSACCION" << endl; //BORRAR COMENTARIO!!!
        pantalla.dimensiones(15,16);
        cout << "Comuniquese con el area de sistemas" << endl;
        pantalla.dimensiones(15,20);
@@ -44,14 +45,12 @@ int ArchivoTransaccion::grabarEnDiscoPorPosicion(int posicion, Transaccion trans
 	if(p==NULL){
        cout << RED;
        pantalla.dimensiones(15,15);
-       cout << "El archivo de - Transaccion - no se pudo abrir." << endl;
+       cout << "El archivo de - Transaccion - no se pudo abrir. ESTOY EN MÉTODO GRABAR EN DISCO POR POSC DE TRANSACCION" << endl; //BORRAR COMENTARIO!!!
        pantalla.dimensiones(15,16);
        cout << "Comuniquese con el area de sistemas" << endl;
        pantalla.dimensiones(15,20);
        cout << BLUE;
        system("pause");
-
-      return false;
 	}
 	fseek(p, sizeof(Transaccion)*posicion, 0);
 	int escribio = fwrite(&transaccion, sizeof(Transaccion), 1, p);
@@ -70,7 +69,7 @@ Transaccion ArchivoTransaccion::leerDeDisco(int pos){
     if(p==NULL){
        cout << RED;
        pantalla.dimensiones(15,15);
-       cout << "El archivo de - Transaccion - no se pudo abrir." << endl;
+       cout << "El archivo de - Transaccion - no se pudo abrir. ESTOY EN MÉTODO LEER DE DISCO DE TRANSACCION" << endl; //BORRAR COMENTARIO!!!
        pantalla.dimensiones(15,16);
        cout << "Comuniquese con el area de sistemas" << endl;
        pantalla.dimensiones(15,20);
@@ -94,7 +93,7 @@ int ArchivoTransaccion::getLastIdTransaction(){
     if(p==NULL){
        cout << RED;
        pantalla.dimensiones(15,15);
-       cout << "El archivo de - Transaccion - no se pudo abrir." << endl;
+       cout << "El archivo de - Transaccion - no se pudo abrir. ESTOY EN MÉTODO LAST ID DE TRANSACCION" << endl; //BORRAR COMENTARIO!!!
        pantalla.dimensiones(15,16);
        cout << "Comuniquese con el area de sistemas" << endl;
        pantalla.dimensiones(15,20);
@@ -111,29 +110,18 @@ int ArchivoTransaccion::getLastIdTransaction(){
 
 
 int ArchivoTransaccion::cantidadTransacciones(){
-    Pantalla pantalla;
 
-    FILE* pFile;
-    int cantidad = 0;
-    pFile = fopen(_Nombre, "rb");
-    if (pFile == nullptr){
-      cout << RED;
-      pantalla.dimensiones(15,15);
-      cout << "El archivo de - Transaccion - no se pudo abrir." << endl;
-      pantalla.dimensiones(15,16);
-      cout << "Comuniquese con el area de sistemas" << endl;
-      pantalla.dimensiones(15,20);
-      cout << BLUE;
-      system("pause");
-      return 0;
+    FILE* p = fopen("transaccion.dat", "rb");
+    if (p == NULL) {
+        return 0;
     }
-    fseek(pFile, 0, SEEK_END);
-    cantidad = ftell(pFile) / sizeof(Transaccion);
-    fclose(pFile);
-    return cantidad;
+    fseek(p, 0, SEEK_END);
+    int cant = ftell(p) / sizeof(Transaccion);
+    fclose(p);
+    return cant;
 }
 
-int ArchivoTransaccion::sobreEscribirRegistro(int posicion, Transaccion transaccion){
+void ArchivoTransaccion::sobreEscribirRegistro(int posicion, Transaccion transaccion){
     Pantalla pantalla;
 
     FILE* p;
@@ -141,7 +129,7 @@ int ArchivoTransaccion::sobreEscribirRegistro(int posicion, Transaccion transacc
     if (p == NULL) {
       cout << RED;
       pantalla.dimensiones(15,15);
-      cout << "El archivo de - Transaccion - no se pudo abrir." << endl;
+      cout << "El archivo de - Transaccion - no se pudo abrir. ESTOY EN MÉTODO SOBREESCRIBIR DE TRANSACCION" << endl; //BORRAR COMENTARIO!!!
       pantalla.dimensiones(15,16);
       cout << "Comuniquese con el area de sistemas" << endl;
       pantalla.dimensiones(15,20);
@@ -154,7 +142,4 @@ int ArchivoTransaccion::sobreEscribirRegistro(int posicion, Transaccion transacc
     // Escribe los datos modificados de vuelta al archivo
     fwrite(&transaccion, sizeof(Transaccion), 1, p);
     fclose(p);
-
-
-
 }

@@ -33,9 +33,9 @@ public:
 
     bool esVenta();
     void confirmarTransaccion();
-    int generarCodigoTransaccion();
 
-    void cerrarMesa(int mesaAux);
+    int generarCodigoTransaccion();
+    float cerrarMesa(int mesa);
 
     void mostrar();
 

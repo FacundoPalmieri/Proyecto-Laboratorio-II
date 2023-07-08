@@ -23,7 +23,7 @@ void ArchivoProducto::grabarEnDisco(Producto producto){
     if(p==NULL){
        cout << RED;
        pantalla.dimensiones(15,15);
-       cout << "El archivo de - Productos - no se pudo abrir." << endl;
+       cout << "El archivo de - Ventas - no se pudo abrir." << endl;
        pantalla.dimensiones(15,16);
        cout << "Comuniquese con el area de sistemas" << endl;
        pantalla.dimensiones(15,20);
@@ -245,6 +245,8 @@ Producto ArchivoProducto::buscarPorCodigo(int idProducto){
         producto.setNombreProducto("PRODUCTO NO ENCONTRADO");
         return producto;
     }
+
+    return producto;
 }
 
 
@@ -255,7 +257,7 @@ int ArchivoProducto::buscarDato(int idProducto){
 
     int posicion=0;
 
-	pArchivo=fopen(_Nombre,"rb");
+	pArchivo=fopen("productos.dat","rb");
 
 	if(pArchivo==NULL){
 		return -2; //si no encuentra el archivo nos devuelve un número de id inválido

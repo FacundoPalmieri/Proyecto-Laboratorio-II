@@ -5,22 +5,21 @@ using namespace std;
 #include "Transaccion.h"
 #include "Producto.h"
 #include "ArchivoProducto.h"
+#include "Pantalla.h"
 #include "ArchivoTransaccion.h"
 
 Transaccion::Transaccion(){
 }
 
 Transaccion::Transaccion(int idOperacion, int idProducto, int cantidad, float precio, char tipo, int idMesa){
-    _idTransaccion = generarCodigoTransaccion() + _contador;
+    _idTransaccion = generarCodigoTransaccion();
     _idOperacionAsociada = idOperacion;
     _idProducto = idProducto;
     _cantidad = cantidad;
     _precio = precio;
     if(setTipo(tipo)) cout<<"Tipo de transaccion [compra o venta] INDEFINIDO"<<endl;
-    _estado = 2;
+    _estado = 2; // 0 - cerrada / 1 - Borrador / 2 - Confirmada
     _idMesa= idMesa;
-
-    _contador++;
 }
 
 int Transaccion::getIdProducto(){
@@ -94,15 +93,12 @@ void Transaccion::confirmarTransaccion(){
     _estado = 2;
 }
 
-
-
-
 int Transaccion::generarCodigoTransaccion(){
-   ArchivoTransaccion archivoTransaccion ("transacciones.dat");
-   return archivoTransaccion.cantidadTransacciones()+ 1;
+
+    ArchivoTransaccion archivoTransaccion("transaccion.dat");
+
+    return archivoTransaccion.cantidadTransacciones()+1;
 }
-
-
 
 
 void Transaccion::mostrar(){
@@ -119,19 +115,28 @@ void Transaccion::mostrar(){
     cout<<"\t"<<_estado<<endl;
 }
 
-void Transaccion::cerrarMesa(int mesaAux){
-    ArchivoTransaccion archivoTransaccion("transacciones.dat");
+float Transaccion::cerrarMesa(int mesa){
+
     Transaccion transaccion;
-    int posicion=0;
+    ArchivoTransaccion archivoTransaccion("transaccion.dat");
 
-    for(int x = 0; x < archivoTransaccion.cantidadTransacciones(); x++){
-        transaccion = archivoTransaccion.leerDeDisco(x);
+    Pantalla pantalla;
 
-            if(transaccion.getIdMesa() == mesaAux){ //FILTRAMOS LAS VENTAS QUE COINCIDEN CON EL N° DE MESA INGRESADO
-                transaccion.setEstado(0);
-                archivoTransaccion.sobreEscribirRegistro(mesaAux, transaccion);
+    float total=0;
 
-            }
-        posicion++;
+    for (int x=0; x<archivoTransaccion.cantidadTransacciones();x++){ //RECORRE ARCHIVO TRANSACCIONES
+
+        transaccion=archivoTransaccion.leerDeDisco(x);
+
+        transaccion.getIdMesa(); //POR VUELTA TOMAMOS EL ID
+
+        if(transaccion.getIdMesa() == mesa && transaccion.getEstado()!=0) //FILTRAMOS LAS VENTAS QUE COINCIDEN CON EL N° DE MESA INGRESADO
+        {
+            total+=transaccion.getPrecio();//ANTES DE CERRAR MESA DE ESA TRANSACCIÓN ACUMULA EL IMPORTE
+            transaccion.setEstado(0); //CAMBIAMOS EL ESTADO PARA CERRAR MESA
+            archivoTransaccion.sobreEscribirRegistro(x, transaccion);//SOBREESCRIBO LA TRANSACCIÓN CON EL ESTADO SETEADO
+        }
     }
+    pantalla.dimensiones (4,13);
+    return total;
 }

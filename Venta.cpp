@@ -53,9 +53,9 @@ int Venta::getIdVendedor(){
 
 void Venta::cargarVenta()
 {
-    int idMesaAux;
+    int idMesa;
     cout<<"INGRESE NUMERO DE MESA: "<<endl;
-    cin>>idMesaAux;
+    cin>>idMesa;
 
 }
 
@@ -81,21 +81,20 @@ void Venta::setConsumoTotal(float total){
 }
 
 bool Venta::confirmarVenta(){
-    ArchivoTransaccion archivoTransaccion("transacciones.dat");
-    Transaccion transaccion;
-    int pos=0;
 
-    for(int x = 0; x <archivoTransaccion.cantidadTransacciones(); x++){
-        transaccion = archivoTransaccion.leerDeDisco(x);
+    ArchivoTransaccion archivoTransaccion("transaccion.dat");
+    Transaccion transaccion;
+
+    for(int x=0; x<archivoTransaccion.cantidadTransacciones();x++){
+        transaccion=archivoTransaccion.leerDeDisco(x);
 
         if(transaccion.esVenta()==true){
             if(transaccion.getIdOperacionAsociada() == getIDventa()){
                 transaccion.confirmarTransaccion();
                 transaccion.mostrar();
-                archivoTransaccion.grabarEnDiscoPorPosicion(pos, transaccion);
+                archivoTransaccion.grabarEnDiscoPorPosicion(x, transaccion);
             }
         }
-        pos++;
     }
     _estado = 2;     //seteo como confirmado el estado de la venta en general
 
@@ -125,12 +124,12 @@ int Venta::agregarProductoALaVenta(int idProducto, int cantidad){
     Producto producto; //SE UTILIZA PARA BUSCAR EL ID DEL PRODUCTO QUE RECIBIMOS POR PARÁMETRO
     ArchivoProducto archivoProducto("productos.dat");
     producto = archivoProducto.buscarPorCodigo(idProducto);
-    ArchivoTransaccion archivoTransaccion("transacciones.dat");
+
+    ArchivoTransaccion archivoTransaccion("transaccion.dat");
 
     if(producto.getIdProducto() != -1){
         //CREAMOS UNA TRANSACCION AUX, POR PARÁMETROS, CON LOS DATOS DE LA VENTA Y EL PRODUCTO
-
-       Transaccion transaccion(getIDventa(), idProducto, cantidad, producto.getPrecioProducto(),'V', _idMesa);
+        Transaccion transaccion(getIDventa(), idProducto, cantidad, producto.getPrecioProducto(),'V', _idMesa);
 
         //GRABAMOS EN ARCHIVO TRANSACCIÓN
 
