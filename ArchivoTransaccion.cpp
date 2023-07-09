@@ -7,8 +7,31 @@ using namespace std;
 #include "Pantalla.h"
 
 
+void ArchivoTransaccion :: MensajeError(){
+    Pantalla pantalla;
+    system ("cls");
+    pantalla.dimensiones (4,5);
+    pantalla.estiloMenu();
+    cout << RED;
+    pantalla.dimensiones(15,15);
+    cout << "El archivo de - Transaccion - no se pudo abrir. ESTOY EN MÉTODO GRABAR EN DISCO DE TRANSACCION" << endl; //BORRAR COMENTARIO!!!
+    pantalla.dimensiones(15,16);
+    cout << "Comuniquese con el area de sistemas" << endl;
+    pantalla.dimensiones(15,20);
+    cout << BLUE;
+    system("pause");
+    exit(20);
+}
+
 ArchivoTransaccion::ArchivoTransaccion(const char* Nombre){
     strcpy(_Nombre, Nombre);
+    FILE *p = fopen(_Nombre, "ab");
+
+
+    if(p==NULL){
+      MensajeError();
+
+    }
 }
 
 
@@ -19,15 +42,7 @@ int ArchivoTransaccion::grabarEnDisco(Transaccion transaccion){
     p=fopen(_Nombre, "ab");
 
     if(p==NULL){
-       cout << RED;
-       pantalla.dimensiones(15,15);
-       cout << "El archivo de - Transaccion - no se pudo abrir. ESTOY EN MÉTODO GRABAR EN DISCO DE TRANSACCION" << endl; //BORRAR COMENTARIO!!!
-       pantalla.dimensiones(15,16);
-       cout << "Comuniquese con el area de sistemas" << endl;
-       pantalla.dimensiones(15,20);
-       cout << BLUE;
-       system("pause");
-       exit(20);
+       MensajeError();
     }
 
     int grabo=fwrite(&transaccion, sizeof(Transaccion), 1, p);
@@ -43,14 +58,7 @@ int ArchivoTransaccion::grabarEnDiscoPorPosicion(int posicion, Transaccion trans
 	FILE *p;
 	p = fopen(_Nombre, "rb+");
 	if(p==NULL){
-       cout << RED;
-       pantalla.dimensiones(15,15);
-       cout << "El archivo de - Transaccion - no se pudo abrir. ESTOY EN MÉTODO GRABAR EN DISCO POR POSC DE TRANSACCION" << endl; //BORRAR COMENTARIO!!!
-       pantalla.dimensiones(15,16);
-       cout << "Comuniquese con el area de sistemas" << endl;
-       pantalla.dimensiones(15,20);
-       cout << BLUE;
-       system("pause");
+       MensajeError();
 	}
 	fseek(p, sizeof(Transaccion)*posicion, 0);
 	int escribio = fwrite(&transaccion, sizeof(Transaccion), 1, p);
@@ -67,15 +75,7 @@ Transaccion ArchivoTransaccion::leerDeDisco(int pos){
     FILE *p;
     p=fopen(_Nombre,"rb");
     if(p==NULL){
-       cout << RED;
-       pantalla.dimensiones(15,15);
-       cout << "El archivo de - Transaccion - no se pudo abrir. ESTOY EN MÉTODO LEER DE DISCO DE TRANSACCION" << endl; //BORRAR COMENTARIO!!!
-       pantalla.dimensiones(15,16);
-       cout << "Comuniquese con el area de sistemas" << endl;
-       pantalla.dimensiones(15,20);
-       cout << BLUE;
-       system("pause");
-       exit(20);
+       MensajeError();
 
     }
     fseek(p,pos * sizeof(Transaccion), SEEK_SET);
@@ -91,16 +91,7 @@ int ArchivoTransaccion::getLastIdTransaction(){
     FILE *p;
     p=fopen(_Nombre,"rb+");
     if(p==NULL){
-       cout << RED;
-       pantalla.dimensiones(15,15);
-       cout << "El archivo de - Transaccion - no se pudo abrir. ESTOY EN MÉTODO LAST ID DE TRANSACCION" << endl; //BORRAR COMENTARIO!!!
-       pantalla.dimensiones(15,16);
-       cout << "Comuniquese con el area de sistemas" << endl;
-       pantalla.dimensiones(15,20);
-       cout << BLUE;
-       system("pause");
-
-     return 0;
+       MensajeError();
     }
     fseek(p,sizeof(Transaccion), SEEK_END);
     int lecturas = fread(&transaccion,sizeof(Transaccion), 1, p);
@@ -111,9 +102,9 @@ int ArchivoTransaccion::getLastIdTransaction(){
 
 int ArchivoTransaccion::cantidadTransacciones(){
 
-    FILE* p = fopen("transaccion.dat", "rb");
+    FILE* p = fopen(_Nombre, "rb");
     if (p == NULL) {
-        return 0;
+        MensajeError();
     }
     fseek(p, 0, SEEK_END);
     int cant = ftell(p) / sizeof(Transaccion);
@@ -121,25 +112,18 @@ int ArchivoTransaccion::cantidadTransacciones(){
     return cant;
 }
 
-void ArchivoTransaccion::sobreEscribirRegistro(int posicion, Transaccion transaccion){
+int  ArchivoTransaccion::sobreEscribirRegistro(int posicion, Transaccion transaccion){
     Pantalla pantalla;
 
     FILE* p;
     p = fopen(_Nombre, "rb+");
     if (p == NULL) {
-      cout << RED;
-      pantalla.dimensiones(15,15);
-      cout << "El archivo de - Transaccion - no se pudo abrir. ESTOY EN MÉTODO SOBREESCRIBIR DE TRANSACCION" << endl; //BORRAR COMENTARIO!!!
-      pantalla.dimensiones(15,16);
-      cout << "Comuniquese con el area de sistemas" << endl;
-      pantalla.dimensiones(15,20);
-      cout << BLUE;
-      system("pause");
-      exit(20);
+      MensajeError();
     }
     fseek(p, sizeof transaccion*posicion,0);
 
     // Escribe los datos modificados de vuelta al archivo
-    fwrite(&transaccion, sizeof(Transaccion), 1, p);
+    int grabo = fwrite(&transaccion, sizeof(Transaccion), 1, p);
     fclose(p);
+    return grabo;
 }

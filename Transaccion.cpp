@@ -128,13 +128,17 @@ float Transaccion::cerrarMesa(int mesa){
 
         transaccion=archivoTransaccion.leerDeDisco(x);
 
-        transaccion.getIdMesa(); //POR VUELTA TOMAMOS EL ID
-
         if(transaccion.getIdMesa() == mesa && transaccion.getEstado()!=0) //FILTRAMOS LAS VENTAS QUE COINCIDEN CON EL N° DE MESA INGRESADO
         {
             total+=transaccion.getPrecio();//ANTES DE CERRAR MESA DE ESA TRANSACCIÓN ACUMULA EL IMPORTE
             transaccion.setEstado(0); //CAMBIAMOS EL ESTADO PARA CERRAR MESA
-            archivoTransaccion.sobreEscribirRegistro(x, transaccion);//SOBREESCRIBO LA TRANSACCIÓN CON EL ESTADO SETEADO
+            if(archivoTransaccion.sobreEscribirRegistro(x, transaccion)==0)//SOBREESCRIBO LA TRANSACCIÓN CON EL ESTADO SETEADO
+            {
+
+
+            }
+
+
         }
     }
     pantalla.dimensiones (4,13);

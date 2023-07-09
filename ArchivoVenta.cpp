@@ -7,17 +7,12 @@ using namespace std;
 #include "colors.h"
 #include "Venta.h"
 
-ArchivoVenta::ArchivoVenta(const char* Nombre){
-    strcpy(_Nombre, Nombre);
-}
 
-int ArchivoVenta::grabarEnDisco(Venta venta){
+void ArchivoVenta:: MensajeError(){
     Pantalla pantalla;
-
-    FILE *p = fopen(_Nombre, "ab");
-
-
-    if(p==NULL){
+    system ("cls");
+    pantalla.dimensiones (4,5);
+    pantalla.estiloMenu();
     cout << RED;
     pantalla.dimensiones(15,15);
     cout << "El archivo de - Ventas - no se pudo abrir." << endl;
@@ -27,7 +22,32 @@ int ArchivoVenta::grabarEnDisco(Venta venta){
     cout << BLUE;
     system("pause");
 
-    return -1;
+    exit(-20);
+
+
+}
+
+ArchivoVenta::ArchivoVenta(const char* Nombre){
+    strcpy(_Nombre, Nombre);
+    FILE *p = fopen(_Nombre, "ab");
+
+
+    if(p==NULL){
+      MensajeError();
+
+    }
+
+
+}
+
+int ArchivoVenta::grabarEnDisco(Venta venta){
+    Pantalla pantalla;
+
+    FILE *p = fopen(_Nombre, "ab");
+
+
+    if(p==NULL){
+      MensajeError();
 
     }
     int grabo=fwrite(&venta, sizeof(Venta),1, p);
@@ -40,11 +60,9 @@ Venta ArchivoVenta::leerDeDisco(int pos){
     Venta venta;
 
     FILE *p;
-    p=fopen("venta.dat","rb");
+    p=fopen(_Nombre,"rb");
     if(p==NULL){
-        cout << RED;
-        pantalla.dimensiones(15,15);
-        cout << "El archivo de - Ventas - no se pudo abrir." << endl;
+        MensajeError();
     }
 
     fseek(p, sizeof(Venta)*pos, SEEK_SET);
@@ -61,9 +79,9 @@ Venta ArchivoVenta::leerDeDisco(int pos){
 int ArchivoVenta::cantidadVentas(){
     FILE* pFile;
     int cantidad = 0;
-    pFile = fopen("venta.dat", "rb");
+    pFile = fopen(_Nombre, "rb");
     if (pFile == nullptr) {
-        return 0;
+        MensajeError();
     }
     fseek(pFile, 0, SEEK_END);
     cantidad = ftell(pFile) / sizeof(Venta);

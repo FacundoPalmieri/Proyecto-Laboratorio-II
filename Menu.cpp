@@ -181,11 +181,10 @@ int Menu::menuVenta(int idVendedor)
 
         pantalla.dimensiones (2,13); cout<<"1 - ATENDER CLIENTE: ";
         pantalla.dimensiones (2,14); cout<<"2 - CONSUMO DE MESA: ";
-        pantalla.dimensiones (2,15); cout<<"3 - CERRAR MESA: ";
-        pantalla.dimensiones (2,16); cout<<"4 - VOLVER AL MENU PRINCIPAL: ";
-        pantalla.dimensiones (2,17); cout<<"0 - SALIR DEL PROGRAMA: ";
+        pantalla.dimensiones (2,15); cout<<"3 - VOLVER AL MENU PRINCIPAL: ";
+        pantalla.dimensiones (2,16); cout<<"0 - SALIR DEL PROGRAMA: ";
 
-        pantalla.dimensiones (2,19); cout<<"->: ";
+        pantalla.dimensiones (2,18); cout<<"->: ";
         cin>>_opcion;
 
         switch (_opcion)
@@ -196,10 +195,8 @@ int Menu::menuVenta(int idVendedor)
         case 2:
             menuConsumoMesa(idVendedor);
             break;
+
         case 3:
-            cerrarMesa();
-            break;
-        case 4:
             menuPrincipal(idVendedor);
             break;
         case 0:
@@ -664,7 +661,9 @@ int Menu::menuAjuste(int idVendedor)
             pantalla.dimensiones (2,7); cout<<"------------------";
             pantalla.dimensiones (2,12);
             empleado.cargarEmpleado();
-            archivoEmpleado.grabarEnDisco(empleado);
+            if(archivoEmpleado.grabarEnDisco(empleado)==0){
+                archivoEmpleado.MensajeError();
+            };
             menuAjuste(idVendedor);
             break;
         case 5:
@@ -707,6 +706,7 @@ int Menu::menuPedido(int idVendedor)
         Producto producto;
         ArchivoVenta archivoVenta("venta.dat");
         ArchivoProducto archivoProducto("productos.dat");
+
 
         int opcion, renglon = 8, codigoProducto = 0, cantidadProducto = 0, mesaAux = -1;
         float subtotal = 0;
@@ -825,7 +825,7 @@ void Menu::menuConsumoMesa(int idVendedor)
     ArchivoProducto archivoProducto("productos.dat");
     ArchivoTransaccion archivoTransaccion("transaccion.dat");
 
-    int renglon = 8, mesa = -1;
+    int renglon = 8, mesa = -1, Opcion = 0;
     float total = 0, subtotal = 0;
 
     system("cls");
@@ -868,49 +868,37 @@ void Menu::menuConsumoMesa(int idVendedor)
         }
     }
 
-    pantalla.dimensiones (3,24); system ("pause") ;
+    pantalla.dimensiones (3,24); cout << "1- Cerrar mesa / 2 - Volver :";
+    pantalla.dimensiones (33,24);cin >> Opcion;
+    switch(Opcion){
+     case 1:
+        transaccion.cerrarMesa(mesa);
+        pantalla.dimensiones (4,24);
+        pantalla.dimensiones (3,24);  cout << "                                                 ";
+        pantalla.dimensiones (3,24); cout<<"MESA CERRADA - Imprimiendo Ticket..."<<endl;
+        Sleep(3000);
 
-}
+        pantalla.dimensiones (80,22); cout<<"TOTAL: "<<total;
+        pantalla.dimensiones (2,24); cout<< system("pause") ;
+        break;
+     case 2:
+        menuVenta(idVendedor);
+        break;
 
+     default:
+        cout << RED;
+        pantalla.dimensiones (4,22);  cout << "Opcion Incorrecta                                      " << endl;
+        cout << BLUE;
+        pantalla.dimensiones (35,24); cout << "                                                      " << endl;
+        pantalla.dimensiones (3,24);  system("pause");
+        pantalla.dimensiones (4,22);  cout << "                                                     " << endl;
+        pantalla.dimensiones (25,24); cout << "                                                     " << endl;
+        pantalla.dimensiones (4,22);  cout  <<"INGRESE UNA OPCION: ";
+        break;
 
-void Menu::cerrarMesa(){
-
-    Pantalla pantalla;
-    Transaccion transaccion;
-    ArchivoTransaccion archivoTransaccion("transaccion.dat");
-
-    int mesa = -1;
-    float total=0;
-
-    system("cls");
-    system("mode con: cols=100 lines=26"); //SE DEFINE LAS DIMENSIONES DE LA VENTANA DEL PROGRAMA A 80 COLUMNAS Y 25 FILAS
-    system("COLOR 71"); //SE DA UN COLOR DE FONDO Y COLOR A LAS LETRAS
-    pantalla.dibujarCuadro(0,0,98,25); //SE DIBUJA EL CUADRO PRINCIPAL
-    pantalla.dibujarCuadro(1,1,97,3); //SE DIBUJA EL CUADRO DEL TITULO
-    pantalla.dimensiones(39,2); cout<<"DELTAPOINT RESTO";
-
-    pantalla.dibujarCuadroDoble(2,4,96,6,23);
-
-    pantalla.dimensiones (4,5); cout<<"MESA: ";
-    cin>> mesa;
-
-
-    for (int x=0; x<archivoTransaccion.cantidadTransacciones();x++) //RECORRE ARCHIVO TRANSACCIONES
-    {
-        transaccion=archivoTransaccion.leerDeDisco(x);
-
-        transaccion.getIdMesa(); //POR VUELTA TOMAMOS EL ID
-
-        if(transaccion.getIdMesa() == mesa&&transaccion.getEstado()==2) //FILTRAMOS LAS VENTAS QUE COINCIDEN CON EL N° DE MESA INGRESADO
-        {
-            total=transaccion.cerrarMesa(mesa); //ACÁ SE VAN A CERRAR TODAS LAS MESAS QUE COINCIDAN CON LA MES AINGRESADA
-        }
     }
 
-    pantalla.dimensiones (4,8);
-    cout<<"MESA CERRADA."<<endl;
 
-    pantalla.dimensiones (80,22); cout<<"TOTAL: "<<total;
-    pantalla.dimensiones (2,24); cout<< system("pause") ;
 }
+
 

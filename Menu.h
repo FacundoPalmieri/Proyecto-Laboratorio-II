@@ -24,7 +24,7 @@ public:
     void vender(int idVendedor);
     int menuPedido(int idVendedor);
     void menuConsumoMesa(int idVendedor);
-    void cerrarMesa();
+
 
 
     void FinalizarPrograma();

@@ -18,6 +18,8 @@ class ArchivoVenta
         int grabarEnDisco(Venta venta);
         Venta leerDeDisco(int pos);
         int cantidadVentas();
+
+        void MensajeError();
 };
 
 

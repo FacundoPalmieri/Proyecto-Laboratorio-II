@@ -8,27 +8,43 @@ using namespace std;
 #include "Menu.h"
 #include "Pantalla.h"
 
+void ArchivoProducto::MensajeError(){
+    Pantalla pantalla;
+    system ("cls");
+    pantalla.dimensiones (4,5);
+    pantalla.estiloMenu();
+
+    cout << RED;
+    pantalla.dimensiones(15,15);
+    cout << "El archivo de - Ventas - no se pudo abrir." << endl;
+    pantalla.dimensiones(15,16);
+    cout << "Comuniquese con el area de sistemas" << endl;
+    pantalla.dimensiones(15,20);
+    cout << BLUE;
+    exit(20);
+}
+
+
 ArchivoProducto::ArchivoProducto(const char* Nombre)
 {
     strcpy(_Nombre, Nombre);
+    FILE *p = fopen(_Nombre, "ab");
+
+
+    if(p==NULL){
+      MensajeError();
+
+    }
 }
 
 
 void ArchivoProducto::grabarEnDisco(Producto producto){
-    Pantalla pantalla;
     FILE *p;
 
     p=fopen(_Nombre, "ab");
 
     if(p==NULL){
-       cout << RED;
-       pantalla.dimensiones(15,15);
-       cout << "El archivo de - Ventas - no se pudo abrir." << endl;
-       pantalla.dimensiones(15,16);
-       cout << "Comuniquese con el area de sistemas" << endl;
-       pantalla.dimensiones(15,20);
-       cout << BLUE;
-       system("pause");
+       MensajeError();
     }
 
 
@@ -38,22 +54,13 @@ void ArchivoProducto::grabarEnDisco(Producto producto){
 }
 
 Producto ArchivoProducto::leerDeDisco(int pos){
-    Pantalla pantalla;
     Producto producto;
 
     FILE *p;
     p=fopen(_Nombre,"rb");
 
     if(p==NULL){
-       cout << RED;
-       pantalla.dimensiones(15,15);
-       cout << "El archivo de -Productos - no se pudo abrir." << endl;
-       pantalla.dimensiones(15,16);
-       cout << "Comuniquese con el area de sistemas" << endl;
-       pantalla.dimensiones(15,20);
-       cout << BLUE;
-       system("pause");
-       exit(20);
+       MensajeError();
     }
 
     fseek(p,pos*sizeof(Producto), 0);
@@ -65,7 +72,7 @@ Producto ArchivoProducto::leerDeDisco(int pos){
 int ArchivoProducto::cantidadEnArchivo(){
     Producto producto;
 
-    FILE* p=fopen("productos.dat", "rb");
+    FILE* p=fopen(_Nombre, "rb");
 
 
     if (p == nullptr) return 0;
@@ -257,7 +264,7 @@ int ArchivoProducto::buscarDato(int idProducto){
 
     int posicion=0;
 
-	pArchivo=fopen("productos.dat","rb");
+	pArchivo=fopen(_Nombre,"rb");
 
 	if(pArchivo==NULL){
 		return -2; //si no encuentra el archivo nos devuelve un número de id inválido
