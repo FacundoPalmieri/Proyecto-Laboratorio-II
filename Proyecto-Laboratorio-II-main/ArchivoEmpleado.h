@@ -20,6 +20,7 @@ class ArchivoEmpleado{
         void modificarRegistro();
         int bajaEmpleado();
         int sobreEscribirRegistro(Empleado empleado, int posicion);
+        void MensajeError();
 
 };
 

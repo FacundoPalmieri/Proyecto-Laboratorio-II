@@ -22,6 +22,8 @@ class ArchivoProducto
         int buscarDato(int idProducto);
         Producto buscarPorCodigo(int idProducto);
 
+        void MensajeError();
+
 };
 
 #endif // ARCHIVOPRODUCTO_H

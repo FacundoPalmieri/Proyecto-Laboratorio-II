@@ -590,7 +590,7 @@
 
 1687649485 c:\users\facundo\desktop\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\mesa.h
 
-1688772486 source:d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main\proyecto-laboratorio-ii-main\empleado.cpp
+1688582358 source:d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main\proyecto-laboratorio-ii-main\empleado.cpp
 	"colors.h"
 	<iostream>
 	<cstring>
@@ -598,36 +598,32 @@
 	"Empleado.h"
 	"Pantalla.h"
 
-1688772486 d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main\proyecto-laboratorio-ii-main\empleado.h
+1688579310 d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main\proyecto-laboratorio-ii-main\empleado.h
 
-1688772486 d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main\proyecto-laboratorio-ii-main\colors.h
+1688562420 d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main\proyecto-laboratorio-ii-main\colors.h
 
-1688772486 d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main\proyecto-laboratorio-ii-main\menu.h
+1688562420 d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main\proyecto-laboratorio-ii-main\menu.h
 
-1688772486 source:d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main\proyecto-laboratorio-ii-main\fecha.cpp
+1688562420 source:d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main\proyecto-laboratorio-ii-main\fecha.cpp
 	<iostream>
 	<cstdio>
 	<stdlib.h>
 	<ctime>
 	"Fecha.h"
 
-1688772486 d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main\proyecto-laboratorio-ii-main\fecha.h
+1688562420 d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main\proyecto-laboratorio-ii-main\fecha.h
 
-1688772486 source:d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main\proyecto-laboratorio-ii-main\main.cpp
+1688562420 source:d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main\proyecto-laboratorio-ii-main\main.cpp
 	"iostream"
 	"Menu.h"
-	"ArchivoTransaccion.h"
-	"ArchivoProducto.h"
-	"Transaccion.h"
-	"Producto.h"
 
-1688772486 d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main\proyecto-laboratorio-ii-main\transaccion.h
+1688562420 d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main\proyecto-laboratorio-ii-main\transaccion.h
 
-1688772486 d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main\proyecto-laboratorio-ii-main\venta.h
+1688562420 d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main\proyecto-laboratorio-ii-main\venta.h
 	"Fecha.h"
 	"Transaccion.h"
 
-1688826836 source:d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main\proyecto-laboratorio-ii-main\menu.cpp
+1688594802 source:d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main\proyecto-laboratorio-ii-main\menu.cpp
 	"rlutil.h"
 	"colors.h"
 	"Pantalla.h"
@@ -636,11 +632,8 @@
 	"Venta.h"
 	"Empleado.h"
 	"ArchivoEmpleado.h"
-	"ArchivoVenta.h"
-	"ArchivoProducto.h"
-	"ArchivoTransaccion.h"
 
-1688772486 d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main\proyecto-laboratorio-ii-main\rlutil.h
+1688562420 d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main\proyecto-laboratorio-ii-main\rlutil.h
 	<iostream>
 	<string>
 	<cstdio>
@@ -654,43 +647,36 @@
 	<sys/types.h>
 	<sys/time.h>
 
-1688772486 d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main\proyecto-laboratorio-ii-main\producto.h
+1688562420 d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main\proyecto-laboratorio-ii-main\producto.h
 
-1688772486 source:d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main\proyecto-laboratorio-ii-main\producto.cpp
+1688562420 source:d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main\proyecto-laboratorio-ii-main\producto.cpp
 	<iostream>
 	<cstring>
 	"Producto.h"
 	"Menu.h"
 	"Pantalla.h"
-	"ArchivoProducto.h"
 
-1688826294 source:d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main\proyecto-laboratorio-ii-main\transaccion.cpp
+1688562420 source:d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main\proyecto-laboratorio-ii-main\transaccion.cpp
 	<iostream>
 	"Transaccion.h"
 	"Producto.h"
-	"ArchivoProducto.h"
-	"ArchivoTransaccion.h"
-	"Pantalla.h"
 
-1688772486 source:d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main\proyecto-laboratorio-ii-main\venta.cpp
+1688562420 source:d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main\proyecto-laboratorio-ii-main\venta.cpp
 	<iostream>
 	"Venta.h"
 	"Producto.h"
 	"Empleado.h"
 	"Mesa.h"
-	"ArchivoVenta.h"
-	"ArchivoProducto.h"
-	"ArchivoTransaccion.h"
 
-1688772486 d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main\proyecto-laboratorio-ii-main\mesa.h
+1688562420 d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main\proyecto-laboratorio-ii-main\mesa.h
 
-1688772486 source:d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main\proyecto-laboratorio-ii-main\pantalla.cpp
+1688584104 source:d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main\proyecto-laboratorio-ii-main\pantalla.cpp
 	"Pantalla.h"
 	"rlutil.h"
 
-1688772486 d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main\proyecto-laboratorio-ii-main\pantalla.h
+1688562420 d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main\proyecto-laboratorio-ii-main\pantalla.h
 
-1688767378 source:c:\users\krivera\desktop\proyecto labo ii\empleado.cpp
+1688740882 source:c:\users\krivera\desktop\proyecto labo ii\empleado.cpp
 	"colors.h"
 	<iostream>
 	<cstring>
@@ -698,36 +684,34 @@
 	"Empleado.h"
 	"Pantalla.h"
 
-1688767378 c:\users\krivera\desktop\proyecto labo ii\empleado.h
+1688740882 c:\users\krivera\desktop\proyecto labo ii\empleado.h
 
-1688767378 c:\users\krivera\desktop\proyecto labo ii\colors.h
+1688740882 c:\users\krivera\desktop\proyecto labo ii\colors.h
 
-1688767378 c:\users\krivera\desktop\proyecto labo ii\pantalla.h
+1688740882 c:\users\krivera\desktop\proyecto labo ii\pantalla.h
 
-1688767378 source:c:\users\krivera\desktop\proyecto labo ii\fecha.cpp
+1688740882 source:c:\users\krivera\desktop\proyecto labo ii\fecha.cpp
 	<iostream>
 	<cstdio>
 	<stdlib.h>
 	<ctime>
 	"Fecha.h"
 
-1688767378 c:\users\krivera\desktop\proyecto labo ii\fecha.h
+1688740882 c:\users\krivera\desktop\proyecto labo ii\fecha.h
 
-1688771482 source:c:\users\krivera\desktop\proyecto labo ii\main.cpp
+1688843414 source:c:\users\krivera\desktop\proyecto labo ii\main.cpp
 	"iostream"
 	"Menu.h"
-	"ArchivoTransaccion.h"
-	"ArchivoProducto.h"
 	"Transaccion.h"
-	"Producto.h"
+	"ArchivoTransaccion.h"
 
-1688767378 c:\users\krivera\desktop\proyecto labo ii\menu.h
+1688740882 c:\users\krivera\desktop\proyecto labo ii\menu.h
 
-1688767378 source:c:\users\krivera\desktop\proyecto labo ii\pantalla.cpp
+1688740882 source:c:\users\krivera\desktop\proyecto labo ii\pantalla.cpp
 	"Pantalla.h"
 	"rlutil.h"
 
-1688767378 source:c:\users\krivera\desktop\proyecto labo ii\producto.cpp
+1688740882 source:c:\users\krivera\desktop\proyecto labo ii\producto.cpp
 	<iostream>
 	<cstring>
 	"Producto.h"
@@ -735,18 +719,19 @@
 	"Pantalla.h"
 	"ArchivoProducto.h"
 
-1688767378 c:\users\krivera\desktop\proyecto labo ii\producto.h
+1688740882 c:\users\krivera\desktop\proyecto labo ii\producto.h
 
-1688767378 source:c:\users\krivera\desktop\proyecto labo ii\transaccion.cpp
+1688844128 source:c:\users\krivera\desktop\proyecto labo ii\transaccion.cpp
 	<iostream>
 	"Transaccion.h"
 	"Producto.h"
 	"ArchivoProducto.h"
+	"Pantalla.h"
 	"ArchivoTransaccion.h"
 
-1688767378 c:\users\krivera\desktop\proyecto labo ii\transaccion.h
+1688844126 c:\users\krivera\desktop\proyecto labo ii\transaccion.h
 
-1688767378 source:c:\users\krivera\desktop\proyecto labo ii\venta.cpp
+1688838479 source:c:\users\krivera\desktop\proyecto labo ii\venta.cpp
 	<iostream>
 	"Venta.h"
 	"Producto.h"
@@ -756,13 +741,13 @@
 	"ArchivoProducto.h"
 	"ArchivoTransaccion.h"
 
-1688767378 c:\users\krivera\desktop\proyecto labo ii\venta.h
+1688740882 c:\users\krivera\desktop\proyecto labo ii\venta.h
 	"Fecha.h"
 	"Transaccion.h"
 
-1688767378 c:\users\krivera\desktop\proyecto labo ii\mesa.h
+1688740882 c:\users\krivera\desktop\proyecto labo ii\mesa.h
 
-1688772065 source:c:\users\krivera\desktop\proyecto labo ii\menu.cpp
+1688843900 source:c:\users\krivera\desktop\proyecto labo ii\menu.cpp
 	"rlutil.h"
 	"colors.h"
 	"Pantalla.h"
@@ -775,7 +760,7 @@
 	"ArchivoProducto.h"
 	"ArchivoTransaccion.h"
 
-1688767378 c:\users\krivera\desktop\proyecto labo ii\rlutil.h
+1688740882 c:\users\krivera\desktop\proyecto labo ii\rlutil.h
 	<iostream>
 	<string>
 	<cstdio>
@@ -789,41 +774,41 @@
 	<sys/types.h>
 	<sys/time.h>
 
-1688772486 d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main\proyecto-laboratorio-ii-main\archivoempleado.h
+1688594128 d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main\proyecto-laboratorio-ii-main\archivoempleado.h
 	<cstring>
 	"Empleado.h"
 
-1688772486 source:d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main\proyecto-laboratorio-ii-main\archivoempleado.cpp
+1688594128 source:d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main\proyecto-laboratorio-ii-main\archivoempleado.cpp
+	<iostream>
+	"ArchivoEmpleado.h"
+	"Pantalla.h"
+	"colors.h"
+
+1688839224 source:c:\users\krivera\desktop\proyecto labo ii\archivoempleado.cpp
 	<iostream>
 	"colors.h"
 	"ArchivoEmpleado.h"
 	"Pantalla.h"
 
-1688767378 source:c:\users\krivera\desktop\proyecto labo ii\archivoempleado.cpp
-	<iostream>
-	"colors.h"
-	"ArchivoEmpleado.h"
-	"Pantalla.h"
-
-1688767378 c:\users\krivera\desktop\proyecto labo ii\archivoempleado.h
+1688740882 c:\users\krivera\desktop\proyecto labo ii\archivoempleado.h
 	<cstring>
 	"Empleado.h"
 
-1688767378 c:\users\krivera\desktop\proyecto labo ii\archivoventa.h
+1688740882 c:\users\krivera\desktop\proyecto labo ii\archivoventa.h
 	<cstring>
 	"Venta.h"
 
-1688767378 source:c:\users\krivera\desktop\proyecto labo ii\archivoventa.cpp
+1688740882 source:c:\users\krivera\desktop\proyecto labo ii\archivoventa.cpp
 	<iostream>
 	"ArchivoVenta.h"
 	"Pantalla.h"
 	"colors.h"
 	"Venta.h"
 
-1688767378 c:\users\krivera\desktop\proyecto labo ii\archivoproducto.h
+1688740882 c:\users\krivera\desktop\proyecto labo ii\archivoproducto.h
 	"Producto.h"
 
-1688767378 source:c:\users\krivera\desktop\proyecto labo ii\archivoproducto.cpp
+1688836637 source:c:\users\krivera\desktop\proyecto labo ii\archivoproducto.cpp
 	<iostream>
 	<cstring>
 	"colors.h"
@@ -832,23 +817,58 @@
 	"Menu.h"
 	"Pantalla.h"
 
-1688752318 source:d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main (1)\proyecto-laboratorio-ii-main\archivoempleado.cpp
+1688740882 source:c:\users\krivera\desktop\version viernes\archivoempleado.cpp
 	<iostream>
 	"colors.h"
 	"ArchivoEmpleado.h"
 	"Pantalla.h"
 
-1688726482 d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main (1)\proyecto-laboratorio-ii-main\colors.h
+1688740882 c:\users\krivera\desktop\version viernes\colors.h
 
-1688726482 d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main (1)\proyecto-laboratorio-ii-main\archivoempleado.h
+1688740882 c:\users\krivera\desktop\version viernes\archivoempleado.h
 	<cstring>
 	"Empleado.h"
 
-1688726482 d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main (1)\proyecto-laboratorio-ii-main\empleado.h
+1688740882 c:\users\krivera\desktop\version viernes\empleado.h
 
-1688726482 d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main (1)\proyecto-laboratorio-ii-main\pantalla.h
+1688740882 c:\users\krivera\desktop\version viernes\pantalla.h
 
-1688726482 source:d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main (1)\proyecto-laboratorio-ii-main\empleado.cpp
+1688740882 source:c:\users\krivera\desktop\version viernes\archivoproducto.cpp
+	<iostream>
+	<cstring>
+	"colors.h"
+	"ArchivoProducto.h"
+	"Producto.h"
+	"Menu.h"
+	"Pantalla.h"
+
+1688740882 c:\users\krivera\desktop\version viernes\archivoproducto.h
+	"Producto.h"
+
+1688740882 c:\users\krivera\desktop\version viernes\producto.h
+
+1688740882 c:\users\krivera\desktop\version viernes\menu.h
+
+1688740882 source:c:\users\krivera\desktop\version viernes\archivoventa.cpp
+	<iostream>
+	"ArchivoVenta.h"
+	"Pantalla.h"
+	"colors.h"
+	"Venta.h"
+
+1688740882 c:\users\krivera\desktop\version viernes\archivoventa.h
+	<cstring>
+	"Venta.h"
+
+1688740882 c:\users\krivera\desktop\version viernes\venta.h
+	"Fecha.h"
+	"Transaccion.h"
+
+1688740882 c:\users\krivera\desktop\version viernes\fecha.h
+
+1688833621 c:\users\krivera\desktop\version viernes\transaccion.h
+
+1688740882 source:c:\users\krivera\desktop\version viernes\empleado.cpp
 	"colors.h"
 	<iostream>
 	<cstring>
@@ -856,22 +876,18 @@
 	"Empleado.h"
 	"Pantalla.h"
 
-1688726482 source:d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main (1)\proyecto-laboratorio-ii-main\fecha.cpp
+1688740882 source:c:\users\krivera\desktop\version viernes\fecha.cpp
 	<iostream>
 	<cstdio>
 	<stdlib.h>
 	<ctime>
 	"Fecha.h"
 
-1688726482 d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main (1)\proyecto-laboratorio-ii-main\fecha.h
-
-1688726482 source:d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main (1)\proyecto-laboratorio-ii-main\main.cpp
+1688740882 source:c:\users\krivera\desktop\version viernes\main.cpp
 	"iostream"
 	"Menu.h"
 
-1688726482 d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main (1)\proyecto-laboratorio-ii-main\menu.h
-
-1688756878 source:d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main (1)\proyecto-laboratorio-ii-main\menu.cpp
+1688832870 source:c:\users\krivera\desktop\version viernes\menu.cpp
 	"rlutil.h"
 	"colors.h"
 	"Pantalla.h"
@@ -882,9 +898,8 @@
 	"ArchivoEmpleado.h"
 	"ArchivoVenta.h"
 	"ArchivoProducto.h"
-	"ArchivoTransaccion.h"
 
-1688726482 d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main (1)\proyecto-laboratorio-ii-main\rlutil.h
+1688740882 c:\users\krivera\desktop\version viernes\rlutil.h
 	<iostream>
 	<string>
 	<cstdio>
@@ -898,26 +913,11 @@
 	<sys/types.h>
 	<sys/time.h>
 
-1688726482 d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main (1)\proyecto-laboratorio-ii-main\producto.h
-
-1688726482 d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main (1)\proyecto-laboratorio-ii-main\venta.h
-	"Fecha.h"
-	"Transaccion.h"
-
-1688752000 d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main (1)\proyecto-laboratorio-ii-main\transaccion.h
-
-1688726482 d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main (1)\proyecto-laboratorio-ii-main\archivoventa.h
-	<cstring>
-	"Venta.h"
-
-1688726482 d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main (1)\proyecto-laboratorio-ii-main\archivoproducto.h
-	"Producto.h"
-
-1688726482 source:d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main (1)\proyecto-laboratorio-ii-main\pantalla.cpp
+1688740882 source:c:\users\krivera\desktop\version viernes\pantalla.cpp
 	"Pantalla.h"
 	"rlutil.h"
 
-1688726482 source:d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main (1)\proyecto-laboratorio-ii-main\producto.cpp
+1688740882 source:c:\users\krivera\desktop\version viernes\producto.cpp
 	<iostream>
 	<cstring>
 	"Producto.h"
@@ -925,14 +925,162 @@
 	"Pantalla.h"
 	"ArchivoProducto.h"
 
-1688752586 source:d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main (1)\proyecto-laboratorio-ii-main\transaccion.cpp
+1688833086 source:c:\users\krivera\desktop\version viernes\transaccion.cpp
 	<iostream>
 	"Transaccion.h"
 	"Producto.h"
 	"ArchivoProducto.h"
+	"Pantalla.h"
+
+1688740882 source:c:\users\krivera\desktop\version viernes\venta.cpp
+	<iostream>
+	"Venta.h"
+	"Producto.h"
+	"Empleado.h"
+	"Mesa.h"
+	"ArchivoVenta.h"
+	"ArchivoProducto.h"
+
+1688740882 c:\users\krivera\desktop\version viernes\mesa.h
+
+1688843414 source:c:\users\krivera\desktop\proyecto labo ii\archivotransaccion.cpp
+	<iostream>
+	"colors.h"
+	"ArchivoTransaccion.h"
+	"Pantalla.h"
+
+1688836709 c:\users\krivera\desktop\proyecto labo ii\archivotransaccion.h
+	<cstring>
+	"Transaccion.h"
+
+1688856874 source:d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main\archivoempleado.cpp
+	<iostream>
+	"colors.h"
+	"ArchivoEmpleado.h"
+	"Pantalla.h"
+
+1688851204 d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main\colors.h
+
+1688854770 d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main\archivoempleado.h
+	<cstring>
+	"Empleado.h"
+
+1688851204 d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main\empleado.h
+
+1688851204 d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main\pantalla.h
+
+1688856820 source:d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main\archivoproducto.cpp
+	<iostream>
+	<cstring>
+	"colors.h"
+	"ArchivoProducto.h"
+	"Producto.h"
+	"Menu.h"
+	"Pantalla.h"
+
+1688854770 d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main\archivoproducto.h
+	"Producto.h"
+
+1688851204 d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main\producto.h
+
+1688857456 d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main\menu.h
+
+1688856820 source:d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main\archivotransaccion.cpp
+	<iostream>
+	"colors.h"
+	"ArchivoTransaccion.h"
+	"Pantalla.h"
+
+1688854770 d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main\archivotransaccion.h
+	<cstring>
+	"Transaccion.h"
+
+1688851204 d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main\transaccion.h
+
+1688856820 source:d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main\archivoventa.cpp
+	<iostream>
+	"ArchivoVenta.h"
+	"Pantalla.h"
+	"colors.h"
+	"Venta.h"
+
+1688854770 d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main\archivoventa.h
+	<cstring>
+	"Venta.h"
+
+1688851204 d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main\venta.h
+	"Fecha.h"
+	"Transaccion.h"
+
+1688851204 d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main\fecha.h
+
+1688851204 source:d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main\empleado.cpp
+	"colors.h"
+	<iostream>
+	<cstring>
+	"ArchivoEmpleado.h"
+	"Empleado.h"
+	"Pantalla.h"
+
+1688851204 source:d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main\fecha.cpp
+	<iostream>
+	<cstdio>
+	<stdlib.h>
+	<ctime>
+	"Fecha.h"
+
+1688851204 source:d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main\main.cpp
+	"iostream"
+	"Menu.h"
+
+1688911866 source:d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main\menu.cpp
+	"rlutil.h"
+	"colors.h"
+	"Pantalla.h"
+	"Menu.h"
+	"Producto.h"
+	"Venta.h"
+	"Empleado.h"
+	"ArchivoEmpleado.h"
+	"ArchivoVenta.h"
+	"ArchivoProducto.h"
 	"ArchivoTransaccion.h"
 
-1688755104 source:d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main (1)\proyecto-laboratorio-ii-main\venta.cpp
+1688851204 d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main\rlutil.h
+	<iostream>
+	<string>
+	<cstdio>
+	<stdio.h>
+	<string.h>
+	<windows.h>
+	<conio.h>
+	<termios.h>
+	<unistd.h>
+	<sys/ioctl.h>
+	<sys/types.h>
+	<sys/time.h>
+
+1688851204 source:d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main\pantalla.cpp
+	"Pantalla.h"
+	"rlutil.h"
+
+1688851204 source:d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main\producto.cpp
+	<iostream>
+	<cstring>
+	"Producto.h"
+	"Menu.h"
+	"Pantalla.h"
+	"ArchivoProducto.h"
+
+1688855788 source:d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main\transaccion.cpp
+	<iostream>
+	"Transaccion.h"
+	"Producto.h"
+	"ArchivoProducto.h"
+	"Pantalla.h"
+	"ArchivoTransaccion.h"
+
+1688855486 source:d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main\venta.cpp
 	<iostream>
 	"Venta.h"
 	"Producto.h"
@@ -942,74 +1090,5 @@
 	"ArchivoProducto.h"
 	"ArchivoTransaccion.h"
 
-1688726482 d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main (1)\proyecto-laboratorio-ii-main\mesa.h
-
-1688757052 source:d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main (1)\proyecto-laboratorio-ii-main\archivoproducto.cpp
-	<iostream>
-	<cstring>
-	"colors.h"
-	"ArchivoProducto.h"
-	"Producto.h"
-	"Menu.h"
-	"Pantalla.h"
-
-1688726482 source:d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main (1)\proyecto-laboratorio-ii-main\archivoventa.cpp
-	<iostream>
-	"ArchivoVenta.h"
-	"Pantalla.h"
-	"colors.h"
-	"Venta.h"
-
-1688757672 source:d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main (1)\proyecto-laboratorio-ii-main\archivotransaccion.cpp
-	<iostream>
-	"colors.h"
-	"ArchivoTransaccion.h"
-	"Pantalla.h"
-
-1688752366 d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main (1)\proyecto-laboratorio-ii-main\archivotransaccion.h
-	<cstring>
-	"Transaccion.h"
-
-1688767378 source:c:\users\krivera\desktop\proyecto labo ii\archivotransaccion.cpp
-	<iostream>
-	"colors.h"
-	"ArchivoTransaccion.h"
-	"Pantalla.h"
-
-1688767378 c:\users\krivera\desktop\proyecto labo ii\archivotransaccion.h
-	<cstring>
-	"Transaccion.h"
-
-1688772486 source:d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main\proyecto-laboratorio-ii-main\archivoproducto.cpp
-	<iostream>
-	<cstring>
-	"colors.h"
-	"ArchivoProducto.h"
-	"Producto.h"
-	"Menu.h"
-	"Pantalla.h"
-
-1688772486 d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main\proyecto-laboratorio-ii-main\archivoproducto.h
-	"Producto.h"
-
-1688826256 source:d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main\proyecto-laboratorio-ii-main\archivotransaccion.cpp
-	<iostream>
-	"colors.h"
-	"ArchivoTransaccion.h"
-	"Pantalla.h"
-
-1688772486 d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main\proyecto-laboratorio-ii-main\archivotransaccion.h
-	<cstring>
-	"Transaccion.h"
-
-1688772486 source:d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main\proyecto-laboratorio-ii-main\archivoventa.cpp
-	<iostream>
-	"ArchivoVenta.h"
-	"Pantalla.h"
-	"colors.h"
-	"Venta.h"
-
-1688772486 d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main\proyecto-laboratorio-ii-main\archivoventa.h
-	<cstring>
-	"Venta.h"
+1688851204 d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main\mesa.h
 

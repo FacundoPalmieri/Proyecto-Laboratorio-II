@@ -6,26 +6,42 @@ using namespace std;
 #include "ArchivoEmpleado.h"
 #include "Pantalla.h"
 
+void ArchivoEmpleado:: MensajeError(){
+    Pantalla pantalla;
+    system ("cls");
+    pantalla.dimensiones (4,5);
+    pantalla.estiloMenu();
+
+    cout << RED;
+    pantalla.dimensiones(15,15);
+    cout << "El archivo de - Empleados - no se pudo abrir." << endl;
+    pantalla.dimensiones(15,16);
+    cout << "Comuniquese con el area de sistemas" << endl;
+    pantalla.dimensiones(15,20);
+    cout << BLUE;
+    system("pause");
+    exit(20);
+}
+
+
+
 ArchivoEmpleado::ArchivoEmpleado(const char* Nombre){
     strcpy(_Nombre, Nombre);
+    FILE *p = fopen(_Nombre, "ab");
+
+
+    if(p==NULL){
+      MensajeError();
+
+    }
 }
 
 int ArchivoEmpleado::grabarEnDisco(Empleado empleado){
-    Pantalla pantalla;
     FILE *p;
     p=fopen(_Nombre, "ab");
 
     if(p==NULL){
-       cout << RED;
-       pantalla.dimensiones(15,15);
-       cout << "El archivo de - Empleados - no se pudo abrir." << endl;
-       pantalla.dimensiones(15,16);
-       cout << "Comuniquese con el area de sistemas" << endl;
-       pantalla.dimensiones(15,20);
-       cout << BLUE;
-       system("pause");
-
-      return -1;
+     MensajeError();
     }
     int grabo=fwrite(&empleado, sizeof(Empleado),1, p);
     fclose(p);
@@ -35,21 +51,12 @@ int ArchivoEmpleado::grabarEnDisco(Empleado empleado){
 
 
 Empleado  ArchivoEmpleado:: leerDeDisco(int pos){
-    Pantalla pantalla;
     Empleado empleado;
 
     FILE *p;
     p=fopen(_Nombre,"rb");
     if(p==NULL){
-       cout << RED;
-       pantalla.dimensiones(15,15);
-       cout << "El archivo de -Empleados - no se pudo abrir." << endl;
-       pantalla.dimensiones(15,16);
-       cout << "Comuniquese con el area de sistemas" << endl;
-       pantalla.dimensiones(15,20);
-       cout << BLUE;
-       system("pause");
-       exit(20);
+      MensajeError();
 
     }
     fseek(p, sizeof(Empleado)*pos,0);
@@ -62,21 +69,10 @@ Empleado  ArchivoEmpleado:: leerDeDisco(int pos){
 
 
 int  ArchivoEmpleado:: cantidadEnArchivo(){
-    Empleado empleado;
-    Pantalla pantalla;
-
 
     FILE* p = fopen(_Nombre, "rb");
     if (p == NULL) {
-        cout << RED;
-       pantalla.dimensiones(15,15);
-       cout << "El archivo de -Empleados - no se pudo abrir." << endl;
-       pantalla.dimensiones(15,16);
-       cout << "Comuniquese con el area de sistemas" << endl;
-       pantalla.dimensiones(15,20);
-       cout << BLUE;
-       system("pause");
-       exit (20);
+        MensajeError();
     }
     fseek(p, 0, SEEK_END);
     int cant = ftell(p) / sizeof(Empleado);
@@ -86,7 +82,6 @@ int  ArchivoEmpleado:: cantidadEnArchivo(){
 
 
 bool ArchivoEmpleado:: validarIDEmpleado(int idEmpleado){
-    Pantalla pantalla;
     Empleado empleado;
     FILE *pArchivo;
 
@@ -97,14 +92,7 @@ bool ArchivoEmpleado:: validarIDEmpleado(int idEmpleado){
 	pArchivo=fopen(_Nombre,"rb");
 
 	if(pArchivo==NULL){
-       cout << RED;
-       pantalla.dimensiones(15,15);
-       cout << "El archivo de -Empleados - no se pudo abrir." << endl;
-       pantalla.dimensiones(15,16);
-       cout << "Comuniquese con el area de sistemas" << endl;
-       pantalla.dimensiones(15,20);
-       cout << BLUE;
-       system("pause");
+       MensajeError();
 	}
 
     while(fread(&empleado, sizeof empleado, 1,pArchivo)==1){
@@ -124,25 +112,15 @@ bool ArchivoEmpleado:: validarIDEmpleado(int idEmpleado){
 }
 
 int ArchivoEmpleado:: buscarDato(int idEmpleado){
-    Pantalla pantalla;
     Empleado empleado;
     FILE *pArchivo;
 
     int posicion=0;
 
-	pArchivo=fopen("empleados.dat","rb");
+	pArchivo=fopen(_Nombre,"rb");
 
 	if(pArchivo==NULL){
-       cout << RED;
-       pantalla.dimensiones(15,15);
-       cout << "El archivo de - Empleados - no se pudo abrir." << endl;
-       pantalla.dimensiones(15,16);
-       cout << "Comuniquese con el area de sistemas" << endl;
-       pantalla.dimensiones(15,20);
-       cout << BLUE;
-       system("pause");
-
-		return -2; //si no encuentra el archivo nos devuelve un número de id inválido
+       MensajeError();
 	}
 
     while(fread(&empleado, sizeof empleado, 1,pArchivo)==1){

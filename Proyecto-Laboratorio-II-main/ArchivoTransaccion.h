@@ -16,7 +16,9 @@ class ArchivoTransaccion{
         Transaccion leerDeDisco(int pos);
         int getLastIdTransaction();
         int cantidadTransacciones();
-        int sobreEscribirRegistro(int posicion, Transaccion transaccion);
+        int  sobreEscribirRegistro(int posicion, Transaccion transaccion);
+
+        void MensajeError();
 };
 
 #endif // ARCHIVOTRANSACCION_H
