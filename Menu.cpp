@@ -868,35 +868,70 @@ void Menu::menuConsumoMesa(int idVendedor)
         }
     }
 
-    pantalla.dimensiones (3,24); cout << "1- Cerrar mesa / 2 - Volver :";
-    pantalla.dimensiones (33,24);cin >> Opcion;
-    switch(Opcion){
-     case 1:
-        transaccion.cerrarMesa(mesa);
-        pantalla.dimensiones (4,24);
-        pantalla.dimensiones (3,24);  cout << "                                                 ";
-        pantalla.dimensiones (3,24); cout<<"MESA CERRADA - Imprimiendo Ticket..."<<endl;
-        Sleep(3000);
+    do{
 
-        pantalla.dimensiones (80,22); cout<<"TOTAL: "<<total;
-        pantalla.dimensiones (2,24); cout<< system("pause") ;
-        break;
-     case 2:
-        menuVenta(idVendedor);
-        break;
+        pantalla.dimensiones (3,24); cout << "1- Cerrar mesa / 2 - Volver :";
+        pantalla.dimensiones (33,24);cin >> Opcion;
+        switch(Opcion){
+         case 1:
+            char OpcionConfirmacion;
+            do{
+                pantalla.dimensiones (3,24); cout << " Esta seguro/a que desea cerrar la mesa? (S/N): ";
+                cin >> OpcionConfirmacion;
+                if(OpcionConfirmacion == 's' || OpcionConfirmacion == 'S'){
+                    if(transaccion.cerrarMesa(mesa)!=0){
 
-     default:
-        cout << RED;
-        pantalla.dimensiones (4,22);  cout << "Opcion Incorrecta                                      " << endl;
-        cout << BLUE;
-        pantalla.dimensiones (35,24); cout << "                                                      " << endl;
-        pantalla.dimensiones (3,24);  system("pause");
-        pantalla.dimensiones (4,22);  cout << "                                                     " << endl;
-        pantalla.dimensiones (25,24); cout << "                                                     " << endl;
-        pantalla.dimensiones (4,22);  cout  <<"INGRESE UNA OPCION: ";
-        break;
+                        pantalla.dimensiones (4,24);
+                        pantalla.dimensiones (3,24);  cout << "                                                 ";
+                        pantalla.dimensiones (3,24); cout<<"MESA CERRADA - Imprimiendo Ticket..."<<endl;
+                        Sleep(3000);
 
-    }
+                        pantalla.dimensiones (80,22); cout<<"TOTAL: "<<total;
+                        pantalla.dimensiones (2,24); cout<< system("pause") ;
+                        break;
+                    }
+                    else{
+                        cout << RED;
+                        pantalla.dimensiones (4,22);  cout << "La mesa ya se encuentra cerrada " << endl;
+                        cout << BLUE;
+                        pantalla.dimensiones (15,24); cout << "                                                     " << endl;
+                        pantalla.dimensiones (3,24); system("pause");
+                        pantalla.dimensiones (4,22);  cout << "                                                     " << endl;
+                        pantalla.dimensiones (25,24); cout << "                                                     " << endl;
+                        break;
+
+                    }
+                }
+                else{
+                    if(OpcionConfirmacion == 'n' || OpcionConfirmacion == 'N'){
+                        break;
+                    }
+                    else{
+                        cout << RED;
+                        pantalla.dimensiones (4,22);  cout << "Opcion Incorrecta                                      " << endl;
+                        cout << BLUE;
+                        pantalla.dimensiones (35,24); cout << "                                                      " << endl;
+                        pantalla.dimensiones (3,24);  system("pause");
+                        pantalla.dimensiones (4,22);  cout << "                                                     " << endl;
+                        pantalla.dimensiones (25,24); cout << "                                                     " << endl;
+                    }
+                }
+
+            }while(OpcionConfirmacion != 's' || OpcionConfirmacion != 'S' || OpcionConfirmacion!='n' || OpcionConfirmacion!='N');
+         case 2:
+            menuVenta(idVendedor);
+            break;
+
+         default:
+            cout << RED;
+            pantalla.dimensiones (4,22);  cout << "Opcion Incorrecta                                      " << endl;
+            cout << BLUE;
+            pantalla.dimensiones (35,24); cout << "                                                      " << endl;
+            pantalla.dimensiones (3,24);  system("pause");
+            pantalla.dimensiones (4,22);  cout << "                                                     " << endl;
+            pantalla.dimensiones (25,24); cout << "                                                     " << endl;
+        }
+    }while (Opcion != 1 || Opcion !=2);
 
 
 }

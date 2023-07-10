@@ -1,6 +1,5 @@
 #ifndef VENTA_H
 #define VENTA_H
-
 #include "Fecha.h"
 #include "Transaccion.h"
 

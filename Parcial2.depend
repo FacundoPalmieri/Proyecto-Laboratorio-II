@@ -1008,7 +1008,7 @@
 	<cstring>
 	"Venta.h"
 
-1688851204 d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main\venta.h
+1688918786 d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main\venta.h
 	"Fecha.h"
 	"Transaccion.h"
 
@@ -1033,7 +1033,7 @@
 	"iostream"
 	"Menu.h"
 
-1688911866 source:d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main\menu.cpp
+1688996932 source:d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main\menu.cpp
 	"rlutil.h"
 	"colors.h"
 	"Pantalla.h"
@@ -1072,7 +1072,7 @@
 	"Pantalla.h"
 	"ArchivoProducto.h"
 
-1688855788 source:d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main\transaccion.cpp
+1688997386 source:d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main\transaccion.cpp
 	<iostream>
 	"Transaccion.h"
 	"Producto.h"
