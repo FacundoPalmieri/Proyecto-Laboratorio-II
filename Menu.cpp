@@ -38,7 +38,7 @@ void Menu:: OpcionIncorrecta(){
 }
 
 
-int Menu::menuIdVendedor(){
+void  Menu::menuIdVendedor(){
 
 
     int IntentosUsuario = 3;
@@ -116,10 +116,9 @@ int Menu::menuIdVendedor(){
 
     }while(IntentosUsuario>0);
 
-   return 0;
 }
 
-int Menu::menuPrincipal(int idVendedor)
+void Menu::menuPrincipal(int idVendedor)
 {
     Pantalla pantalla;
     do
@@ -165,10 +164,9 @@ int Menu::menuPrincipal(int idVendedor)
 
     }
     while(_opcion!=0);
-    return 0;
 }
 
-int Menu::menuVenta(int idVendedor)
+void  Menu::menuVenta(int idVendedor)
 {
     Pantalla pantalla;
 
@@ -210,11 +208,9 @@ int Menu::menuVenta(int idVendedor)
 
     }while(_opcion!=0);
 
-    return 0;
-
 }
 
-int Menu::menuConsulta(int idVendedor)
+void  Menu::menuConsulta(int idVendedor)
 {
     Pantalla pantalla;
 
@@ -256,10 +252,9 @@ int Menu::menuConsulta(int idVendedor)
 
 
     }while(_opcion!=0);
-    return 0;
 }
 
-int Menu::menuListados(int idVendedor)
+void  Menu::menuListados(int idVendedor)
 {
  do{
         Pantalla pantalla;
@@ -299,7 +294,6 @@ int Menu::menuListados(int idVendedor)
 
 
     }while(_opcion!=0);
-    return 0;
 }
 
 void Menu::vistaListadoProductos(int idVendedor) {
@@ -424,7 +418,8 @@ void Menu::vistaListadoEmpleados(int idVendedor)
 
 }
 
-int Menu::menuConsultasDeVentas(int idVendedor)
+void
+ Menu::menuConsultasDeVentas(int idVendedor)
 {
     Pantalla pantalla;
     do{
@@ -466,7 +461,6 @@ int Menu::menuConsultasDeVentas(int idVendedor)
         }
 
     }while(_opcion!=0);
-    return 0;
 }
 
 void Menu::vistaVentasPorMes(int idVendedor)
@@ -596,7 +590,7 @@ void Menu::vistaVentasPorProducto(int idVendedor)
     pantalla.dimensiones (2,22); cout << system("pause");
 }
 
-int Menu::menuAjuste(int idVendedor)
+void Menu::menuAjuste(int idVendedor)
 {
     do{
         Pantalla pantalla;
@@ -694,125 +688,120 @@ int Menu::menuAjuste(int idVendedor)
         }
 
     }while(_opcion!=0);
-    return 0;
 
 }
 
-int Menu::menuPedido(int idVendedor)
+void Menu::menuPedido(int idVendedor)
 {
-    do{
-        Pantalla pantalla;
-        Venta venta;
-        Producto producto;
-        ArchivoVenta archivoVenta("venta.dat");
-        ArchivoProducto archivoProducto("productos.dat");
+
+    Pantalla pantalla;
+    Venta venta;
+    Producto producto;
+    ArchivoVenta archivoVenta("venta.dat");
+    ArchivoProducto archivoProducto("productos.dat");
 
 
-        int opcion, renglon = 8, codigoProducto = 0, cantidadProducto = 0, mesaAux = -1;
-        float subtotal = 0;
+    int opcion, renglon = 8, codigoProducto = 0, cantidadProducto = 0, mesa = -1;
+    float subtotal = 0;
 
-        system("cls");
-        system("mode con: cols=100 lines=26"); //SE DEFINE LAS DIMENSIONES DE LA VENTANA DEL PROGRAMA A 80 COLUMNAS Y 25 FILAS
-        system("COLOR 71"); //SE DA UN COLOR DE FONDO Y COLOR A LAS LETRAS
-        pantalla.dibujarCuadro(0,0,98,25); //SE DIBUJA EL CUADRO PRINCIPAL
-        pantalla.dibujarCuadro(1,1,97,3); //SE DIBUJA EL CUADRO DEL TITULO
-        pantalla.dimensiones(39,2); cout<<"DELTAPOINT RESTO";
+    system("cls");
+    system("mode con: cols=100 lines=26"); //SE DEFINE LAS DIMENSIONES DE LA VENTANA DEL PROGRAMA A 80 COLUMNAS Y 25 FILAS
+    system("COLOR 71"); //SE DA UN COLOR DE FONDO Y COLOR A LAS LETRAS
+    pantalla.dibujarCuadro(0,0,98,25); //SE DIBUJA EL CUADRO PRINCIPAL
+    pantalla.dibujarCuadro(1,1,97,3); //SE DIBUJA EL CUADRO DEL TITULO
+    pantalla.dimensiones(39,2); cout<<"DELTAPOINT RESTO";
 
-        pantalla.dibujarCuadroDoble(2,4,96,6,23);
+    pantalla.dibujarCuadroDoble(2,4,96,6,23);
 
-        pantalla.dibujarCuadroDoble(2,4,96,6,23);
-        pantalla.dimensiones (4,5);
+    pantalla.dibujarCuadroDoble(2,4,96,6,23);
+    pantalla.dimensiones (4,5);
 
-        cout<<"MESA: ";
-        cin>> mesaAux;
+    cout<<"MESA: ";
+    cin>> mesa;
 
-        venta.setMesa(mesaAux);
-        venta.setVendedor(idVendedor);
+    venta.setMesa(mesa);
+    venta.setVendedor(idVendedor);
 
-        pantalla.dimensiones (3,renglon-1); cout<<"CODIGO";
-        pantalla.dimensiones (18,renglon-1);cout<<"NOMBRE PRODUCTO";
-        pantalla.dimensiones (50,renglon-1);cout<<"CANTIDAD";
-        pantalla.dimensiones (66,renglon-1);cout<<"PRECIO";
-        pantalla.dimensiones (82,renglon-1);cout<<"SUBTOTAL";
-        pantalla.dimensiones (3,24); cout<<"0 - FIN DE CARGA DE PRODUCTOS";
+    pantalla.dimensiones (3,renglon-1); cout<<"CODIGO";
+    pantalla.dimensiones (18,renglon-1);cout<<"NOMBRE PRODUCTO";
+    pantalla.dimensiones (50,renglon-1);cout<<"CANTIDAD";
+    pantalla.dimensiones (66,renglon-1);cout<<"PRECIO";
+    pantalla.dimensiones (82,renglon-1);cout<<"SUBTOTAL";
+    pantalla.dimensiones (3,24); cout<<"0 - FIN DE CARGA DE PRODUCTOS";
+
+    pantalla.dimensiones (3,renglon);
+    cin>>codigoProducto;
+    pantalla.dimensiones (80,22); cout<<"TOTAL: ";
+
+    while(codigoProducto>0)
+    {
+        producto = archivoProducto.buscarPorCodigo(codigoProducto);
+        pantalla.dimensiones (15,renglon); cout<<producto.getNombreProducto();
+
+        if(producto.getIdProducto()!=-1)
+        {
+            pantalla.dimensiones (54,renglon);
+            cin>>cantidadProducto;
+
+            pantalla.dimensiones (66,renglon); cout<<"$"<<producto.getPrecioProducto();
+            subtotal = cantidadProducto * producto.getPrecioProducto();
+            pantalla.dimensiones (82,renglon); cout<<"$"<<subtotal;
+
+            if(venta.agregarProductoALaVenta(codigoProducto,cantidadProducto) != -1){//GRABAMOS EN ARCHIVO TRANSACCIÓN
+                pantalla.dimensiones (87,22); cout<<"$"<<venta.getConsumoTotal(); //EN EL MÉTODO ANTERIOR SE SUMÓ EL IMPORTE
+
+                renglon++;
+            }
+            else{
+                cout << RED;
+                pantalla.dimensiones (3,renglon+1);cout << "No se pudo cargar la venta. " ;
+                cout << BLUE;
+                renglon++;
+                renglon++;
+
+            }
+        }
+        else{
+            renglon++; // SI no encontró el producto se baja un renglon y pida un nuevo codigo de prod
+        }
 
         pantalla.dimensiones (3,renglon);
         cin>>codigoProducto;
-        pantalla.dimensiones (80,22); cout<<"TOTAL: ";
+    }
+    pantalla.dimensiones (4,renglon+1); cout<<" - - - FIN DE CARGA DE PRODUCTOS - - - ";
 
-        while(codigoProducto>0)
+    do{
+        pantalla.dimensiones (3,24) ;  cout <<"1 - CONFIRMAR                ";
+        pantalla.dimensiones (25,24);  cout <<"2 - SALIR / MENU PRINCIPAL";
+        pantalla.dimensiones (4,22) ;  cout <<"INGRESE UNA OPCION: ";
+        cin>>opcion;
+        switch (opcion)
         {
-            producto = archivoProducto.buscarPorCodigo(codigoProducto);
-            pantalla.dimensiones (15,renglon); cout<<producto.getNombreProducto();
+        case 1:
+            archivoVenta.grabarEnDisco(venta); ////GRABAMOS EN ARCHIVO VENTA
+            pantalla.dimensiones (4,22); cout<<"VENTA REGISTRADA                        ";
+            pantalla.dimensiones (35,24); cout << "                                                      " << endl;
+            pantalla.dimensiones (3,24); system("pause");
+            menuVenta(idVendedor);
+            break;
 
-            if(producto.getIdProducto()!=-1)
-            {
-                pantalla.dimensiones (54,renglon);
-                cin>>cantidadProducto;
+        case 2:
+            menuPrincipal(idVendedor);
+            break;
 
-                pantalla.dimensiones (66,renglon); cout<<"$"<<producto.getPrecioProducto();
-                subtotal = cantidadProducto * producto.getPrecioProducto();
-                pantalla.dimensiones (82,renglon); cout<<"$"<<subtotal;
-
-                if(venta.agregarProductoALaVenta(codigoProducto,cantidadProducto) != -1){//GRABAMOS EN ARCHIVO TRANSACCIÓN
-                    pantalla.dimensiones (87,22); cout<<"$"<<venta.getConsumoTotal(); //EN EL MÉTODO ANTERIOR SE SUMÓ EL IMPORTE
-
-                    renglon++;
-                }
-                else{
-                    cout << RED;
-                    pantalla.dimensiones (3,renglon+1);cout << "No se pudo cargar la venta. " ;
-                    cout << BLUE;
-                    renglon++;
-                    renglon++;
-
-                }
-            }
-            else{
-                renglon++; // SI no encontró el producto se baja un renglon y pida un nuevo codigo de prod
-            }
-
-            pantalla.dimensiones (3,renglon);
-            cin>>codigoProducto;
+        default:
+            cout << RED;
+            pantalla.dimensiones (4,22);  cout << "Opcion Incorrecta                                      " << endl;
+            cout << BLUE;
+            pantalla.dimensiones (35,24); cout << "                                                      " << endl;
+            pantalla.dimensiones (3,24);  system("pause");
+            pantalla.dimensiones (4,22);  cout << "                                                     " << endl;
+            pantalla.dimensiones (25,24); cout << "                                                     " << endl;
+            pantalla.dimensiones (4,22);  cout  <<"INGRESE UNA OPCION: ";
+            break;
         }
-        pantalla.dimensiones (4,renglon+1); cout<<" - - - FIN DE CARGA DE PRODUCTOS - - - ";
 
-        do{
-            pantalla.dimensiones (3,24) ;  cout <<"1 - CONFIRMAR                ";
-            pantalla.dimensiones (25,24);  cout <<"2 - SALIR / MENU PRINCIPAL";
-            pantalla.dimensiones (4,22) ;  cout <<"INGRESE UNA OPCION: ";
-            cin>>opcion;
-            switch (opcion)
-            {
-            case 1:
-                archivoVenta.grabarEnDisco(venta); ////GRABAMOS EN ARCHIVO VENTA
-                pantalla.dimensiones (4,22); cout<<"VENTA REGISTRADA                        ";
-                pantalla.dimensiones (35,24); cout << "                                                      " << endl;
-                pantalla.dimensiones (3,24); system("pause");
-                menuVenta(idVendedor);
-                break;
-
-            case 2:
-                menuPrincipal(idVendedor);
-                break;
-
-            default:
-                cout << RED;
-                pantalla.dimensiones (4,22);  cout << "Opcion Incorrecta                                      " << endl;
-                cout << BLUE;
-                pantalla.dimensiones (35,24); cout << "                                                      " << endl;
-                pantalla.dimensiones (3,24);  system("pause");
-                pantalla.dimensiones (4,22);  cout << "                                                     " << endl;
-                pantalla.dimensiones (25,24); cout << "                                                     " << endl;
-                pantalla.dimensiones (4,22);  cout  <<"INGRESE UNA OPCION: ";
-                break;
-            }
-
-        }while (opcion != 1 || opcion != 2);
-
-
-    }while(_opcion!=0);
-    return 0;
+    }while (opcion != 1 || opcion != 2);
 }
 
 void Menu::menuConsumoMesa(int idVendedor)

@@ -983,7 +983,7 @@
 
 1688851204 d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main\producto.h
 
-1688857456 d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main\menu.h
+1689005312 d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main\menu.h
 
 1688856820 source:d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main\archivotransaccion.cpp
 	<iostream>
@@ -1072,7 +1072,7 @@
 	"Pantalla.h"
 	"ArchivoProducto.h"
 
-1688997386 source:d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main\transaccion.cpp
+1689005312 source:d:\escritorio\univerisdad\utn\1° año\2° cuatrimestre\laboratorio de computación ii\2023\proyecto\proyecto-laboratorio-ii-main\transaccion.cpp
 	<iostream>
 	"Transaccion.h"
 	"Producto.h"

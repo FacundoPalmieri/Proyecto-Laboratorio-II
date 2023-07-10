@@ -132,12 +132,6 @@ float Transaccion::cerrarMesa(int mesa){
         {
             total+=transaccion.getPrecio();//ANTES DE CERRAR MESA DE ESA TRANSACCIÓN ACUMULA EL IMPORTE
             transaccion.setEstado(0); //CAMBIAMOS EL ESTADO PARA CERRAR MESA
-            if(archivoTransaccion.sobreEscribirRegistro(x, transaccion)==0)//SOBREESCRIBO LA TRANSACCIÓN CON EL ESTADO SETEADO
-            {
-
-
-            }
-
 
         }
     }
