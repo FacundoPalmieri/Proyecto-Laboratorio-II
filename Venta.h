@@ -35,7 +35,6 @@ public:
     bool confirmarVenta();
 
     int generarCodigoVenta();
-    int getLastIdVenta();
     int cantidadVentas();
 
     int agregarProductoALaVenta(int idProducto, int cantidad);

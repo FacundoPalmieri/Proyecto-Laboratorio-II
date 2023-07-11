@@ -8,22 +8,6 @@ using namespace std;
 #include "Menu.h"
 #include "Pantalla.h"
 
-void ArchivoProducto::MensajeError(){
-    Pantalla pantalla;
-    system ("cls");
-    pantalla.dimensiones (4,5);
-    pantalla.estiloMenu();
-
-    cout << RED;
-    pantalla.dimensiones(15,15);
-    cout << "El archivo de - Ventas - no se pudo abrir." << endl;
-    pantalla.dimensiones(15,16);
-    cout << "Comuniquese con el area de sistemas" << endl;
-    pantalla.dimensiones(15,20);
-    cout << BLUE;
-    exit(20);
-}
-
 
 ArchivoProducto::ArchivoProducto(const char* Nombre)
 {
@@ -282,5 +266,21 @@ int ArchivoProducto::buscarDato(int idProducto){
 
     fclose(pArchivo);
     return -1; //retorna -1 cuando ya no hay archivos
+}
+
+void ArchivoProducto::MensajeError(){
+    Pantalla pantalla;
+    system ("cls");
+    pantalla.dimensiones (4,5);
+    pantalla.estiloMenu();
+
+    cout << RED;
+    pantalla.dimensiones(15,15);
+    cout << "El archivo de - Ventas - no se pudo abrir." << endl;
+    pantalla.dimensiones(15,16);
+    cout << "Comuniquese con el area de sistemas" << endl;
+    pantalla.dimensiones(15,20);
+    cout << BLUE;
+    exit(20);
 }
 

@@ -9,16 +9,15 @@ private:
     int _idProducto;
     int _cantidad;
     float _precio;
-    bool _esCompra;
-    bool _esVenta;
     int _estado;    // 0 - cerrada / 1 - Borrador / 2 - Confirmada
     int _contador;
     int _idMesa;
 
 public:
     Transaccion();
-    Transaccion(int idOperacion, int idProducto, int cantidad, float precio, char tipo, int idMesa);
+    Transaccion(int idOperacion, int idProducto, int cantidad, float precio, int idMesa);
 
+    int getIdTransaccion();
     int getIdProducto();
     int getCantidad();
     int getIdOperacionAsociada();
@@ -29,7 +28,7 @@ public:
     void setCantidad(int cantidad);
     void setPrecio(int precio);
     void setEstado(int estado);
-    int setTipo(char tipo);
+
 
     bool esVenta();
     void confirmarTransaccion();

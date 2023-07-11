@@ -8,24 +8,6 @@ using namespace std;
 #include "Venta.h"
 
 
-void ArchivoVenta:: MensajeError(){
-    Pantalla pantalla;
-    system ("cls");
-    pantalla.dimensiones (4,5);
-    pantalla.estiloMenu();
-    cout << RED;
-    pantalla.dimensiones(15,15);
-    cout << "El archivo de - Ventas - no se pudo abrir." << endl;
-    pantalla.dimensiones(15,16);
-    cout << "Comuniquese con el area de sistemas" << endl;
-    pantalla.dimensiones(15,20);
-    cout << BLUE;
-    system("pause");
-
-    exit(-20);
-
-
-}
 
 ArchivoVenta::ArchivoVenta(const char* Nombre){
     strcpy(_Nombre, Nombre);
@@ -87,4 +69,22 @@ int ArchivoVenta::cantidadVentas(){
     cantidad = ftell(pFile) / sizeof(Venta);
     fclose(pFile);
     return cantidad;
+}
+void ArchivoVenta:: MensajeError(){
+    Pantalla pantalla;
+    system ("cls");
+    pantalla.dimensiones (4,5);
+    pantalla.estiloMenu();
+    cout << RED;
+    pantalla.dimensiones(15,15);
+    cout << "El archivo de - Ventas - no se pudo abrir." << endl;
+    pantalla.dimensiones(15,16);
+    cout << "Comuniquese con el area de sistemas" << endl;
+    pantalla.dimensiones(15,20);
+    cout << BLUE;
+    system("pause");
+
+    exit(20);
+
+
 }

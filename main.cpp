@@ -5,9 +5,7 @@ using namespace std;
 #define XSCREEN 78
 
 int main(){
-
     Menu menu;
-
     menu.menuIdVendedor();
 
     return 0;

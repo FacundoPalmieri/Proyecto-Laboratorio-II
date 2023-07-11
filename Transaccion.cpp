@@ -11,15 +11,19 @@ using namespace std;
 Transaccion::Transaccion(){
 }
 
-Transaccion::Transaccion(int idOperacion, int idProducto, int cantidad, float precio, char tipo, int idMesa){
+Transaccion::Transaccion(int idVenta, int idProducto, int cantidad, float precio, int idMesa){
     _idTransaccion = generarCodigoTransaccion();
-    _idOperacionAsociada = idOperacion;
+    _idOperacionAsociada = idVenta;
     _idProducto = idProducto;
     _cantidad = cantidad;
     _precio = precio;
-    if(setTipo(tipo)) cout<<"Tipo de transaccion [compra o venta] INDEFINIDO"<<endl;
     _estado = 2; // 0 - cerrada / 1 - Borrador / 2 - Confirmada
     _idMesa= idMesa;
+}
+
+
+int Transaccion::getIdTransaccion(){
+    return _idTransaccion;
 }
 
 int Transaccion::getIdProducto(){
@@ -62,30 +66,6 @@ void Transaccion::setPrecio(int precio){
 
 void Transaccion::setEstado(int estado){
     _estado = estado;
-}
-
-
-int Transaccion::setTipo(char tipo){
-    if((tipo='v') || (tipo='V')){
-        _esVenta = true;
-        _esCompra = false;
-        return 0;
-    }
-    else if((tipo='c') || (tipo='C')){
-        _esVenta = false;
-        _esCompra = true;
-        return 0;
-    }
-    else{
-        _esVenta = false;
-        _esCompra = false;
-        return 1;
-    }
-}
-
-
-bool Transaccion::esVenta(){
-    return esVenta();
 }
 
 
@@ -132,6 +112,7 @@ float Transaccion::cerrarMesa(int mesa){
         {
             total+=transaccion.getPrecio();//ANTES DE CERRAR MESA DE ESA TRANSACCIÓN ACUMULA EL IMPORTE
             transaccion.setEstado(0); //CAMBIAMOS EL ESTADO PARA CERRAR MESA
+            archivoTransaccion.grabarEnDiscoPorPosicion(x, transaccion);
 
         }
     }

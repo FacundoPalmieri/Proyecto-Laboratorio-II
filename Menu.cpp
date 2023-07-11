@@ -14,29 +14,6 @@ using namespace std;
 #include "ArchivoProducto.h"
 #include "ArchivoTransaccion.h"
 
-void Menu::FinalizarPrograma(){
-    system("cls");
-    Pantalla pantalla;
-
-    pantalla.dibujarCuadro(0,0,79,24);
-    pantalla.dibujarCuadro(1,1,(XSCREEN-1),3); //SE DIBUJA EL CUADRO DEL TITULO
-    pantalla.dimensiones(30,2); cout<<"DELTAPOINT RESTO";
-    pantalla.dimensiones(17,5);
-    cout << " Gracias por utilizar nuestro programa :)" << endl << endl << endl << endl << endl ;
-    exit(0);
-}
-
-
-void Menu:: OpcionIncorrecta(){
-    Pantalla pantalla;
-
-    cout << RED;
-    pantalla.dimensiones (2,22);cout << "Opcion Incorrecta " << endl;
-    cout << BLUE;
-    pantalla.dimensiones (2,23); system("pause");
-
-}
-
 
 void  Menu::menuIdVendedor(){
 
@@ -925,4 +902,27 @@ void Menu::menuConsumoMesa(int idVendedor)
 
 }
 
+
+void Menu::FinalizarPrograma(){
+    system("cls");
+    Pantalla pantalla;
+
+    pantalla.dibujarCuadro(0,0,79,24);
+    pantalla.dibujarCuadro(1,1,(XSCREEN-1),3); //SE DIBUJA EL CUADRO DEL TITULO
+    pantalla.dimensiones(30,2); cout<<"DELTAPOINT RESTO";
+    pantalla.dimensiones(17,5);
+    cout << " Gracias por utilizar nuestro programa :)" << endl << endl << endl << endl << endl ;
+    exit(0);
+}
+
+
+void Menu:: OpcionIncorrecta(){
+    Pantalla pantalla;
+
+    cout << RED;
+    pantalla.dimensiones (2,22);cout << "Opcion Incorrecta " << endl;
+    cout << BLUE;
+    pantalla.dimensiones (2,23); system("pause");
+
+}
 

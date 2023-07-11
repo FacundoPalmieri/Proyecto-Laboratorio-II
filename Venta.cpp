@@ -87,13 +87,10 @@ bool Venta::confirmarVenta(){
 
     for(int x=0; x<archivoTransaccion.cantidadTransacciones();x++){
         transaccion=archivoTransaccion.leerDeDisco(x);
-
-        if(transaccion.esVenta()==true){
-            if(transaccion.getIdOperacionAsociada() == getIDventa()){
-                transaccion.confirmarTransaccion();
-                transaccion.mostrar();
-                archivoTransaccion.grabarEnDiscoPorPosicion(x, transaccion);
-            }
+        if(transaccion.getIdOperacionAsociada() == getIDventa()){
+            transaccion.confirmarTransaccion();
+            transaccion.mostrar();
+            archivoTransaccion.grabarEnDiscoPorPosicion(x, transaccion);
         }
     }
     _estado = 2;     //seteo como confirmado el estado de la venta en general
@@ -105,21 +102,13 @@ bool Venta::confirmarVenta(){
 int Venta::generarCodigoVenta(){
     ArchivoVenta archivoVenta("venta.dat");
     int cantidadVentas=archivoVenta.cantidadVentas();
-    return cantidadVentas;
+    return cantidadVentas + 1;
 }
 
-int Venta::getLastIdVenta(){
-    FILE *p;
-    p=fopen("venta.dat","rb+");
-    if(p==NULL) return 0;
-    fseek(p, sizeof(Venta), SEEK_END);
-    int lecturas = fread(this, sizeof(Venta), 1, p);
-    fclose(p);
-    return lecturas;
-}
 
 
 int Venta::agregarProductoALaVenta(int idProducto, int cantidad){
+    // Se genera la transaccion con datos de ventas y productos.
 
     Producto producto; //SE UTILIZA PARA BUSCAR EL ID DEL PRODUCTO QUE RECIBIMOS POR PARÁMETRO
     ArchivoProducto archivoProducto("productos.dat");
@@ -129,7 +118,7 @@ int Venta::agregarProductoALaVenta(int idProducto, int cantidad){
 
     if(producto.getIdProducto() != -1){
         //CREAMOS UNA TRANSACCION AUX, POR PARÁMETROS, CON LOS DATOS DE LA VENTA Y EL PRODUCTO
-        Transaccion transaccion(getIDventa(), idProducto, cantidad, producto.getPrecioProducto(),'V', _idMesa);
+        Transaccion transaccion(getIDventa(), idProducto, cantidad, producto.getPrecioProducto(), _idMesa);
 
         //GRABAMOS EN ARCHIVO TRANSACCIÓN
 

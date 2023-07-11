@@ -14,9 +14,8 @@ class ArchivoTransaccion{
         int grabarEnDisco(Transaccion transaccion);
         int grabarEnDiscoPorPosicion(int posicion, Transaccion transaccion);
         Transaccion leerDeDisco(int pos);
-        int getLastIdTransaction();
         int cantidadTransacciones();
-        int  sobreEscribirRegistro(int posicion, Transaccion transaccion);
+
 
         void MensajeError();
 };
