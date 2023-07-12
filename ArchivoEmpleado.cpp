@@ -148,7 +148,7 @@ void ArchivoEmpleado:: modificarRegistro(){
     if (posicion!= -1){
         //LEER EL REGISTRO, Y GUARDARLO EN UN REGISTRO AUXILIAR
         Empleado empleado;
-        archivoEmpleado.leerDeDisco(posicion);
+        empleado=archivoEmpleado.leerDeDisco(posicion);
 
         pantalla.dimensiones(2,7);
         cout<<"EMPLEADO A MODIFICAR: "<<endl;
@@ -223,7 +223,7 @@ int  ArchivoEmpleado:: bajaEmpleado(){
 
     //leer
     Empleado empleado;
-    archivoEmpleado.leerDeDisco(posicion);
+    empleado=archivoEmpleado.leerDeDisco(posicion);
 
     char Confirmacion;
     pantalla.dimensiones(2,8);

@@ -23,7 +23,6 @@ ArchivoVenta::ArchivoVenta(const char* Nombre){
 }
 
 int ArchivoVenta::grabarEnDisco(Venta venta){
-    Pantalla pantalla;
 
     FILE *p = fopen(_Nombre, "ab");
 
@@ -38,7 +37,7 @@ int ArchivoVenta::grabarEnDisco(Venta venta){
 }
 
 Venta ArchivoVenta::leerDeDisco(int pos){
-    Pantalla pantalla;
+
     Venta venta;
 
     FILE *p;
