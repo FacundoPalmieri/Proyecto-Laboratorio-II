@@ -9,6 +9,7 @@ using namespace std;
 #include "ArchivoVenta.h"
 #include "ArchivoProducto.h"
 #include "ArchivoTransaccion.h"
+#include "Pantalla.h"
 
 
 Venta::Venta(){
@@ -84,13 +85,16 @@ bool Venta::confirmarVenta(){
 
     ArchivoTransaccion archivoTransaccion("transaccion.dat");
     Transaccion transaccion;
+    Pantalla pantalla;
 
     for(int x=0; x<archivoTransaccion.cantidadTransacciones();x++){
         transaccion=archivoTransaccion.leerDeDisco(x);
         if(transaccion.getIdOperacionAsociada() == getIDventa()){
             transaccion.confirmarTransaccion();
             transaccion.mostrar();
-            archivoTransaccion.grabarEnDiscoPorPosicion(x, transaccion);
+            if(archivoTransaccion.grabarEnDiscoPorPosicion(x, transaccion)!=1){
+                pantalla.dimensiones (3,24);  cout << "ERROR AL REGISTRAR VENTA";
+            }
         }
     }
     _estado = 2;     //seteo como confirmado el estado de la venta en general
@@ -122,13 +126,16 @@ int Venta::agregarProductoALaVenta(int idProducto, int cantidad){
 
         //GRABAMOS EN ARCHIVO TRANSACCIÓN
 
-        archivoTransaccion.grabarEnDisco(transaccion);
+        if (archivoTransaccion.grabarEnDisco(transaccion)==1){
+            //SUMAMOS EL IMPORTE TOTAL
+            _consumoTotal+=(producto.getPrecioProducto() * cantidad);
+            return 0;
 
-        //SUMAMOS EL IMPORTE TOTAL
+        }
 
-        _consumoTotal+=(producto.getPrecioProducto() * cantidad);
-
-        return 0;
+        else{
+            return -1;
+        }
     }
     else{
         return -1;

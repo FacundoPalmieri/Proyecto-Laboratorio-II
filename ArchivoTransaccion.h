@@ -16,7 +16,6 @@ class ArchivoTransaccion{
         Transaccion leerDeDisco(int pos);
         int cantidadTransacciones();
 
-
         void MensajeError();
 };
 

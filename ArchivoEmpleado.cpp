@@ -179,11 +179,20 @@ void ArchivoEmpleado:: modificarRegistro(){
 
             //SOBREESCRIBIR EL REGISTRO
 
-            sobreEscribirRegistro(empleado, posicion);
-            pantalla.dimensiones(2,21);
-            cout<<"REGISTRO EMPLEADO MODIFICADO."<<endl<<endl;
-            pantalla.dimensiones(2,22);
-            system("pause");
+            if (sobreEscribirRegistro(empleado, posicion)==1){
+
+                pantalla.dimensiones(2,21);
+                cout<<"REGISTRO EMPLEADO MODIFICADO."<<endl<<endl;
+                pantalla.dimensiones(2,22);
+                system("pause");
+            }
+
+            else{
+                pantalla.dimensiones(2,21);
+                cout<<"ERROR AL MODIFICAR REGISTRO."<<endl<<endl;
+                pantalla.dimensiones(2,22);
+                system("pause");
+            }
 
         }
         else{
@@ -240,13 +249,20 @@ int  ArchivoEmpleado:: bajaEmpleado(){
         empleado.setEstado(false);
 
         //sobreescribir el registro es guardar
-        sobreEscribirRegistro(empleado, posicion);
-
+        if (sobreEscribirRegistro(empleado, posicion)==1){
         cout<<endl<<endl;
         pantalla.dimensiones(2,17);
         cout<<"EMPLEADO DADO DE BAJA."<<endl<<endl;
         pantalla.dimensiones(2,18);
         system("pause");
+        }
+        else{
+            cout<<endl<<endl;
+            pantalla.dimensiones(2,17);
+            cout<<"ERROR AL DAR DE BAJA EL REGISTRO."<<endl<<endl;
+            pantalla.dimensiones(2,18);
+            system("pause");
+        }
     }
     else{
         pantalla.dimensiones(2,17);
@@ -267,7 +283,7 @@ int  ArchivoEmpleado:: sobreEscribirRegistro(Empleado empleado, int posicion){
 	}
 
     fseek(pArchivo, posicion*sizeof (empleado), 0); //usamos fseek para llegar al registro que necesito pisar con la
-    int valor=fwrite(&empleado, sizeof empleado, 1,pArchivo); //sobre escribo
+    int valor=fwrite(&empleado, sizeof empleado, 1,pArchivo); //sobreescribo
     fclose(pArchivo);
 
     return valor;

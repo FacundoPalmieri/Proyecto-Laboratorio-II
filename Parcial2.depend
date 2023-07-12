@@ -719,7 +719,7 @@
 
 1689116241 c:\users\krivera\desktop\proyecto labo ii\producto.h
 
-1689116241 source:c:\users\krivera\desktop\proyecto labo ii\transaccion.cpp
+1689197730 source:c:\users\krivera\desktop\proyecto labo ii\transaccion.cpp
 	<iostream>
 	"Transaccion.h"
 	"Producto.h"
@@ -729,7 +729,7 @@
 
 1689116241 c:\users\krivera\desktop\proyecto labo ii\transaccion.h
 
-1689116241 source:c:\users\krivera\desktop\proyecto labo ii\venta.cpp
+1689197820 source:c:\users\krivera\desktop\proyecto labo ii\venta.cpp
 	<iostream>
 	"Venta.h"
 	"Producto.h"
@@ -738,6 +738,7 @@
 	"ArchivoVenta.h"
 	"ArchivoProducto.h"
 	"ArchivoTransaccion.h"
+	"Pantalla.h"
 
 1689116241 c:\users\krivera\desktop\proyecto labo ii\venta.h
 	"Fecha.h"
@@ -745,7 +746,7 @@
 
 1689116241 c:\users\krivera\desktop\proyecto labo ii\mesa.h
 
-1689116241 source:c:\users\krivera\desktop\proyecto labo ii\menu.cpp
+1689196276 source:c:\users\krivera\desktop\proyecto labo ii\menu.cpp
 	"rlutil.h"
 	"colors.h"
 	"Pantalla.h"
@@ -782,7 +783,7 @@
 	"Pantalla.h"
 	"colors.h"
 
-1689120098 source:c:\users\krivera\desktop\proyecto labo ii\archivoempleado.cpp
+1689182382 source:c:\users\krivera\desktop\proyecto labo ii\archivoempleado.cpp
 	<iostream>
 	"colors.h"
 	"ArchivoEmpleado.h"
@@ -803,10 +804,10 @@
 	"colors.h"
 	"Venta.h"
 
-1689116241 c:\users\krivera\desktop\proyecto labo ii\archivoproducto.h
+1689196909 c:\users\krivera\desktop\proyecto labo ii\archivoproducto.h
 	"Producto.h"
 
-1689116241 source:c:\users\krivera\desktop\proyecto labo ii\archivoproducto.cpp
+1689197107 source:c:\users\krivera\desktop\proyecto labo ii\archivoproducto.cpp
 	<iostream>
 	<cstring>
 	"colors.h"
@@ -947,7 +948,7 @@
 	"ArchivoTransaccion.h"
 	"Pantalla.h"
 
-1689116241 c:\users\krivera\desktop\proyecto labo ii\archivotransaccion.h
+1689197347 c:\users\krivera\desktop\proyecto labo ii\archivotransaccion.h
 	<cstring>
 	"Transaccion.h"
 

@@ -112,8 +112,9 @@ float Transaccion::cerrarMesa(int mesa){
         {
             total+=transaccion.getPrecio();//ANTES DE CERRAR MESA DE ESA TRANSACCIÓN ACUMULA EL IMPORTE
             transaccion.setEstado(0); //CAMBIAMOS EL ESTADO PARA CERRAR MESA
-            archivoTransaccion.grabarEnDiscoPorPosicion(x, transaccion);
-
+            if (archivoTransaccion.grabarEnDiscoPorPosicion(x, transaccion)!=1){
+                pantalla.dimensiones (3,24);  cout << "ERROR AL CERRAR MESA. ";
+            }
         }
     }
     pantalla.dimensiones (4,13);

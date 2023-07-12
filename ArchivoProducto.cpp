@@ -89,17 +89,16 @@ void ArchivoProducto::modificarRegistro(){
     cin>>idProducto;
     pantalla.dimensiones (2,7); cout<<"------------------";
 
-    posicion=buscarDato(idProducto);
+    Producto producto;
+    producto=buscarPorCodigo(idProducto);
+    posicion=posicionRegistro(idProducto);
 
-    if (posicion!= -1){
-
-        //LEER EL REGISTRO Y LO GUARDA
-        Producto producto;
-        producto=leerDeDisco(posicion);
+    if (producto.getIdProducto()!= -1){
 
         pantalla.dimensiones(2,9);
         cout<<"PRODUCTO A MODIFICAR: "<<endl;
 
+        leerDeDisco(posicion);
         producto.mostrar();
         pantalla.dimensiones(2,14);
         cout<<"ESTA SEGURO/A DE CONTINUAR: (S/N): ";
@@ -109,7 +108,7 @@ void ArchivoProducto::modificarRegistro(){
         if(Confirmacion=='S' || Confirmacion=='s'){
 
             //CAMBIAR DATOS
-           pantalla.dimensiones(1,18);
+            pantalla.dimensiones(1,18);
             cout<<" INGRESE NOMBRE DEL PRODUCTO: ";
             producto.cargarCadenas(Nombre, 49);
             producto.setNombreProducto(Nombre);
@@ -121,11 +120,18 @@ void ArchivoProducto::modificarRegistro(){
 
             //SOBREESCRIBIR EL REGISTRO
 
-            sobreEscribirRegistro(producto, posicion);
-            pantalla.dimensiones(2,22);
-            cout<<"DATO MODIFICADO."<<endl<<endl;
-            pantalla.dimensiones(2,23);
-            system("pause");
+            if (sobreEscribirRegistro(producto, posicion)==1){
+                pantalla.dimensiones(2,22);
+                cout<<"DATO MODIFICADO."<<endl<<endl;
+                pantalla.dimensiones(2,23);
+                system("pause");
+            }
+            else{
+                pantalla.dimensiones(2,22);
+                cout<<"ERROR AL MODIFICAR REGISTRO."<<endl<<endl;
+                pantalla.dimensiones(2,23);
+                system("pause");
+            }
         }
         else{
            pantalla.dimensiones(2,18);
@@ -140,9 +146,9 @@ void ArchivoProducto::modificarRegistro(){
     }
 }
 
-int ArchivoProducto::bajaProducto(){
+void ArchivoProducto::bajaProducto(){
 
-    ///buscar
+    //buscar
     int idProducto, posicion=0;
     Pantalla pantalla;
 
@@ -151,18 +157,19 @@ int ArchivoProducto::bajaProducto(){
     cin>>idProducto;
     cout<<endl;
 
-    posicion=buscarDato(idProducto);
-    if(posicion== -1){
-       pantalla.dimensiones(2,11);
+
+    Producto producto;
+    producto=buscarPorCodigo(idProducto);
+    posicion=posicionRegistro(idProducto);
+
+    if(producto.getIdProducto() == -1){
+        pantalla.dimensiones(2,11);
         cout<<"NO EXISTE ESE ID DE PRODUCTO"<<endl<<endl;
-       pantalla.dimensiones (2,13); cout<<"------------------";
-       pantalla.dimensiones (2,15);
+        pantalla.dimensiones (2,13); cout<<"------------------";
+        pantalla.dimensiones (2,15);
         system("pause");
-        return -1;
     }
 
-    //leer
-    Producto producto;
     producto=leerDeDisco(posicion);
 
     char Confirmacion;
@@ -180,20 +187,26 @@ int ArchivoProducto::bajaProducto(){
         producto.setEstado(false);
 
         //sobreescribir el registro es guardar
-        sobreEscribirRegistro(producto, posicion);
+        if(sobreEscribirRegistro(producto, posicion)==1){
+            cout<<endl<<endl;
+            pantalla.dimensiones(2,18);
+            cout<<"PRODUCTO DADO DE BAJA."<<endl<<endl;
+            pantalla.dimensiones(3,20);
+            system("pause");
+        }
+        else{
+            cout<<endl<<endl;
+            pantalla.dimensiones(2,18);
+            cout<<"ERROR AL ELIMINAR PRODUCTO."<<endl<<endl;
+            pantalla.dimensiones(3,20);
+            system("pause");
+        }
 
-        cout<<endl<<endl;
-       pantalla.dimensiones(2,18);
-        cout<<"PRODUCTO DADO DE BAJA."<<endl<<endl;
-       pantalla.dimensiones(3,20);
-        system("pause");
     }
     else{
        pantalla.dimensiones(3,20);
         system("pause");
     }
-    return 1;
-
 }
 
 int ArchivoProducto::sobreEscribirRegistro(Producto producto, int posicion){
@@ -220,7 +233,6 @@ Producto ArchivoProducto::buscarPorCodigo(int idProducto){
     Pantalla pantalla;
     bool productoEncontrado=false;
 
-
     for (int x=0; x<cantidadEnArchivo();x++){
         producto=leerDeDisco(x);
             if(producto.getIdProducto()==idProducto){
@@ -241,7 +253,7 @@ Producto ArchivoProducto::buscarPorCodigo(int idProducto){
 }
 
 
-int ArchivoProducto::buscarDato(int idProducto){
+int ArchivoProducto::posicionRegistro(int idProducto){
 
     Producto producto;
     FILE *pArchivo;

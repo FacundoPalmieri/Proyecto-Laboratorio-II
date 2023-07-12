@@ -17,9 +17,9 @@ class ArchivoProducto
         void modificarRegistro();
         int sobreEscribirRegistro(Producto producto, int posicion);
 
-        int bajaProducto();
+        void bajaProducto();
 
-        int buscarDato(int idProducto);
+        int posicionRegistro(int idProducto);
         Producto buscarPorCodigo(int idProducto);
 
         void MensajeError();
