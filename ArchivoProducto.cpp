@@ -59,8 +59,9 @@ int ArchivoProducto::cantidadEnArchivo(){
     FILE* p=fopen(_Nombre, "rb");
 
 
-    if (p == nullptr) return 0;
-
+    if (p == nullptr){
+        MensajeError();
+    }
     fseek(p, 0, SEEK_END);
 
     int cantidad = ftell(p) / sizeof(Producto);

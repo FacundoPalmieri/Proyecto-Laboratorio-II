@@ -83,7 +83,7 @@ void Venta::setConsumoTotal(float total){
 
 bool Venta::confirmarVenta(){
 
-    ArchivoTransaccion archivoTransaccion("transaccion.dat");
+    ArchivoTransaccion archivoTransaccion("transacciones.dat");
     Transaccion transaccion;
     Pantalla pantalla;
 
@@ -104,7 +104,7 @@ bool Venta::confirmarVenta(){
 
 
 int Venta::generarCodigoVenta(){
-    ArchivoVenta archivoVenta("venta.dat");
+    ArchivoVenta archivoVenta("ventas.dat");
     int cantidadVentas=archivoVenta.cantidadVentas();
     return cantidadVentas + 1;
 }
@@ -118,7 +118,7 @@ int Venta::agregarProductoALaVenta(int idProducto, int cantidad){
     ArchivoProducto archivoProducto("productos.dat");
     producto = archivoProducto.buscarPorCodigo(idProducto);
 
-    ArchivoTransaccion archivoTransaccion("transaccion.dat");
+    ArchivoTransaccion archivoTransaccion("transacciones.dat");
 
     if(producto.getIdProducto() != -1){
         //CREAMOS UNA TRANSACCION AUX, POR PARÁMETROS, CON LOS DATOS DE LA VENTA Y EL PRODUCTO

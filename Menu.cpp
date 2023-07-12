@@ -444,7 +444,7 @@ void Menu::vistaVentasPorMes(int idVendedor)
 {
     Pantalla pantalla;
     Venta venta;
-    ArchivoVenta archivoVenta("venta.dat");
+    ArchivoVenta archivoVenta("ventas.dat");
 
     float consumoTotal;
 
@@ -490,7 +490,7 @@ void Menu::vistaVentasPorEmpleado(int idVendedor)
     Venta venta;
     Empleado empleado;
     ArchivoEmpleado archivoEmpleado("empleados.dat");
-    ArchivoVenta archivoVenta("venta.dat");
+    ArchivoVenta archivoVenta("ventas.dat");
 
     int renglon = 8;
     float consumoTotal=0;
@@ -535,7 +535,7 @@ void Menu::vistaVentasPorProducto(int idVendedor)
     Transaccion transaccion;
     Producto producto;
     ArchivoProducto archivoProducto("productos.dat");
-    ArchivoTransaccion archivoTransaccion("transaccion.dat");
+    ArchivoTransaccion archivoTransaccion("transacciones.dat");
 
     int renglon = 8;
     float consumoTotal;
@@ -674,7 +674,7 @@ void Menu::menuPedido(int idVendedor)
     Pantalla pantalla;
     Venta venta;
     Producto producto;
-    ArchivoVenta archivoVenta("venta.dat");
+    ArchivoVenta archivoVenta("ventas.dat");
     ArchivoProducto archivoProducto("productos.dat");
 
 
@@ -789,7 +789,7 @@ void Menu::menuConsumoMesa(int idVendedor)
     Producto producto;
 
     ArchivoProducto archivoProducto("productos.dat");
-    ArchivoTransaccion archivoTransaccion("transaccion.dat");
+    ArchivoTransaccion archivoTransaccion("transacciones.dat");
 
     int renglon = 8, mesa = -1, Opcion = 0;
     float total = 0, subtotal = 0;

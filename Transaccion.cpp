@@ -75,7 +75,7 @@ void Transaccion::confirmarTransaccion(){
 
 int Transaccion::generarCodigoTransaccion(){
 
-    ArchivoTransaccion archivoTransaccion("transaccion.dat");
+    ArchivoTransaccion archivoTransaccion("transacciones.dat");
 
     return archivoTransaccion.cantidadTransacciones()+1;
 }
@@ -98,7 +98,7 @@ void Transaccion::mostrar(){
 float Transaccion::cerrarMesa(int mesa){
 
     Transaccion transaccion;
-    ArchivoTransaccion archivoTransaccion("transaccion.dat");
+    ArchivoTransaccion archivoTransaccion("transacciones.dat");
 
     Pantalla pantalla;
 
