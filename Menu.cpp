@@ -121,7 +121,7 @@ void Menu::menuPrincipal(int idVendedor)
             menuVenta(idVendedor);
             break;
         case 2:
-            menuConsulta(idVendedor);;
+            menuConsulta(idVendedor);
             break;
         case 3:
             menuAjuste(idVendedor);
@@ -244,7 +244,7 @@ void  Menu::menuListados(int idVendedor)
 
         pantalla.dimensiones (2,13); cout << "1 - PRODUCTOS ";
         pantalla.dimensiones (2,14); cout << "2 - EMPLEADOS ";
-        pantalla.dimensiones (2,15); cout << "3 - VOLVER AL MENU PRINCIPAL ";
+        pantalla.dimensiones (2,15); cout << "3 - VOLVER AL MENU ANTERIOR ";
         pantalla.dimensiones (2,16); cout << "0 - SALIR DEL PROGRAMA ";
 
         pantalla.dimensiones (2,19); cout << "->: ";
@@ -259,7 +259,7 @@ void  Menu::menuListados(int idVendedor)
                 vistaListadoEmpleados(idVendedor);
                 break;
             case 3:
-                menuPrincipal(idVendedor);
+                menuConsulta(idVendedor);
                 break;
             case 0:
                 FinalizarPrograma();
