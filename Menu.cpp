@@ -290,46 +290,41 @@ void Menu::vistaListadoProductos(int idVendedor) {
     cout << "--------------------";
 
     renglon = 8;
-    maximo = 0;
 
-    for (int x = 0; x < archivoProducto.cantidadEnArchivo(); x++) {
-        producto = archivoProducto.leerDeDisco(x);
-        if (producto.getIdProducto() > maximo) {
-            maximo = producto.getIdProducto();
+    //ORDENAR VALORES
+
+    Producto productoAuxiliar, productoSiguiente;
+
+    for (int x=0; x<maximo; x++){
+        for (int i=0; i<maximo-1; i++){
+            producto=archivoProducto.leerDeDisco(i);
+            productoSiguiente=archivoProducto.leerDeDisco(i+1);
+
+            if (producto.getIdProducto()>productoSiguiente.getIdProducto()){
+                productoAuxiliar=productoSiguiente;
+
+                archivoProducto.sobreEscribirRegistro(producto, i+1);
+
+                archivoProducto.sobreEscribirRegistro(productoAuxiliar, i);
+            }
         }
     }
 
-    int* VecIdProductos = new int[maximo + 1];
+    Producto productoMostrar;
 
-    if (VecIdProductos != nullptr) {
+    for (int i = 0; i < maximo; i++) {
+        productoMostrar=archivoProducto.leerDeDisco(i);
 
-        // Asignar al vector el ID de cada producto, ya ordenado
-        for (int i = 0; i < archivoProducto.cantidadEnArchivo(); i++) {
-            producto = archivoProducto.leerDeDisco(i);
-            VecIdProductos[producto.getIdProducto()] = producto.getIdProducto();
+        if (productoMostrar.getEstado() == true) {
+
+            pantalla.dimensiones(5, renglon);
+            cout << productoMostrar.getIdProducto();
+            pantalla.dimensiones(14, renglon);
+            cout << productoMostrar.getNombreProducto();
+            pantalla.dimensiones(60, renglon);
+            cout << "$" << productoMostrar.getPrecioProducto();
+            renglon++;
         }
-
-        for (int x = 0; x <= maximo; x++) {
-
-            for (int i = 0; i < archivoProducto.cantidadEnArchivo(); i++) {
-                producto = archivoProducto.leerDeDisco(i);
-
-                if (producto.getIdProducto() == VecIdProductos[x] && producto.getEstado() == true) {
-
-                    pantalla.dimensiones(5, renglon);
-                    cout << producto.getIdProducto();
-                    pantalla.dimensiones(14, renglon);
-                    cout << producto.getNombreProducto();
-                    pantalla.dimensiones(60, renglon);
-                    cout << "$" << producto.getPrecioProducto();
-                    renglon++;
-                }
-            }
-        }
-
-        delete[] VecIdProductos;
-    } else {
-        cout << "NO SE PUDO ASIGNAR MEMORIA" << endl;
     }
 
     pantalla.dimensiones(2, 20);
