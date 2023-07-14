@@ -43,48 +43,61 @@ bool Empleado::getEstado(){
     return _estado;
 }
 
-int Empleado::getPassword(){
+const char* Empleado::getPassword(){
     return _password;
 }
 
-void Empleado::setPassword(int newPassword){
-    _password = newPassword;
+void Empleado::setPassword(const char* newPassword){
+    strcpy(_password, newPassword);
 }
 
-void Empleado::cargarEmpleado(){
+void Empleado::setDNI(int DNI){
+    _dni = DNI;
+}
+
+int Empleado:: getDNI(){
+    return _dni;
+}
+
+int Empleado::cargarEmpleado(){
     Pantalla pantalla;
     ArchivoEmpleado archivoEmpleado("empleados.dat");
+    char password1[20], password2[20]; //[10], password2[10];
 
-    int password1, password2; //[10], password2[10];
-
-    cout<<"INGRESE ID DEL EMPLEADO: ";
+    pantalla.dimensiones (2,8);
+    cout<<"INGRESE ID DEL EMPLEADO          : ";
     cin>>_idEmpleado;
 
     if (archivoEmpleado.validarIDEmpleado(_idEmpleado)==false){
-        pantalla.dimensiones (2,13);
-        cout<<"INGRESE EL NOMBRE DEL EMPLEADO: ";
+        pantalla.dimensiones (2,9);
+        cout<<"INGRESE EL NOMBRE DEL EMPLEADO   : ";
         cargarCadenas(_nombre,11);
-        pantalla.dimensiones (2,14);
-        cout<<"INGRESE EL APELLIDO DEL EMPLEADO: ";
+        pantalla.dimensiones (2,10);
+        cout<<"INGRESE EL APELLIDO DEL EMPLEADO : ";
         cargarCadenas(_apellido,19);
-        pantalla.dimensiones (2,15);
-        cout<<"INGRESE PASSWORD: ";
-        cin>>password1;
-        pantalla.dimensiones (2,16);
-        cout<<"VUELVA A INGRESAR EL PASSWORD: ";
-        cin>>password2;
-        if(password1==password2){//strcmp(password1, password2))
-            //cargarCadenas(_password, 9);
-            _password = password1;
-            pantalla.dimensiones (2,18);
-            cout<<"ALTA DE USUARIO CORRECTA!";
+        pantalla.dimensiones (2,11);
+        cout<<"INGRESE EL DNI                   : ";
+        cin >>_dni;
+        pantalla.dimensiones (2,12);
+        cout<<"INGRESE EL PASSWORD              : ";
+        cargarCadenas(password1,19);
+        pantalla.dimensiones (2,13);
+        cout<<"VUELVA A INGRESAR EL PASSWORD    : ";
+        cargarCadenas(password2,19);
+        if(strcmp(password1, password2)==0){//strcmp(password1, password2))
+            strcpy(_password, password1);
             pantalla.dimensiones (2,19);
+            cout << GREEN;
+            cout<<"ALTA DE USUARIO CORRECTA!";
+            cout << BLUE;
+            _estado = true;
+            pantalla.dimensiones (2,20);
             system("pause");
         }
         else{
-           pantalla.dimensiones (2,18);
-           cout<<RED<<"LAS PASSWORD INGRESADAS NO COINCIDEN";
            pantalla.dimensiones (2,19);
+           cout<<RED<<"LAS PASSWORD INGRESADAS NO COINCIDEN";
+           pantalla.dimensiones (2,20);
            cout << BLUE;
            system("pause");
         }
@@ -95,18 +108,35 @@ void Empleado::cargarEmpleado(){
         pantalla.dimensiones (2,15);
         cout << BLUE;
         system("pause");
+        return -1;
     }
 }
 
-void Empleado::mostrar(){
+void Empleado::mostrar(int posicion){
+    Pantalla pantalla;
+
     if (_estado==true){
-        Pantalla pantalla;
-       pantalla.dimensiones (2,9);
-        cout<<"ID DEL EMPLEADO: "<<_idEmpleado;
-       pantalla.dimensiones (2,10);
-        cout<<"NOMBRE: "<<_nombre;
-       pantalla.dimensiones (2,11);
-        cout<<"APELLIDO: "<<_apellido;
+        if(posicion ==1){
+            pantalla.dimensiones(2,13);
+            cout<<"ID DEL EMPLEADO  : "<<_idEmpleado << endl;
+            pantalla.dimensiones(2,14);
+            cout<<"NOMBRE           : "<<_nombre << endl;
+            pantalla.dimensiones(2,15);
+            cout<<"APELLIDO         : "<<_apellido << endl;
+            pantalla.dimensiones(2,16);
+            cout<<"DNI              : "<<_dni << endl;
+        }
+        else{
+            pantalla.dimensiones(2,10);
+            cout<<"ID DEL EMPLEADO  : "<<_idEmpleado << endl;
+            pantalla.dimensiones(2,11);
+            cout<<"NOMBRE           : "<<_nombre << endl;
+            pantalla.dimensiones(2,12);
+            cout<<"APELLIDO         : "<<_apellido << endl;
+            pantalla.dimensiones(2,13);
+            cout<<"DNI              : "<<_dni << endl;
+
+        }
     }
 }
 

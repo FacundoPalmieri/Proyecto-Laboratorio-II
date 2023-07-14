@@ -16,11 +16,10 @@ class ArchivoProducto
         int cantidadEnArchivo();
         void modificarRegistro();
         int sobreEscribirRegistro(Producto producto, int posicion);
-
         void bajaProducto();
-
         int posicionRegistro(int idProducto);
         Producto buscarPorCodigo(int idProducto);
+        void Ordenar();
 
         void MensajeError();
 

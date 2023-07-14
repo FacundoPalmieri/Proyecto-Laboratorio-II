@@ -88,7 +88,8 @@ void ArchivoProducto::modificarRegistro(){
     pantalla.dimensiones(2,5);
     cout<<"Ingrese ID del producto a modificar: ";
     cin>>idProducto;
-    pantalla.dimensiones (2,7); cout<<"------------------";
+    pantalla.dimensiones (2,7);
+    cout<<"----------------------------------------";
 
     Producto producto;
     producto=buscarPorCodigo(idProducto);
@@ -101,10 +102,11 @@ void ArchivoProducto::modificarRegistro(){
 
         leerDeDisco(posicion);
         producto.mostrar();
-        pantalla.dimensiones(2,14);
+        pantalla.dimensiones(2,15);
         cout<<"ESTA SEGURO/A DE CONTINUAR: (S/N): ";
         cin>>Confirmacion;
-        pantalla.dimensiones (2,15); cout<<"------------------";
+        pantalla.dimensiones (2,16);
+        cout<<"------------------------------------";
         cout<<endl<<endl;
         if(Confirmacion=='S' || Confirmacion=='s'){
 
@@ -123,13 +125,17 @@ void ArchivoProducto::modificarRegistro(){
 
             if (sobreEscribirRegistro(producto, posicion)==1){
                 pantalla.dimensiones(2,22);
+                cout << GREEN;
                 cout<<"DATO MODIFICADO."<<endl<<endl;
+                cout << BLUE;
                 pantalla.dimensiones(2,23);
                 system("pause");
             }
             else{
                 pantalla.dimensiones(2,22);
+                cout << RED;
                 cout<<"ERROR AL MODIFICAR REGISTRO."<<endl<<endl;
+                cout << BLUE;
                 pantalla.dimensiones(2,23);
                 system("pause");
             }
@@ -140,9 +146,11 @@ void ArchivoProducto::modificarRegistro(){
         }
     }
     else{
-       pantalla.dimensiones (2,9);
+        pantalla.dimensiones (2,9);
+        cout << RED;
         cout<<"No existe un producto con ese ID"<<endl;
-       pantalla.dimensiones (2,11);
+        cout << BLUE;
+        pantalla.dimensiones (2,11);
         system("pause");
     }
 }
@@ -165,8 +173,11 @@ void ArchivoProducto::bajaProducto(){
 
     if(producto.getIdProducto() == -1){
         pantalla.dimensiones(2,11);
+        cout << RED;
         cout<<"NO EXISTE ESE ID DE PRODUCTO"<<endl<<endl;
-        pantalla.dimensiones (2,13); cout<<"------------------";
+        cout << BLUE;
+        pantalla.dimensiones (2,13);
+        cout<<"--------------------------------";
         pantalla.dimensiones (2,15);
         system("pause");
     }
@@ -181,7 +192,8 @@ void ArchivoProducto::bajaProducto(){
     pantalla.dimensiones(2,16);
     cout<<"ESTA SEGURO/A DE CONTINUAR: (S/N): ";
     cin>>Confirmacion;
-    pantalla.dimensiones (2,17); cout<<"------------------";
+    pantalla.dimensiones (2,17);
+     cout<<"----------------------------------------";
 
     if(Confirmacion=='S' || Confirmacion=='s'){
         //cambiar estado
@@ -191,7 +203,9 @@ void ArchivoProducto::bajaProducto(){
         if(sobreEscribirRegistro(producto, posicion)==1){
             cout<<endl<<endl;
             pantalla.dimensiones(2,18);
+            cout << GREEN;
             cout<<"PRODUCTO DADO DE BAJA."<<endl<<endl;
+            cout << BLUE;
             pantalla.dimensiones(3,20);
             system("pause");
         }
@@ -279,6 +293,32 @@ int ArchivoProducto::posicionRegistro(int idProducto){
 
     fclose(pArchivo);
     return -1; //retorna -1 cuando ya no hay archivos
+}
+
+void ArchivoProducto::Ordenar(){
+    Producto producto, productoAuxiliar, productoSiguiente;
+    ArchivoProducto archivoProducto("productos.dat");
+    int maximo = 0;
+
+    maximo = archivoProducto.cantidadEnArchivo();
+
+    for (int x=0; x<maximo; x++){
+        for (int i=0; i<maximo-1; i++){
+            producto=archivoProducto.leerDeDisco(i);
+            productoSiguiente=archivoProducto.leerDeDisco(i+1);
+
+            if (producto.getIdProducto()>productoSiguiente.getIdProducto()){
+                productoAuxiliar=productoSiguiente;
+
+                archivoProducto.sobreEscribirRegistro(producto, i+1);
+
+                archivoProducto.sobreEscribirRegistro(productoAuxiliar, i);
+            }
+        }
+    }
+
+
+
 }
 
 void ArchivoProducto::MensajeError(){

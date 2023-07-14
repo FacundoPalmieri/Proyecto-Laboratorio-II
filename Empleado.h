@@ -8,7 +8,8 @@ class Empleado
         int _idEmpleado;
         char _nombre[12];
         char _apellido[20];
-        int _password;
+        int _dni;
+        char _password[20];
         bool _estado;
 
     public:
@@ -26,11 +27,14 @@ class Empleado
         void setEstado(bool estado);
         bool getEstado();
 
-        int getPassword();
-        void setPassword(int passwprd);
+        const char* getPassword();
+        void setPassword(const char* newPassword);
 
-        void cargarEmpleado();
-        void mostrar();
+        void setDNI(int DNI);
+        int getDNI();
+
+        int cargarEmpleado();
+        void mostrar(int posicion);
 
         void cargarCadenas(char *pal, int tam);
 

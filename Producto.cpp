@@ -1,7 +1,7 @@
 #include <iostream>
 #include <cstring>
 using namespace std;
-
+#include "colors.h"
 #include "Producto.h"
 #include "Menu.h"
 #include "Pantalla.h"
@@ -55,7 +55,7 @@ void Producto::setEstado(bool estado)
 
 }
 
-void Producto::cargar()
+int Producto::cargar()
 {
     Producto producto;
     Pantalla pantalla;
@@ -74,10 +74,13 @@ void Producto::cargar()
 
         if(producto.getEstado() == true && _idProducto == producto.getIdProducto()){
            pantalla.dimensiones(1,13);
-            cout << "El producto ya existe.";
-            return;
+           cout << RED;
+           cout << "El producto ya existe.";
+           cout << BLUE;
+           return -1;
         }
     }
+
     pantalla.dibujarCuadro(0,0,79,24);
     pantalla.dimensiones(1,13);
     cout<<" INGRESE NOMBRE DEL PRODUCTO: ";

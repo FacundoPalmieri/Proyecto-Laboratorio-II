@@ -83,7 +83,7 @@ bool ArchivoEmpleado:: validarIDEmpleado(int idEmpleado){
         if(empleado.getIdEmpleado()== idEmpleado && empleado.getEstado()==true){
             fclose(pArchivo);
             encontrado=true;
-            return encontrado; //retorna el número de registro
+            return encontrado; //retorna true
         }
 
         posicion++; //incrementa la posición por leer el archivo
@@ -129,19 +129,21 @@ void ArchivoEmpleado:: modificarRegistro(){
     Pantalla pantalla;
     ArchivoEmpleado archivoEmpleado("empleados.dat");
     char Confirmacion;
-    int idEmpleado = 0, posicion = 0, password = 0;
-    char Nombre[30], Apellido[30];
+    int idEmpleado = 0, posicion = 0, dni = 0;
+    char Nombre[30], Apellido[30], password1[20],password2[20];
+
 
     pantalla.dimensiones(30,2); cout<<"DELTAPOINT RESTO";
     pantalla.dibujarCuadro(0,0,78,24); //SE DIBUJA EL CUADRO PRINCIPAL
     pantalla.dibujarCuadro(1,1,77,3); //SE DIBUJA EL CUADRO DEL TITULO
-
+    pantalla.dimensiones (2,6); cout<<"MENU AJUSTE - MODIFICAR EMPLEADO";
+    pantalla.dimensiones (2,7); cout<<"----------------------------------";
+    pantalla.dimensiones (2,8);
     //BUSCAR N° DE REGISTRO
-    pantalla.dimensiones(2,5);
+    pantalla.dimensiones(2,9);
     cout<<"Ingrese ID del empleado a modificar: ";
     cin>>idEmpleado;
-    pantalla.dimensiones (2,6);
-    cout<<"------------------";
+    pantalla.dimensiones (2,10);
 
     posicion=buscarDato(idEmpleado);
 
@@ -150,61 +152,98 @@ void ArchivoEmpleado:: modificarRegistro(){
         Empleado empleado;
         empleado=archivoEmpleado.leerDeDisco(posicion);
 
-        pantalla.dimensiones(2,7);
+        pantalla.dimensiones(2,12);
         cout<<"EMPLEADO A MODIFICAR: "<<endl;
-
-        empleado.mostrar();
-        pantalla.dimensiones(2,13);
-        cout<<"ESTA SEGURO/A DE CONTINUAR: (S/N): ";
-        cin>>Confirmacion;
-        pantalla.dimensiones (2,15);
-        cout<<"------------------";
-        cout<<endl<<endl;
-        if(Confirmacion=='S' || Confirmacion=='s'){
-
-            //CAMBIAR DATOS
-            pantalla.dimensiones(1,17);
-            cout<<" INGRESE NOMBRE DEL EMPLEADO: ";
-            empleado.cargarCadenas(Nombre, 11);
-            empleado.setNombre(Nombre);
-            pantalla.dimensiones(1,18);
-            cout<<" INGRESE APELLIDO DEL EMPLEADO: ";
-            empleado.cargarCadenas(Apellido, 19);
-            empleado.setApellido(Apellido);
-            pantalla.dimensiones(1,19);
-            cout<<" INGRESE PASSWORD: ";
-            cin>>password;
-            empleado.setPassword(password);
-            empleado.setEstado(true);
-
-            //SOBREESCRIBIR EL REGISTRO
-
-            if (sobreEscribirRegistro(empleado, posicion)==1){
-
-                pantalla.dimensiones(2,21);
-                cout<<"REGISTRO EMPLEADO MODIFICADO."<<endl<<endl;
-                pantalla.dimensiones(2,22);
-                system("pause");
-            }
-
-            else{
-                pantalla.dimensiones(2,21);
-                cout<<"ERROR AL MODIFICAR REGISTRO."<<endl<<endl;
-                pantalla.dimensiones(2,22);
-                system("pause");
-            }
-
-        }
-        else{
-            pantalla.dimensiones (2,16);
+        pantalla.dimensiones(5,13);
+        empleado.mostrar(1);
+        do{
             pantalla.dimensiones(2,18);
-            system("pause");
-        }
+            cout<<"ESTA SEGURO/A DE CONTINUAR (S/N): ";
+            cin>>Confirmacion;
+
+            if(Confirmacion =='S' || Confirmacion =='s'){
+
+                system ("cls");
+                pantalla.dimensiones(30,2); cout<<"DELTAPOINT RESTO";
+                pantalla.dibujarCuadro(0,0,78,24); //SE DIBUJA EL CUADRO PRINCIPAL
+                pantalla.dibujarCuadro(1,1,77,3); //SE DIBUJA EL CUADRO DEL TITULO
+                pantalla.dimensiones (2,6); cout<<"MENU AJUSTE - MODIFICAR EMPLEADO";
+                pantalla.dimensiones (2,7); cout<<"--------------------------------";
+                pantalla.dimensiones (2,8);
+                pantalla.dimensiones (2,16);
+                cout<<endl<<endl;
+
+                //CAMBIAR DATOS
+                pantalla.dimensiones(2,10);
+                cout<<" INGRESE EL NUEVO NOMBRE DEL EMPLEADO  : ";
+                empleado.cargarCadenas(Nombre, 11);
+                empleado.setNombre(Nombre);
+                pantalla.dimensiones(2,11);
+                cout<<" INGRESE EL NUEVO APELLIDO DEL EMPLEADO: ";
+                empleado.cargarCadenas(Apellido, 19);
+                empleado.setApellido(Apellido);
+                pantalla.dimensiones(2,12);
+                cout<<" INGRESE EL DNI                        : ";
+                cin >>dni;
+                empleado.setDNI(dni);
+                pantalla.dimensiones(2,13);
+                cout<<" INGRESE EL NUEVO PASSWORD             : ";
+                cin>>password1;
+                pantalla.dimensiones (2,14);
+                cout<<" VUELVA A INGRESAR EL PASSWORD         : ";
+                cin>>password2;
+                cin.ignore();
+                if(strcmp(password1, password2)==0){//strcmp(password1, password2))
+                    empleado.setPassword(password1);
+                    empleado.setEstado(true);
+                }
+
+                //SOBREESCRIBIR EL REGISTRO
+
+                if (sobreEscribirRegistro(empleado, posicion)==1){
+
+                    pantalla.dimensiones(2,19);
+                    cout << GREEN;
+                    cout<<"REGISTRO EMPLEADO MODIFICADO."<<endl<<endl;
+                    cout << BLUE;
+                    pantalla.dimensiones(2,20);
+                    system("pause");
+                    return;
+                }
+                else{
+                    pantalla.dimensiones(2,19);
+                    cout << RED;
+                    cout<<"ERROR AL MODIFICAR REGISTRO."<<endl<<endl;
+                    pantalla.dimensiones(2,20);
+                    cout << BLUE;
+                    system("pause");
+                }
+
+            }
+            else{
+                if(Confirmacion=='N' || Confirmacion=='n'){
+                    pantalla.dimensiones(2,20);
+                    system("pause");
+                }
+                else{
+                    cout << RED;
+                    pantalla.dimensiones (2,19); cout << "Opcion Incorrecta";
+                    cout << BLUE;
+                    pantalla.dimensiones(2,20);
+                    system("pause");
+                    pantalla.dimensiones (2,19); cout << "                       ";
+                    pantalla.dimensiones (2,20); cout << "                                                ";
+
+                }
+            }
+        }while(Confirmacion!= 'S' || Confirmacion != 's' || Confirmacion != 'N' || Confirmacion != 'n');
     }
     else{
-        pantalla.dimensiones (2,7);
-        cout<<"ID DE EMPLEADO INEXISTENTE"<<endl;
         pantalla.dimensiones (2,9);
+        cout << RED;
+        cout<<"ID DE EMPLEADO INEXISTENTE"<<endl;
+        cout << BLUE;
+        pantalla.dimensiones (2,10);
         system("pause");
     }
 }
@@ -224,7 +263,9 @@ int  ArchivoEmpleado:: bajaEmpleado(){
     posicion=buscarDato(idEmpleado);
     if(posicion== -1){
         pantalla.dimensiones(2,11);
-        cout<<"ID DE EMPLEADO INEXISTENTE"<<endl<<endl;
+       cout << RED;
+        cout<<"ID DE EMPLEADO INEXISTENTE"<<endl;
+        cout << BLUE;
         pantalla.dimensiones (2,15);
         system("pause");
         return -1;
@@ -237,11 +278,11 @@ int  ArchivoEmpleado:: bajaEmpleado(){
     char Confirmacion;
     pantalla.dimensiones(2,8);
     cout<<"ESTA ACCION DARA DE BAJA EL SIGUIENTE EMPLEADO: "<<endl<<endl;
-    empleado.mostrar();
-    pantalla.dimensiones(2,13);
+    empleado.mostrar(2);
+    pantalla.dimensiones(2,15);
     cout<<"ESTA SEGURO/A DE CONTINUAR: (S/N): ";
     cin>>Confirmacion;
-    pantalla.dimensiones (2,14);
+    pantalla.dimensiones (2,16);
     cout<<"------------------";
 
     if(Confirmacion=='S' || Confirmacion=='s'){
@@ -252,14 +293,18 @@ int  ArchivoEmpleado:: bajaEmpleado(){
         if (sobreEscribirRegistro(empleado, posicion)==1){
         cout<<endl<<endl;
         pantalla.dimensiones(2,17);
+        cout << GREEN;
         cout<<"EMPLEADO DADO DE BAJA."<<endl<<endl;
+        cout << BLUE;
         pantalla.dimensiones(2,18);
         system("pause");
         }
         else{
             cout<<endl<<endl;
             pantalla.dimensiones(2,17);
+            cout << RED;
             cout<<"ERROR AL DAR DE BAJA EL REGISTRO."<<endl<<endl;
+            cout << BLUE;
             pantalla.dimensiones(2,18);
             system("pause");
         }
@@ -289,6 +334,31 @@ int  ArchivoEmpleado:: sobreEscribirRegistro(Empleado empleado, int posicion){
     return valor;
 }
 
+void ArchivoEmpleado::Ordenar(){
+    Empleado empleado, empleadoAuxiliar, empleadoSiguiente;
+    ArchivoEmpleado archivoEmpleado("empleados.dat");
+    int maximo = 0;
+
+    maximo = archivoEmpleado.cantidadEnArchivo();
+
+    for (int x=0; x<maximo; x++){
+        for (int i=0; i<maximo-1; i++){
+            empleado=archivoEmpleado.leerDeDisco(i);
+            empleadoSiguiente=archivoEmpleado.leerDeDisco(i+1);
+
+            if (empleado.getIdEmpleado()> empleadoSiguiente.getIdEmpleado()){
+                empleadoAuxiliar=empleadoSiguiente;
+
+                archivoEmpleado.sobreEscribirRegistro(empleado, i+1);
+
+                archivoEmpleado.sobreEscribirRegistro(empleadoAuxiliar, i);
+            }
+        }
+    }
+
+
+
+}
 
 void ArchivoEmpleado:: MensajeError(){
     Pantalla pantalla;

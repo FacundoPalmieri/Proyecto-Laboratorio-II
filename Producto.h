@@ -24,7 +24,7 @@ public:
     void setPrecioProducto(float precioProducto);
     void setEstado(bool estado);
 
-    void cargar();
+    int cargar();
     void mostrar();
 
     void cargarCadenas(char *pal, int tam);

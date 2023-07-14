@@ -25,9 +25,10 @@ void  Menu::menuIdVendedor(){
         ArchivoEmpleado archivoEmpleado("empleados.dat");
 
         int idEmpleado=-1, posEmpleado=-1;
-        int password=-1;
+        char password[20] = {};
 
         pantalla.estiloMenu();
+
 
         pantalla.dimensiones (25,6);  cout<<"INGRESO AL SISTEMA";
         pantalla.dimensiones (20,7);  cout<<"--------------------------------";
@@ -48,18 +49,18 @@ void  Menu::menuIdVendedor(){
             int IntentosClave = 3;
 
             for(int i = 0; i<3; i++){
-                pantalla.dimensiones (2,12); cout<<"                                     ";
                 pantalla.dimensiones (22,13); cout<< BLUE <<"INGRESE SU CLAVE: ";
                 cin>>password;
                 IntentosClave --;
 
-                if(empleado.getPassword()==password){
+                if(strcmp(empleado.getPassword(),password)==0){
                   menuPrincipal(empleado.getIdEmpleado()); // Si coinciden las contraseñas ingresa al método menuPrincipal, pasando como parametros el ID)
                 }
                 else{
                     pantalla.dimensiones (26,16); cout<< RED <<" CLAVE INCORRECTA" << endl;
                     if(IntentosClave == 0){
-                        pantalla.dimensiones (18,18);cout << " Ha alcanzado el limite de intentos " << endl;
+                        pantalla.dimensiones (18,18);cout << " Ups, Ha alcanzado el limite de intentos " << endl;
+                        pantalla.dimensiones (2,19);cout << " Comuniquese con el area de sistemas para solicitar un blanqueo de clave. " << endl;
                         cout << BLUE;
                         pantalla.dimensiones (1,23); system("pause");
                         FinalizarPrograma();
@@ -70,7 +71,7 @@ void  Menu::menuIdVendedor(){
                     pantalla.dimensiones (26,16); cout << "                                       " << endl; // Limpia la menu en la parte posterior al ingreso de clave
                     pantalla.dimensiones (22,17); cout << "                                       " << endl;
                     pantalla.dimensiones (1,23);  cout << "                                       " <<endl;
-                    pantalla.dimensiones (40,13); cout << "                                       " <<endl;
+                    pantalla.dimensiones (38,13); cout << "                                       " <<endl;
 
                 }
 
@@ -275,12 +276,11 @@ void  Menu::menuListados(int idVendedor)
 
 void Menu::vistaListadoProductos(int idVendedor) {
     Pantalla pantalla;
-    Empleado empleado;
     Producto producto;
-
     ArchivoProducto archivoProducto("productos.dat");
+    int renglon, maximo = 0;
 
-    int renglon, maximo;
+    archivoProducto.Ordenar();
 
     pantalla.estiloMenu();
 
@@ -291,38 +291,20 @@ void Menu::vistaListadoProductos(int idVendedor) {
 
     renglon = 8;
 
-    //ORDENAR VALORES
+    maximo = archivoProducto.cantidadEnArchivo();
 
-    Producto productoAuxiliar, productoSiguiente;
-
-    for (int x=0; x<maximo; x++){
-        for (int i=0; i<maximo-1; i++){
-            producto=archivoProducto.leerDeDisco(i);
-            productoSiguiente=archivoProducto.leerDeDisco(i+1);
-
-            if (producto.getIdProducto()>productoSiguiente.getIdProducto()){
-                productoAuxiliar=productoSiguiente;
-
-                archivoProducto.sobreEscribirRegistro(producto, i+1);
-
-                archivoProducto.sobreEscribirRegistro(productoAuxiliar, i);
-            }
-        }
-    }
-
-    Producto productoMostrar;
 
     for (int i = 0; i < maximo; i++) {
-        productoMostrar=archivoProducto.leerDeDisco(i);
+        producto=archivoProducto.leerDeDisco(i);
 
-        if (productoMostrar.getEstado() == true) {
+        if (producto.getEstado() == true) {
 
             pantalla.dimensiones(5, renglon);
-            cout << productoMostrar.getIdProducto();
+            cout << producto.getIdProducto();
             pantalla.dimensiones(14, renglon);
-            cout << productoMostrar.getNombreProducto();
+            cout << producto.getNombreProducto();
             pantalla.dimensiones(60, renglon);
-            cout << "$" << productoMostrar.getPrecioProducto();
+            cout << "$" << producto.getPrecioProducto();
             renglon++;
         }
     }
@@ -336,55 +318,34 @@ void Menu::vistaListadoEmpleados(int idVendedor)
 {
     Pantalla pantalla;
     Empleado empleado;
-
     ArchivoEmpleado archivoEmpleado("empleados.dat");
     int renglon=8, maximo=0;
 
     pantalla.estiloMenu();
 
+    archivoEmpleado.Ordenar();
+
     pantalla.dimensiones (2,6); cout<<"LISTA DE EMPLEADOS:";
     pantalla.dimensiones (2,7); cout<<"--------------------";
 
-    int* VecIdEmpleados = nullptr;
+    maximo = archivoEmpleado.cantidadEnArchivo();
 
-    for (int x = 0; x < archivoEmpleado.cantidadEnArchivo(); x++) {
-        empleado=archivoEmpleado.leerDeDisco(x);
+    pantalla.dimensiones (5,renglon); cout<<"ID";
+    pantalla.dimensiones (13,renglon); cout<<" APELLIDO Y NOMBRE";
+    pantalla.dimensiones (39,renglon); cout<<" DNI";
+    renglon++;
+    renglon++;
+    for (int i = 0; i < maximo; i++) {
+        empleado=archivoEmpleado.leerDeDisco(i);
 
-        if (empleado.getIdEmpleado() > maximo) {
-            maximo = empleado.getIdEmpleado();
-        }
-    }
-
-    VecIdEmpleados = new int[maximo];
-
-    if (VecIdEmpleados != nullptr) {
-
-        // ASIGNO AL VECTOR EL ID DE CADA EMPLEADO, YA ORDENADO
-        for (int i = 0; i < archivoEmpleado.cantidadEnArchivo(); i++) {
-            empleado=archivoEmpleado.leerDeDisco(i);
-            VecIdEmpleados[empleado.getIdEmpleado()] = empleado.getIdEmpleado();
+        if (empleado.getEstado() == true) {
+            pantalla.dimensiones (5,renglon); cout<<empleado.getIdEmpleado();
+            pantalla.dimensiones (14,renglon); cout<<empleado.getApellido()<<", "<<empleado.getNombre();
+            pantalla.dimensiones (40,renglon); cout<<empleado.getDNI();
+            renglon++;
         }
 
-        for (int x = 0; x <= maximo; x++) {
-
-            for (int i = 0; i < archivoEmpleado.cantidadEnArchivo(); i++) {
-                empleado=archivoEmpleado.leerDeDisco(i);
-
-                if (empleado.getIdEmpleado() == VecIdEmpleados[x] && empleado.getEstado() == true) {
-
-                    pantalla.dimensiones (5,renglon); cout<<empleado.getIdEmpleado();
-                    pantalla.dimensiones (14,renglon); cout<<empleado.getApellido()<<", "<<empleado.getNombre();
-                    pantalla.dimensiones (45,renglon); cout<<empleado.getPassword();
-                    renglon++;
-                }
-            }
-        }
     }
-    else {
-        cout << "NO SE PUDO ASIGNAR MEMORIA" << endl;
-    }
-
-    delete[] VecIdEmpleados;
 
     pantalla.dimensiones (2,20); cout<< system("pause");
 
@@ -595,11 +556,12 @@ void Menu::menuAjuste(int idVendedor)
         case 1:
             pantalla.estiloMenu();
             pantalla.dimensiones (2,6); cout<<"MENU AJUSTE - CARGAR PRODUCTO";
-            pantalla.dimensiones (2,7); cout<<"------------------";
+            pantalla.dimensiones (2,7); cout<<"-----------------------------";
             pantalla.dimensiones (2,9);
-            producto.cargar();
-            pantalla.dimensiones (2,15);
-            archivoProducto.grabarEnDisco(producto);
+            if(producto.cargar()!= -1){
+                pantalla.dimensiones (2,15);
+                archivoProducto.grabarEnDisco(producto);
+            }
             pantalla.dimensiones (2,16);
             system("pause");
             menuAjuste(idVendedor);
@@ -607,7 +569,7 @@ void Menu::menuAjuste(int idVendedor)
         case 2:
             pantalla.estiloMenu();
             pantalla.dimensiones (2,6); cout<<"MENU AJUSTE - MODIFICAR PRODUCTO";
-            pantalla.dimensiones (2,7); cout<<"------------------";
+            pantalla.dimensiones (2,7); cout<<"--------------------------------";
             pantalla.dimensiones (2,12);
             archivoProducto.modificarRegistro();
             menuAjuste(idVendedor);
@@ -616,7 +578,7 @@ void Menu::menuAjuste(int idVendedor)
         case 3:
             pantalla.estiloMenu();
             pantalla.dimensiones (2,6); cout<<"MENU AJUSTE - ELIMINAR PRODUCTO";
-            pantalla.dimensiones (2,7); cout<<"------------------";
+            pantalla.dimensiones (2,7); cout<<"-------------------------------";
             pantalla.dimensiones (2,12);
             archivoProducto.bajaProducto();
             menuAjuste(idVendedor);
@@ -624,26 +586,24 @@ void Menu::menuAjuste(int idVendedor)
         case 4:
             pantalla.estiloMenu();
             pantalla.dimensiones (2,6); cout<<"MENU AJUSTE - CARGAR EMPLEADO";
-            pantalla.dimensiones (2,7); cout<<"------------------";
+            pantalla.dimensiones (2,7); cout<<"------------------------------";
             pantalla.dimensiones (2,12);
-            empleado.cargarEmpleado();
-            if(archivoEmpleado.grabarEnDisco(empleado)==0){
-                archivoEmpleado.MensajeError();
-            };
+            if(empleado.cargarEmpleado()!= -1){
+                if(archivoEmpleado.grabarEnDisco(empleado)==0){
+                    archivoEmpleado.MensajeError();
+                }
+            }
             menuAjuste(idVendedor);
             break;
         case 5:
             pantalla.estiloMenu();
-            pantalla.dimensiones (2,6); cout<<"MENU AJUSTE - MODIFICAR EMPLEADO";
-            pantalla.dimensiones (2,7); cout<<"------------------";
-            pantalla.dimensiones (2,8);
             archivoEmpleado.modificarRegistro();
             menuAjuste(idVendedor);
             break;
         case 6:
             pantalla.estiloMenu();
             pantalla.dimensiones (2,5); cout<<"MENU AJUSTE - BAJA DE EMPLEADO";
-            pantalla.dimensiones (2,6); cout<<"------------------";
+            pantalla.dimensiones (2,6); cout<<"-------------------------------";
             archivoEmpleado.bajaEmpleado();
             menuAjuste(idVendedor);
             break;

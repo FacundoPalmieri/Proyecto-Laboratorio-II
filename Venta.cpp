@@ -5,7 +5,6 @@ using namespace std;
 #include "Venta.h"
 #include "Producto.h"
 #include "Empleado.h"
-#include "Mesa.h"
 #include "ArchivoVenta.h"
 #include "ArchivoProducto.h"
 #include "ArchivoTransaccion.h"
