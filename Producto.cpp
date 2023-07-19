@@ -61,36 +61,56 @@ int Producto::cargar()
     Pantalla pantalla;
 
     ArchivoProducto archivoProducto("productos.dat");
-
-
     int CantidadRegistros = archivoProducto.cantidadEnArchivo();
 
+
+    pantalla.dimensiones(30,2); cout<<"DELTAPOINT RESTO";
+
+
+    pantalla.dimensiones (2,6);  cout<<"MENU AJUSTE - CARGAR PRODUCTO";
+    pantalla.dimensiones (2,7);  cout<<"-----------------------------";
+    pantalla.dimensiones (2,23); cout <<"ingrese 0(cero) para volver al menu anterior";
+
+    pantalla.dimensiones (2,8);
     cout<<"INGRESE ID DE PRODUCTO: ";
     cin>>_idProducto;
 
 
-    for(int x = 0; x < CantidadRegistros; x++){
-        producto=archivoProducto.leerDeDisco(x);
-
-        if(producto.getEstado() == true && _idProducto == producto.getIdProducto()){
-           pantalla.dimensiones(1,13);
-           cout << RED;
-           cout << "El producto ya existe.";
-           cout << BLUE;
-           return -1;
-        }
+    if(_idProducto == 0){
+       pantalla.dimensiones (2,23); cout <<"                                                       "; // Limpia la leyenda "ingrese cero para volver
+        return -1;
     }
+    else{
 
-    pantalla.dibujarCuadro(0,0,79,24);
-    pantalla.dimensiones(1,13);
-    cout<<" INGRESE NOMBRE DEL PRODUCTO: ";
-    cargarCadenas(_nombreProducto, 49);
-    pantalla.dibujarCuadro(0,0,79,24);
-    pantalla.dimensiones(1,14);
-    cout<<" INGRESE PRECIO DE VENTA ($): ";
-    cin>>_precioProducto;
-    pantalla.dimensiones(1,15);
-    cout<<" PRODUCTO AGREGADO.";
+        for(int x = 0; x < CantidadRegistros; x++){
+            producto=archivoProducto.leerDeDisco(x);
+
+            if(producto.getEstado() == true && _idProducto == producto.getIdProducto()){
+               pantalla.dimensiones(2,13);
+               cout << RED;
+               cout << " El producto ya existe.";
+               pantalla.dimensiones (2,23); cout <<"                                                       "; // Limpia la leyenda "ingrese cero para volver
+               cout << BLUE;
+               return -1;
+            }
+        }
+
+        pantalla.dibujarCuadro(0,0,79,24);
+        pantalla.dimensiones(1,9);
+        cout<<" INGRESE NOMBRE DEL PRODUCTO: ";
+        cargarCadenas(_nombreProducto, 49);
+        pantalla.dibujarCuadro(0,0,79,24);
+        pantalla.dimensiones(1,10);
+        cout<<" INGRESE PRECIO DE VENTA ($): ";
+        cin>>_precioProducto;
+        pantalla.dimensiones(1,14);
+        cout << GREEN;
+        cout<<" PRODUCTO AGREGADO.";
+        cout << BLUE;
+        pantalla.dimensiones (2,23); cout <<"                                                       "; // Limpia la leyenda "ingrese cero para volver
+        _estado = true;
+        return 0;
+    }
 }
 
 void Producto::mostrar()
@@ -98,11 +118,11 @@ void Producto::mostrar()
     Pantalla pantalla;
 
     if(_estado==true){
-       pantalla.dimensiones(2,11);
+        pantalla.dimensiones(2,12);
         cout<<"ID DE PRODUCTO: "<<_idProducto<<endl;
-       pantalla.dimensiones(2,12);
+        pantalla.dimensiones(2,13);
         cout<<"NOMBRE DEL PRODUCTO: "<<_nombreProducto<<endl;
-       pantalla.dimensiones(2,13);
+        pantalla.dimensiones(2,14);
         cout<<"PRECIO: $"<<_precioProducto<<endl;
     }
 }

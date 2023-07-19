@@ -13,6 +13,7 @@ using namespace std;
 #include "ArchivoVenta.h"
 #include "ArchivoProducto.h"
 #include "ArchivoTransaccion.h"
+#include "iomanip"
 
 
 void  Menu::menuIdVendedor(){
@@ -118,19 +119,19 @@ void Menu::menuPrincipal(int idVendedor)
 
         switch (_opcion)
         {
-        case 1:
+        case '1':
             menuVenta(idVendedor);
             break;
-        case 2:
+        case '2':
             menuConsulta(idVendedor);
             break;
-        case 3:
+        case '3':
             menuAjuste(idVendedor);
             break;
-        case 4:
+        case '4':
             menuIdVendedor();
             break;
-        case 0:
+        case '0':
             FinalizarPrograma();
             break;
 
@@ -165,17 +166,17 @@ void  Menu::menuVenta(int idVendedor)
 
         switch (_opcion)
         {
-        case 1:
+        case '1':
             menuPedido(idVendedor);
             break;
-        case 2:
+        case '2':
             menuConsumoMesa(idVendedor);
             break;
 
-        case 3:
+        case '3':
             menuPrincipal(idVendedor);
             break;
-        case 0:
+        case '0':
             FinalizarPrograma();
             break;
 
@@ -209,16 +210,16 @@ void  Menu::menuConsulta(int idVendedor)
         cin>>_opcion;
         switch (_opcion)
         {
-        case 1:
+        case '1':
             menuListados(idVendedor);
             break;
-        case 2:
+        case '2':
             menuConsultasDeVentas(idVendedor);
             break;
-        case 3:
+        case '3':
             menuPrincipal(idVendedor);
             break;
-        case 0:
+        case '0':
             FinalizarPrograma();
             break;
 
@@ -253,16 +254,16 @@ void  Menu::menuListados(int idVendedor)
 
         switch (_opcion)
         {
-            case 1:
+            case '1':
                 vistaListadoProductos(idVendedor);
                 break;
-            case 2:
+            case '2':
                 vistaListadoEmpleados(idVendedor);
                 break;
-            case 3:
+            case '3':
                 menuConsulta(idVendedor);
                 break;
-            case 0:
+            case '0':
                 FinalizarPrograma();
 
             default:
@@ -292,7 +293,11 @@ void Menu::vistaListadoProductos(int idVendedor) {
     renglon = 8;
 
     maximo = archivoProducto.cantidadEnArchivo();
-
+    pantalla.dimensiones(5, renglon); cout <<"ID";
+    pantalla.dimensiones(13, renglon);cout << "PRODUCTO";
+    pantalla.dimensiones(36, renglon);cout << "PRECIO UNITARIO";
+    renglon++;
+    renglon++;
 
     for (int i = 0; i < maximo; i++) {
         producto=archivoProducto.leerDeDisco(i);
@@ -301,17 +306,19 @@ void Menu::vistaListadoProductos(int idVendedor) {
 
             pantalla.dimensiones(5, renglon);
             cout << producto.getIdProducto();
-            pantalla.dimensiones(14, renglon);
+            pantalla.dimensiones(13, renglon);
             cout << producto.getNombreProducto();
-            pantalla.dimensiones(60, renglon);
+            pantalla.dimensiones(36, renglon);
             cout << "$" << producto.getPrecioProducto();
             renglon++;
         }
     }
 
-    pantalla.dimensiones(2, 20);
+    pantalla.dimensiones(2, 23);
     cout << system("pause");
 }
+
+
 
 
 void Menu::vistaListadoEmpleados(int idVendedor)
@@ -330,7 +337,7 @@ void Menu::vistaListadoEmpleados(int idVendedor)
 
     maximo = archivoEmpleado.cantidadEnArchivo();
 
-    pantalla.dimensiones (5,renglon); cout<<"ID";
+    pantalla.dimensiones (5,renglon);  cout<<"ID";
     pantalla.dimensiones (13,renglon); cout<<" APELLIDO Y NOMBRE";
     pantalla.dimensiones (39,renglon); cout<<" DNI";
     renglon++;
@@ -347,7 +354,7 @@ void Menu::vistaListadoEmpleados(int idVendedor)
 
     }
 
-    pantalla.dimensiones (2,20); cout<< system("pause");
+    pantalla.dimensiones (2,23); cout<< system("pause");
 
 }
 
@@ -372,19 +379,19 @@ void
         cin>>_opcion;
         switch (_opcion)
         {
-        case 1:
+        case '1':
             vistaVentasPorMes(idVendedor);
             break;
-        case 2:
+        case '2':
             vistaVentasPorEmpleado(idVendedor);
             break;
-        case 3:
+        case '3':
             vistaVentasPorProducto(idVendedor);
             break;
-        case 4:
+        case '4':
             menuConsulta(idVendedor);
             break;
-        case 0:
+        case '0':
             FinalizarPrograma();
             break;
 
@@ -481,7 +488,7 @@ void Menu::vistaVentasPorEmpleado(int idVendedor)
 
     }
 
-    pantalla.dimensiones (2,15); cout << system("pause");
+    pantalla.dimensiones (2,23); cout << system("pause");
 
 }
 
@@ -531,7 +538,7 @@ void Menu::menuAjuste(int idVendedor)
         Empleado empleado;
         ArchivoEmpleado archivoEmpleado("empleados.dat");
         ArchivoProducto archivoProducto("productos.dat");
-        int opcion;
+        char opcion;
 
         pantalla.estiloMenu();
 
@@ -553,40 +560,32 @@ void Menu::menuAjuste(int idVendedor)
 
         switch (opcion)
         {
-        case 1:
+        case '1':
             pantalla.estiloMenu();
-            pantalla.dimensiones (2,6); cout<<"MENU AJUSTE - CARGAR PRODUCTO";
-            pantalla.dimensiones (2,7); cout<<"-----------------------------";
             pantalla.dimensiones (2,9);
             if(producto.cargar()!= -1){
                 pantalla.dimensiones (2,15);
                 archivoProducto.grabarEnDisco(producto);
             }
-            pantalla.dimensiones (2,16);
+            pantalla.dimensiones (2,23);
             system("pause");
             menuAjuste(idVendedor);
             break;
-        case 2:
+        case '2':
             pantalla.estiloMenu();
-            pantalla.dimensiones (2,6); cout<<"MENU AJUSTE - MODIFICAR PRODUCTO";
-            pantalla.dimensiones (2,7); cout<<"--------------------------------";
             pantalla.dimensiones (2,12);
             archivoProducto.modificarRegistro();
             menuAjuste(idVendedor);
             break;
 
-        case 3:
+        case '3':
             pantalla.estiloMenu();
-            pantalla.dimensiones (2,6); cout<<"MENU AJUSTE - ELIMINAR PRODUCTO";
-            pantalla.dimensiones (2,7); cout<<"-------------------------------";
             pantalla.dimensiones (2,12);
             archivoProducto.bajaProducto();
             menuAjuste(idVendedor);
             break;
-        case 4:
+        case '4':
             pantalla.estiloMenu();
-            pantalla.dimensiones (2,6); cout<<"MENU AJUSTE - CARGAR EMPLEADO";
-            pantalla.dimensiones (2,7); cout<<"------------------------------";
             pantalla.dimensiones (2,12);
             if(empleado.cargarEmpleado()!= -1){
                 if(archivoEmpleado.grabarEnDisco(empleado)==0){
@@ -595,22 +594,20 @@ void Menu::menuAjuste(int idVendedor)
             }
             menuAjuste(idVendedor);
             break;
-        case 5:
+        case '5':
             pantalla.estiloMenu();
             archivoEmpleado.modificarRegistro();
             menuAjuste(idVendedor);
             break;
-        case 6:
+        case '6':
             pantalla.estiloMenu();
-            pantalla.dimensiones (2,5); cout<<"MENU AJUSTE - BAJA DE EMPLEADO";
-            pantalla.dimensiones (2,6); cout<<"-------------------------------";
             archivoEmpleado.bajaEmpleado();
             menuAjuste(idVendedor);
             break;
-        case 7:
+        case '7':
             menuPrincipal(idVendedor);
             break;
-        case 0:
+        case '0':
             FinalizarPrograma();
             break;
 
@@ -632,8 +629,8 @@ void Menu::menuPedido(int idVendedor)
     ArchivoVenta archivoVenta("ventas.dat");
     ArchivoProducto archivoProducto("productos.dat");
 
-
-    int opcion, renglon = 8, codigoProducto = 0, cantidadProducto = 0, mesa = -1;
+    char opcion;
+    int renglon = 8, codigoProducto = 0, cantidadProducto = 0, mesa = -1;
     float subtotal = 0;
 
     system("cls");
@@ -709,15 +706,17 @@ void Menu::menuPedido(int idVendedor)
         cin>>opcion;
         switch (opcion)
         {
-        case 1:
+        case '1':
             archivoVenta.grabarEnDisco(venta); ////GRABAMOS EN ARCHIVO VENTA
+            cout << GREEN;
             pantalla.dimensiones (4,22); cout<<"VENTA REGISTRADA                        ";
             pantalla.dimensiones (35,24); cout << "                                                      " << endl;
+            cout << BLUE;
             pantalla.dimensiones (3,24); system("pause");
             menuVenta(idVendedor);
             break;
 
-        case 2:
+        case '2':
             menuPrincipal(idVendedor);
             break;
 
@@ -746,7 +745,8 @@ void Menu::menuConsumoMesa(int idVendedor)
     ArchivoProducto archivoProducto("productos.dat");
     ArchivoTransaccion archivoTransaccion("transacciones.dat");
 
-    int renglon = 8, mesa = -1, Opcion = 0;
+    char Opcion;
+    int renglon = 8, mesa = -1;
     float total = 0, subtotal = 0;
 
     system("cls");
@@ -794,7 +794,7 @@ void Menu::menuConsumoMesa(int idVendedor)
         pantalla.dimensiones (3,24); cout << "1- Cerrar mesa / 2 - Volver :";
         pantalla.dimensiones (33,24);cin >> Opcion;
         switch(Opcion){
-         case 1:
+         case '1':
             char OpcionConfirmacion;
             do{
                 pantalla.dimensiones (3,24); cout << " Esta seguro/a que desea cerrar la mesa? (S/N): ";
@@ -804,7 +804,9 @@ void Menu::menuConsumoMesa(int idVendedor)
 
                         pantalla.dimensiones (4,24);
                         pantalla.dimensiones (3,24);  cout << "                                                 ";
+                        cout << GREEN;
                         pantalla.dimensiones (3,24); cout<<"MESA CERRADA - Imprimiendo Ticket..."<<endl;
+                        cout << BLUE;
                         Sleep(3000);
 
                         pantalla.dimensiones (80,22); cout<<"TOTAL: "<<total;
@@ -839,7 +841,7 @@ void Menu::menuConsumoMesa(int idVendedor)
                 }
 
             }while(OpcionConfirmacion != 's' || OpcionConfirmacion != 'S' || OpcionConfirmacion!='n' || OpcionConfirmacion!='N');
-         case 2:
+         case '2':
             menuVenta(idVendedor);
             break;
 

@@ -7,21 +7,6 @@
 			<Cursor1 position="633" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="Producto.cpp" open="1" top="0" tabpos="18" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="82" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="ArchivoEmpleado.cpp" open="1" top="1" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="7214" topLine="137" />
-		</Cursor>
-	</File>
-	<File name="rlutil.h" open="0" top="0" tabpos="20" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="3020" topLine="642" />
-		</Cursor>
-	</File>
 	<File name="ArchivoTransaccion.cpp" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="312" topLine="74" />
@@ -29,22 +14,32 @@
 	</File>
 	<File name="ArchivoProducto.cpp" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="7818" topLine="290" />
+			<Cursor1 position="5345" topLine="158" />
 		</Cursor>
 	</File>
-	<File name="Producto.h" open="1" top="0" tabpos="19" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="Venta.h" open="1" top="0" tabpos="16" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="510" topLine="9" />
+			<Cursor1 position="392" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="Fecha.h" open="0" top="0" tabpos="13" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="Pantalla.cpp" open="1" top="0" tabpos="10" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="325" topLine="0" />
+			<Cursor1 position="154" topLine="41" />
 		</Cursor>
 	</File>
-	<File name="Transaccion.h" open="0" top="0" tabpos="22" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="ArchivoEmpleado.cpp" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="870" topLine="16" />
+			<Cursor1 position="10261" topLine="315" />
+		</Cursor>
+	</File>
+	<File name="Menu.cpp" open="1" top="1" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="12648" topLine="405" />
+		</Cursor>
+	</File>
+	<File name="Producto.cpp" open="1" top="0" tabpos="11" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="878" topLine="82" />
 		</Cursor>
 	</File>
 	<File name="Pantalla.h" open="0" top="0" tabpos="13" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -52,64 +47,59 @@
 			<Cursor1 position="259" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="colors.h" open="1" top="0" tabpos="24" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="main.cpp" open="1" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="82" topLine="0" />
+			<Cursor1 position="549" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="ArchivoVenta.h" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="Venta.cpp" open="1" top="0" tabpos="15" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="153" topLine="0" />
+			<Cursor1 position="2844" topLine="114" />
 		</Cursor>
 	</File>
-	<File name="Venta.cpp" open="0" top="0" tabpos="20" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="2844" topLine="119" />
-		</Cursor>
-	</File>
-	<File name="ArchivoEmpleado.h" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="615" topLine="1" />
-		</Cursor>
-	</File>
-	<File name="Pantalla.cpp" open="1" top="0" tabpos="16" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1042" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="ArchivoProducto.h" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="588" topLine="1" />
-		</Cursor>
-	</File>
-	<File name="Empleado.h" open="1" top="0" tabpos="10" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="176" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="Transaccion.cpp" open="0" top="0" tabpos="21" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="Transaccion.cpp" open="1" top="0" tabpos="13" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="2132" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="Menu.cpp" open="1" top="0" tabpos="14" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="Empleado.h" open="1" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="26774" topLine="789" />
+			<Cursor1 position="788" topLine="16" />
 		</Cursor>
 	</File>
-	<File name="Empleado.cpp" open="1" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="ArchivoEmpleado.h" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="3160" topLine="104" />
+			<Cursor1 position="509" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="Menu.h" open="0" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="colors.h" open="0" top="0" tabpos="24" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="256" topLine="9" />
+			<Cursor1 position="82" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="main.cpp" open="1" top="0" tabpos="13" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="rlutil.h" open="0" top="0" tabpos="20" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="331" topLine="0" />
+			<Cursor1 position="3020" topLine="642" />
+		</Cursor>
+	</File>
+	<File name="Producto.h" open="1" top="0" tabpos="12" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="510" topLine="8" />
+		</Cursor>
+	</File>
+	<File name="Empleado.cpp" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="3751" topLine="129" />
+		</Cursor>
+	</File>
+	<File name="Menu.h" open="1" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="828" topLine="9" />
+		</Cursor>
+	</File>
+	<File name="ArchivoProducto.h" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="450" topLine="0" />
 		</Cursor>
 	</File>
 	<File name="ArchivoTransaccion.h" open="0" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -122,9 +112,19 @@
 			<Cursor1 position="146" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="Venta.h" open="0" top="0" tabpos="25" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="ArchivoVenta.h" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="80" topLine="17" />
+			<Cursor1 position="153" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="Transaccion.h" open="1" top="0" tabpos="14" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="870" topLine="15" />
+		</Cursor>
+	</File>
+	<File name="Fecha.h" open="0" top="0" tabpos="13" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="325" topLine="0" />
 		</Cursor>
 	</File>
 </CodeBlocks_layout_file>

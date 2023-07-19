@@ -83,8 +83,8 @@ void Pantalla::estiloMenu(){
     system("cls");
     system("mode con: cols=80 lines=25"); //SE DEFINE LAS DIMENSIONES DE LA VENTANA DEL PROGRAMA A 80 COLUMNAS Y 25 FILAS
     system("COLOR 71"); //SE DA UN COLOR DE FONDO Y COLOR A LAS LETRAS
-    dibujarCuadro(0,0,XSCREEN,YSCREEN); //SE DIBUJA EL CUADRO PRINCIPAL
-    dibujarCuadro(1,1,(XSCREEN-1),3); //SE DIBUJA EL CUADRO DEL TITULO
+    dibujarCuadro(0,0,XSCREEN+1,YSCREEN); //SE DIBUJA EL CUADRO PRINCIPAL
+    dibujarCuadro(1,1,(XSCREEN),3); //SE DIBUJA EL CUADRO DEL TITULO
     dimensiones(30,2); cout<<"DELTAPOINT RESTO";
 }
 

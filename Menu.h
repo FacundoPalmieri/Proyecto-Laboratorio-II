@@ -31,7 +31,7 @@ public:
     void OpcionIncorrecta();
 
 private:
-    int _opcion;
+    char _opcion;
 };
 
 #endif // MENU_H
