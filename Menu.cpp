@@ -424,22 +424,19 @@ void Menu::vistaVentasPorMes(int idVendedor)
     pantalla.dimensiones (2,7); cout<<"REGISTRO 2023: ";
 
     for(int mes=1; mes<13; mes++){
-        pantalla.dimensiones (2,renglonMes++); cout<<"MES "<<mes;
+        pantalla.dimensiones (2,renglonMes++); cout<<"MES: "<<mes;
+        consumoTotal = 0;
 
         for(int indice=0; indice<cantidad; indice++){
             venta=archivoVenta.leerDeDisco(indice);
 
-            if(venta.getFecha().getAnio()==2023){
-                if(venta.getFecha().getMes()==mes){
-                    consumoTotal += venta.getConsumoTotal();
-                    pantalla.dimensiones (20,renglonMes-1); cout<<"$ "<<consumoTotal;
-                }
-                else{
-                    pantalla.dimensiones (20,renglonMes-1); cout<<"$ 0";
-                }
+            if(venta.getFecha().getAnio()==2023 && venta.getFecha().getMes()== mes){
+                consumoTotal += venta.getConsumoTotal();
 
             }
         }
+        pantalla.dimensiones (20,renglonMes-1); cout<<"$ "<<consumoTotal;
+
     }
 
     pantalla.dimensiones (2,23); cout << "1- Registros previos / 2 - Volver :";
@@ -450,35 +447,29 @@ void Menu::vistaVentasPorMes(int idVendedor)
     case '1':
         system("cls");
 
-        renglonMes=9;
+        renglonMes=6;
         consumoTotal=0;
 
         pantalla.estiloMenu();
-        pantalla.dimensiones (2,4); cout<<"INGRESE ANIO DE REGISTRO:";
-        pantalla.dimensiones (28,4); cin>>Anioregistro;
+        pantalla.dimensiones (2,4); cout<<"INGRESE PERIODO ANUAL A CONSULTAR: ";
+        cin>>Anioregistro;
         pantalla.dimensiones (2,5); cout<<"--------------------";
 
         for(int mes=1; mes<13; mes++){
-            pantalla.dimensiones (2,renglonMes++); cout<<"MES "<<mes;
+            pantalla.dimensiones (2,renglonMes++); cout<<"MES: "<<mes;
+            consumoTotal = 0;
 
             for(int indice=0; indice<cantidad; indice++){
                 venta=archivoVenta.leerDeDisco(indice);
 
-                if(venta.getFecha().getAnio()==Anioregistro){
-                    if(venta.getFecha().getMes()==mes){
-                        consumoTotal += venta.getConsumoTotal();
-                        pantalla.dimensiones (20,renglonMes-1); cout<<"$ "<<consumoTotal;
-                    }
-                    else{
-                        pantalla.dimensiones (20,renglonMes-1); cout<<"$ 0";
-                    }
-                }
-                else{
-                    pantalla.dimensiones (20,renglonMes-1); cout<<"$ 0";
+                if(venta.getFecha().getAnio()==Anioregistro && venta.getFecha().getMes()==mes){
+                    consumoTotal += venta.getConsumoTotal();
                 }
             }
+
+            pantalla.dimensiones (20,renglonMes-1); cout<<"$ "<<consumoTotal;
         }
-            pantalla.dimensiones (2,23); system("pause");
+        pantalla.dimensiones (2,23); system("pause");
 
         break;
 

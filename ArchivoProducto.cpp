@@ -105,9 +105,10 @@ void ArchivoProducto::modificarRegistro(){
 
             leerDeDisco(posicion);
             producto.mostrar();
-            pantalla.dimensiones(2,23);
+            pantalla.dimensiones(2,23);cout <<"                                               ";
             do{
-                cout<<"ESTA SEGURO/A DE CONTINUAR: (S/N): ";
+                pantalla.dimensiones (2,23);
+                cout<<"ESTA SEGURO/A DE CONTINUAR: (S/N):";
                 cin>>Confirmacion;
                 if(Confirmacion=='S' || Confirmacion=='s'){
                     system ("cls");

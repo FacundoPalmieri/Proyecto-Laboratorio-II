@@ -185,14 +185,14 @@ void ArchivoEmpleado:: modificarRegistro(){
                     empleado.cargarCadenas(Apellido, 19);
                     empleado.setApellido(Apellido);
                     pantalla.dimensiones(2,12);
-                    cout<<"INGRESE EL DNI                        : ";
+                    cout<<"INGRESE EL DNI : ";
                     cin >>dni;
                     empleado.setDNI(dni);
                     pantalla.dimensiones(2,13);
-                    cout<<"INGRESE EL NUEVO PASSWORD             : ";
+                    cout<<"INGRESE EL NUEVO PASSWORD : ";
                     cin>>password1;
                     pantalla.dimensiones (2,14);
-                    cout<<"VUELVA A INGRESAR EL PASSWORD         : ";
+                    cout<<"VUELVA A INGRESAR EL PASSWORD : ";
                     cin>>password2;
                     cin.ignore();
                     if(strcmp(password1, password2)==0){//strcmp(password1, password2))
@@ -247,7 +247,7 @@ void ArchivoEmpleado:: modificarRegistro(){
             cout << RED;
             cout<<"ID DE EMPLEADO INEXISTENTE"<<endl;
             cout << BLUE;
-            pantalla.dimensiones (2,10);
+            pantalla.dimensiones (2,23);
             system("pause");
         }
     }
