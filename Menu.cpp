@@ -13,7 +13,6 @@ using namespace std;
 #include "ArchivoVenta.h"
 #include "ArchivoProducto.h"
 #include "ArchivoTransaccion.h"
-#include "iomanip"
 
 
 void  Menu::menuIdVendedor(){
@@ -405,11 +404,13 @@ void
 
 void Menu::vistaVentasPorMes(int idVendedor)
 {
+
     Pantalla pantalla;
     Venta venta;
     ArchivoVenta archivoVenta("ventas.dat");
 
-    float consumoTotal;
+    float consumoTotal=0;
+    int Anioregistro=0;
 
     pantalla.estiloMenu();
 
@@ -417,33 +418,79 @@ void Menu::vistaVentasPorMes(int idVendedor)
     pantalla.dimensiones (2,5); cout<<"--------------------";
 
     int cantidad = archivoVenta.cantidadVentas();
+    int renglonMes=9;
+    char Opcion;
 
-    for(int anio=2020; anio<2026; anio++){
-        pantalla.dimensiones ((anio-2017)*9-8,7); cout<<anio;
-        for(int mes=1; mes<13; mes++){
-            pantalla.dimensiones (2,mes+7); cout<<"MES "<<mes;
+    pantalla.dimensiones (2,7); cout<<"REGISTRO 2023: ";
 
-            for(int indice=0; indice<cantidad; indice++){
-                venta=archivoVenta.leerDeDisco(indice);
+    for(int mes=1; mes<13; mes++){
+        pantalla.dimensiones (2,renglonMes++); cout<<"MES "<<mes;
 
-                if(venta.getFecha().getAnio()==anio){
-                    if(venta.getFecha().getMes()==mes){
-                        consumoTotal += venta.getConsumoTotal();
-                        pantalla.dimensiones ((anio-2017)*9-10,mes+7); cout<<consumoTotal<<"|";
-                    }
-                    else{
-                        pantalla.dimensiones ((anio-2017)*9-8,mes+7); cout<<" - - |";
-                    }
+        for(int indice=0; indice<cantidad; indice++){
+            venta=archivoVenta.leerDeDisco(indice);
+
+            if(venta.getFecha().getAnio()==2023){
+                if(venta.getFecha().getMes()==mes){
+                    consumoTotal += venta.getConsumoTotal();
+                    pantalla.dimensiones (20,renglonMes-1); cout<<"$ "<<consumoTotal;
                 }
                 else{
-                    pantalla.dimensiones ((anio-2017)*9-8,mes+7); cout<<" - - |";
+                    pantalla.dimensiones (20,renglonMes-1); cout<<"$ 0";
                 }
+
             }
         }
     }
 
+    pantalla.dimensiones (2,23); cout << "1- Registros previos / 2 - Volver :";
+    pantalla.dimensiones (38,23);cin >> Opcion;
 
-    pantalla.dimensiones (2,22); cout<< system ("pause");
+    switch(Opcion)
+    {
+    case '1':
+        system("cls");
+
+        renglonMes=9;
+        consumoTotal=0;
+
+        pantalla.estiloMenu();
+        pantalla.dimensiones (2,4); cout<<"INGRESE ANIO DE REGISTRO:";
+        pantalla.dimensiones (28,4); cin>>Anioregistro;
+        pantalla.dimensiones (2,5); cout<<"--------------------";
+
+        for(int mes=1; mes<13; mes++){
+            pantalla.dimensiones (2,renglonMes++); cout<<"MES "<<mes;
+
+            for(int indice=0; indice<cantidad; indice++){
+                venta=archivoVenta.leerDeDisco(indice);
+
+                if(venta.getFecha().getAnio()==Anioregistro){
+                    if(venta.getFecha().getMes()==mes){
+                        consumoTotal += venta.getConsumoTotal();
+                        pantalla.dimensiones (20,renglonMes-1); cout<<"$ "<<consumoTotal;
+                    }
+                    else{
+                        pantalla.dimensiones (20,renglonMes-1); cout<<"$ 0";
+                    }
+                }
+                else{
+                    pantalla.dimensiones (20,renglonMes-1); cout<<"$ 0";
+                }
+            }
+        }
+            pantalla.dimensiones (2,23); system("pause");
+
+        break;
+
+    case '2':
+        menuConsultasDeVentas(idVendedor);
+        break;
+
+    default:
+       OpcionIncorrecta();
+       break;
+
+    }
 
 }
 
