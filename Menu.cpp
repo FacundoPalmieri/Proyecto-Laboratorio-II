@@ -1,6 +1,3 @@
-#define XSCREEN 78
-#define YSCREEN 24
-
 using namespace std;
 #include "rlutil.h"
 #include "colors.h"
@@ -30,9 +27,9 @@ void  Menu::menuIdVendedor(){
         pantalla.estiloMenu();
 
 
-        pantalla.dimensiones (25,6);  cout<<"INGRESO AL SISTEMA";
-        pantalla.dimensiones (20,7);  cout<<"--------------------------------";
-        pantalla.dimensiones (22,10); cout<<"INGRESE SU ID DE VENDEDOR: ";
+        pantalla.cursor (25,6);  cout<<"INGRESO AL SISTEMA";
+        pantalla.cursor (20,7);  cout<<"--------------------------------";
+        pantalla.cursor (22,10); cout<<"INGRESE SU ID DE VENDEDOR: ";
         cin>>idEmpleado;
 
         for(int x=0; x<archivoEmpleado.cantidadEnArchivo();x++){
@@ -40,7 +37,7 @@ void  Menu::menuIdVendedor(){
 
             if(empleado.getIdEmpleado()==idEmpleado&&empleado.getEstado()==true){
                posEmpleado = x; //  almacenar la posición del empleado encontrado antes de que posEmpleado sea incrementada nuevamente
-               pantalla.dimensiones (22,11); cout<<"- ("<<empleado.getApellido()<<", "<<empleado.getNombre()<<")"; // - PSW:"<<empleadoAux.getPassword();
+               pantalla.cursor (22,11); cout<<"- ("<<empleado.getApellido()<<", "<<empleado.getNombre()<<")"; // - PSW:"<<empleadoAux.getPassword();
             }
         }
 
@@ -49,7 +46,7 @@ void  Menu::menuIdVendedor(){
             int IntentosClave = 3;
 
             for(int i = 0; i<3; i++){
-                pantalla.dimensiones (22,13); cout<< BLUE <<"INGRESE SU CLAVE: ";
+                pantalla.cursor (22,13); cout<< BLUE <<"INGRESE SU CLAVE: ";
                 cin>>password;
                 IntentosClave --;
 
@@ -57,38 +54,38 @@ void  Menu::menuIdVendedor(){
                   menuPrincipal(empleado.getIdEmpleado()); // Si coinciden las contraseñas ingresa al método menuPrincipal, pasando como parametros el ID)
                 }
                 else{
-                    pantalla.dimensiones (26,16); cout<< RED <<" CLAVE INCORRECTA" << endl;
+                    pantalla.cursor (26,16); cout<< RED <<" CLAVE INCORRECTA" << endl;
                     if(IntentosClave == 0){
-                        pantalla.dimensiones (18,18);cout << " Ups, Ha alcanzado el limite de intentos " << endl;
-                        pantalla.dimensiones (2,19);cout << " Comuniquese con el area de sistemas para solicitar un blanqueo de clave. " << endl;
+                        pantalla.cursor (18,18);cout << " Ups, Ha alcanzado el limite de intentos " << endl;
+                        pantalla.cursor (2,19);cout << " Comuniquese con el area de sistemas para solicitar un blanqueo de clave. " << endl;
                         cout << BLUE;
-                        pantalla.dimensiones (1,23); system("pause");
+                        pantalla.cursor (1,23); system("pause");
                         FinalizarPrograma();
                     }
-                    pantalla.dimensiones (22,17); cout<< RED <<" - Le quedan " << IntentosClave << " intentos - " << endl;
+                    pantalla.cursor (22,17); cout<< RED <<" - Le quedan " << IntentosClave << " intentos - " << endl;
                     cout << BLUE;
-                    pantalla.dimensiones (1,23); system("pause");
-                    pantalla.dimensiones (26,16); cout << "                                       " << endl; // Limpia la menu en la parte posterior al ingreso de clave
-                    pantalla.dimensiones (22,17); cout << "                                       " << endl;
-                    pantalla.dimensiones (1,23);  cout << "                                       " <<endl;
-                    pantalla.dimensiones (38,13); cout << "                                       " <<endl;
+                    pantalla.cursor (1,23); system("pause");
+                    pantalla.cursor (26,16); cout << "                                       " << endl; // Limpia la menu en la parte posterior al ingreso de clave
+                    pantalla.cursor (22,17); cout << "                                       " << endl;
+                    pantalla.cursor (1,23);  cout << "                                       " <<endl;
+                    pantalla.cursor (38,13); cout << "                                       " <<endl;
 
                 }
 
             }
         }
         else{
-            pantalla.dimensiones (24,13); cout<< RED <<"USUARIO NO ENCONTRADO ";
+            pantalla.cursor (24,13); cout<< RED <<"USUARIO NO ENCONTRADO ";
             IntentosUsuario--;
             if(IntentosUsuario == 0){
-                pantalla.dimensiones (18,18);cout << " Ha alcanzado el limite de intentos " << endl;
+                pantalla.cursor (18,18);cout << " Ha alcanzado el limite de intentos " << endl;
                 cout << BLUE;
-                pantalla.dimensiones (1,23); system("pause");
+                pantalla.cursor (1,23); system("pause");
                 FinalizarPrograma();
             }
-            pantalla.dimensiones (22,17); cout<< RED <<" - Le quedan " << IntentosUsuario << " intentos - " << endl;
+            pantalla.cursor (22,17); cout<< RED <<" - Le quedan " << IntentosUsuario << " intentos - " << endl;
             cout << BLUE;
-            pantalla.dimensiones (1,23); system("pause");
+            pantalla.cursor (1,23); system("pause");
         }
 
 
@@ -103,17 +100,17 @@ void Menu::menuPrincipal(int idVendedor)
     {
         pantalla.estiloMenu();
 
-        pantalla.dimensiones (2,6); cout<<"MENU PRINCIPAL";
-        pantalla.dimensiones (2,7); cout<<"------------------";
-        pantalla.dimensiones (2,10); cout<<"INGRESE UNA OPCION: ";
+        pantalla.cursor (2,6); cout<<"MENU PRINCIPAL";
+        pantalla.cursor (2,7); cout<<"------------------";
+        pantalla.cursor (2,10); cout<<"INGRESE UNA OPCION: ";
 
-        pantalla.dimensiones (2,13); cout<<"1 - MENU VENTA ";
-        pantalla.dimensiones (2,14); cout<<"2 - MENU CONSULTA ";
-        pantalla.dimensiones (2,15); cout<<"3 - MENU AJUSTES ";
-        pantalla.dimensiones (2,16); cout<<"4 - CERRAR SESION DE USUARIO ";
-        pantalla.dimensiones (2,17); cout<<"0 - SALIR DEL PROGRAMA ";
+        pantalla.cursor (2,13); cout<<"1 - MENU VENTA ";
+        pantalla.cursor (2,14); cout<<"2 - MENU CONSULTA ";
+        pantalla.cursor (2,15); cout<<"3 - MENU AJUSTES ";
+        pantalla.cursor (2,16); cout<<"4 - CERRAR SESION DE USUARIO ";
+        pantalla.cursor (2,17); cout<<"0 - SALIR DEL PROGRAMA ";
 
-        pantalla.dimensiones (2,19); cout<<"->: ";
+        pantalla.cursor (2,19); cout<<"->: ";
         cin>>_opcion;
 
         switch (_opcion)
@@ -151,16 +148,16 @@ void  Menu::menuVenta(int idVendedor)
     do{
         pantalla.estiloMenu();
 
-        pantalla.dimensiones (2,6); cout<<"MENU VENTA";
-        pantalla.dimensiones (2,7); cout<<"------------------";
-        pantalla.dimensiones (2,10); cout<<"INGRESE UNA OPCION: ";
+        pantalla.cursor (2,6); cout<<"MENU VENTA";
+        pantalla.cursor (2,7); cout<<"------------------";
+        pantalla.cursor (2,10); cout<<"INGRESE UNA OPCION: ";
 
-        pantalla.dimensiones (2,13); cout<<"1 - ATENDER CLIENTE: ";
-        pantalla.dimensiones (2,14); cout<<"2 - CONSUMO DE MESA: ";
-        pantalla.dimensiones (2,15); cout<<"3 - VOLVER AL MENU PRINCIPAL: ";
-        pantalla.dimensiones (2,16); cout<<"0 - SALIR DEL PROGRAMA: ";
+        pantalla.cursor (2,13); cout<<"1 - ATENDER CLIENTE: ";
+        pantalla.cursor (2,14); cout<<"2 - CONSUMO DE MESA: ";
+        pantalla.cursor (2,15); cout<<"3 - VOLVER AL MENU PRINCIPAL: ";
+        pantalla.cursor (2,16); cout<<"0 - SALIR DEL PROGRAMA: ";
 
-        pantalla.dimensiones (2,18); cout<<"->: ";
+        pantalla.cursor (2,18); cout<<"->: ";
         cin>>_opcion;
 
         switch (_opcion)
@@ -195,16 +192,16 @@ void  Menu::menuConsulta(int idVendedor)
     do{
         pantalla.estiloMenu();
 
-        pantalla.dimensiones (2,6); cout<<"MENU CONSULTA";
-        pantalla.dimensiones (2,7); cout<<"------------------";
-        pantalla.dimensiones (2,10); cout<<"INGRESE UNA OPCION ";
+        pantalla.cursor (2,6); cout<<"MENU CONSULTA";
+        pantalla.cursor (2,7); cout<<"------------------";
+        pantalla.cursor (2,10); cout<<"INGRESE UNA OPCION ";
 
-        pantalla.dimensiones (2,13); cout<<"1 - LISTADOS ";
-        pantalla.dimensiones (2,14); cout<<"2 - CONSULTA DE VENTAS ";
-        pantalla.dimensiones (2,15); cout<<"3 - VOLVER AL MENU PRINCIPAL ";
-        pantalla.dimensiones (2,16); cout<<"0 - SALIR DEL PROGRAMA ";
+        pantalla.cursor (2,13); cout<<"1 - LISTADOS ";
+        pantalla.cursor (2,14); cout<<"2 - CONSULTA DE VENTAS ";
+        pantalla.cursor (2,15); cout<<"3 - VOLVER AL MENU PRINCIPAL ";
+        pantalla.cursor (2,16); cout<<"0 - SALIR DEL PROGRAMA ";
 
-        pantalla.dimensiones (2,19);
+        pantalla.cursor (2,19);
         cout<<"->: ";
         cin>>_opcion;
         switch (_opcion)
@@ -239,16 +236,16 @@ void  Menu::menuListados(int idVendedor)
 
         pantalla.estiloMenu();
 
-        pantalla.dimensiones (2,6); cout << "MENU LISTADOS";
-        pantalla.dimensiones (2,7); cout << "------------------";
-        pantalla.dimensiones (2,10); cout << "INGRESE UNA OPCION: ";
+        pantalla.cursor (2,6); cout << "MENU LISTADOS";
+        pantalla.cursor (2,7); cout << "------------------";
+        pantalla.cursor (2,10); cout << "INGRESE UNA OPCION: ";
 
-        pantalla.dimensiones (2,13); cout << "1 - PRODUCTOS ";
-        pantalla.dimensiones (2,14); cout << "2 - EMPLEADOS ";
-        pantalla.dimensiones (2,15); cout << "3 - VOLVER AL MENU ANTERIOR ";
-        pantalla.dimensiones (2,16); cout << "0 - SALIR DEL PROGRAMA ";
+        pantalla.cursor (2,13); cout << "1 - PRODUCTOS ";
+        pantalla.cursor (2,14); cout << "2 - EMPLEADOS ";
+        pantalla.cursor (2,15); cout << "3 - VOLVER AL MENU ANTERIOR ";
+        pantalla.cursor (2,16); cout << "0 - SALIR DEL PROGRAMA ";
 
-        pantalla.dimensiones (2,19); cout << "->: ";
+        pantalla.cursor (2,19); cout << "->: ";
         cin >> _opcion;
 
         switch (_opcion)
@@ -284,17 +281,17 @@ void Menu::vistaListadoProductos(int idVendedor) {
 
     pantalla.estiloMenu();
 
-    pantalla.dimensiones(2, 6);
+    pantalla.cursor(2, 6);
     cout << "LISTA DE PRODUCTOS:";
-    pantalla.dimensiones(2, 7);
+    pantalla.cursor(2, 7);
     cout << "--------------------";
 
     renglon = 8;
 
     maximo = archivoProducto.cantidadEnArchivo();
-    pantalla.dimensiones(5, renglon); cout <<"ID";
-    pantalla.dimensiones(13, renglon);cout << "PRODUCTO";
-    pantalla.dimensiones(36, renglon);cout << "PRECIO UNITARIO";
+    pantalla.cursor(5, renglon); cout <<"ID";
+    pantalla.cursor(13, renglon);cout << "PRODUCTO";
+    pantalla.cursor(36, renglon);cout << "PRECIO UNITARIO";
     renglon++;
     renglon++;
 
@@ -303,17 +300,17 @@ void Menu::vistaListadoProductos(int idVendedor) {
 
         if (producto.getEstado() == true) {
 
-            pantalla.dimensiones(5, renglon);
+            pantalla.cursor(5, renglon);
             cout << producto.getIdProducto();
-            pantalla.dimensiones(13, renglon);
+            pantalla.cursor(13, renglon);
             cout << producto.getNombreProducto();
-            pantalla.dimensiones(36, renglon);
+            pantalla.cursor(36, renglon);
             cout << "$" << producto.getPrecioProducto();
             renglon++;
         }
     }
 
-    pantalla.dimensiones(2, 23);
+    pantalla.cursor(2, 23);
     cout << system("pause");
 }
 
@@ -331,29 +328,29 @@ void Menu::vistaListadoEmpleados(int idVendedor)
 
     archivoEmpleado.Ordenar();
 
-    pantalla.dimensiones (2,6); cout<<"LISTA DE EMPLEADOS:";
-    pantalla.dimensiones (2,7); cout<<"--------------------";
+    pantalla.cursor (2,6); cout<<"LISTA DE EMPLEADOS:";
+    pantalla.cursor (2,7); cout<<"--------------------";
 
     maximo = archivoEmpleado.cantidadEnArchivo();
 
-    pantalla.dimensiones (5,renglon);  cout<<"ID";
-    pantalla.dimensiones (13,renglon); cout<<" APELLIDO Y NOMBRE";
-    pantalla.dimensiones (39,renglon); cout<<" DNI";
+    pantalla.cursor (5,renglon);  cout<<"ID";
+    pantalla.cursor (13,renglon); cout<<" APELLIDO Y NOMBRE";
+    pantalla.cursor (39,renglon); cout<<" DNI";
     renglon++;
     renglon++;
     for (int i = 0; i < maximo; i++) {
         empleado=archivoEmpleado.leerDeDisco(i);
 
         if (empleado.getEstado() == true) {
-            pantalla.dimensiones (5,renglon); cout<<empleado.getIdEmpleado();
-            pantalla.dimensiones (14,renglon); cout<<empleado.getApellido()<<", "<<empleado.getNombre();
-            pantalla.dimensiones (40,renglon); cout<<empleado.getDNI();
+            pantalla.cursor (5,renglon); cout<<empleado.getIdEmpleado();
+            pantalla.cursor (14,renglon); cout<<empleado.getApellido()<<", "<<empleado.getNombre();
+            pantalla.cursor (40,renglon); cout<<empleado.getDNI();
             renglon++;
         }
 
     }
 
-    pantalla.dimensiones (2,23); cout<< system("pause");
+    pantalla.cursor (2,23); cout<< system("pause");
 
 }
 
@@ -364,17 +361,17 @@ void
     do{
         pantalla.estiloMenu();
 
-        pantalla.dimensiones (2,6); cout<<"MENU CONSULTA DE VENTAS";
-        pantalla.dimensiones (2,7); cout<<"------------------";
-        pantalla.dimensiones (2,10); cout<<"INGRESE UNA OPCION: ";
+        pantalla.cursor (2,6); cout<<"MENU CONSULTA DE VENTAS";
+        pantalla.cursor (2,7); cout<<"------------------";
+        pantalla.cursor (2,10); cout<<"INGRESE UNA OPCION: ";
 
-        pantalla.dimensiones (2,13); cout<<"1 - VENTAS TOTALES POR MES ";
-        pantalla.dimensiones (2,14); cout<<"2 - VENTAS POR EMPLEADO ";
-        pantalla.dimensiones (2,15); cout<<"3 - VENTAS POR PRODUCTO ";
-        pantalla.dimensiones (2,16); cout<<"4 - VOLVER AL MENU ANTERIOR ";
-        pantalla.dimensiones (2,17); cout<<"0 - SALIR DEL PROGRAMA ";
+        pantalla.cursor (2,13); cout<<"1 - VENTAS TOTALES POR MES ";
+        pantalla.cursor (2,14); cout<<"2 - VENTAS POR EMPLEADO ";
+        pantalla.cursor (2,15); cout<<"3 - VENTAS POR PRODUCTO ";
+        pantalla.cursor (2,16); cout<<"4 - VOLVER AL MENU ANTERIOR ";
+        pantalla.cursor (2,17); cout<<"0 - SALIR DEL PROGRAMA ";
 
-        pantalla.dimensiones (2,19); cout<<"->: ";
+        pantalla.cursor (2,19); cout<<"->: ";
         cin>>_opcion;
         switch (_opcion)
         {
@@ -414,17 +411,17 @@ void Menu::vistaVentasPorMes(int idVendedor)
 
     pantalla.estiloMenu();
 
-    pantalla.dimensiones (2,4); cout<<"VENTAS POR MES:";
-    pantalla.dimensiones (2,5); cout<<"--------------------";
+    pantalla.cursor (2,4); cout<<"VENTAS POR MES:";
+    pantalla.cursor (2,5); cout<<"--------------------";
 
     int cantidad = archivoVenta.cantidadVentas();
     int renglonMes=9;
     char Opcion;
 
-    pantalla.dimensiones (2,7); cout<<"REGISTRO 2023: ";
+    pantalla.cursor (2,7); cout<<"REGISTRO 2023: ";
 
     for(int mes=1; mes<13; mes++){
-        pantalla.dimensiones (2,renglonMes++); cout<<"MES: "<<mes;
+        pantalla.cursor (2,renglonMes++); cout<<"MES: "<<mes;
         consumoTotal = 0;
 
         for(int indice=0; indice<cantidad; indice++){
@@ -435,12 +432,12 @@ void Menu::vistaVentasPorMes(int idVendedor)
 
             }
         }
-        pantalla.dimensiones (20,renglonMes-1); cout<<"$ "<<consumoTotal;
+        pantalla.cursor (20,renglonMes-1); cout<<"$ "<<consumoTotal;
 
     }
 
-    pantalla.dimensiones (2,23); cout << "1- Registros previos / 2 - Volver :";
-    pantalla.dimensiones (38,23);cin >> Opcion;
+    pantalla.cursor (2,23); cout << "1- Registros previos / 2 - Volver :";
+    pantalla.cursor (38,23);cin >> Opcion;
 
     switch(Opcion)
     {
@@ -451,12 +448,12 @@ void Menu::vistaVentasPorMes(int idVendedor)
         consumoTotal=0;
 
         pantalla.estiloMenu();
-        pantalla.dimensiones (2,4); cout<<"INGRESE PERIODO ANUAL A CONSULTAR: ";
+        pantalla.cursor (2,4); cout<<"INGRESE PERIODO ANUAL A CONSULTAR: ";
         cin>>Anioregistro;
-        pantalla.dimensiones (2,5); cout<<"--------------------";
+        pantalla.cursor (2,5); cout<<"--------------------";
 
         for(int mes=1; mes<13; mes++){
-            pantalla.dimensiones (2,renglonMes++); cout<<"MES: "<<mes;
+            pantalla.cursor (2,renglonMes++); cout<<"MES: "<<mes;
             consumoTotal = 0;
 
             for(int indice=0; indice<cantidad; indice++){
@@ -467,9 +464,9 @@ void Menu::vistaVentasPorMes(int idVendedor)
                 }
             }
 
-            pantalla.dimensiones (20,renglonMes-1); cout<<"$ "<<consumoTotal;
+            pantalla.cursor (20,renglonMes-1); cout<<"$ "<<consumoTotal;
         }
-        pantalla.dimensiones (2,23); system("pause");
+        pantalla.cursor (2,23); system("pause");
 
         break;
 
@@ -498,8 +495,8 @@ void Menu::vistaVentasPorEmpleado(int idVendedor)
 
     pantalla.estiloMenu();
 
-    pantalla.dimensiones (2,4); cout<<"VENTAS POR EMPLEADO:";
-    pantalla.dimensiones (2,5); cout<<"--------------------";
+    pantalla.cursor (2,4); cout<<"VENTAS POR EMPLEADO:";
+    pantalla.cursor (2,5); cout<<"--------------------";
 
     for(int id=0; id<archivoEmpleado.cantidadEnArchivo(); id++){
 
@@ -508,7 +505,7 @@ void Menu::vistaVentasPorEmpleado(int idVendedor)
 
         if(empleado.getEstado()==true){
 
-            pantalla.dimensiones(2,renglon);
+            pantalla.cursor(2,renglon);
             cout<<empleado.getNombre()<<" "<<empleado.getApellido();
 
             for (int x=0; x<archivoVenta.cantidadVentas();x++){
@@ -520,13 +517,13 @@ void Menu::vistaVentasPorEmpleado(int idVendedor)
 
             }
 
-            pantalla.dimensiones(25,renglon); cout<<"$ "<<consumoTotal;
+            pantalla.cursor(25,renglon); cout<<"$ "<<consumoTotal;
             renglon++;
         }
 
     }
 
-    pantalla.dimensiones (2,23); cout << system("pause");
+    pantalla.cursor (2,23); cout << system("pause");
 
 }
 
@@ -543,15 +540,15 @@ void Menu::vistaVentasPorProducto(int idVendedor)
 
     pantalla.estiloMenu();
 
-    pantalla.dimensiones (2,4); cout<<"VENTAS POR PRODUCTO:";
-    pantalla.dimensiones (2,5); cout<<"--------------------";
+    pantalla.cursor (2,4); cout<<"VENTAS POR PRODUCTO:";
+    pantalla.cursor (2,5); cout<<"--------------------";
 
     for (int x=0; x<archivoProducto.cantidadEnArchivo();x++){
         consumoTotal=0;
         producto=archivoProducto.leerDeDisco(x);
 
         if (producto.getEstado()==true){
-            pantalla.dimensiones(2,renglon); cout<<producto.getNombreProducto();
+            pantalla.cursor(2,renglon); cout<<producto.getNombreProducto();
 
             for (int x=0; x<archivoTransaccion.cantidadTransacciones();x++){
                 transaccion=archivoTransaccion.leerDeDisco(x);
@@ -560,12 +557,12 @@ void Menu::vistaVentasPorProducto(int idVendedor)
                     consumoTotal+=(transaccion.getPrecio()*transaccion.getCantidad());
                 }
             }
-            pantalla.dimensiones(35,renglon); cout<<"$ "<<consumoTotal;
+            pantalla.cursor(35,renglon); cout<<"$ "<<consumoTotal;
             renglon++;
         }
     }
 
-    pantalla.dimensiones (2,22); cout << system("pause");
+    pantalla.cursor (2,22); cout << system("pause");
 }
 
 void Menu::menuAjuste(int idVendedor)
@@ -580,51 +577,51 @@ void Menu::menuAjuste(int idVendedor)
 
         pantalla.estiloMenu();
 
-        pantalla.dimensiones (2,6); cout<<"MENU AJUSTE";
-        pantalla.dimensiones (2,7); cout<<"------------------";
-        pantalla.dimensiones (2,9); cout<<"INGRESE UNA OPCION: ";
+        pantalla.cursor (2,6); cout<<"MENU AJUSTE";
+        pantalla.cursor (2,7); cout<<"------------------";
+        pantalla.cursor (2,9); cout<<"INGRESE UNA OPCION: ";
 
-        pantalla.dimensiones (2,11); cout<<"1 - CARGAR PRODUCTO ";
-        pantalla.dimensiones (2,12); cout<<"2 - MODIFICAR PRODUCTO ";
-        pantalla.dimensiones (2,13); cout<<"3 - DAR DE BAJA PRODUCTO ";
-        pantalla.dimensiones (2,14); cout<<"4 - CARGAR EMPLEADO ";
-        pantalla.dimensiones (2,15); cout<<"5 - MODIFICAR EMPLEADO ";
-        pantalla.dimensiones (2,16); cout<<"6 - DAR DE BAJA EMPLEADO ";
-        pantalla.dimensiones (2,17); cout<<"7 - VOLVER AL MENU PRINCIPAL ";
-        pantalla.dimensiones (2,18); cout<<"0 - SALIR DEL PROGRAMA ";
+        pantalla.cursor (2,11); cout<<"1 - CARGAR PRODUCTO ";
+        pantalla.cursor (2,12); cout<<"2 - MODIFICAR PRODUCTO ";
+        pantalla.cursor (2,13); cout<<"3 - DAR DE BAJA PRODUCTO ";
+        pantalla.cursor (2,14); cout<<"4 - CARGAR EMPLEADO ";
+        pantalla.cursor (2,15); cout<<"5 - MODIFICAR EMPLEADO ";
+        pantalla.cursor (2,16); cout<<"6 - DAR DE BAJA EMPLEADO ";
+        pantalla.cursor (2,17); cout<<"7 - VOLVER AL MENU PRINCIPAL ";
+        pantalla.cursor (2,18); cout<<"0 - SALIR DEL PROGRAMA ";
 
-        pantalla.dimensiones (2,20); cout<<"->: ";
+        pantalla.cursor (2,20); cout<<"->: ";
         cin>>opcion;
 
         switch (opcion)
         {
         case '1':
             pantalla.estiloMenu();
-            pantalla.dimensiones (2,9);
+            pantalla.cursor (2,9);
             if(producto.cargar()!= -1){
-                pantalla.dimensiones (2,15);
+                pantalla.cursor (2,15);
                 archivoProducto.grabarEnDisco(producto);
             }
-            pantalla.dimensiones (2,23);
+            pantalla.cursor (2,23);
             system("pause");
             menuAjuste(idVendedor);
             break;
         case '2':
             pantalla.estiloMenu();
-            pantalla.dimensiones (2,12);
+            pantalla.cursor (2,12);
             archivoProducto.modificarRegistro();
             menuAjuste(idVendedor);
             break;
 
         case '3':
             pantalla.estiloMenu();
-            pantalla.dimensiones (2,12);
+            pantalla.cursor (2,12);
             archivoProducto.bajaProducto();
             menuAjuste(idVendedor);
             break;
         case '4':
             pantalla.estiloMenu();
-            pantalla.dimensiones (2,12);
+            pantalla.cursor (2,12);
             if(empleado.cargarEmpleado()!= -1){
                 if(archivoEmpleado.grabarEnDisco(empleado)==0){
                     archivoEmpleado.MensajeError();
@@ -676,12 +673,12 @@ void Menu::menuPedido(int idVendedor)
     system("COLOR 71"); //SE DA UN COLOR DE FONDO Y COLOR A LAS LETRAS
     pantalla.dibujarCuadro(0,0,98,25); //SE DIBUJA EL CUADRO PRINCIPAL
     pantalla.dibujarCuadro(1,1,97,3); //SE DIBUJA EL CUADRO DEL TITULO
-    pantalla.dimensiones(39,2); cout<<"DELTAPOINT RESTO";
+    pantalla.cursor(39,2); cout<<"DELTAPOINT RESTO";
 
     pantalla.dibujarCuadroDoble(2,4,96,6,23);
 
     pantalla.dibujarCuadroDoble(2,4,96,6,23);
-    pantalla.dimensiones (4,5);
+    pantalla.cursor (4,5);
 
     cout<<"MESA: ";
     cin>> mesa;
@@ -689,39 +686,39 @@ void Menu::menuPedido(int idVendedor)
     venta.setMesa(mesa);
     venta.setVendedor(idVendedor);
 
-    pantalla.dimensiones (3,renglon-1); cout<<"CODIGO";
-    pantalla.dimensiones (18,renglon-1);cout<<"NOMBRE PRODUCTO";
-    pantalla.dimensiones (50,renglon-1);cout<<"CANTIDAD";
-    pantalla.dimensiones (66,renglon-1);cout<<"PRECIO";
-    pantalla.dimensiones (82,renglon-1);cout<<"SUBTOTAL";
-    pantalla.dimensiones (3,24); cout<<"0 - FIN DE CARGA DE PRODUCTOS";
+    pantalla.cursor (3,renglon-1); cout<<"CODIGO";
+    pantalla.cursor (18,renglon-1);cout<<"NOMBRE PRODUCTO";
+    pantalla.cursor (50,renglon-1);cout<<"CANTIDAD";
+    pantalla.cursor (66,renglon-1);cout<<"PRECIO";
+    pantalla.cursor (82,renglon-1);cout<<"SUBTOTAL";
+    pantalla.cursor (3,24); cout<<"0 - FIN DE CARGA DE PRODUCTOS  ";
 
-    pantalla.dimensiones (3,renglon);
+    pantalla.cursor (3,renglon);
     cin>>codigoProducto;
-    pantalla.dimensiones (80,22); cout<<"TOTAL: ";
+    pantalla.cursor (80,22); cout<<"TOTAL: ";
 
     while(codigoProducto>0)
     {
         producto = archivoProducto.buscarPorCodigo(codigoProducto);
-        pantalla.dimensiones (15,renglon); cout<<producto.getNombreProducto();
+        pantalla.cursor (15,renglon); cout<<producto.getNombreProducto();
 
         if(producto.getIdProducto()!=-1)
         {
-            pantalla.dimensiones (54,renglon);
+            pantalla.cursor (54,renglon);
             cin>>cantidadProducto;
 
-            pantalla.dimensiones (66,renglon); cout<<"$"<<producto.getPrecioProducto();
+            pantalla.cursor (66,renglon); cout<<"$"<<producto.getPrecioProducto();
             subtotal = cantidadProducto * producto.getPrecioProducto();
-            pantalla.dimensiones (82,renglon); cout<<"$"<<subtotal;
+            pantalla.cursor (82,renglon); cout<<"$"<<subtotal;
 
             if(venta.agregarProductoALaVenta(codigoProducto,cantidadProducto) != -1){//GRABAMOS EN ARCHIVO TRANSACCIÓN
-                pantalla.dimensiones (87,22); cout<<"$"<<venta.getConsumoTotal(); //EN EL MÉTODO ANTERIOR SE SUMÓ EL IMPORTE
+                pantalla.cursor (87,22); cout<<"$"<<venta.getConsumoTotal(); //EN EL MÉTODO ANTERIOR SE SUMÓ EL IMPORTE
 
                 renglon++;
             }
             else{
                 cout << RED;
-                pantalla.dimensiones (3,renglon+1);cout << "No se pudo cargar la venta. " ;
+                pantalla.cursor (3,renglon+1);cout << "No se pudo cargar la venta. " ;
                 cout << BLUE;
                 renglon++;
                 renglon++;
@@ -732,25 +729,25 @@ void Menu::menuPedido(int idVendedor)
             renglon++; // SI no encontró el producto se baja un renglon y pida un nuevo codigo de prod
         }
 
-        pantalla.dimensiones (3,renglon);
+        pantalla.cursor (3,renglon);
         cin>>codigoProducto;
     }
-    pantalla.dimensiones (4,renglon+1); cout<<" - - - FIN DE CARGA DE PRODUCTOS - - - ";
+    pantalla.cursor (4,renglon+1); cout<<" - - - FIN DE CARGA DE PRODUCTOS - - - ";
 
     do{
-        pantalla.dimensiones (3,24) ;  cout <<"1 - CONFIRMAR                ";
-        pantalla.dimensiones (25,24);  cout <<"2 - SALIR / MENU PRINCIPAL";
-        pantalla.dimensiones (4,22) ;  cout <<"INGRESE UNA OPCION: ";
+        pantalla.cursor (3,24) ;  cout <<"1 - CONFIRMAR                ";
+        pantalla.cursor (25,24);  cout <<"2 - SALIR / MENU PRINCIPAL";
+        pantalla.cursor (4,22) ;  cout <<"INGRESE UNA OPCION: ";
         cin>>opcion;
         switch (opcion)
         {
         case '1':
             archivoVenta.grabarEnDisco(venta); ////GRABAMOS EN ARCHIVO VENTA
             cout << GREEN;
-            pantalla.dimensiones (4,22); cout<<"VENTA REGISTRADA                        ";
-            pantalla.dimensiones (35,24); cout << "                                                      " << endl;
+            pantalla.cursor (4,22); cout<<"VENTA REGISTRADA                        ";
+            pantalla.cursor (35,24); cout << "                                                      " << endl;
             cout << BLUE;
-            pantalla.dimensiones (3,24); system("pause");
+            pantalla.cursor (3,24); system("pause");
             menuVenta(idVendedor);
             break;
 
@@ -760,13 +757,13 @@ void Menu::menuPedido(int idVendedor)
 
         default:
             cout << RED;
-            pantalla.dimensiones (4,22);  cout << "Opcion Incorrecta                                      " << endl;
+            pantalla.cursor (4,22);  cout << "Opcion Incorrecta                                      " << endl;
             cout << BLUE;
-            pantalla.dimensiones (35,24); cout << "                                                      " << endl;
-            pantalla.dimensiones (3,24);  system("pause");
-            pantalla.dimensiones (4,22);  cout << "                                                     " << endl;
-            pantalla.dimensiones (25,24); cout << "                                                     " << endl;
-            pantalla.dimensiones (4,22);  cout  <<"INGRESE UNA OPCION: ";
+            pantalla.cursor (35,24); cout << "                                                      " << endl;
+            pantalla.cursor (3,24);  system("pause");
+            pantalla.cursor (4,22);  cout << "                                                     " << endl;
+            pantalla.cursor (25,24); cout << "                                                     " << endl;
+            pantalla.cursor (4,22);  cout  <<"INGRESE UNA OPCION: ";
             break;
         }
 
@@ -792,19 +789,19 @@ void Menu::menuConsumoMesa(int idVendedor)
     system("COLOR 71"); //SE DA UN COLOR DE FONDO Y COLOR A LAS LETRAS
     pantalla.dibujarCuadro(0,0,98,25); //SE DIBUJA EL CUADRO PRINCIPAL
     pantalla.dibujarCuadro(1,1,97,3); //SE DIBUJA EL CUADRO DEL TITULO
-    pantalla.dimensiones(39,2); cout<<"DELTAPOINT RESTO";
+    pantalla.cursor(39,2); cout<<"DELTAPOINT RESTO";
 
     pantalla.dibujarCuadroDoble(2,4,96,6,23);
 
-    pantalla.dimensiones (4,5); cout<<"MESA: ";
+    pantalla.cursor (4,5); cout<<"MESA: ";
     cin>> mesa;
 
-    pantalla.dimensiones (3,renglon-1);  cout<<"CODIGO";
-    pantalla.dimensiones (18,renglon-1); cout<<"NOMBRE PRODUCTO";
-    pantalla.dimensiones (50,renglon-1); cout<<"CANTIDAD";
-    pantalla.dimensiones (66,renglon-1); cout<<"PRECIO";
-    pantalla.dimensiones (82,renglon-1); cout<<"SUBTOTAL";
-    pantalla.dimensiones (80,22);        cout<<"TOTAL: ";
+    pantalla.cursor (3,renglon-1);  cout<<"CODIGO";
+    pantalla.cursor (18,renglon-1); cout<<"NOMBRE PRODUCTO";
+    pantalla.cursor (50,renglon-1); cout<<"CANTIDAD";
+    pantalla.cursor (66,renglon-1); cout<<"PRECIO";
+    pantalla.cursor (82,renglon-1); cout<<"SUBTOTAL";
+    pantalla.cursor (80,22);        cout<<"TOTAL: ";
 
 
     for (int x=0; x<archivoTransaccion.cantidadTransacciones();x++) //RECORREMOS ARCHIVO TRANSACCIÓN
@@ -813,15 +810,15 @@ void Menu::menuConsumoMesa(int idVendedor)
 
         if(transaccion.getIdMesa() == mesa && transaccion.getEstado()==2) //FILTRA SI COINCIDE VENTA Y TRANSACCIÓN EN EL ID MESA
         {
-            pantalla.dimensiones (4,renglon); cout<<transaccion.getIdProducto();
+            pantalla.cursor (4,renglon); cout<<transaccion.getIdProducto();
             producto = archivoProducto.buscarPorCodigo(transaccion.getIdProducto());
-            pantalla.dimensiones (19,renglon); cout<<producto.getNombreProducto();
-            pantalla.dimensiones (54,renglon); cout<<transaccion.getCantidad();
-            pantalla.dimensiones (66,renglon); cout<<"$"<<transaccion.getPrecio();
+            pantalla.cursor (19,renglon); cout<<producto.getNombreProducto();
+            pantalla.cursor (54,renglon); cout<<transaccion.getCantidad();
+            pantalla.cursor (66,renglon); cout<<"$"<<transaccion.getPrecio();
             subtotal = transaccion.getCantidad() * transaccion.getPrecio();
-            pantalla.dimensiones (82,renglon); cout<<"$"<<subtotal;
+            pantalla.cursor (82,renglon); cout<<"$"<<subtotal;
             total+= subtotal;
-            pantalla.dimensiones (87,22);  cout<<"$"<<total;
+            pantalla.cursor (87,22);  cout<<"$"<<total;
 
             renglon++;
         }
@@ -829,36 +826,36 @@ void Menu::menuConsumoMesa(int idVendedor)
 
     do{
 
-        pantalla.dimensiones (3,24); cout << "1- Cerrar mesa / 2 - Volver :";
-        pantalla.dimensiones (33,24);cin >> Opcion;
+        pantalla.cursor (3,24); cout << "1- Cerrar mesa / 2 - Volver :";
+        pantalla.cursor (33,24);cin >> Opcion;
         switch(Opcion){
          case '1':
             char OpcionConfirmacion;
             do{
-                pantalla.dimensiones (3,24); cout << " Esta seguro/a que desea cerrar la mesa? (S/N): ";
+                pantalla.cursor (3,24); cout << " Esta seguro/a que desea cerrar la mesa? (S/N): ";
                 cin >> OpcionConfirmacion;
                 if(OpcionConfirmacion == 's' || OpcionConfirmacion == 'S'){
                     if(transaccion.cerrarMesa(mesa)!=0){
 
-                        pantalla.dimensiones (4,24);
-                        pantalla.dimensiones (3,24);  cout << "                                                 ";
+                        pantalla.cursor (4,24);
+                        pantalla.cursor (3,24);  cout << "                                                 ";
                         cout << GREEN;
-                        pantalla.dimensiones (3,24); cout<<"MESA CERRADA - Imprimiendo Ticket..."<<endl;
+                        pantalla.cursor (3,24); cout<<"MESA CERRADA - Imprimiendo Ticket..."<<endl;
                         cout << BLUE;
                         Sleep(3000);
 
-                        pantalla.dimensiones (80,22); cout<<"TOTAL: "<<total;
-                        pantalla.dimensiones (2,24); cout<< system("pause") ;
+                        pantalla.cursor (80,22); cout<<"TOTAL: "<<total;
+                        pantalla.cursor (2,24); cout<< system("pause") ;
                         break;
                     }
                     else{
                         cout << RED;
-                        pantalla.dimensiones (4,22);  cout << "La mesa ya se encuentra cerrada " << endl;
+                        pantalla.cursor (4,22);  cout << "La mesa ya se encuentra cerrada " << endl;
                         cout << BLUE;
-                        pantalla.dimensiones (15,24); cout << "                                                     " << endl;
-                        pantalla.dimensiones (3,24); system("pause");
-                        pantalla.dimensiones (4,22);  cout << "                                                     " << endl;
-                        pantalla.dimensiones (25,24); cout << "                                                     " << endl;
+                        pantalla.cursor (15,24); cout << "                                                     " << endl;
+                        pantalla.cursor (3,24); system("pause");
+                        pantalla.cursor (4,22);  cout << "                                                     " << endl;
+                        pantalla.cursor (25,24); cout << "                                                     " << endl;
                         break;
 
                     }
@@ -869,12 +866,12 @@ void Menu::menuConsumoMesa(int idVendedor)
                     }
                     else{
                         cout << RED;
-                        pantalla.dimensiones (4,22);  cout << "Opcion Incorrecta                                      " << endl;
+                        pantalla.cursor (4,22);  cout << "Opcion Incorrecta                                      " << endl;
                         cout << BLUE;
-                        pantalla.dimensiones (35,24); cout << "                                                      " << endl;
-                        pantalla.dimensiones (3,24);  system("pause");
-                        pantalla.dimensiones (4,22);  cout << "                                                     " << endl;
-                        pantalla.dimensiones (25,24); cout << "                                                     " << endl;
+                        pantalla.cursor (35,24); cout << "                                                      " << endl;
+                        pantalla.cursor (3,24);  system("pause");
+                        pantalla.cursor (4,22);  cout << "                                                     " << endl;
+                        pantalla.cursor (25,24); cout << "                                                     " << endl;
                     }
                 }
 
@@ -885,12 +882,12 @@ void Menu::menuConsumoMesa(int idVendedor)
 
          default:
             cout << RED;
-            pantalla.dimensiones (4,22);  cout << "Opcion Incorrecta                                      " << endl;
+            pantalla.cursor (4,22);  cout << "Opcion Incorrecta                                      " << endl;
             cout << BLUE;
-            pantalla.dimensiones (35,24); cout << "                                                      " << endl;
-            pantalla.dimensiones (3,24);  system("pause");
-            pantalla.dimensiones (4,22);  cout << "                                                     " << endl;
-            pantalla.dimensiones (25,24); cout << "                                                     " << endl;
+            pantalla.cursor (35,24); cout << "                                                      " << endl;
+            pantalla.cursor (3,24);  system("pause");
+            pantalla.cursor (4,22);  cout << "                                                     " << endl;
+            pantalla.cursor (25,24); cout << "                                                     " << endl;
         }
     }while (Opcion != 1 || Opcion !=2);
 
@@ -903,10 +900,10 @@ void Menu::FinalizarPrograma(){
     Pantalla pantalla;
 
     pantalla.dibujarCuadro(0,0,79,24);
-    pantalla.dibujarCuadro(1,1,(XSCREEN-1),3); //SE DIBUJA EL CUADRO DEL TITULO
-    pantalla.dimensiones(30,2); cout<<"DELTAPOINT RESTO";
-    pantalla.dimensiones(17,5);
-    cout << " Gracias por utilizar nuestro programa :)" << endl << endl << endl << endl << endl ;
+    pantalla.dibujarCuadro(1,1,77,3); //SE DIBUJA EL CUADRO DEL TITULO
+    pantalla.cursor(30,2); cout<<"DELTAPOINT RESTO";
+    pantalla.cursor(17,5);
+    cout << " Gracias por utilizar nuestro programa \1" << endl << endl << endl << endl << endl ;
     exit(0);
 }
 
@@ -915,9 +912,9 @@ void Menu:: OpcionIncorrecta(){
     Pantalla pantalla;
 
     cout << RED;
-    pantalla.dimensiones (2,22);cout << "Opcion Incorrecta " << endl;
+    pantalla.cursor (2,22);cout << "Opcion Incorrecta " << endl;
     cout << BLUE;
-    pantalla.dimensiones (2,23); system("pause");
+    pantalla.cursor (2,23); system("pause");
 
 }
 

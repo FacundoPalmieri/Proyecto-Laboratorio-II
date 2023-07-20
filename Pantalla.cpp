@@ -1,11 +1,9 @@
 #include "Pantalla.h"
 #include "rlutil.h"
-#define XSCREEN 78
-#define YSCREEN 24
 using namespace std;
 
 //Metodo pantalla.dimensiones
-void Pantalla::dimensiones(int x,int y)
+void Pantalla::cursor(int x,int y)
 {
     HANDLE hcon; //controlador (handle) de la salida estándar de la consola
     hcon = GetStdHandle(STD_OUTPUT_HANDLE); //utiliza la función GetStdHandle para obtener el controlador (handle) de la salida estándar de la consola, devolviendo el controlador de la consola que se utiliza para la salida estándar.
@@ -22,27 +20,27 @@ void Pantalla::dibujarCuadro(int x1,int y1,int x2,int y2)
 
     for (i=x1; i<x2; i++)
     {
-        dimensiones(i,y1);
+        cursor(i,y1);
         printf("\304"); //linea horizontal superior
-        dimensiones(i,y2);
+        cursor(i,y2);
         printf("\304"); //linea horizontal inferior
     }
 
     for (i=y1; i<y2; i++)
     {
-        dimensiones(x1,i);
+        cursor(x1,i);
         printf("\263"); //linea vertical izquierda
-        dimensiones(x2,i);
+        cursor(x2,i);
         printf("\263"); //linea vertical derecha
     }
 
-    dimensiones(x1,y1);
+    cursor(x1,y1);
     printf("\332");
-    dimensiones(x1,y2);
+    cursor(x1,y2);
     printf("\300");
-    dimensiones(x2,y1);
+    cursor(x2,y1);
     printf("\277");
-    dimensiones(x2,y2);
+    cursor(x2,y2);
     printf("\331");
 }
 
@@ -52,30 +50,30 @@ void Pantalla::dibujarCuadroDoble(int x1,int y1,int x2,int y2, int y3){
 
     for (i=x1; i<x2; i++)
     {
-        dimensiones(i,y1);
+        cursor(i,y1);
         printf("\304"); //linea horizontal superior
-        dimensiones(i,y2);
+        cursor(i,y2);
         printf("\304"); //linea horizontal intermedia
-        dimensiones(i,y3);
+        cursor(i,y3);
         printf("\304"); //linea horizontal inferior
 
     }
 
     for (i=y1; i<y3; i++)
     {
-        dimensiones(x1,i);
+        cursor(x1,i);
         printf("\263"); //linea vertical izquierda
-        dimensiones(x2,i);
+        cursor(x2,i);
         printf("\263"); //linea vertical derecha
     }
 
-    dimensiones(x1,y1);
+    cursor(x1,y1);
     printf("\332");
-    dimensiones(x1,y3);
+    cursor(x1,y3);
     printf("\300");
-    dimensiones(x2,y1);
+    cursor(x2,y1);
     printf("\277");
-    dimensiones(x2,y3);
+    cursor(x2,y3);
     printf("\331");
 }
 
@@ -83,8 +81,8 @@ void Pantalla::estiloMenu(){
     system("cls");
     system("mode con: cols=80 lines=25"); //SE DEFINE LAS DIMENSIONES DE LA VENTANA DEL PROGRAMA A 80 COLUMNAS Y 25 FILAS
     system("COLOR 71"); //SE DA UN COLOR DE FONDO Y COLOR A LAS LETRAS
-    dibujarCuadro(0,0,XSCREEN+1,YSCREEN); //SE DIBUJA EL CUADRO PRINCIPAL
-    dibujarCuadro(1,1,(XSCREEN),3); //SE DIBUJA EL CUADRO DEL TITULO
-    dimensiones(30,2); cout<<"DELTAPOINT RESTO";
+    dibujarCuadro(0,0, 79,24); //SE DIBUJA EL CUADRO PRINCIPAL
+    dibujarCuadro(1,1, 78,3); //SE DIBUJA EL CUADRO DEL TITULO
+    cursor(30,2); cout<<"DELTAPOINT RESTO";
 }
 

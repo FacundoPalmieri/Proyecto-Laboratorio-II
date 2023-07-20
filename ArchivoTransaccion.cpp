@@ -1,5 +1,3 @@
-#define XSCREEN 78
-#define YSCREEN 24
 #include <iostream>
 #include "colors.h"
 using namespace std;
@@ -84,14 +82,14 @@ int ArchivoTransaccion::cantidadTransacciones(){
 void ArchivoTransaccion :: MensajeError(){
     Pantalla pantalla;
     system ("cls");
-    pantalla.dimensiones (4,5);
+    pantalla.cursor (4,5);
     pantalla.estiloMenu();
     cout << RED;
-    pantalla.dimensiones(15,15);
+    pantalla.cursor(15,15);
     cout << "El archivo de - Transaccion - no se pudo abrir. ESTOY EN MÉTODO GRABAR EN DISCO DE TRANSACCION" << endl; //BORRAR COMENTARIO!!!
-    pantalla.dimensiones(15,16);
+    pantalla.cursor(15,16);
     cout << "Comuniquese con el area de sistemas" << endl;
-    pantalla.dimensiones(15,20);
+    pantalla.cursor(15,20);
     cout << BLUE;
     system("pause");
     exit(20);

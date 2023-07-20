@@ -1,7 +1,5 @@
 #include<iostream>
-
 using namespace std;
-
 #include "Transaccion.h"
 #include "Producto.h"
 #include "ArchivoProducto.h"
@@ -113,10 +111,10 @@ float Transaccion::cerrarMesa(int mesa){
             total+=transaccion.getPrecio();//ANTES DE CERRAR MESA DE ESA TRANSACCIÓN ACUMULA EL IMPORTE
             transaccion.setEstado(0); //CAMBIAMOS EL ESTADO PARA CERRAR MESA
             if (archivoTransaccion.grabarEnDiscoPorPosicion(x, transaccion)!=1){
-                pantalla.dimensiones (3,24);  cout << "ERROR AL CERRAR MESA. ";
+                pantalla.cursor (3,24);  cout << "ERROR AL CERRAR MESA. ";
             }
         }
     }
-    pantalla.dimensiones (4,13);
+    pantalla.cursor (4,13);
     return total;
 }

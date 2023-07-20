@@ -1,7 +1,5 @@
 #include <iostream>
-
 using namespace std;
-
 #include "Venta.h"
 #include "Producto.h"
 #include "Empleado.h"
@@ -92,7 +90,7 @@ bool Venta::confirmarVenta(){
             transaccion.confirmarTransaccion();
             transaccion.mostrar();
             if(archivoTransaccion.grabarEnDiscoPorPosicion(x, transaccion)!=1){
-                pantalla.dimensiones (3,24);  cout << "ERROR AL REGISTRAR VENTA";
+                pantalla.cursor (3,24);  cout << "ERROR AL REGISTRAR VENTA";
             }
         }
     }

@@ -1,5 +1,3 @@
-#define XSCREEN 78
-#define YSCREEN 24
 #include <iostream>
 using namespace std;
 #include "ArchivoVenta.h"
@@ -72,14 +70,14 @@ int ArchivoVenta::cantidadVentas(){
 void ArchivoVenta:: MensajeError(){
     Pantalla pantalla;
     system ("cls");
-    pantalla.dimensiones (4,5);
+    pantalla.cursor (4,5);
     pantalla.estiloMenu();
     cout << RED;
-    pantalla.dimensiones(15,15);
+    pantalla.cursor(15,15);
     cout << "El archivo de - Ventas - no se pudo abrir." << endl;
-    pantalla.dimensiones(15,16);
+    pantalla.cursor(15,16);
     cout << "Comuniquese con el area de sistemas" << endl;
-    pantalla.dimensiones(15,20);
+    pantalla.cursor(15,20);
     cout << BLUE;
     system("pause");
 

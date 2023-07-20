@@ -2,7 +2,6 @@
 #include <cstring>
 #include "colors.h"
 using namespace std;
-
 #include "ArchivoProducto.h"
 #include "Producto.h"
 #include "Menu.h"
@@ -81,20 +80,20 @@ void ArchivoProducto::modificarRegistro(){
     int idProducto, posicion;
     float precio;
 
-    pantalla.dimensiones(30,2); cout<<"DELTAPOINT RESTO";
+    pantalla.cursor(30,2); cout<<"DELTAPOINT RESTO";
     pantalla.dibujarCuadro(0,0,78,24); //SE DIBUJA EL CUADRO PRINCIPAL
     pantalla.dibujarCuadro(1,1,77,3); //SE DIBUJA EL CUADRO DEL TITULO
-    pantalla.dimensiones (2,5);  cout<<"MENU AJUSTE - MODIFICAR PRODUCTO";
-    pantalla.dimensiones (2,6);  cout<<"----------------------------------";
-    pantalla.dimensiones (2,23); cout <<"ingrese 0(cero) para volver al menu anterior";
+    pantalla.cursor (2,5);  cout<<"MENU AJUSTE - MODIFICAR PRODUCTO";
+    pantalla.cursor (2,6);  cout<<"----------------------------------";
+    pantalla.cursor (2,23); cout <<"ingrese 0(cero) para volver al menu anterior";
 
     //BUSCAR N° DE REGISTRO
-    pantalla.dimensiones(2,7);
+    pantalla.cursor(2,7);
     cout<<"Ingrese ID del producto a modificar: ";
     cin>>idProducto;
-    pantalla.dimensiones (2,8);
+    pantalla.cursor (2,8);
     if(idProducto == 0){
-       pantalla.dimensiones (2,23); cout <<"                                                       ";
+       pantalla.cursor (2,23); cout <<"                                                       ";
         return;
     }
     else{
@@ -105,29 +104,29 @@ void ArchivoProducto::modificarRegistro(){
 
             leerDeDisco(posicion);
             producto.mostrar();
-            pantalla.dimensiones(2,23);cout <<"                                               ";
+            pantalla.cursor(2,23);cout <<"                                               ";
             do{
-                pantalla.dimensiones (2,23);
+                pantalla.cursor (2,23);
                 cout<<"ESTA SEGURO/A DE CONTINUAR: (S/N):";
                 cin>>Confirmacion;
                 if(Confirmacion=='S' || Confirmacion=='s'){
                     system ("cls");
-                    pantalla.dimensiones(30,2); cout<<"DELTAPOINT RESTO";
+                    pantalla.cursor(30,2); cout<<"DELTAPOINT RESTO";
                     pantalla.dibujarCuadro(0,0,78,24); //SE DIBUJA EL CUADRO PRINCIPAL
                     pantalla.dibujarCuadro(1,1,77,3); //SE DIBUJA EL CUADRO DEL TITULO
-                    pantalla.dimensiones (2,6); cout<<"MENU AJUSTE - MODIFICAR PRODUCTO";
-                    pantalla.dimensiones (2,7); cout<<"--------------------------------";
-                    pantalla.dimensiones (2,8);
-                    pantalla.dimensiones (2,16);
+                    pantalla.cursor (2,6); cout<<"MENU AJUSTE - MODIFICAR PRODUCTO";
+                    pantalla.cursor (2,7); cout<<"--------------------------------";
+                    pantalla.cursor (2,8);
+                    pantalla.cursor (2,16);
                     cout<<endl<<endl;
 
                     //CAMBIAR DATOS
-                    pantalla.dimensiones(1,10);
+                    pantalla.cursor(1,10);
                     cout<<" INGRESE EL NUEVO NOMBRE DEL PRODUCTO: ";
                     producto.cargarCadenas(Nombre, 49);
                     producto.setNombreProducto(Nombre);
                     pantalla.dibujarCuadro(0,0,79,24);
-                    pantalla.dimensiones(1,11);
+                    pantalla.cursor(1,11);
                     cout<<" INGRESE EL NUEVO PRECIO DE VENTA ($): ";
                     cin>>precio;
                     producto.setPrecioProducto(precio);
@@ -135,21 +134,21 @@ void ArchivoProducto::modificarRegistro(){
                     //SOBREESCRIBIR EL REGISTRO
 
                     if (sobreEscribirRegistro(producto, posicion)==1){
-                        pantalla.dimensiones(2,22);
+                        pantalla.cursor(2,22);
                         cout << GREEN;
                         cout<<"DATO MODIFICADO."<<endl<<endl;
                         cout << BLUE;
-                        pantalla.dimensiones(2,23);
+                        pantalla.cursor(2,23);
                         system("pause");
                         return;
 
                     }
                     else{
-                        pantalla.dimensiones(2,22);
+                        pantalla.cursor(2,22);
                         cout << RED;
                         cout<<"ERROR AL MODIFICAR REGISTRO."<<endl<<endl;
                         cout << BLUE;
-                        pantalla.dimensiones(2,23);
+                        pantalla.cursor(2,23);
                         system("pause");
                         return;
 
@@ -157,28 +156,28 @@ void ArchivoProducto::modificarRegistro(){
                 }
                 else{
                     if(Confirmacion=='N' || Confirmacion=='n'){
-                        pantalla.dimensiones(2,23);
+                        pantalla.cursor(2,23);
                         system("pause");
                         return;
                     }
                     else{
                        cout << RED;
-                        pantalla.dimensiones (2,22); cout << "Opcion Incorrecta";
+                        pantalla.cursor (2,22); cout << "Opcion Incorrecta";
                         cout << BLUE;
-                        pantalla.dimensiones(2,23);
+                        pantalla.cursor(2,23);
                         system("pause");
-                        pantalla.dimensiones (2,22); cout << "                       ";
-                        pantalla.dimensiones (2,23); cout << "                                                ";
+                        pantalla.cursor (2,22); cout << "                       ";
+                        pantalla.cursor (2,23); cout << "                                                ";
                     }
                 }
             }while(Confirmacion!= 'S' || Confirmacion != 's' || Confirmacion != 'N' || Confirmacion != 'n');
         }
         else{
-            pantalla.dimensiones (2,9);
+            pantalla.cursor (2,9);
             cout << RED;
             cout<<"No existe un producto con ese ID"<<endl;
             cout << BLUE;
-            pantalla.dimensiones (2,23);
+            pantalla.cursor (2,23);
             system("pause");
         }
     }
@@ -192,16 +191,16 @@ void ArchivoProducto::bajaProducto(){
     Producto producto;
 
 
-    pantalla.dimensiones (2,6); cout<<"MENU AJUSTE - ELIMINAR PRODUCTO";
-    pantalla.dimensiones (2,7); cout<<"-------------------------------";
-    pantalla.dimensiones (2,23); cout <<"ingrese 0(cero) para volver al menu anterior";
-    pantalla.dimensiones(2,9);
+    pantalla.cursor (2,6); cout<<"MENU AJUSTE - ELIMINAR PRODUCTO";
+    pantalla.cursor (2,7); cout<<"-------------------------------";
+    pantalla.cursor (2,23); cout <<"ingrese 0(cero) para volver al menu anterior";
+    pantalla.cursor(2,9);
     cout<<"INGRESE EL ID DEL PRODUCTO A ELIMINAR: ";
     cin>>idProducto;
     cout<<endl;
     //Volver al menu anterior
     if(idProducto == 0){
-       pantalla.dimensiones (2,23); cout <<"                                                       "; // Limpia la leyenda "ingrese cero para volver
+       pantalla.cursor (2,23); cout <<"                                                       "; // Limpia la leyenda "ingrese cero para volver
         return;
     }
     else{
@@ -209,11 +208,11 @@ void ArchivoProducto::bajaProducto(){
         posicion=posicionRegistro(idProducto);
 
         if(producto.getIdProducto() == -1){
-            pantalla.dimensiones(2,11);
+            pantalla.cursor(2,11);
             cout << RED;
             cout<<"No existe ID producto"<<endl<<endl;
             cout << BLUE;
-            pantalla.dimensiones (2,23);
+            pantalla.cursor (2,23);
             system("pause");
             return;
         }
@@ -221,32 +220,32 @@ void ArchivoProducto::bajaProducto(){
         producto=leerDeDisco(posicion);
 
         char Confirmacion;
-        pantalla.dimensiones(2,10);
+        pantalla.cursor(2,10);
         cout<<"ESTA ACCION DARA DE BAJA EL SIGUIENTE PRODUCTO: ";
         producto.mostrar();
-        pantalla.dimensiones(2,23);
+        pantalla.cursor(2,23);
         do{
             cout<<"ESTA SEGURO/A DE CONTINUAR: (S/N): ";
             cin>>Confirmacion;
-            pantalla.dimensiones (2,17);
+            pantalla.cursor (2,17);
             if(Confirmacion=='S' || Confirmacion=='s'){
                 producto.setEstado(false);
                 //sobreescribir el registro es guardar
                 if(sobreEscribirRegistro(producto, posicion)==1){
                     cout<<endl<<endl;
-                    pantalla.dimensiones(2,18);
+                    pantalla.cursor(2,18);
                     cout << GREEN;
                     cout<<"PRODUCTO DADO DE BAJA."<<endl<<endl;
                     cout << BLUE;
-                    pantalla.dimensiones(2,23);
+                    pantalla.cursor(2,23);
                     system("pause");
                     return;
                 }
                 else{
                     cout<<endl<<endl;
-                    pantalla.dimensiones(2,18);
+                    pantalla.cursor(2,18);
                     cout<<"ERROR AL ELIMINAR PRODUCTO."<<endl<<endl;
-                    pantalla.dimensiones(3,20);
+                    pantalla.cursor(3,20);
                     system("pause");
                     return;
                 }
@@ -254,18 +253,18 @@ void ArchivoProducto::bajaProducto(){
             }
             else{
                 if(Confirmacion=='N' || Confirmacion=='n'){
-                    pantalla.dimensiones(2,23);
+                    pantalla.cursor(2,23);
                     system("pause");
                     return;
                 }
                 else{
                     cout << RED;
-                    pantalla.dimensiones (2,22); cout << "Opcion Incorrecta";
+                    pantalla.cursor (2,22); cout << "Opcion Incorrecta";
                     cout << BLUE;
-                    pantalla.dimensiones(2,23);
+                    pantalla.cursor(2,23);
                     system("pause");
-                    pantalla.dimensiones (2,22); cout << "                       ";
-                    pantalla.dimensiones (2,23); cout << "                                                ";
+                    pantalla.cursor (2,22); cout << "                       ";
+                    pantalla.cursor (2,23); cout << "                                                ";
                 }
             }
 
@@ -308,7 +307,7 @@ Producto ArchivoProducto::buscarPorCodigo(int idProducto){
     if (productoEncontrado==false){
         producto.setIdProducto(-1);
         producto.setPrecioProducto(0);
-        pantalla.dimensiones(2,16);
+        pantalla.cursor(2,16);
         producto.setNombreProducto("PRODUCTO NO ENCONTRADO");
         return producto;
     }
@@ -373,15 +372,15 @@ void ArchivoProducto::Ordenar(){
 void ArchivoProducto::MensajeError(){
     Pantalla pantalla;
     system ("cls");
-    pantalla.dimensiones (4,5);
+    pantalla.cursor (4,5);
     pantalla.estiloMenu();
 
     cout << RED;
-    pantalla.dimensiones(15,15);
+    pantalla.cursor(15,15);
     cout << "El archivo de - Ventas - no se pudo abrir." << endl;
-    pantalla.dimensiones(15,16);
+    pantalla.cursor(15,16);
     cout << "Comuniquese con el area de sistemas" << endl;
-    pantalla.dimensiones(15,20);
+    pantalla.cursor(15,20);
     cout << BLUE;
     exit(20);
 }
