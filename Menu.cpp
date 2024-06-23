@@ -27,7 +27,7 @@ void  Menu::menuIdVendedor(){
         pantalla.estiloMenu();
 
 
-        pantalla.cursor (25,6);  cout<<"INGRESO AL SISTEMA";
+        pantalla.cursor (25,6);  cout<<"PRUEBA INGRESO AL SISTEMA";
         pantalla.cursor (20,7);  cout<<"--------------------------------";
         pantalla.cursor (22,10); cout<<"INGRESE SU ID DE VENDEDOR: ";
         cin>>idEmpleado;
